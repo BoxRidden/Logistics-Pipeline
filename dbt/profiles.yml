@@ -1,0 +1,12 @@
+logistics_profile:
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: "logistics-500519"
+      dataset: logistics_mart
+      threads: 4
+      keyfile: /opt/airflow/config/gcp-key.json
+      timeout_seconds: 300
+      priority: interactive
+  target: dev

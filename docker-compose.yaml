@@ -1,0 +1,80 @@
+version: '3.8'
+
+x-airflow-common:
+  &airflow-common
+  build: .
+  environment:
+    &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./dbt:/opt/airflow/dbt
+    - ./config:/opt/airflow/config
+  depends_on:
+    postgres-airflow:
+      condition: service_healthy
+
+services:
+  # 1. Airflow Metadata Database
+  postgres-airflow:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+    restart: always
+
+  # 2. Source Database (The "Fake Company" DB)
+  postgres-source:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: ${SOURCE_DB_USER:-logistics_admin}
+      POSTGRES_PASSWORD: ${SOURCE_DB_PASSWORD:-supersecret}
+      POSTGRES_DB: ${SOURCE_DB_NAME:-logistics_db}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data-init:/docker-entrypoint-initdb.d # Auto-runs SQL scripts here
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "logistics_admin"]
+      interval: 10s
+      retries: 5
+    restart: always
+
+  # 3. Airflow Web UI
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      retries: 5
+    restart: always
+
+  # 4. Airflow Scheduler
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    restart: always
+
+  # 5. Airflow Initialization (Runs once to set up the DB, then exits)
+  airflow-init:
+    <<: *airflow-common
+    command: version
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_UPGRADE: 'true'
+      _AIRFLOW_WWW_USER_CREATE: 'true'
+      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}

@@ -1,0 +1,2155 @@
+[0m22:02:51.094348 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86611fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85a9e480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86073560>]}
+
+
+============================== 22:02:51.098095 | 1d87a5d3-da6c-4a2c-85df-59478b1cc5d2 ==============================
+[0m22:02:51.098095 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:02:51.098489 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'version_check': 'True', 'target_path': 'None', 'log_format': 'default', 'empty': 'None', 'log_cache_events': 'False', 'log_path': '/opt/airflow/dbt/logs', 'introspect': 'True', 'invocation_command': 'dbt debug --profiles-dir .', 'use_colors': 'True', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'debug': 'False', 'quiet': 'False', 'profiles_dir': '.', 'write_json': 'True', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'indirect_selection': 'eager', 'warn_error': 'None', 'fail_fast': 'False'}
+[0m22:02:51.108665 [info ] [MainThread]: dbt version: 1.11.11
+[0m22:02:51.108950 [info ] [MainThread]: python version: 3.12.3
+[0m22:02:51.109218 [info ] [MainThread]: python path: /home/airflow/.local/bin/python
+[0m22:02:51.109508 [info ] [MainThread]: os info: Linux-6.12.5-linuxkit-aarch64-with-glibc2.36
+[0m22:02:53.336281 [info ] [MainThread]: Using profiles dir at .
+[0m22:02:53.336708 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m22:02:53.337094 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt/dbt_project.yml
+[0m22:02:53.337434 [info ] [MainThread]: adapter type: bigquery
+[0m22:02:53.337755 [info ] [MainThread]: adapter version: 1.11.3
+[0m22:02:53.391157 [info ] [MainThread]: Configuration:
+[0m22:02:53.391594 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:02:53.391943 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m22:02:53.392209 [info ] [MainThread]: Required dependencies:
+[0m22:02:53.392517 [debug] [MainThread]: Executing "git --help"
+[0m22:02:53.400294 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m22:02:53.400593 [info ] [MainThread]: Connection:
+[0m22:02:53.400925 [info ] [MainThread]:   method: service-account
+[0m22:02:53.401126 [info ] [MainThread]:   database: logistics-500519
+[0m22:02:53.401300 [info ] [MainThread]:   execution_project: logistics-500519
+[0m22:02:53.401474 [info ] [MainThread]:   schema: logistics_mart
+[0m22:02:53.401655 [info ] [MainThread]:   location: None
+[0m22:02:53.401870 [info ] [MainThread]:   priority: interactive
+[0m22:02:53.402086 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m22:02:53.402310 [info ] [MainThread]:   impersonate_service_account: None
+[0m22:02:53.402553 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m22:02:53.402804 [info ] [MainThread]:   job_retries: 1
+[0m22:02:53.403009 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m22:02:53.403190 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m22:02:53.403436 [info ] [MainThread]:   timeout_seconds: 300
+[0m22:02:53.403605 [info ] [MainThread]:   client_id: None
+[0m22:02:53.403820 [info ] [MainThread]:   token_uri: None
+[0m22:02:53.404032 [info ] [MainThread]:   compute_region: None
+[0m22:02:53.404238 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m22:02:53.404430 [info ] [MainThread]:   gcs_bucket: None
+[0m22:02:53.404631 [info ] [MainThread]:   dataproc_batch: None
+[0m22:02:53.404960 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:02:53.469478 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m22:02:53.469836 [debug] [MainThread]: On debug: select 1 as id
+[0m22:02:53.470059 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:02:54.520278 [error] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:None:1d967d3a-788b-4fcd-8d92-ead16c2c9d84&page=queryresults
+[0m22:02:54.523273 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m22:02:54.524028 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m22:02:54.524723 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m22:02:54.525386 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  Access Denied: Project logistics-500519: User does not have bigquery.jobs.create permission in project logistics-500519.
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m22:02:54.527124 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.4620354, "process_in_blocks": "1952", "process_kernel_time": 2.198715, "process_mem_max_rss": "227700", "process_out_blocks": "21857", "process_user_time": 3.128786}
+[0m22:02:54.528258 [debug] [MainThread]: Command `dbt debug` failed at 22:02:54.528153 after 3.46 seconds
+[0m22:02:54.528698 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m22:02:54.529136 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8658ae10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5a2de480>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5b22d5b0>]}
+[0m22:02:54.529685 [debug] [MainThread]: Flushing usage events
+[0m22:02:55.973555 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:06:09.742264 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e6f9b20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7d5d6c00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7dfe07a0>]}
+
+
+============================== 22:06:09.746250 | 06a02004-d05c-4c3f-86e0-a6ed02d959c5 ==============================
+[0m22:06:09.746250 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:06:09.746664 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'debug': 'False', 'invocation_command': 'dbt debug --profiles-dir .', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'warn_error': 'None', 'partial_parse': 'True', 'use_colors': 'True', 'empty': 'None', 'version_check': 'True', 'printer_width': '80', 'target_path': 'None', 'use_experimental_parser': 'False', 'log_path': '/opt/airflow/dbt/logs', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'log_format': 'default', 'write_json': 'True', 'no_print': 'None', 'static_parser': 'True', 'fail_fast': 'False', 'profiles_dir': '.', 'log_cache_events': 'False', 'indirect_selection': 'eager'}
+[0m22:06:09.751841 [info ] [MainThread]: dbt version: 1.11.11
+[0m22:06:09.752113 [info ] [MainThread]: python version: 3.12.3
+[0m22:06:09.752373 [info ] [MainThread]: python path: /home/airflow/.local/bin/python
+[0m22:06:09.752667 [info ] [MainThread]: os info: Linux-6.12.5-linuxkit-aarch64-with-glibc2.36
+[0m22:06:10.290490 [info ] [MainThread]: Using profiles dir at .
+[0m22:06:10.290946 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m22:06:10.291312 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt/dbt_project.yml
+[0m22:06:10.291621 [info ] [MainThread]: adapter type: bigquery
+[0m22:06:10.291906 [info ] [MainThread]: adapter version: 1.11.3
+[0m22:06:10.334417 [info ] [MainThread]: Configuration:
+[0m22:06:10.334888 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:06:10.335266 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m22:06:10.335546 [info ] [MainThread]: Required dependencies:
+[0m22:06:10.335827 [debug] [MainThread]: Executing "git --help"
+[0m22:06:10.336545 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m22:06:10.336844 [info ] [MainThread]: Connection:
+[0m22:06:10.337149 [info ] [MainThread]:   method: service-account
+[0m22:06:10.337398 [info ] [MainThread]:   database: logistics-500519
+[0m22:06:10.337669 [info ] [MainThread]:   execution_project: logistics-500519
+[0m22:06:10.337923 [info ] [MainThread]:   schema: logistics_mart
+[0m22:06:10.338162 [info ] [MainThread]:   location: None
+[0m22:06:10.338448 [info ] [MainThread]:   priority: interactive
+[0m22:06:10.338737 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m22:06:10.339080 [info ] [MainThread]:   impersonate_service_account: None
+[0m22:06:10.339360 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m22:06:10.339628 [info ] [MainThread]:   job_retries: 1
+[0m22:06:10.339910 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m22:06:10.340187 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m22:06:10.340460 [info ] [MainThread]:   timeout_seconds: 300
+[0m22:06:10.340713 [info ] [MainThread]:   client_id: None
+[0m22:06:10.340950 [info ] [MainThread]:   token_uri: None
+[0m22:06:10.341185 [info ] [MainThread]:   compute_region: None
+[0m22:06:10.341431 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m22:06:10.341652 [info ] [MainThread]:   gcs_bucket: None
+[0m22:06:10.341903 [info ] [MainThread]:   dataproc_batch: None
+[0m22:06:10.342262 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:06:10.388475 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m22:06:10.388782 [debug] [MainThread]: On debug: select 1 as id
+[0m22:06:10.388985 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:06:11.335767 [error] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:None:4857e7b8-41b9-49ef-928c-3403eda9d620&page=queryresults
+[0m22:06:11.338120 [info ] [MainThread]:   Connection test: [[31mERROR[0m]
+
+[0m22:06:11.338616 [info ] [MainThread]: [31m2 checks failed:[0m
+[0m22:06:11.339034 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m22:06:11.339582 [info ] [MainThread]: dbt was unable to connect to the specified database.
+The database returned the following error:
+
+  >Database Error
+  Access Denied: Project logistics-500519: User does not have bigquery.jobs.create permission in project logistics-500519.
+
+Check your database credentials and try again. For more information, visit:
+https://docs.getdbt.com/docs/configure-your-profile
+
+
+[0m22:06:11.341878 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 1.6251396, "process_in_blocks": "0", "process_kernel_time": 0.486071, "process_mem_max_rss": "224572", "process_out_blocks": "9", "process_user_time": 2.416062}
+[0m22:06:11.342579 [debug] [MainThread]: Command `dbt debug` failed at 22:06:11.342473 after 1.63 seconds
+[0m22:06:11.342999 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m22:06:11.343374 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7dd05130>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7d3a8a40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff52154c20>]}
+[0m22:06:11.343777 [debug] [MainThread]: Flushing usage events
+[0m22:06:12.809348 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:14:06.836775 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e881df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7d70ee70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e41dfd0>]}
+
+
+============================== 22:14:06.845062 | 652fc195-7624-4445-a988-ae52d0a677e2 ==============================
+[0m22:14:06.845062 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:14:06.845776 [debug] [MainThread]: running dbt with arguments {'fail_fast': 'False', 'target_path': 'None', 'log_format': 'default', 'profiles_dir': '.', 'static_parser': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'debug': 'False', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'invocation_command': 'dbt debug --profiles-dir .', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'quiet': 'False', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'no_print': 'None', 'cache_selected_only': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'printer_width': '80', 'empty': 'None', 'warn_error': 'None', 'partial_parse': 'True'}
+[0m22:14:06.856246 [info ] [MainThread]: dbt version: 1.11.11
+[0m22:14:06.856683 [info ] [MainThread]: python version: 3.12.3
+[0m22:14:06.857131 [info ] [MainThread]: python path: /home/airflow/.local/bin/python
+[0m22:14:06.857473 [info ] [MainThread]: os info: Linux-6.12.5-linuxkit-aarch64-with-glibc2.36
+[0m22:14:08.183484 [info ] [MainThread]: Using profiles dir at .
+[0m22:14:08.184049 [info ] [MainThread]: Using profiles.yml file at ./profiles.yml
+[0m22:14:08.184413 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt/dbt_project.yml
+[0m22:14:08.184764 [info ] [MainThread]: adapter type: bigquery
+[0m22:14:08.184950 [info ] [MainThread]: adapter version: 1.11.3
+[0m22:14:08.227118 [info ] [MainThread]: Configuration:
+[0m22:14:08.227559 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m22:14:08.227954 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m22:14:08.228316 [info ] [MainThread]: Required dependencies:
+[0m22:14:08.228588 [debug] [MainThread]: Executing "git --help"
+[0m22:14:08.229729 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m22:14:08.230116 [info ] [MainThread]: Connection:
+[0m22:14:08.230412 [info ] [MainThread]:   method: service-account
+[0m22:14:08.230683 [info ] [MainThread]:   database: logistics-500519
+[0m22:14:08.230932 [info ] [MainThread]:   execution_project: logistics-500519
+[0m22:14:08.231292 [info ] [MainThread]:   schema: logistics_mart
+[0m22:14:08.231575 [info ] [MainThread]:   location: None
+[0m22:14:08.231824 [info ] [MainThread]:   priority: interactive
+[0m22:14:08.232255 [info ] [MainThread]:   maximum_bytes_billed: None
+[0m22:14:08.232541 [info ] [MainThread]:   impersonate_service_account: None
+[0m22:14:08.232780 [info ] [MainThread]:   job_retry_deadline_seconds: None
+[0m22:14:08.233063 [info ] [MainThread]:   job_retries: 1
+[0m22:14:08.233428 [info ] [MainThread]:   job_creation_timeout_seconds: None
+[0m22:14:08.233772 [info ] [MainThread]:   job_execution_timeout_seconds: 300
+[0m22:14:08.234157 [info ] [MainThread]:   timeout_seconds: 300
+[0m22:14:08.234585 [info ] [MainThread]:   client_id: None
+[0m22:14:08.235010 [info ] [MainThread]:   token_uri: None
+[0m22:14:08.235306 [info ] [MainThread]:   compute_region: None
+[0m22:14:08.235704 [info ] [MainThread]:   dataproc_cluster_name: None
+[0m22:14:08.236083 [info ] [MainThread]:   gcs_bucket: None
+[0m22:14:08.236434 [info ] [MainThread]:   dataproc_batch: None
+[0m22:14:08.237368 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:14:08.293899 [debug] [MainThread]: Acquiring new bigquery connection 'debug'
+[0m22:14:08.294250 [debug] [MainThread]: On debug: select 1 as id
+[0m22:14:08.294462 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:14:09.865211 [debug] [MainThread]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:ffcc2c89-0760-45bb-9ca1-14ff627a8afc&page=queryresults
+[0m22:14:10.295731 [debug] [MainThread]: SQL status: OK in 0.429 seconds
+[0m22:14:10.773358 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m22:14:10.775846 [info ] [MainThread]: [31m1 check failed:[0m
+[0m22:14:10.777041 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m22:14:10.780306 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 3.9763846, "process_in_blocks": "1456", "process_kernel_time": 1.393515, "process_mem_max_rss": "228276", "process_out_blocks": "9", "process_user_time": 2.443686}
+[0m22:14:10.781409 [debug] [MainThread]: Command `dbt debug` failed at 22:14:10.781183 after 3.98 seconds
+[0m22:14:10.782399 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m22:14:10.783172 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7de3fbf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7dcf9100>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7dcfb8c0>]}
+[0m22:14:10.783988 [debug] [MainThread]: Flushing usage events
+[0m22:14:12.263670 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:19:19.755428 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb1ffe450>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb1b06c00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb1ffe120>]}
+
+
+============================== 22:19:19.759151 | 2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd ==============================
+[0m22:19:19.759151 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:19:19.759693 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'debug': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'invocation_command': 'dbt build --profiles-dir . --target dev', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt/logs', 'target_path': 'None', 'no_print': 'None', 'warn_error': 'None', 'static_parser': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'log_cache_events': 'False', 'version_check': 'True', 'profiles_dir': '.', 'printer_width': '80', 'introspect': 'True', 'log_format': 'default', 'write_json': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'False'}
+[0m22:19:20.393814 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.mart.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:19:20.394669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb18b0f20>]}
+[0m22:19:20.684484 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff865a9a30>]}
+[0m22:19:20.730073 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8d556360>]}
+[0m22:19:20.730835 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:19:20.813763 [debug] [MainThread]: checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, vars: {}, profile: , target: dev, version: 1.11.11
+[0m22:19:20.814897 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m22:19:20.815429 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff864f9550>]}
+[0m22:19:21.658151 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85dd0d40>]}
+[0m22:19:21.716815 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:19:21.720684 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:19:21.779949 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85dde030>]}
+[0m22:19:21.780324 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:19:21.782127 [info ] [MainThread]: 
+[0m22:19:21.782438 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:19:21.782719 [info ] [MainThread]: 
+[0m22:19:21.783069 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:19:21.785217 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:19:21.785536 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:19:22.410236 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now create_logistics-500519_logistics_mart)
+[0m22:19:22.411137 [debug] [ThreadPool]: Creating schema "database: "logistics-500519"
+schema: "logistics_mart"
+"
+[0m22:19:22.415872 [debug] [ThreadPool]: On create_logistics-500519_logistics_mart: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "connection_name": "create_logistics-500519_logistics_mart"} */
+create schema if not exists `logistics-500519`.`logistics_mart`
+  
+[0m22:19:22.416239 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:19:23.338137 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86031e20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86a4af30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86162a20>]}
+
+
+============================== 22:19:23.348494 | 1591d723-3f23-4cf7-9c03-cb13b942479d ==============================
+[0m22:19:23.348494 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:19:23.349381 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'no_print': 'None', 'profiles_dir': '.', 'printer_width': '80', 'static_parser': 'True', 'invocation_command': 'dbt build --profiles-dir . --target dev', 'partial_parse': 'True', 'warn_error': 'None', 'debug': 'False', 'write_json': 'True', 'introspect': 'True', 'use_colors': 'True', 'log_path': '/opt/airflow/dbt/logs', 'log_format': 'default', 'target_path': 'None', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'quiet': 'False', 'empty': 'False', 'fail_fast': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'version_check': 'True'}
+[0m22:19:23.474222 [debug] [ThreadPool]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:d2c768df-70dc-432f-b656-ee4a5a75e3bf&page=queryresults
+[0m22:19:24.519603 [debug] [ThreadPool]: SQL status: OK in 1.043 seconds
+[0m22:19:24.575750 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_logistics-500519_logistics_mart, now list_logistics-500519_logistics_mart)
+[0m22:19:24.576329 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:19:24.710530 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.staging.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:19:24.711033 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59ae90d0>]}
+[0m22:19:24.794848 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59a11a30>]}
+[0m22:19:24.827783 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff609c6360>]}
+[0m22:19:24.828437 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:19:24.905766 [debug] [MainThread]: checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, vars: {}, profile: , target: dev, version: 1.11.11
+[0m22:19:25.026063 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:19:25.026493 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:19:25.026790 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:19:25.041043 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59c90c50>]}
+[0m22:19:25.085629 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:19:25.086918 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:19:25.103868 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59961340>]}
+[0m22:19:25.104188 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:19:25.105228 [info ] [MainThread]: 
+[0m22:19:25.105475 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:19:25.105676 [info ] [MainThread]: 
+[0m22:19:25.105976 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:19:25.108174 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:19:25.108460 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:19:25.276754 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85deab10>]}
+[0m22:19:25.277929 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:19:25.322886 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:19:25.323175 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:19:25.323412 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:19:25.323675 [debug] [Thread-7 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:19:25.324042 [info ] [Thread-4 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:19:25.324609 [info ] [Thread-5 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:19:25.325257 [info ] [Thread-6 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:19:25.325783 [info ] [Thread-7 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:19:25.326303 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:19:25.326703 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:19:25.327062 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:19:25.327376 [debug] [Thread-7 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:19:25.327663 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:19:25.327911 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:19:25.328152 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:19:25.328382 [debug] [Thread-7 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:19:25.337911 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:19:25.339907 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:19:25.343224 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:19:25.344788 [debug] [Thread-7 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:19:25.348172 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:19:25.373421 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:19:25.373766 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:19:25.373994 [debug] [Thread-7 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:19:25.374397 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:19:25.375848 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:19:25.384541 [debug] [Thread-7 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:19:25.387120 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:19:25.390825 [debug] [Thread-5 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics_db`.`public`.`hubs`
+    );
+  
+[0m22:19:25.391043 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics_db`.`public`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:19:25.391378 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:19:25.391658 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics_db`.`public`.`drivers`
+    );
+  
+[0m22:19:25.391944 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:19:25.392154 [debug] [Thread-7 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics_db  -- If storing raw weather here, or your staging destination`.`public`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:19:25.392675 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m22:19:25.393841 [debug] [Thread-7 (]: Opening a new connection, currently in state init
+[0m22:19:26.082590 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:3b33d236-dd32-40be-9796-8ad8e1ac71ef&page=queryresults
+[0m22:19:26.084166 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:3b33d236-dd32-40be-9796-8ad8e1ac71ef&page=queryresults
+[0m22:19:26.110306 [debug] [Thread-4 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:26.113918 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85ddd100>]}
+[0m22:19:26.114721 [error] [Thread-4 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 0.78s]
+[0m22:19:26.115650 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:19:26.116324 [debug] [Thread-10 ]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:19:26.236141 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:37da6c7e-a406-46d1-90c6-d404471acd50&page=queryresults
+[0m22:19:26.237848 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:37da6c7e-a406-46d1-90c6-d404471acd50&page=queryresults
+[0m22:19:26.244634 [debug] [Thread-5 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:26.245510 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff56e7cdd0>]}
+[0m22:19:26.246076 [error] [Thread-5 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 0.92s]
+[0m22:19:26.246827 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:19:26.247238 [debug] [Thread-10 ]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:19:26.256142 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:19:26.257095 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:19:26.437181 [debug] [Thread-7 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6b86a395-35df-4c2e-94d8-635861634d50&page=queryresults
+[0m22:19:26.438084 [error] [Thread-7 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6b86a395-35df-4c2e-94d8-635861634d50&page=queryresults
+[0m22:19:26.442105 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e0d4d70e-da15-42fb-8664-14179289ba35&page=queryresults
+[0m22:19:26.444811 [debug] [Thread-7 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:26.445253 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e0d4d70e-da15-42fb-8664-14179289ba35&page=queryresults
+[0m22:19:26.446089 [debug] [Thread-7 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff56e7deb0>]}
+[0m22:19:26.448813 [error] [Thread-7 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 1.12s]
+[0m22:19:26.450703 [debug] [Thread-6 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:26.451137 [debug] [Thread-7 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:19:26.451616 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2297cb4a-a6c5-48f9-86a2-34e7a57fd5bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff861a22a0>]}
+[0m22:19:26.452121 [debug] [Thread-10 ]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:19:26.452666 [error] [Thread-6 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 1.12s]
+[0m22:19:26.453426 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:19:26.453867 [debug] [Thread-10 ]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:19:26.454791 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:19:26.455350 [info ] [Thread-4 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:19:26.455909 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:19:26.456257 [debug] [Thread-10 ]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:19:26.457328 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:19:26.490958 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:19:26.491349 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:19:26.491595 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:19:26.491812 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:19:26.492036 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:19:26.492447 [info ] [MainThread]: 
+[0m22:19:26.492975 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 4.71 seconds (4.71s).
+[0m22:19:26.493768 [debug] [MainThread]: Command end result
+[0m22:19:26.554886 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:19:26.558084 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:19:26.562924 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:19:26.563261 [info ] [MainThread]: 
+[0m22:19:26.564032 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:19:26.564364 [info ] [MainThread]: 
+[0m22:19:26.564717 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:19:26.564997 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:26.565245 [info ] [MainThread]: 
+[0m22:19:26.565500 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:26.565781 [info ] [MainThread]: 
+[0m22:19:26.566069 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:19:26.566395 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:26.566694 [info ] [MainThread]: 
+[0m22:19:26.566919 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:26.567114 [info ] [MainThread]: 
+[0m22:19:26.567355 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:19:26.567597 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:26.567842 [info ] [MainThread]: 
+[0m22:19:26.568105 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:26.568314 [info ] [MainThread]: 
+[0m22:19:26.568575 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:19:26.568820 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:26.569110 [info ] [MainThread]: 
+[0m22:19:26.569329 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:26.569535 [info ] [MainThread]: 
+[0m22:19:26.569823 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:19:26.570409 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:19:26.572091 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 6.8443203, "process_in_blocks": "0", "process_kernel_time": 1.052999, "process_mem_max_rss": "253204", "process_out_blocks": "3652", "process_user_time": 4.772149}
+[0m22:19:26.572484 [debug] [MainThread]: Command `dbt build` failed at 22:19:26.572430 after 6.84 seconds
+[0m22:19:26.572876 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb4854bf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb19d50a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb185e7b0>]}
+[0m22:19:26.573124 [debug] [MainThread]: Flushing usage events
+[0m22:19:26.963838 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5995b260>]}
+[0m22:19:26.965616 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:19:27.005820 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:19:27.006111 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:19:27.006368 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:19:27.006617 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:19:27.006936 [info ] [Thread-3 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:19:27.007402 [info ] [Thread-4 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:19:27.007774 [info ] [Thread-5 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:19:27.008191 [info ] [Thread-6 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:19:27.008598 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:19:27.008936 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:19:27.009260 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:19:27.009616 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:19:27.009972 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:19:27.010261 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:19:27.010529 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:19:27.010793 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:19:27.017781 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:19:27.019411 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:19:27.020792 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:19:27.025409 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:19:27.029267 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:19:27.029480 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:19:27.037614 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:19:27.044094 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:19:27.054477 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:19:27.057803 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:19:27.065943 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:19:27.067121 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:19:27.068270 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics_db`.`public`.`hubs`
+    );
+  
+[0m22:19:27.068529 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics_db`.`public`.`drivers`
+    );
+  
+[0m22:19:27.068964 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:19:27.069266 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics_db  -- If storing raw weather here, or your staging destination`.`public`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:19:27.069507 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics_db`.`public`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:19:27.069729 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:19:27.070219 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:19:27.070490 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:19:27.927148 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6219763e-2816-4737-a0f7-096dded5f653&page=queryresults
+[0m22:19:27.928563 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6219763e-2816-4737-a0f7-096dded5f653&page=queryresults
+[0m22:19:27.935689 [debug] [Thread-5 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:27.937907 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff592d12b0>]}
+[0m22:19:27.938681 [error] [Thread-5 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 0.93s]
+[0m22:19:27.939269 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:19:27.939825 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:19:27.954546 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:7b05493e-97a5-4cda-8868-0b680a73250c&page=queryresults
+[0m22:19:27.955025 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:7b05493e-97a5-4cda-8868-0b680a73250c&page=queryresults
+[0m22:19:27.958382 [debug] [Thread-6 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:27.958803 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff592b76b0>]}
+[0m22:19:27.959311 [error] [Thread-6 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 0.95s]
+[0m22:19:27.959921 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:19:27.960414 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:19:27.972617 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:19:27.987702 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:1059a8f1-ecf0-4f71-8871-d5b774f7c180&page=queryresults
+[0m22:19:27.988474 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:1059a8f1-ecf0-4f71-8871-d5b774f7c180&page=queryresults
+[0m22:19:27.992168 [debug] [Thread-4 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:27.992987 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff592cb0e0>]}
+[0m22:19:27.993608 [error] [Thread-4 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 0.98s]
+[0m22:19:27.994053 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:19:27.994433 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:19:27.994929 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:19:27.995258 [info ] [Thread-5 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:19:27.995591 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:19:27.995849 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:19:28.032066 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:15118f02-726f-4ea5-bda0-cfb5183ae89a&page=queryresults
+[0m22:19:28.032574 [error] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:15118f02-726f-4ea5-bda0-cfb5183ae89a&page=queryresults
+[0m22:19:28.036641 [debug] [Thread-3 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:28.037434 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1591d723-3f23-4cf7-9c03-cb13b942479d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59293bf0>]}
+[0m22:19:28.037958 [error] [Thread-3 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 1.03s]
+[0m22:19:28.038392 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:19:28.038777 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:19:28.040884 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:19:28.070690 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:19:28.071014 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:19:28.071237 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:19:28.071465 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:19:28.071701 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:19:28.072074 [info ] [MainThread]: 
+[0m22:19:28.072382 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 2.97 seconds (2.97s).
+[0m22:19:28.073051 [debug] [MainThread]: Command end result
+[0m22:19:28.103484 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:19:28.105510 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:19:28.109498 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:19:28.109759 [info ] [MainThread]: 
+[0m22:19:28.110051 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:19:28.110313 [info ] [MainThread]: 
+[0m22:19:28.110615 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:19:28.110873 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:28.111075 [info ] [MainThread]: 
+[0m22:19:28.111321 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:19:28.111615 [info ] [MainThread]: 
+[0m22:19:28.112168 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:19:28.112774 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:28.113169 [info ] [MainThread]: 
+[0m22:19:28.113585 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:19:28.113890 [info ] [MainThread]: 
+[0m22:19:28.114240 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:19:28.114774 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:28.115179 [info ] [MainThread]: 
+[0m22:19:28.115682 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:19:28.116010 [info ] [MainThread]: 
+[0m22:19:28.116287 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:19:28.116567 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:28.116759 [info ] [MainThread]: 
+[0m22:19:28.116947 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:19:28.117161 [info ] [MainThread]: 
+[0m22:19:28.117418 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:19:28.117955 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:19:28.119321 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 4.851662, "process_in_blocks": "0", "process_kernel_time": 2.023685, "process_mem_max_rss": "242560", "process_out_blocks": "2472", "process_user_time": 5.138673}
+[0m22:19:28.119779 [debug] [MainThread]: Command `dbt build` failed at 22:19:28.119707 after 4.85 seconds
+[0m22:19:28.120139 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86a79d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59778fb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59c4bad0>]}
+[0m22:19:28.120388 [debug] [MainThread]: Flushing usage events
+[0m22:19:29.238561 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:21:29.708291 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7d0fa6c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7f00de20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7c5aa180>]}
+
+
+============================== 22:21:29.712140 | 71f216f8-d9bd-4aef-b608-8d08e5b0f339 ==============================
+[0m22:21:29.712140 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:21:29.712681 [debug] [MainThread]: running dbt with arguments {'use_colors': 'True', 'quiet': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'debug': 'False', 'profiles_dir': '.', 'empty': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'fail_fast': 'False', 'warn_error': 'None', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'write_json': 'True', 'static_parser': 'True', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'invocation_command': 'dbt build --profiles-dir . --target dev', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'introspect': 'True', 'target_path': 'None', 'printer_width': '80', 'log_cache_events': 'False'}
+[0m22:21:30.184755 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.staging.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:21:30.185473 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff510d0ad0>]}
+[0m22:21:30.240850 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff510e1190>]}
+[0m22:21:30.285584 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7f06ffb0>]}
+[0m22:21:30.286461 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:21:30.342882 [debug] [MainThread]: checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, vars: {}, profile: , target: dev, version: 1.11.11
+[0m22:21:30.454933 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:21:30.455420 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:21:30.455672 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:21:30.479931 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50f5a4b0>]}
+[0m22:21:30.525190 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:21:30.526677 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:21:30.540325 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e8a5df0>]}
+[0m22:21:30.540667 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:21:30.541987 [info ] [MainThread]: 
+[0m22:21:30.542344 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:21:30.542621 [info ] [MainThread]: 
+[0m22:21:30.543074 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:21:30.544942 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:21:30.545220 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:21:31.248297 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:21:31.248714 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:21:31.820513 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb35c1c70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb244ec00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb3244b00>]}
+
+
+============================== 22:21:31.823841 | d9393bfb-dc54-46bb-81fc-449911cfd73d ==============================
+[0m22:21:31.823841 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:21:31.824192 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'warn_error': 'None', 'indirect_selection': 'eager', 'no_print': 'None', 'write_json': 'True', 'use_colors': 'True', 'log_path': '/opt/airflow/dbt/logs', 'fail_fast': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'partial_parse': 'True', 'quiet': 'False', 'profiles_dir': '.', 'cache_selected_only': 'False', 'send_anonymous_usage_stats': 'True', 'invocation_command': 'dbt build --profiles-dir . --target dev', 'debug': 'False', 'introspect': 'True', 'version_check': 'True', 'printer_width': '80', 'static_parser': 'True', 'target_path': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False'}
+[0m22:21:31.899891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50f5a3c0>]}
+[0m22:21:31.908965 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:21:31.973013 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:21:31.973308 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:21:31.973551 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:21:31.973871 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:21:31.974136 [info ] [Thread-3 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:21:31.974530 [info ] [Thread-4 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:21:31.974881 [info ] [Thread-5 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:21:31.975321 [info ] [Thread-6 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:21:31.975690 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:21:31.976138 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:21:31.976448 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:21:31.976803 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:21:31.977070 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:21:31.977317 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:21:31.977547 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:21:31.977786 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:21:31.982333 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:21:31.983880 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:21:31.985301 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:21:31.986692 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:21:31.988046 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:21:31.988315 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:21:31.994268 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:21:32.006776 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:21:32.008560 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:21:32.011005 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:21:32.019964 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:21:32.021435 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:21:32.022873 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics_db`.`public`.`drivers`
+    );
+  
+[0m22:21:32.023112 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics_db`.`public`.`hubs`
+    );
+  
+[0m22:21:32.023718 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:21:32.023933 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics_db`.`public`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:21:32.024197 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:21:32.024606 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics_db  -- If storing raw weather here, or your staging destination`.`public`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:21:32.024971 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:21:32.025433 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:21:32.218878 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.staging.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:21:32.219335 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86f51250>]}
+[0m22:21:32.268118 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff870e9a30>]}
+[0m22:21:32.295270 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff870d4fe0>]}
+[0m22:21:32.295734 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:21:32.352078 [debug] [MainThread]: checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, vars: {}, profile: , target: dev, version: 1.11.11
+[0m22:21:32.455565 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m22:21:32.455943 [debug] [MainThread]: Nothing changed, skipping partial parsing.
+[0m22:21:32.456260 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m22:21:32.470484 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8c8cfb60>]}
+[0m22:21:32.519775 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:21:32.521351 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:21:32.544427 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86f52990>]}
+[0m22:21:32.544807 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:21:32.545888 [info ] [MainThread]: 
+[0m22:21:32.546131 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:21:32.546349 [info ] [MainThread]: 
+[0m22:21:32.546638 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:21:32.548784 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:21:32.549039 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:21:32.849547 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e487ece2-8059-44db-ac7a-41b172df6b55&page=queryresults
+[0m22:21:32.850208 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e487ece2-8059-44db-ac7a-41b172df6b55&page=queryresults
+[0m22:21:32.866009 [debug] [Thread-6 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:32.867566 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50a03410>]}
+[0m22:21:32.868060 [error] [Thread-6 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 0.89s]
+[0m22:21:32.868681 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:21:32.869142 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:21:32.913978 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:4434adf0-010d-424c-a889-d75feb074707&page=queryresults
+[0m22:21:32.914655 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:4434adf0-010d-424c-a889-d75feb074707&page=queryresults
+[0m22:21:32.918661 [debug] [Thread-4 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:32.919367 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50a2e630>]}
+[0m22:21:32.919970 [error] [Thread-4 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 0.94s]
+[0m22:21:32.920650 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:21:32.921159 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:21:32.965532 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:1d6135fa-2cac-4495-8208-81e969fc9cab&page=queryresults
+[0m22:21:32.966186 [error] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:1d6135fa-2cac-4495-8208-81e969fc9cab&page=queryresults
+[0m22:21:32.970602 [debug] [Thread-3 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:32.971216 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50b54fb0>]}
+[0m22:21:32.971886 [error] [Thread-3 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 1.00s]
+[0m22:21:32.972929 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:21:32.973451 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:21:32.973989 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:5e786729-7c17-4af6-866d-487b12e79440&page=queryresults
+[0m22:21:32.974532 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:5e786729-7c17-4af6-866d-487b12e79440&page=queryresults
+[0m22:21:32.978119 [debug] [Thread-5 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:32.978535 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '71f216f8-d9bd-4aef-b608-8d08e5b0f339', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50a3ab10>]}
+[0m22:21:32.979034 [error] [Thread-5 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 1.00s]
+[0m22:21:32.979603 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:21:32.980040 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:21:32.980714 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:21:32.981186 [info ] [Thread-6 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:21:32.981661 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:21:32.982019 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:21:32.983032 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:21:33.015636 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:21:33.015977 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:21:33.016201 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:21:33.016429 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:21:33.016656 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:21:33.016957 [info ] [MainThread]: 
+[0m22:21:33.017415 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 2.47 seconds (2.47s).
+[0m22:21:33.018051 [debug] [MainThread]: Command end result
+[0m22:21:33.039590 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:21:33.040907 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:21:33.044158 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:21:33.044352 [info ] [MainThread]: 
+[0m22:21:33.044742 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:21:33.044973 [info ] [MainThread]: 
+[0m22:21:33.045252 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:21:33.045508 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:33.045698 [info ] [MainThread]: 
+[0m22:21:33.045905 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:33.046089 [info ] [MainThread]: 
+[0m22:21:33.046310 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:21:33.046530 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:33.046701 [info ] [MainThread]: 
+[0m22:21:33.046879 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:33.047053 [info ] [MainThread]: 
+[0m22:21:33.047245 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:21:33.047446 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:33.047607 [info ] [MainThread]: 
+[0m22:21:33.047782 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:33.047946 [info ] [MainThread]: 
+[0m22:21:33.048130 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:21:33.048317 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:33.048474 [info ] [MainThread]: 
+[0m22:21:33.048639 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:33.048813 [info ] [MainThread]: 
+[0m22:21:33.048998 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:21:33.049299 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:21:33.049977 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.3652923, "process_in_blocks": "0", "process_kernel_time": 0.323169, "process_mem_max_rss": "242304", "process_out_blocks": "2473", "process_user_time": 3.831861}
+[0m22:21:33.050294 [debug] [MainThread]: Command `dbt build` failed at 22:21:33.050233 after 3.37 seconds
+[0m22:21:33.050571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7cfe9bb0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50f5a180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff50b44aa0>]}
+[0m22:21:33.050834 [debug] [MainThread]: Flushing usage events
+[0m22:21:33.209127 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:21:33.209670 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:21:33.941056 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8c42dc10>]}
+[0m22:21:33.942630 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:21:33.998669 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:21:33.999015 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:21:33.999275 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:21:33.999557 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:21:33.999912 [info ] [Thread-3 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:21:34.000357 [info ] [Thread-4 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:21:34.000783 [info ] [Thread-5 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:21:34.001188 [info ] [Thread-6 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:21:34.001583 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:21:34.001988 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:21:34.002344 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:21:34.002685 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:21:34.002993 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:21:34.003298 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:21:34.003595 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:21:34.003877 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:21:34.008583 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:21:34.010059 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:21:34.011455 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:21:34.012743 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:21:34.013846 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:21:34.014237 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:21:34.014531 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:21:34.026905 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:21:34.032570 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:21:34.035679 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:21:34.043705 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:21:34.044773 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:21:34.045868 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics_db`.`public`.`drivers`
+    );
+  
+[0m22:21:34.046094 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics_db`.`public`.`hubs`
+    );
+  
+[0m22:21:34.046504 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:21:34.046678 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics_db`.`public`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:21:34.046971 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:21:34.047157 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics_db  -- If storing raw weather here, or your staging destination`.`public`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:21:34.047508 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:21:34.047955 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:21:34.486144 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:21:34.954368 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:fb9314a8-ef51-440a-974c-a67c4c06dcae&page=queryresults
+[0m22:21:34.955061 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:fb9314a8-ef51-440a-974c-a67c4c06dcae&page=queryresults
+[0m22:21:34.959808 [debug] [Thread-4 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:34.961126 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff868d3b90>]}
+[0m22:21:34.961704 [error] [Thread-4 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 0.96s]
+[0m22:21:34.962442 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:21:34.963031 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:21:35.021506 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2ce3033f-f599-4332-9a88-980c831f1a5e&page=queryresults
+[0m22:21:35.022264 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2ce3033f-f599-4332-9a88-980c831f1a5e&page=queryresults
+[0m22:21:35.026914 [debug] [Thread-6 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:35.027670 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2fb685c5-d62e-4455-b137-c81fafb66977&page=queryresults
+[0m22:21:35.028087 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff868b6f60>]}
+[0m22:21:35.028614 [error] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2fb685c5-d62e-4455-b137-c81fafb66977&page=queryresults
+[0m22:21:35.029361 [error] [Thread-6 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 1.03s]
+[0m22:21:35.032922 [debug] [Thread-3 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:35.033305 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:21:35.033740 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff868d0560>]}
+[0m22:21:35.034247 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:21:35.034796 [error] [Thread-3 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 1.03s]
+[0m22:21:35.035668 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:21:35.036125 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:21:35.077317 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2335d5b9-cc1b-4f08-8850-09d1a48fe1bc&page=queryresults
+[0m22:21:35.078045 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:2335d5b9-cc1b-4f08-8850-09d1a48fe1bc&page=queryresults
+[0m22:21:35.082703 [debug] [Thread-5 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:35.083133 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'd9393bfb-dc54-46bb-81fc-449911cfd73d', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff868d0560>]}
+[0m22:21:35.083612 [error] [Thread-5 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 1.08s]
+[0m22:21:35.084366 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:21:35.084906 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:21:35.085750 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:21:35.086182 [info ] [Thread-4 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:21:35.086799 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:21:35.087167 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:21:35.088425 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:21:35.123974 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:21:35.124192 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:21:35.124403 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:21:35.124609 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:21:35.124806 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:21:35.125043 [info ] [MainThread]: 
+[0m22:21:35.125269 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 2.58 seconds (2.58s).
+[0m22:21:35.126057 [debug] [MainThread]: Command end result
+[0m22:21:35.145132 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:21:35.146204 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:21:35.149037 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:21:35.149241 [info ] [MainThread]: 
+[0m22:21:35.149663 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:21:35.149973 [info ] [MainThread]: 
+[0m22:21:35.150277 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:21:35.150582 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:35.150860 [info ] [MainThread]: 
+[0m22:21:35.151236 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:21:35.151553 [info ] [MainThread]: 
+[0m22:21:35.151826 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:21:35.152128 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:35.152464 [info ] [MainThread]: 
+[0m22:21:35.152792 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:21:35.153018 [info ] [MainThread]: 
+[0m22:21:35.153310 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:21:35.153573 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:35.153870 [info ] [MainThread]: 
+[0m22:21:35.154166 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:21:35.154401 [info ] [MainThread]: 
+[0m22:21:35.154669 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:21:35.154920 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:35.155198 [info ] [MainThread]: 
+[0m22:21:35.155506 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:21:35.155748 [info ] [MainThread]: 
+[0m22:21:35.156026 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:21:35.156411 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:21:35.157500 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 3.3611317, "process_in_blocks": "0", "process_kernel_time": 0.372836, "process_mem_max_rss": "242464", "process_out_blocks": "2472", "process_user_time": 4.769078}
+[0m22:21:35.158058 [debug] [MainThread]: Command `dbt build` failed at 22:21:35.158004 after 3.36 seconds
+[0m22:21:35.158295 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb30df0b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff877d1f10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86d7af00>]}
+[0m22:21:35.158501 [debug] [MainThread]: Flushing usage events
+[0m22:21:36.294382 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:22:56.393412 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff858bda30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8507d7f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff84d515e0>]}
+
+
+============================== 22:22:56.399859 | c08401b9-c3e5-46fe-bdd3-29b3df515f3e ==============================
+[0m22:22:56.399859 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:22:56.400391 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'indirect_selection': 'eager', 'use_experimental_parser': 'False', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'static_parser': 'True', 'partial_parse': 'True', 'write_json': 'True', 'log_cache_events': 'False', 'warn_error': 'None', 'log_path': '/opt/airflow/dbt/logs', 'invocation_command': 'dbt build --profiles-dir .', 'fail_fast': 'False', 'quiet': 'False', 'use_colors': 'True', 'target_path': 'None', 'cache_selected_only': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'profiles_dir': '.', 'empty': 'False', 'printer_width': '80', 'version_check': 'True'}
+[0m22:22:56.919836 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.staging.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:22:56.920463 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff596260f0>]}
+[0m22:22:56.982587 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff595d0980>]}
+[0m22:22:57.009274 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff59caed50>]}
+[0m22:22:57.009849 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:22:57.069719 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m22:22:57.112524 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m22:22:57.112994 [debug] [MainThread]: previous checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, current checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968
+[0m22:22:57.113393 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff84da0ce0>]}
+[0m22:22:57.648747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff58c606e0>]}
+[0m22:22:57.703157 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:22:57.704613 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:22:57.719338 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff58b5a480>]}
+[0m22:22:57.719671 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:22:57.720911 [info ] [MainThread]: 
+[0m22:22:57.721234 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:22:57.721582 [info ] [MainThread]: 
+[0m22:22:57.721990 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:22:57.724118 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:22:57.724388 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:22:58.492207 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:22:58.494060 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:22:59.221462 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86d637a0>]}
+[0m22:22:59.223310 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:22:59.275892 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:22:59.276291 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:22:59.276573 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:22:59.276917 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:22:59.277374 [info ] [Thread-3 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:22:59.279728 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:22:59.278878 [info ] [Thread-5 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:22:59.279294 [info ] [Thread-6 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:22:59.278100 [info ] [Thread-4 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:22:59.281103 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:22:59.280421 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:22:59.280762 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:22:59.280049 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:22:59.281392 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:22:59.281696 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:22:59.282010 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:22:59.286421 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:22:59.287813 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:22:59.289463 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:22:59.291071 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:22:59.292497 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:22:59.292836 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:22:59.293198 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:22:59.305635 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:22:59.318121 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:22:59.319951 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:22:59.330101 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:22:59.332042 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:22:59.333547 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics_db`.`public`.`drivers`
+    );
+  
+[0m22:22:59.333840 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics_db`.`public`.`hubs`
+    );
+  
+[0m22:22:59.334777 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:22:59.334524 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics_db`.`public`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:22:59.334223 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:22:59.334970 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics_db  -- If storing raw weather here, or your staging destination`.`public`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:22:59.335363 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:22:59.335782 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:23:00.270641 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:28a9bfca-7917-461a-bc85-5fcd50a55020&page=queryresults
+[0m22:23:00.276522 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:8fbd3972-bc5b-4df9-89a9-2512309162a3&page=queryresults
+[0m22:23:00.279140 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:28a9bfca-7917-461a-bc85-5fcd50a55020&page=queryresults
+[0m22:23:00.283909 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:8fbd3972-bc5b-4df9-89a9-2512309162a3&page=queryresults
+[0m22:23:00.311497 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:3564038f-c3dd-45f8-945e-a592e1921dcf&page=queryresults
+[0m22:23:00.316492 [error] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:3564038f-c3dd-45f8-945e-a592e1921dcf&page=queryresults
+[0m22:23:00.326316 [debug] [Thread-5 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:23:00.329203 [debug] [Thread-6 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:23:00.341372 [debug] [Thread-3 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:23:00.346899 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e0ae975b-bfce-42e8-86bb-ff41dc72f90a&page=queryresults
+[0m22:23:00.351768 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff58d697c0>]}
+[0m22:23:00.354157 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff51e90fe0>]}
+[0m22:23:00.356168 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff51ef1e50>]}
+[0m22:23:00.359570 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e0ae975b-bfce-42e8-86bb-ff41dc72f90a&page=queryresults
+[0m22:23:00.360895 [error] [Thread-5 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 1.07s]
+[0m22:23:00.362818 [error] [Thread-6 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 1.07s]
+[0m22:23:00.366689 [error] [Thread-3 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 1.08s]
+[0m22:23:00.375200 [debug] [Thread-4 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:23:00.376861 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:23:00.377690 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:23:00.378328 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:23:00.379194 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c08401b9-c3e5-46fe-bdd3-29b3df515f3e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff51ef0320>]}
+[0m22:23:00.380189 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:23:00.382083 [error] [Thread-4 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 1.10s]
+[0m22:23:00.383899 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:23:00.384453 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:23:00.384839 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:23:00.385394 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:23:00.387936 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:23:00.389034 [info ] [Thread-5 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:23:00.390003 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:23:00.392045 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:23:00.395094 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:23:00.433451 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:23:00.434213 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:23:00.434672 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:23:00.434964 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:23:00.435433 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:23:00.435824 [info ] [MainThread]: 
+[0m22:23:00.436453 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 2.71 seconds (2.71s).
+[0m22:23:00.438524 [debug] [MainThread]: Command end result
+[0m22:23:00.468968 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:23:00.471231 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:23:00.475306 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:23:00.475656 [info ] [MainThread]: 
+[0m22:23:00.475962 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:23:00.476301 [info ] [MainThread]: 
+[0m22:23:00.476648 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:23:00.476951 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:23:00.477215 [info ] [MainThread]: 
+[0m22:23:00.477477 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:23:00.477759 [info ] [MainThread]: 
+[0m22:23:00.478017 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:23:00.478327 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Invalid project ID 'logistics_db  -- If storing raw weather here, or your staging destination'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:23:00.478686 [info ] [MainThread]: 
+[0m22:23:00.478958 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:23:00.479254 [info ] [MainThread]: 
+[0m22:23:00.479623 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:23:00.479914 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:23:00.480245 [info ] [MainThread]: 
+[0m22:23:00.481479 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:23:00.482974 [info ] [MainThread]: 
+[0m22:23:00.483669 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:23:00.484176 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Invalid project ID 'logistics_db'. Project IDs must contain 6-63 lowercase letters, digits, or dashes. Some project IDs also include domain name separated by a colon. IDs must start with a letter and may not end with a dash.
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:23:00.484456 [info ] [MainThread]: 
+[0m22:23:00.484755 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:23:00.485128 [info ] [MainThread]: 
+[0m22:23:00.485530 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:23:00.486935 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:23:00.488569 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 4.1542797, "process_in_blocks": "0", "process_kernel_time": 0.483733, "process_mem_max_rss": "247724", "process_out_blocks": "3649", "process_user_time": 5.237773}
+[0m22:23:00.489154 [debug] [MainThread]: Command `dbt build` failed at 22:23:00.489079 after 4.16 seconds
+[0m22:23:00.489551 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8534c740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff844c9760>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff58f0ea20>]}
+[0m22:23:00.489871 [debug] [MainThread]: Flushing usage events
+[0m22:23:01.888761 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:27:27.510710 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8e281b80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8ecd2000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8cf4ee70>]}
+
+
+============================== 22:27:27.522729 | 0100273b-02c1-4486-9355-0305766a85d9 ==============================
+[0m22:27:27.522729 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:27:27.523143 [debug] [MainThread]: running dbt with arguments {'introspect': 'True', 'target_path': 'None', 'indirect_selection': 'eager', 'partial_parse': 'True', 'profiles_dir': '.', 'printer_width': '80', 'send_anonymous_usage_stats': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'debug': 'False', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'empty': 'False', 'write_json': 'True', 'use_experimental_parser': 'False', 'quiet': 'False', 'invocation_command': 'dbt build --profiles-dir .', 'cache_selected_only': 'False', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'no_print': 'None', 'static_parser': 'True', 'log_format': 'default'}
+[0m22:27:28.457361 [warn ] [MainThread]: [[33mWARNING[0m][MissingPlusPrefixDeprecation]: Deprecated functionality
+Missing '+' prefix on `materialized` found at
+`logistics_lakehouse.staging.materialized` in file
+`/opt/airflow/dbt/dbt_project.yml`. Hierarchical config values without a '+'
+prefix are deprecated in dbt_project.yml.
+[0m22:27:28.458409 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'deprecation', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'property_': 'warn', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff61e58fb0>]}
+[0m22:27:28.540075 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff6244fef0>]}
+[0m22:27:28.571945 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8cfa9730>]}
+[0m22:27:28.572556 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:27:28.652776 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m22:27:28.767962 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m22:27:28.768658 [debug] [MainThread]: Partial parsing: updated file: logistics_lakehouse://models/staging/src_logistics.yml
+[0m22:27:28.932385 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff614fedb0>]}
+[0m22:27:28.972276 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:27:28.973824 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:27:28.993806 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5b8fbf50>]}
+[0m22:27:28.994204 [info ] [MainThread]: Found 5 models, 4 sources, 553 macros
+[0m22:27:28.995506 [info ] [MainThread]: 
+[0m22:27:28.995820 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:27:28.996087 [info ] [MainThread]: 
+[0m22:27:28.996480 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:27:28.998535 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:27:28.998865 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:27:29.767669 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:27:29.769226 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:27:30.934786 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8f627290>]}
+[0m22:27:30.935903 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:27:30.970996 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:27:30.971307 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:27:30.971520 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:27:30.971762 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:27:30.972216 [info ] [Thread-3 (]: 1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:27:30.974133 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now model.logistics_lakehouse.dim_drivers)
+[0m22:27:30.973235 [info ] [Thread-5 (]: 3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:27:30.973674 [info ] [Thread-6 (]: 4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:27:30.972746 [info ] [Thread-4 (]: 2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:27:30.975394 [debug] [Thread-4 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.dim_hubs'
+[0m22:27:30.974773 [debug] [Thread-5 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_shipments'
+[0m22:27:30.975113 [debug] [Thread-6 (]: Acquiring new bigquery connection 'model.logistics_lakehouse.stg_weather'
+[0m22:27:30.974405 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:27:30.975641 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:27:30.975921 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:27:30.976224 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:27:30.980747 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:27:30.982070 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:27:30.986926 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:27:30.987891 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:27:30.989371 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:27:30.989563 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:27:31.001815 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:27:31.002146 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:27:31.011968 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:27:31.013627 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:27:31.023381 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:27:31.024907 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:27:31.026522 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics-500519`.`logistics_raw`.`hubs`
+    );
+  
+[0m22:27:31.026817 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics-500519`.`logistics_raw`.`drivers`
+    );
+  
+[0m22:27:31.027315 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:27:31.027607 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics-500519`.`logistics_raw`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:27:31.027905 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:27:31.028104 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:27:31.028513 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:27:31.029055 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:27:32.119976 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:d49e72bd-4a6a-4377-8c34-dfef0081d4db&page=queryresults
+[0m22:27:32.121439 [error] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:d49e72bd-4a6a-4377-8c34-dfef0081d4db&page=queryresults
+[0m22:27:32.133996 [debug] [Thread-6 (]: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:27:32.136541 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5867ac00>]}
+[0m22:27:32.137233 [error] [Thread-6 (]: 4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 1.16s]
+[0m22:27:32.137783 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:27:32.138326 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_weather' to be skipped because of status 'error'.  Reason: Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql.
+[0m22:27:32.169159 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:d347123b-e7d8-4abe-abdc-c53cb3b45eb2&page=queryresults
+[0m22:27:32.169814 [error] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:d347123b-e7d8-4abe-abdc-c53cb3b45eb2&page=queryresults
+[0m22:27:32.173493 [debug] [Thread-5 (]: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:27:32.174033 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5b7d60f0>]}
+[0m22:27:32.174528 [error] [Thread-5 (]: 3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 1.20s]
+[0m22:27:32.175076 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:27:32.175529 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.stg_shipments' to be skipped because of status 'error'.  Reason: Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql.
+[0m22:27:32.277819 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:0c013cb1-1d96-4c8c-81c5-d27cf51598ea&page=queryresults
+[0m22:27:32.279019 [error] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:0c013cb1-1d96-4c8c-81c5-d27cf51598ea&page=queryresults
+[0m22:27:32.287676 [debug] [Thread-4 (]: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:27:32.289430 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5867bcb0>]}
+[0m22:27:32.291558 [error] [Thread-4 (]: 2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 1.31s]
+[0m22:27:32.292843 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:9b28c8eb-2ef5-4af5-98be-f98de9933a0a&page=queryresults
+[0m22:27:32.293933 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:27:32.295202 [error] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:9b28c8eb-2ef5-4af5-98be-f98de9933a0a&page=queryresults
+[0m22:27:32.296298 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_hubs' to be skipped because of status 'error'.  Reason: Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql.
+[0m22:27:32.302931 [debug] [Thread-3 (]: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:27:32.304032 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:27:32.304566 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '0100273b-02c1-4486-9355-0305766a85d9', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5867bad0>]}
+[0m22:27:32.305332 [info ] [Thread-6 (]: 5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[0m22:27:32.306611 [error] [Thread-3 (]: 1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 1.33s]
+[0m22:27:32.307208 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:27:32.307846 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:27:32.308251 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.fact_shipment_weather' to be skipped because of status 'skipped'. 
+[0m22:27:32.309015 [debug] [Thread-9 (]: Marking all children of 'model.logistics_lakehouse.dim_drivers' to be skipped because of status 'error'.  Reason: Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql.
+[0m22:27:32.311705 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:27:32.349832 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:27:32.350255 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:27:32.350562 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:27:32.350873 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m22:27:32.351137 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:27:32.351504 [info ] [MainThread]: 
+[0m22:27:32.351834 [info ] [MainThread]: Finished running 3 table models, 2 view models in 0 hours 0 minutes and 3.36 seconds (3.36s).
+[0m22:27:32.352576 [debug] [MainThread]: Command end result
+[0m22:27:32.377274 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:27:32.379476 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:27:32.383150 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:27:32.383479 [info ] [MainThread]: 
+[0m22:27:32.383849 [info ] [MainThread]: [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[0m22:27:32.384276 [info ] [MainThread]: 
+[0m22:27:32.384601 [error] [MainThread]: [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[0m22:27:32.384888 [error] [MainThread]:   Database Error in model stg_weather (models/staging/stg_weather.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:27:32.385093 [info ] [MainThread]: 
+[0m22:27:32.385432 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[0m22:27:32.385750 [info ] [MainThread]: 
+[0m22:27:32.386027 [error] [MainThread]: [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[0m22:27:32.386388 [error] [MainThread]:   Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:27:32.386776 [info ] [MainThread]: 
+[0m22:27:32.387152 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[0m22:27:32.387421 [info ] [MainThread]: 
+[0m22:27:32.387706 [error] [MainThread]: [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[0m22:27:32.387972 [error] [MainThread]:   Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:27:32.388281 [info ] [MainThread]: 
+[0m22:27:32.388731 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[0m22:27:32.389087 [info ] [MainThread]: 
+[0m22:27:32.389495 [error] [MainThread]: [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[0m22:27:32.389967 [error] [MainThread]:   Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+  Not found: Dataset logistics-500519:logistics_raw was not found in location US
+  compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:27:32.390218 [info ] [MainThread]: 
+[0m22:27:32.390516 [info ] [MainThread]:   compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[0m22:27:32.390763 [info ] [MainThread]: 
+[0m22:27:32.391326 [info ] [MainThread]: Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[0m22:27:32.392214 [warn ] [MainThread]: [[33mWARNING[0m][DeprecationsSummary]: Deprecated functionality
+Summary of encountered deprecations:
+- MissingPlusPrefixDeprecation: 2 occurrences
+To see all deprecation instances instead of just the first occurrence of each,
+run command again with the `--show-all-deprecations` flag. You may also need to
+run with `--no-partial-parse` as some deprecations are only encountered during
+parsing.
+[0m22:27:32.394910 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": false, "command_wall_clock_time": 4.9214168, "process_in_blocks": "0", "process_kernel_time": 0.688244, "process_mem_max_rss": "247984", "process_out_blocks": "3642", "process_user_time": 5.767405}
+[0m22:27:32.395629 [debug] [MainThread]: Command `dbt build` failed at 22:27:32.395543 after 4.92 seconds
+[0m22:27:32.396108 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8d287140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff6167bda0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff601ee210>]}
+[0m22:27:32.396386 [debug] [MainThread]: Flushing usage events
+[0m22:27:33.900479 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m22:55:01.117232 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaaf72000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaaa9ec00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaaf71280>]}
+
+
+============================== 22:55:01.122504 | a42dc8f3-497c-48d8-9382-c27367d2031e ==============================
+[0m22:55:01.122504 [info ] [MainThread]: Running with dbt=1.11.11
+[0m22:55:01.122928 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'log_cache_events': 'False', 'static_parser': 'True', 'indirect_selection': 'eager', 'fail_fast': 'False', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_path': '/opt/airflow/dbt/logs', 'use_colors': 'True', 'warn_error': 'None', 'printer_width': '80', 'use_experimental_parser': 'False', 'introspect': 'True', 'write_json': 'True', 'partial_parse': 'True', 'empty': 'False', 'invocation_command': 'dbt build --profiles-dir .', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'debug': 'False', 'log_format': 'default', 'quiet': 'False', 'profiles_dir': '.', 'target_path': 'None'}
+[0m22:55:01.643793 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff846a1880>]}
+[0m22:55:01.666718 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7f5a6420>]}
+[0m22:55:01.667118 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m22:55:01.720129 [debug] [MainThread]: checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be, vars: {}, profile: , target: , version: 1.11.11
+[0m22:55:01.762271 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m22:55:01.762672 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaaa10bc0>]}
+[0m22:55:02.530169 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7eddee10>]}
+[0m22:55:02.583759 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:55:02.585395 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:55:02.603667 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7cddcad0>]}
+[0m22:55:02.604109 [info ] [MainThread]: Found 5 models, 4 seeds, 4 sources, 553 macros
+[0m22:55:02.605510 [info ] [MainThread]: 
+[0m22:55:02.605921 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m22:55:02.606256 [info ] [MainThread]: 
+[0m22:55:02.606661 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m22:55:02.608989 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m22:55:02.609332 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m22:55:04.167047 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m22:55:04.169171 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m22:55:04.903449 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e8764b0>]}
+[0m22:55:04.906155 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m22:55:04.963940 [debug] [Thread-3 (]: Began running node seed.logistics_lakehouse.drivers
+[0m22:55:04.964535 [debug] [Thread-4 (]: Began running node seed.logistics_lakehouse.hubs
+[0m22:55:04.964867 [debug] [Thread-5 (]: Began running node seed.logistics_lakehouse.shipments
+[0m22:55:04.965203 [debug] [Thread-6 (]: Began running node seed.logistics_lakehouse.weather_api_raw
+[0m22:55:04.966308 [info ] [Thread-3 (]: 1 of 9 START seed file logistics_mart.drivers .................................. [RUN]
+[0m22:55:04.968514 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now seed.logistics_lakehouse.drivers)
+[0m22:55:04.967570 [info ] [Thread-5 (]: 3 of 9 START seed file logistics_mart.shipments ................................ [RUN]
+[0m22:55:04.968076 [info ] [Thread-6 (]: 4 of 9 START seed file logistics_mart.weather_api_raw .......................... [RUN]
+[0m22:55:04.966941 [info ] [Thread-4 (]: 2 of 9 START seed file logistics_mart.hubs ..................................... [RUN]
+[0m22:55:04.969982 [debug] [Thread-4 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.hubs'
+[0m22:55:04.969269 [debug] [Thread-5 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.shipments'
+[0m22:55:04.969647 [debug] [Thread-6 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.weather_api_raw'
+[0m22:55:04.968852 [debug] [Thread-3 (]: Began compiling node seed.logistics_lakehouse.drivers
+[0m22:55:04.971182 [debug] [Thread-3 (]: Began executing node seed.logistics_lakehouse.drivers
+[0m22:55:04.970535 [debug] [Thread-5 (]: Began compiling node seed.logistics_lakehouse.shipments
+[0m22:55:04.970820 [debug] [Thread-6 (]: Began compiling node seed.logistics_lakehouse.weather_api_raw
+[0m22:55:04.970230 [debug] [Thread-4 (]: Began compiling node seed.logistics_lakehouse.hubs
+[0m22:55:04.985789 [debug] [Thread-5 (]: Began executing node seed.logistics_lakehouse.shipments
+[0m22:55:04.987529 [debug] [Thread-6 (]: Began executing node seed.logistics_lakehouse.weather_api_raw
+[0m22:55:05.000103 [debug] [Thread-4 (]: Began executing node seed.logistics_lakehouse.hubs
+[0m22:55:05.054176 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:55:05.055166 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m22:55:05.055498 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m22:55:05.056021 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m22:55:10.407864 [debug] [Thread-5 (]: On seed.logistics_lakehouse.shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.shipments"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`shipments` set OPTIONS()
+  
+[0m22:55:10.408517 [debug] [Thread-6 (]: On seed.logistics_lakehouse.weather_api_raw: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.weather_api_raw"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`weather_api_raw` set OPTIONS()
+  
+[0m22:55:10.851339 [debug] [Thread-4 (]: On seed.logistics_lakehouse.hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.hubs"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`hubs` set OPTIONS()
+  
+[0m22:55:10.918089 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:25c24d9a-7bfe-4847-bb93-f609640007df&page=queryresults
+[0m22:55:10.923884 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:318a3c2b-f5de-4c7d-9512-db05e4d2c01f&page=queryresults
+[0m22:55:10.997126 [debug] [Thread-3 (]: On seed.logistics_lakehouse.drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.drivers"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`drivers` set OPTIONS()
+  
+[0m22:55:11.281437 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:186ca718-9b57-4734-ba46-0540c0f22d5f&page=queryresults
+[0m22:55:11.510321 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:cb0e5f9a-5105-4c11-8bef-d69b2fded415&page=queryresults
+[0m22:55:11.537193 [debug] [Thread-6 (]: SQL status: OK in 0.612 seconds
+[0m22:55:11.548199 [debug] [Thread-6 (]: Writing runtime SQL for node "seed.logistics_lakehouse.weather_api_raw"
+[0m22:55:11.573711 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7cdb7230>]}
+[0m22:55:11.574224 [info ] [Thread-6 (]: 4 of 9 OK loaded seed file logistics_mart.weather_api_raw ...................... [[32mINSERT 3[0m in 6.60s]
+[0m22:55:11.574884 [debug] [Thread-6 (]: Finished running node seed.logistics_lakehouse.weather_api_raw
+[0m22:55:11.575446 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m22:55:11.575894 [info ] [Thread-6 (]: 5 of 9 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m22:55:11.576397 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.weather_api_raw, now model.logistics_lakehouse.stg_weather)
+[0m22:55:11.576740 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m22:55:11.581139 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m22:55:11.582172 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m22:55:11.592031 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m22:55:11.592869 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics-500519`.`logistics_mart`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m22:55:11.593171 [debug] [Thread-6 (]: Opening a new connection, currently in state closed
+[0m22:55:11.626625 [debug] [Thread-5 (]: SQL status: OK in 0.707 seconds
+[0m22:55:11.627998 [debug] [Thread-5 (]: Writing runtime SQL for node "seed.logistics_lakehouse.shipments"
+[0m22:55:11.632565 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7c1cbda0>]}
+[0m22:55:11.633090 [info ] [Thread-5 (]: 3 of 9 OK loaded seed file logistics_mart.shipments ............................ [[32mINSERT 3[0m in 6.66s]
+[0m22:55:11.633618 [debug] [Thread-5 (]: Finished running node seed.logistics_lakehouse.shipments
+[0m22:55:11.634180 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m22:55:11.634574 [info ] [Thread-5 (]: 6 of 9 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m22:55:11.635083 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.shipments, now model.logistics_lakehouse.stg_shipments)
+[0m22:55:11.635326 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m22:55:11.637215 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m22:55:11.637921 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m22:55:11.639224 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m22:55:11.639984 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics-500519`.`logistics_mart`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m22:55:11.640330 [debug] [Thread-5 (]: Opening a new connection, currently in state closed
+[0m22:55:11.889343 [debug] [Thread-4 (]: SQL status: OK in 0.607 seconds
+[0m22:55:11.890452 [debug] [Thread-4 (]: Writing runtime SQL for node "seed.logistics_lakehouse.hubs"
+[0m22:55:11.893896 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff54dc2270>]}
+[0m22:55:11.897931 [info ] [Thread-4 (]: 2 of 9 OK loaded seed file logistics_mart.hubs ................................. [[32mINSERT 3[0m in 6.92s]
+[0m22:55:11.898318 [debug] [Thread-4 (]: Finished running node seed.logistics_lakehouse.hubs
+[0m22:55:11.898683 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m22:55:11.898968 [info ] [Thread-4 (]: 7 of 9 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m22:55:11.899265 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.hubs, now model.logistics_lakehouse.dim_hubs)
+[0m22:55:11.899480 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m22:55:11.901209 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m22:55:11.904852 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m22:55:11.920585 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m22:55:11.921593 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics-500519`.`logistics_mart`.`hubs`
+    );
+  
+[0m22:55:11.921944 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m22:55:12.199302 [debug] [Thread-3 (]: SQL status: OK in 0.686 seconds
+[0m22:55:12.223616 [debug] [Thread-3 (]: Writing runtime SQL for node "seed.logistics_lakehouse.drivers"
+[0m22:55:12.236745 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7e874740>]}
+[0m22:55:12.237479 [info ] [Thread-3 (]: 1 of 9 OK loaded seed file logistics_mart.drivers .............................. [[32mINSERT 3[0m in 7.27s]
+[0m22:55:12.238603 [debug] [Thread-3 (]: Finished running node seed.logistics_lakehouse.drivers
+[0m22:55:12.239349 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m22:55:12.239801 [info ] [Thread-3 (]: 8 of 9 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m22:55:12.240238 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.drivers, now model.logistics_lakehouse.dim_drivers)
+[0m22:55:12.240565 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m22:55:12.243964 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m22:55:12.247442 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m22:55:12.252460 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m22:55:12.253696 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics-500519`.`logistics_mart`.`drivers`
+    );
+  
+[0m22:55:12.254064 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m22:55:12.542270 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:c5264cb2-f39f-4825-86f7-174188a2fce4&page=queryresults
+[0m22:55:12.595844 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:0f688f4d-534d-4f29-b6fa-4c41ade01574&page=queryresults
+[0m22:55:13.057824 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:40b773d7-d287-4eff-b2cf-f1abdeb8ea75&page=queryresults
+[0m22:55:13.259288 [debug] [Thread-6 (]: SQL status: OK in 0.716 seconds
+[0m22:55:13.278615 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7cee0050>]}
+[0m22:55:13.280112 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:bfcb84a1-e42c-4632-b123-c633227b9894&page=queryresults
+[0m22:55:13.281411 [info ] [Thread-6 (]: 5 of 9 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 1.70s]
+[0m22:55:13.283891 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m22:55:13.302356 [debug] [Thread-5 (]: SQL status: OK in 0.706 seconds
+[0m22:55:13.309051 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7ce73320>]}
+[0m22:55:13.310215 [info ] [Thread-5 (]: 6 of 9 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 1.67s]
+[0m22:55:13.311105 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m22:55:14.837369 [debug] [Thread-3 (]: SQL status: OK in 1.554 seconds
+[0m22:55:14.892631 [debug] [Thread-4 (]: SQL status: OK in 1.833 seconds
+[0m22:55:15.258937 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7ce675f0>]}
+[0m22:55:15.262116 [info ] [Thread-3 (]: 8 of 9 OK created sql table model logistics_mart.dim_drivers ................... [[32mCREATE TABLE (3.0 rows, 108.0 Bytes processed)[0m in 3.02s]
+[0m22:55:15.264345 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m22:55:15.285205 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7ce674d0>]}
+[0m22:55:15.286395 [info ] [Thread-4 (]: 7 of 9 OK created sql table model logistics_mart.dim_hubs ...................... [[32mCREATE TABLE (3.0 rows, 149.0 Bytes processed)[0m in 3.39s]
+[0m22:55:15.288568 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m22:55:15.300173 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:55:15.306134 [info ] [Thread-6 (]: 9 of 9 START sql table model logistics_mart.fact_shipment_weather .............. [RUN]
+[0m22:55:15.311543 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly model.logistics_lakehouse.stg_weather, now model.logistics_lakehouse.fact_shipment_weather)
+[0m22:55:15.312101 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.fact_shipment_weather
+[0m22:55:15.344089 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.fact_shipment_weather"
+[0m22:55:15.345952 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.fact_shipment_weather
+[0m22:55:15.349749 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.fact_shipment_weather"
+[0m22:55:15.353609 [debug] [Thread-6 (]: On model.logistics_lakehouse.fact_shipment_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.fact_shipment_weather"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      WITH shipments AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_shipments`
+),
+
+hubs AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_hubs`
+),
+
+weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_weather`
+)
+
+SELECT
+    s.shipment_id,
+    s.tracking_code,
+    s.shipment_status,
+    s.destination_city,
+    h.hub_name,
+    h.hub_city,
+    
+    -- Metrics
+    w.temperature_celsius,
+    w.precipitation_mm,
+    w.weather_code,
+    
+    s.order_placed_at,
+    s.last_updated_at
+FROM shipments s
+LEFT JOIN hubs h ON s.hub_id = h.hub_id
+LEFT JOIN weather w 
+    ON h.hub_city = w.hub_city 
+    -- Matches weather to the day the order was placed
+    AND DATE(s.order_placed_at) = DATE(w.weather_captured_at)
+    );
+  
+[0m22:55:15.355424 [debug] [Thread-6 (]: Opening a new connection, currently in state closed
+[0m22:55:16.619583 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6ccde648-7091-4819-ba47-437e3a51f853&page=queryresults
+[0m22:55:18.706727 [debug] [Thread-6 (]: SQL status: OK in 2.083 seconds
+[0m22:55:19.140098 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'a42dc8f3-497c-48d8-9382-c27367d2031e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffac7b61b0>]}
+[0m22:55:19.141509 [info ] [Thread-6 (]: 9 of 9 OK created sql table model logistics_mart.fact_shipment_weather ......... [[32mCREATE TABLE (3.0 rows, 423.0 Bytes processed)[0m in 3.83s]
+[0m22:55:19.142283 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m22:55:19.149202 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m22:55:19.192029 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m22:55:19.193074 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m22:55:19.193665 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_shipments' was properly closed.
+[0m22:55:19.194063 [debug] [MainThread]: Connection 'model.logistics_lakehouse.fact_shipment_weather' was properly closed.
+[0m22:55:19.194716 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m22:55:19.195289 [info ] [MainThread]: 
+[0m22:55:19.195775 [info ] [MainThread]: Finished running 4 seeds, 3 table models, 2 view models in 0 hours 0 minutes and 16.59 seconds (16.59s).
+[0m22:55:19.197142 [debug] [MainThread]: Command end result
+[0m22:55:19.223584 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m22:55:19.228026 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m22:55:19.232788 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m22:55:19.233031 [info ] [MainThread]: 
+[0m22:55:19.233307 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m22:55:19.233654 [info ] [MainThread]: 
+[0m22:55:19.234012 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=9
+[0m22:55:19.236589 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 18.156305, "process_in_blocks": "0", "process_kernel_time": 0.624259, "process_mem_max_rss": "258644", "process_out_blocks": "3704", "process_user_time": 6.383002}
+[0m22:55:19.237146 [debug] [MainThread]: Command `dbt build` succeeded at 22:55:19.237074 after 18.16 seconds
+[0m22:55:19.237733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf176ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf177020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaa575460>]}
+[0m22:55:19.238009 [debug] [MainThread]: Flushing usage events
+[0m22:55:20.964885 [debug] [MainThread]: An error was encountered while trying to flush usage events

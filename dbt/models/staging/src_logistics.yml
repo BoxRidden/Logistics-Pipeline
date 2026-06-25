@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: postgres_source
+    database: logistics-500519
+    schema: logistics_raw
+    tables:
+      - name: shipments
+      - name: hubs
+      - name: drivers
+
+  - name: raw_weather
+    database: logistics-500519
+    schema: logistics_raw
+    tables:
+      - name: weather_api_raw
