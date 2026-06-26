@@ -6624,3 +6624,177 @@ File Path                              PID    Runtime      # DAGs    # Errors  L
 /opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:29:22
 /opt/airflow/dags/dag_weather_api.py                            1           0  0.06s           2026-06-26T03:29:15
 ================================================================================
+[2026-06-26T03:30:11.329+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.23s           2026-06-26T03:29:43
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:29:46
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:29:53
+================================================================================
+[2026-06-26T03:30:41.732+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.10s           2026-06-26T03:30:13
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:30:16
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:30:23
+================================================================================
+[2026-06-26T03:31:12.181+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.19s           2026-06-26T03:30:43
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.09s           2026-06-26T03:30:54
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:30:46
+================================================================================
+[2026-06-26T03:31:42.630+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.11s           2026-06-26T03:31:14
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:31:17
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:31:24
+================================================================================
+[2026-06-26T03:32:13.150+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.14s           2026-06-26T03:31:44
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.09s           2026-06-26T03:31:47
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:31:54
+================================================================================
+[2026-06-26T03:32:43.596+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.13s           2026-06-26T03:32:15
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:32:25
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.07s           2026-06-26T03:32:18
+================================================================================
+[2026-06-26T03:32:52.775+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-06-26T03:32:52.796+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2026-06-26T03:33:14.117+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.28s           2026-06-26T03:32:56
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.17s           2026-06-26T03:32:45
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.05s           2026-06-26T03:32:48
+================================================================================
+[2026-06-26T03:33:44.530+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.09s           2026-06-26T03:33:16
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.08s           2026-06-26T03:33:26
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.07s           2026-06-26T03:33:19
+================================================================================
+[2026-06-26T03:34:14.929+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.13s           2026-06-26T03:33:46
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.08s           2026-06-26T03:33:56
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.06s           2026-06-26T03:33:49
+================================================================================
+[2026-06-26T03:34:45.526+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.21s           2026-06-26T03:34:17
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.09s           2026-06-26T03:34:27
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:34:20
+================================================================================
+[2026-06-26T03:35:16.009+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.27s           2026-06-26T03:34:47
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.18s           2026-06-26T03:34:57
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.11s           2026-06-26T03:34:50
+================================================================================
+[2026-06-26T03:35:46.597+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.19s           2026-06-26T03:35:18
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.14s           2026-06-26T03:35:21
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.09s           2026-06-26T03:35:28
+================================================================================
+[2026-06-26T03:36:16.876+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.20s           2026-06-26T03:35:48
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.08s           2026-06-26T03:35:51
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.05s           2026-06-26T03:35:58
+================================================================================
+[2026-06-26T03:36:47.275+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.18s           2026-06-26T03:36:19
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.07s           2026-06-26T03:36:22
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.06s           2026-06-26T03:36:29
+================================================================================
+[2026-06-26T03:37:17.696+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.17s           2026-06-26T03:36:49
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.09s           2026-06-26T03:36:52
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.07s           2026-06-26T03:36:59
+================================================================================
+[2026-06-26T03:37:48.170+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.11s           2026-06-26T03:37:19
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.10s           2026-06-26T03:37:22
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.06s           2026-06-26T03:37:29
+================================================================================
+[2026-06-26T03:37:53.287+0000] {manager.py:737} INFO - Searching for files in /opt/airflow/dags
+[2026-06-26T03:37:53.307+0000] {manager.py:740} INFO - There are 3 files in /opt/airflow/dags
+[2026-06-26T03:38:18.687+0000] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                              PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/dag_shipment_sim.py                           1           0  0.20s           2026-06-26T03:38:00
+/opt/airflow/dags/dag_gold_dbt.py                               1           0  0.13s           2026-06-26T03:37:50
+/opt/airflow/dags/dag_weather_api.py                            1           0  0.06s           2026-06-26T03:37:53
+================================================================================
