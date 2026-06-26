@@ -2153,3 +2153,330 @@ LEFT JOIN weather w
 [0m22:55:19.237733 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf176ff0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf177020>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaa575460>]}
 [0m22:55:19.238009 [debug] [MainThread]: Flushing usage events
 [0m22:55:20.964885 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m00:01:09.095458 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8afccce0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8afcec00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8adebbc0>]}
+
+
+============================== 00:01:09.099656 | de26c2f6-c379-44f1-982a-9fb12a6c5452 ==============================
+[0m00:01:09.099656 [info ] [MainThread]: Running with dbt=1.11.11
+[0m00:01:09.100156 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'indirect_selection': 'eager', 'quiet': 'False', 'use_experimental_parser': 'False', 'log_format': 'default', 'cache_selected_only': 'False', 'empty': 'False', 'invocation_command': 'dbt build --profiles-dir . --target dev', 'printer_width': '80', 'log_path': '/opt/airflow/dbt/logs', 'log_cache_events': 'False', 'no_print': 'None', 'partial_parse': 'True', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'debug': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'introspect': 'True', 'static_parser': 'True', 'profiles_dir': '.', 'fail_fast': 'False', 'write_json': 'True', 'version_check': 'True', 'use_colors': 'True'}
+[0m00:01:09.798496 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5ff61880>]}
+[0m00:01:09.821573 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5fb5ee10>]}
+[0m00:01:09.822035 [info ] [MainThread]: Registered adapter: bigquery=1.11.3
+[0m00:01:09.871908 [debug] [MainThread]: checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, vars: {}, profile: , target: dev, version: 1.11.11
+[0m00:01:09.916513 [info ] [MainThread]: Unable to do partial parsing because config vars, config profile, or config target have changed
+[0m00:01:09.917004 [debug] [MainThread]: previous checksum: b276df2e725538900e19c36eb2bf632d2152ccbe55054f2124b6d2db0feda968, current checksum: 30a8cc8fdcbf66701b0944d4ccce3fa46dd04b61e5df68b9f16d57b2e0e3f0be
+[0m00:01:09.917206 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8b574d70>]}
+[0m00:01:10.496071 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5d92d220>]}
+[0m00:01:10.546884 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m00:01:10.548186 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m00:01:10.567865 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5d7b3920>]}
+[0m00:01:10.568186 [info ] [MainThread]: Found 5 models, 4 seeds, 4 sources, 553 macros
+[0m00:01:10.569969 [info ] [MainThread]: 
+[0m00:01:10.570205 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:01:10.570416 [info ] [MainThread]: 
+[0m00:01:10.570732 [debug] [MainThread]: Acquiring new bigquery connection 'master'
+[0m00:01:10.573221 [debug] [ThreadPool]: Acquiring new bigquery connection 'list_logistics-500519'
+[0m00:01:10.573479 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:01:11.371650 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_logistics-500519, now list_logistics-500519_logistics_mart)
+[0m00:01:11.373529 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:01:12.183153 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5fa57170>]}
+[0m00:01:12.184725 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m00:01:12.237087 [debug] [Thread-3 (]: Began running node seed.logistics_lakehouse.drivers
+[0m00:01:12.237428 [debug] [Thread-4 (]: Began running node seed.logistics_lakehouse.hubs
+[0m00:01:12.237706 [debug] [Thread-5 (]: Began running node seed.logistics_lakehouse.shipments
+[0m00:01:12.238020 [debug] [Thread-6 (]: Began running node seed.logistics_lakehouse.weather_api_raw
+[0m00:01:12.238368 [info ] [Thread-3 (]: 1 of 9 START seed file logistics_mart.drivers .................................. [RUN]
+[0m00:01:12.238825 [info ] [Thread-4 (]: 2 of 9 START seed file logistics_mart.hubs ..................................... [RUN]
+[0m00:01:12.239256 [info ] [Thread-5 (]: 3 of 9 START seed file logistics_mart.shipments ................................ [RUN]
+[0m00:01:12.239719 [info ] [Thread-6 (]: 4 of 9 START seed file logistics_mart.weather_api_raw .......................... [RUN]
+[0m00:01:12.240188 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_logistics-500519_logistics_mart, now seed.logistics_lakehouse.drivers)
+[0m00:01:12.240559 [debug] [Thread-4 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.hubs'
+[0m00:01:12.240918 [debug] [Thread-5 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.shipments'
+[0m00:01:12.241239 [debug] [Thread-6 (]: Acquiring new bigquery connection 'seed.logistics_lakehouse.weather_api_raw'
+[0m00:01:12.241501 [debug] [Thread-3 (]: Began compiling node seed.logistics_lakehouse.drivers
+[0m00:01:12.241818 [debug] [Thread-4 (]: Began compiling node seed.logistics_lakehouse.hubs
+[0m00:01:12.242087 [debug] [Thread-5 (]: Began compiling node seed.logistics_lakehouse.shipments
+[0m00:01:12.242349 [debug] [Thread-6 (]: Began compiling node seed.logistics_lakehouse.weather_api_raw
+[0m00:01:12.242613 [debug] [Thread-3 (]: Began executing node seed.logistics_lakehouse.drivers
+[0m00:01:12.242898 [debug] [Thread-4 (]: Began executing node seed.logistics_lakehouse.hubs
+[0m00:01:12.243165 [debug] [Thread-5 (]: Began executing node seed.logistics_lakehouse.shipments
+[0m00:01:12.243433 [debug] [Thread-6 (]: Began executing node seed.logistics_lakehouse.weather_api_raw
+[0m00:01:12.282390 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:01:12.283107 [debug] [Thread-6 (]: Opening a new connection, currently in state init
+[0m00:01:12.283463 [debug] [Thread-5 (]: Opening a new connection, currently in state init
+[0m00:01:12.284084 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:01:18.158843 [debug] [Thread-5 (]: On seed.logistics_lakehouse.shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.shipments"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`shipments` set OPTIONS()
+  
+[0m00:01:18.174862 [debug] [Thread-3 (]: On seed.logistics_lakehouse.drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.drivers"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`drivers` set OPTIONS()
+  
+[0m00:01:18.638691 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:e0c1939e-d3d0-426a-8bae-aaaf47313243&page=queryresults
+[0m00:01:18.723286 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:899989ea-06ca-4480-a2d6-854a7ff2ac91&page=queryresults
+[0m00:01:18.860412 [debug] [Thread-6 (]: On seed.logistics_lakehouse.weather_api_raw: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.weather_api_raw"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`weather_api_raw` set OPTIONS()
+  
+[0m00:01:19.325628 [debug] [Thread-4 (]: On seed.logistics_lakehouse.hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "seed.logistics_lakehouse.hubs"} */
+
+    alter table `logistics-500519`.`logistics_mart`.`hubs` set OPTIONS()
+  
+[0m00:01:19.346014 [debug] [Thread-5 (]: SQL status: OK in 0.706 seconds
+[0m00:01:19.358823 [debug] [Thread-5 (]: Writing runtime SQL for node "seed.logistics_lakehouse.shipments"
+[0m00:01:19.505128 [debug] [Thread-3 (]: SQL status: OK in 0.780 seconds
+[0m00:01:19.508587 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8c0a1b20>]}
+[0m00:01:19.509381 [debug] [Thread-3 (]: Writing runtime SQL for node "seed.logistics_lakehouse.drivers"
+[0m00:01:19.509878 [info ] [Thread-5 (]: 3 of 9 OK loaded seed file logistics_mart.shipments ............................ [[32mINSERT 3[0m in 7.27s]
+[0m00:01:19.515188 [debug] [Thread-5 (]: Finished running node seed.logistics_lakehouse.shipments
+[0m00:01:19.517551 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.stg_shipments
+[0m00:01:19.518802 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff641b26f0>]}
+[0m00:01:19.519150 [info ] [Thread-5 (]: 5 of 9 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[0m00:01:19.519684 [info ] [Thread-3 (]: 1 of 9 OK loaded seed file logistics_mart.drivers .............................. [[32mINSERT 3[0m in 7.28s]
+[0m00:01:19.520145 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.shipments, now model.logistics_lakehouse.stg_shipments)
+[0m00:01:19.520526 [debug] [Thread-3 (]: Finished running node seed.logistics_lakehouse.drivers
+[0m00:01:19.520793 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.stg_shipments
+[0m00:01:19.521268 [debug] [Thread-3 (]: Began running node model.logistics_lakehouse.dim_drivers
+[0m00:01:19.525106 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_shipments"
+[0m00:01:19.525449 [info ] [Thread-3 (]: 6 of 9 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[0m00:01:19.526036 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.drivers, now model.logistics_lakehouse.dim_drivers)
+[0m00:01:19.526505 [debug] [Thread-3 (]: Began compiling node model.logistics_lakehouse.dim_drivers
+[0m00:01:19.526784 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.stg_shipments
+[0m00:01:19.528037 [debug] [Thread-3 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_drivers"
+[0m00:01:19.536607 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+[0m00:01:19.537696 [debug] [Thread-5 (]: On model.logistics_lakehouse.stg_shipments: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_shipments"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        created_at,
+        updated_at
+    FROM `logistics-500519`.`logistics_mart`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+[0m00:01:19.537892 [debug] [Thread-3 (]: Began executing node model.logistics_lakehouse.dim_drivers
+[0m00:01:19.538137 [debug] [Thread-5 (]: Opening a new connection, currently in state closed
+[0m00:01:19.542699 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:01:19.793610 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:64bb2dcf-802e-4c79-bb1c-08fd5fd7f6aa&page=queryresults
+[0m00:01:19.833698 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:6dcb07fa-4d61-49dd-8d16-aa5e408439b9&page=queryresults
+[0m00:01:20.354645 [debug] [Thread-3 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+[0m00:01:20.356683 [debug] [Thread-3 (]: On model.logistics_lakehouse.dim_drivers: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_drivers"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type,
+    created_at AS employment_start_date
+FROM `logistics-500519`.`logistics_mart`.`drivers`
+    );
+  
+[0m00:01:20.537461 [debug] [Thread-6 (]: SQL status: OK in 0.741 seconds
+[0m00:01:20.541949 [debug] [Thread-6 (]: Writing runtime SQL for node "seed.logistics_lakehouse.weather_api_raw"
+[0m00:01:20.553212 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5c215a90>]}
+[0m00:01:20.554171 [info ] [Thread-6 (]: 4 of 9 OK loaded seed file logistics_mart.weather_api_raw ...................... [[32mINSERT 3[0m in 8.31s]
+[0m00:01:20.555608 [debug] [Thread-6 (]: Finished running node seed.logistics_lakehouse.weather_api_raw
+[0m00:01:20.556803 [debug] [Thread-6 (]: Began running node model.logistics_lakehouse.stg_weather
+[0m00:01:20.557978 [info ] [Thread-6 (]: 7 of 9 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[0m00:01:20.559699 [debug] [Thread-6 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.weather_api_raw, now model.logistics_lakehouse.stg_weather)
+[0m00:01:20.560505 [debug] [Thread-6 (]: Began compiling node model.logistics_lakehouse.stg_weather
+[0m00:01:20.566228 [debug] [Thread-6 (]: Writing injected SQL for node "model.logistics_lakehouse.stg_weather"
+[0m00:01:20.568240 [debug] [Thread-6 (]: Began executing node model.logistics_lakehouse.stg_weather
+[0m00:01:20.570523 [debug] [Thread-6 (]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+[0m00:01:20.572256 [debug] [Thread-6 (]: On model.logistics_lakehouse.stg_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.stg_weather"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics-500519`.`logistics_mart`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+[0m00:01:20.572687 [debug] [Thread-6 (]: Opening a new connection, currently in state closed
+[0m00:01:20.639654 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:3da6bfbc-a36d-4c11-8b21-8622f5aab0c1&page=queryresults
+[0m00:01:21.036850 [debug] [Thread-4 (]: SQL status: OK in 1.202 seconds
+[0m00:01:21.041943 [debug] [Thread-4 (]: Writing runtime SQL for node "seed.logistics_lakehouse.hubs"
+[0m00:01:21.054814 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5c2150a0>]}
+[0m00:01:21.056448 [info ] [Thread-4 (]: 2 of 9 OK loaded seed file logistics_mart.hubs ................................. [[32mINSERT 3[0m in 8.81s]
+[0m00:01:21.057834 [debug] [Thread-4 (]: Finished running node seed.logistics_lakehouse.hubs
+[0m00:01:21.059071 [debug] [Thread-4 (]: Began running node model.logistics_lakehouse.dim_hubs
+[0m00:01:21.059781 [info ] [Thread-4 (]: 8 of 9 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[0m00:01:21.060465 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly seed.logistics_lakehouse.hubs, now model.logistics_lakehouse.dim_hubs)
+[0m00:01:21.061022 [debug] [Thread-4 (]: Began compiling node model.logistics_lakehouse.dim_hubs
+[0m00:01:21.066519 [debug] [Thread-4 (]: Writing injected SQL for node "model.logistics_lakehouse.dim_hubs"
+[0m00:01:21.067880 [debug] [Thread-4 (]: Began executing node model.logistics_lakehouse.dim_hubs
+[0m00:01:21.069844 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m00:01:21.381741 [debug] [Thread-5 (]: SQL status: OK in 0.741 seconds
+[0m00:01:21.386856 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f3aa8d0>]}
+[0m00:01:21.387329 [info ] [Thread-5 (]: 5 of 9 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 1.87s]
+[0m00:01:21.387981 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.stg_shipments
+[0m00:01:21.469032 [debug] [Thread-3 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:46b69bea-1968-4338-970a-9d056fa19cb4&page=queryresults
+[0m00:01:21.629492 [debug] [Thread-6 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:de80f03f-fb5a-416d-9885-d07de51641fd&page=queryresults
+[0m00:01:21.780984 [debug] [Thread-4 (]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+[0m00:01:21.783100 [debug] [Thread-4 (]: On model.logistics_lakehouse.dim_hubs: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.dim_hubs"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics-500519`.`logistics_mart`.`hubs`
+    );
+  
+[0m00:01:22.402764 [debug] [Thread-6 (]: SQL status: OK in 0.771 seconds
+[0m00:01:22.410095 [debug] [Thread-6 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f2fa780>]}
+[0m00:01:22.411726 [info ] [Thread-6 (]: 7 of 9 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 1.85s]
+[0m00:01:22.412526 [debug] [Thread-6 (]: Finished running node model.logistics_lakehouse.stg_weather
+[0m00:01:22.546910 [debug] [Thread-4 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:48de1dbf-da49-41ec-b94a-b0bee398800b&page=queryresults
+[0m00:01:24.136913 [debug] [Thread-3 (]: SQL status: OK in 2.667 seconds
+[0m00:01:24.529569 [debug] [Thread-4 (]: SQL status: OK in 1.982 seconds
+[0m00:01:24.552376 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5d9f60f0>]}
+[0m00:01:24.553946 [info ] [Thread-3 (]: 6 of 9 OK created sql table model logistics_mart.dim_drivers ................... [[32mCREATE TABLE (3.0 rows, 108.0 Bytes processed)[0m in 5.03s]
+[0m00:01:24.556019 [debug] [Thread-3 (]: Finished running node model.logistics_lakehouse.dim_drivers
+[0m00:01:24.961510 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5d9ddd00>]}
+[0m00:01:24.962949 [info ] [Thread-4 (]: 8 of 9 OK created sql table model logistics_mart.dim_hubs ...................... [[32mCREATE TABLE (3.0 rows, 149.0 Bytes processed)[0m in 3.90s]
+[0m00:01:24.964228 [debug] [Thread-4 (]: Finished running node model.logistics_lakehouse.dim_hubs
+[0m00:01:24.966484 [debug] [Thread-5 (]: Began running node model.logistics_lakehouse.fact_shipment_weather
+[0m00:01:24.967194 [info ] [Thread-5 (]: 9 of 9 START sql table model logistics_mart.fact_shipment_weather .............. [RUN]
+[0m00:01:24.968080 [debug] [Thread-5 (]: Re-using an available connection from the pool (formerly model.logistics_lakehouse.stg_shipments, now model.logistics_lakehouse.fact_shipment_weather)
+[0m00:01:24.968560 [debug] [Thread-5 (]: Began compiling node model.logistics_lakehouse.fact_shipment_weather
+[0m00:01:24.974396 [debug] [Thread-5 (]: Writing injected SQL for node "model.logistics_lakehouse.fact_shipment_weather"
+[0m00:01:24.975698 [debug] [Thread-5 (]: Began executing node model.logistics_lakehouse.fact_shipment_weather
+[0m00:01:24.977620 [debug] [Thread-5 (]: Opening a new connection, currently in state closed
+[0m00:01:25.735866 [debug] [Thread-5 (]: Writing runtime sql for node "model.logistics_lakehouse.fact_shipment_weather"
+[0m00:01:25.738762 [debug] [Thread-5 (]: On model.logistics_lakehouse.fact_shipment_weather: /* {"app": "dbt", "dbt_version": "1.11.11", "profile_name": "logistics_profile", "target_name": "dev", "node_id": "model.logistics_lakehouse.fact_shipment_weather"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      WITH shipments AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_shipments`
+),
+
+hubs AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_hubs`
+),
+
+weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_weather`
+)
+
+SELECT
+    s.shipment_id,
+    s.tracking_code,
+    s.shipment_status,
+    s.destination_city,
+    h.hub_name,
+    h.hub_city,
+    
+    -- Metrics
+    w.temperature_celsius,
+    w.precipitation_mm,
+    w.weather_code,
+    
+    s.order_placed_at,
+    s.last_updated_at
+FROM shipments s
+LEFT JOIN hubs h ON s.hub_id = h.hub_id
+LEFT JOIN weather w 
+    ON h.hub_city = w.hub_city 
+    -- Matches weather to the day the order was placed
+    AND DATE(s.order_placed_at) = DATE(w.weather_captured_at)
+    );
+  
+[0m00:01:26.659618 [debug] [Thread-5 (]: BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:b5029522-b8ba-4314-8a2f-619f82f5dd7b&page=queryresults
+[0m00:01:29.128736 [debug] [Thread-5 (]: SQL status: OK in 2.468 seconds
+[0m00:01:29.535623 [debug] [Thread-5 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'de26c2f6-c379-44f1-982a-9fb12a6c5452', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f519850>]}
+[0m00:01:29.537535 [info ] [Thread-5 (]: 9 of 9 OK created sql table model logistics_mart.fact_shipment_weather ......... [[32mCREATE TABLE (3.0 rows, 423.0 Bytes processed)[0m in 4.57s]
+[0m00:01:29.539769 [debug] [Thread-5 (]: Finished running node model.logistics_lakehouse.fact_shipment_weather
+[0m00:01:29.544720 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m00:01:29.586820 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:01:29.587094 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_drivers' was properly closed.
+[0m00:01:29.587340 [debug] [MainThread]: Connection 'model.logistics_lakehouse.dim_hubs' was properly closed.
+[0m00:01:29.587618 [debug] [MainThread]: Connection 'model.logistics_lakehouse.fact_shipment_weather' was properly closed.
+[0m00:01:29.587900 [debug] [MainThread]: Connection 'model.logistics_lakehouse.stg_weather' was properly closed.
+[0m00:01:29.588256 [info ] [MainThread]: 
+[0m00:01:29.588822 [info ] [MainThread]: Finished running 4 seeds, 3 table models, 2 view models in 0 hours 0 minutes and 19.02 seconds (19.02s).
+[0m00:01:29.590001 [debug] [MainThread]: Command end result
+[0m00:01:29.615320 [debug] [MainThread]: Wrote artifact WritableManifest to /opt/airflow/dbt/target/manifest.json
+[0m00:01:29.617634 [debug] [MainThread]: Wrote artifact SemanticManifest to /opt/airflow/dbt/target/semantic_manifest.json
+[0m00:01:29.621739 [debug] [MainThread]: Wrote artifact RunExecutionResult to /opt/airflow/dbt/target/run_results.json
+[0m00:01:29.621936 [info ] [MainThread]: 
+[0m00:01:29.622430 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:01:29.622608 [info ] [MainThread]: 
+[0m00:01:29.623066 [info ] [MainThread]: Done. PASS=9 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=9
+[0m00:01:29.624951 [debug] [MainThread]: Resource report: {"command_name": "build", "command_success": true, "command_wall_clock_time": 20.555586, "process_in_blocks": "0", "process_kernel_time": 0.860084, "process_mem_max_rss": "259556", "process_out_blocks": "3705", "process_user_time": 6.297228}
+[0m00:01:29.625440 [debug] [MainThread]: Command `dbt build` succeeded at 00:01:29.625375 after 20.56 seconds
+[0m00:01:29.625768 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bb0f470>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5c57f110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5ff26450>]}
+[0m00:01:29.625979 [debug] [MainThread]: Flushing usage events
+[0m00:01:31.334067 [debug] [MainThread]: An error was encountered while trying to flush usage events

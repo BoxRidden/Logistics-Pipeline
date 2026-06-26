@@ -1,4 +1,3 @@
-# dags/dag_shipment_sim.py
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
@@ -6,7 +5,7 @@ import psycopg2
 import random
 import uuid
 
-# Database connection details (Matches our docker-compose.yaml)
+# Database connection details 
 DB_CONFIG = {
     "host": "postgres-source",
     "port": 5432,
@@ -19,8 +18,7 @@ def simulate_shipments():
     """Connects to Postgres to create new orders and update old ones."""
     conn = psycopg2.connect(**DB_CONFIG)
     cursor = conn.cursor()
-
-    # 1. Update existing shipments (Move them through the delivery pipeline)
+#Update shipments
     cursor.execute("""
         UPDATE shipments 
         SET status = CASE 
@@ -32,7 +30,7 @@ def simulate_shipments():
     """)
     updated_count = cursor.rowcount
 
-    # 2. Generate 5 to 15 NEW shipments
+    #Generate 5 to 15 new shipments
     new_shipments_count = random.randint(5, 15)
     for _ in range(new_shipments_count):
         tracking_code = f"VN-{uuid.uuid4().hex[:8].upper()}"

@@ -1,5 +1,3 @@
--- data-init/01_logistics_schema.sql
-
 CREATE TABLE IF NOT EXISTS hubs (
     hub_id SERIAL PRIMARY KEY,
     name VARCHAR(100),
@@ -27,7 +25,7 @@ CREATE TABLE IF NOT EXISTS shipments (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert base Hubs (Cities we will track weather for)
+-- Insert base Hubs (For tracking weathers)
 INSERT INTO hubs (name, city, lat, lon) VALUES
 ('Hanoi Central Hub', 'Hanoi', 21.0285, 105.8542),
 ('Da Nang Port Hub', 'Da Nang', 16.0471, 108.2068),
