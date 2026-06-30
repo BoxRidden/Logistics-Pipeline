@@ -1,67 +1,67 @@
+import pandas as pd
+import requests
+from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
-import requests
-import json
-import os
+from google.oauth2 import service_account
+from google.cloud import bigquery
+from pipeline_datasets import weather_dataset
 
-HUBS = {
-    "Hanoi": {"lat": 21.0285, "lon": 105.8542},
-    "Da_Nang": {"lat": 16.0471, "lon": 108.2068},
-    "HCM": {"lat": 10.8231, "lon": 106.6297}
-}
-
-RAW_DATA_DIR = "/opt/airflow/dags/data/weather/raw"
-
-def fetch_weather_data(**kwargs):
-    """Fetches current weather for all hubs and saves it as a JSON file."""
-    # Create the folder if it doesn't exist
-    os.makedirs(RAW_DATA_DIR, exist_ok=True)
+def fetch_and_push_weather():
+    # 1. Setup BigQuery Connection
+    key_path = "/opt/airflow/config/gcp-key.json"
+    project_id = "logistics-500519"
+    dataset_id = "logistics_raw"
+    table_id = "weather_api_raw"
     
-    execution_date = kwargs['ds'] 
+    credentials = service_account.Credentials.from_service_account_file(key_path)
+    bq_client = bigquery.Client(credentials=credentials, project=project_id)
     
-    weather_records = []
-
-    for city, coords in HUBS.items():
-        # Open-Meteo API
-        url = f"https://api.open-meteo.com/v1/forecast?latitude={coords['lat']}&longitude={coords['lon']}&current=temperature_2m,precipitation,rain,showers,snowfall,weather_code&timezone=Asia%2FBangkok"
+    # 2. Fetch Live Weather from Open-Meteo
+    cities = {
+        "Hanoi": {"lat": 21.0285, "lon": 105.8542},
+        "Da Nang": {"lat": 16.0471, "lon": 108.2068},
+        "Ho Chi Minh City": {"lat": 10.8231, "lon": 106.6297}
+    }
+    
+    weather_data = []
+    for city, coords in cities.items():
+        url = f"https://api.open-meteo.com/v1/forecast?latitude={coords['lat']}&longitude={coords['lon']}&current_weather=true"
+        response = requests.get(url).json()
         
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json()
-            # Attach city name and timestamp to payload
-            data['hub_city'] = city
-            data['captured_at'] = execution_date
-            weather_records.append(data)
-            print(f"Successfully fetched weather for {city}")
-        else:
-            print(f"Failed to fetch weather for {city}. Status: {response.status_code}")
-
-    # Save to Bronze Data Lake layer 
-    file_path = f"{RAW_DATA_DIR}/weather_{execution_date}.json"
-    with open(file_path, "w") as f:
-        json.dump(weather_records, f, indent=4)
+        weather_data.append({
+            "hub_city": city,
+            "captured_at": datetime.now().isoformat(),
+            "temperature_2m": response["current_weather"]["temperature"],
+            "precipitation": 0.0, # Using 0.0 as default if current_weather lacks it
+            "weather_code": response["current_weather"]["weathercode"]
+        })
+        
+    df = pd.DataFrame(weather_data)
     
-    print(f"Saved raw weather data to {file_path}")
+    # 3. Push to BigQuery
+    table_dest = f"{project_id}.{dataset_id}.{table_id}"
+    job_config = bigquery.LoadJobConfig(write_disposition="WRITE_TRUNCATE")
+    job = bq_client.load_table_from_dataframe(df, table_dest, job_config=job_config)
+    job.result()
+    print(f"Successfully pushed live weather for {len(df)} cities to BigQuery.")
 
-# Define the Airflow DAG
+# --- THE AIRFLOW DAG ---
 default_args = {
-    'owner': 'data_engineer',
-    'start_date': datetime(2023, 1, 1),
-    'retries': 2,
-    'retry_delay': timedelta(minutes=5)
+    'owner': 'airflow',
+    'start_date': datetime(2026, 6, 1),
 }
 
 with DAG(
-    'weather_api_ingestion',
-    default_args=default_args,
-    schedule_interval='@daily', 
+    'weather_api_to_bq', 
+    default_args=default_args, 
+    schedule_interval='@hourly', 
     catchup=False,
-    tags=['ingestion', 'api', 'bronze']
+    tags=['ingestion', 'api', 'weather']
 ) as dag:
-
-    fetch_weather = PythonOperator(
-        task_id='fetch_open_meteo',
-        python_callable=fetch_weather_data,
-        provide_context=True
+    
+    PythonOperator(
+        task_id='fetch_push_weather',
+        python_callable=fetch_and_push_weather,
+        outlets=[weather_dataset] # This signals dbt to run after the weather arrives!
     )

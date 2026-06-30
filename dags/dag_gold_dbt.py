@@ -23,4 +23,3 @@ with DAG(
         task_id='trigger_dbt_build',
         bash_command='cd /opt/airflow/dbt && dbt build --profiles-dir . --target dev'
     )
-    

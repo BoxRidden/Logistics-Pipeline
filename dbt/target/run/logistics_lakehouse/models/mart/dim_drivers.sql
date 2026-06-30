@@ -18,6 +18,6 @@ SELECT
     name AS driver_name,
     vehicle_type,
     created_at AS employment_start_date
-FROM `logistics-500519`.`logistics_mart`.`drivers`
+FROM `logistics-500519`.`logistics_raw`.`drivers`
     );
   

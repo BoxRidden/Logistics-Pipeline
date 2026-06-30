@@ -6,4 +6,4 @@ SELECT
     name AS driver_name,
     vehicle_type,
     created_at AS employment_start_date
-FROM {{ ref('drivers') }}
+FROM {{ source('postgres_source', 'drivers') }}

@@ -8,7 +8,7 @@ WITH raw_shipments AS (
         status,
         created_at,
         updated_at
-    FROM {{ ref('shipments') }}
+    FROM {{ source('postgres_source', 'shipments') }}
 )
 
 SELECT

@@ -12,7 +12,7 @@
         status,
         created_at,
         updated_at
-    FROM `logistics-500519`.`logistics_mart`.`shipments`
+    FROM `logistics-500519`.`logistics_raw`.`shipments`
 )
 
 SELECT

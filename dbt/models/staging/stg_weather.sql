@@ -6,7 +6,7 @@ WITH raw_weather AS (
         temperature_2m,
         precipitation,
         weather_code
-    FROM {{ ref('weather_api_raw') }}
+    FROM {{ source('raw_weather', 'weather_api_raw') }}
 )
 
 SELECT

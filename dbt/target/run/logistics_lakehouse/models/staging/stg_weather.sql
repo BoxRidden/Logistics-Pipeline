@@ -10,7 +10,7 @@
         temperature_2m,
         precipitation,
         weather_code
-    FROM `logistics-500519`.`logistics_mart`.`weather_api_raw`
+    FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
 )
 
 SELECT

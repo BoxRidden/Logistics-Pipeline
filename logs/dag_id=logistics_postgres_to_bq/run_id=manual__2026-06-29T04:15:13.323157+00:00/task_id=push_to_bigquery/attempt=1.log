@@ -1,0 +1,24 @@
+[2026-06-29T04:15:14.846+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-29T04:15:14.858+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery manual__2026-06-29T04:15:13.323157+00:00 [queued]>
+[2026-06-29T04:15:14.860+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery manual__2026-06-29T04:15:13.323157+00:00 [queued]>
+[2026-06-29T04:15:14.861+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-06-29T04:15:14.865+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): push_to_bigquery> on 2026-06-29 04:15:13.323157+00:00
+[2026-06-29T04:15:14.871+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'logistics_postgres_to_bq', 'push_to_bigquery', 'manual__2026-06-29T04:15:13.323157+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_to_bq.py', '--cfg-path', '/tmp/tmpgygyb8l8']
+[2026-06-29T04:15:14.873+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=828) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-29T04:15:14.874+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask push_to_bigquery
+[2026-06-29T04:15:14.875+0000] {standard_task_runner.py:63} INFO - Started process 830 to run task
+[2026-06-29T04:15:14.900+0000] {task_command.py:426} INFO - Running <TaskInstance: logistics_postgres_to_bq.push_to_bigquery manual__2026-06-29T04:15:13.323157+00:00 [running]> on host ae627d26e698
+[2026-06-29T04:15:15.125+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='logistics_postgres_to_bq' AIRFLOW_CTX_TASK_ID='push_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2026-06-29T04:15:13.323157+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-06-29T04:15:13.323157+00:00'
+[2026-06-29T04:15:15.126+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-29T04:15:16.533+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-06-29T04:15:21.702+0000] {logging_mixin.py:188} INFO - Pushed 12 rows from shipments to BigQuery.
+[2026-06-29T04:15:21.707+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-06-29T04:15:25.082+0000] {logging_mixin.py:188} INFO - Pushed 3 rows from hubs to BigQuery.
+[2026-06-29T04:15:25.085+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-06-29T04:15:29.131+0000] {logging_mixin.py:188} INFO - Pushed 3 rows from drivers to BigQuery.
+[2026-06-29T04:15:29.133+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-06-29T04:15:29.137+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-29T04:15:29.194+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=logistics_postgres_to_bq, task_id=push_to_bigquery, run_id=manual__2026-06-29T04:15:13.323157+00:00, execution_date=20260629T041513, start_date=20260629T041514, end_date=20260629T041529
+[2026-06-29T04:15:29.255+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-06-29T04:15:29.270+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-29T04:15:29.271+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

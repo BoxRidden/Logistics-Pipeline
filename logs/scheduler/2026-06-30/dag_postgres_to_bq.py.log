@@ -1,0 +1,588 @@
+[2026-06-30T00:01:41.493+0000] {processor.py:161} INFO - Started process (PID=18046) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:01:41.495+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:01:41.496+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:01:41.496+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:01:42.021+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:01:42.044+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:01:42.044+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:01:42.057+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:01:42.057+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:01:42.067+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.580 seconds
+[2026-06-30T00:02:12.496+0000] {processor.py:161} INFO - Started process (PID=18116) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:02:12.498+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:02:12.499+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:02:12.499+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:02:12.975+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:02:12.992+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:02:12.992+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:02:13.003+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:02:13.003+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:02:13.015+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.526 seconds
+[2026-06-30T00:16:49.831+0000] {processor.py:161} INFO - Started process (PID=18144) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:16:49.833+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:16:49.835+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:16:49.834+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:16:50.386+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:16:50.407+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:16:50.407+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:16:50.419+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:16:50.419+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:16:50.429+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.606 seconds
+[2026-06-30T00:17:21.008+0000] {processor.py:161} INFO - Started process (PID=18170) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:17:21.012+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:17:21.013+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:17:21.013+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:17:21.528+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:17:21.542+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:17:21.542+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:17:21.552+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:17:21.552+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:17:21.564+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.579 seconds
+[2026-06-30T00:33:26.570+0000] {processor.py:161} INFO - Started process (PID=18197) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:33:26.572+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:33:26.573+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:33:26.572+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:33:27.071+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:33:27.086+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:33:27.085+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:33:27.101+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:33:27.101+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:33:27.112+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.551 seconds
+[2026-06-30T00:49:15.836+0000] {processor.py:161} INFO - Started process (PID=18225) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:15.837+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:49:15.838+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:15.838+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:16.347+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:16.368+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:16.368+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:49:16.377+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:16.377+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:49:16.388+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.559 seconds
+[2026-06-30T00:49:46.820+0000] {processor.py:161} INFO - Started process (PID=18252) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:46.821+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T00:49:46.823+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:46.823+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:47.129+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T00:49:47.140+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:47.140+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T00:49:47.147+0000] {logging_mixin.py:188} INFO - [2026-06-30T00:49:47.146+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T00:49:47.156+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.341 seconds
+[2026-06-30T01:06:54.009+0000] {processor.py:161} INFO - Started process (PID=18279) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:06:54.010+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:06:54.011+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:06:54.011+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:06:54.550+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:06:54.567+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:06:54.567+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:06:54.582+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:06:54.582+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:06:54.604+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.598 seconds
+[2026-06-30T01:07:25.169+0000] {processor.py:161} INFO - Started process (PID=18316) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:07:25.170+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:07:25.171+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:07:25.171+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:07:25.481+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:07:25.495+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:07:25.495+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:07:25.505+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:07:25.505+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:07:25.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.352 seconds
+[2026-06-30T01:17:55.249+0000] {processor.py:161} INFO - Started process (PID=18342) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:17:55.250+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:17:55.252+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:17:55.252+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:17:55.785+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:17:55.805+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:17:55.805+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:17:55.814+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:17:55.814+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:17:55.827+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.587 seconds
+[2026-06-30T01:35:05.000+0000] {processor.py:161} INFO - Started process (PID=18370) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:05.002+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:35:05.004+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:05.004+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:05.768+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:05.788+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:05.788+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:35:05.797+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:05.797+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:35:05.808+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.819 seconds
+[2026-06-30T01:35:36.477+0000] {processor.py:161} INFO - Started process (PID=18396) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:36.479+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:35:36.480+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:36.480+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:37.000+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:35:37.016+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:37.016+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:35:37.028+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:35:37.027+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:35:37.039+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.574 seconds
+[2026-06-30T01:52:11.436+0000] {processor.py:161} INFO - Started process (PID=18423) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:11.437+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:52:11.439+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:11.438+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:11.917+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:11.930+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:11.929+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:52:11.938+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:11.938+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:52:11.951+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.528 seconds
+[2026-06-30T01:52:42.582+0000] {processor.py:161} INFO - Started process (PID=18450) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:42.583+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T01:52:42.586+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:42.585+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:43.099+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T01:52:43.112+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:43.112+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T01:52:43.119+0000] {logging_mixin.py:188} INFO - [2026-06-30T01:52:43.119+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T01:52:43.136+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.566 seconds
+[2026-06-30T02:10:11.333+0000] {processor.py:161} INFO - Started process (PID=18479) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:10:11.335+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:10:11.337+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:10:11.337+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:10:11.872+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:10:11.887+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:10:11.886+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:10:11.896+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:10:11.895+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:10:11.908+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.588 seconds
+[2026-06-30T02:18:43.484+0000] {processor.py:161} INFO - Started process (PID=18515) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:18:43.485+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:18:43.486+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:18:43.486+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:18:43.996+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:18:44.012+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:18:44.012+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:18:44.021+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:18:44.021+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:18:44.034+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.555 seconds
+[2026-06-30T02:19:14.556+0000] {processor.py:161} INFO - Started process (PID=18541) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:19:14.557+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:19:14.558+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:19:14.558+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:19:14.933+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:19:14.944+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:19:14.944+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:19:14.951+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:19:14.951+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:19:14.964+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.414 seconds
+[2026-06-30T02:25:53.667+0000] {processor.py:161} INFO - Started process (PID=18568) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:25:53.668+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:25:53.670+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:25:53.669+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:25:54.245+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:25:54.267+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:25:54.267+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:25:54.279+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:25:54.279+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:25:54.291+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.629 seconds
+[2026-06-30T02:26:51.316+0000] {processor.py:161} INFO - Started process (PID=18595) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:26:51.318+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:26:51.320+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:26:51.320+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:26:51.944+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:26:51.964+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:26:51.964+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:26:51.976+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:26:51.976+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:26:51.989+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.701 seconds
+[2026-06-30T02:27:22.534+0000] {processor.py:161} INFO - Started process (PID=18622) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:27:22.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:27:22.538+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:27:22.537+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:27:23.034+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:27:23.047+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:27:23.047+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:27:23.058+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:27:23.058+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:27:23.073+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.550 seconds
+[2026-06-30T02:33:49.033+0000] {processor.py:161} INFO - Started process (PID=18650) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:33:49.036+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:33:49.038+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:33:49.037+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:33:49.807+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:33:49.841+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:33:49.840+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:33:49.863+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:33:49.863+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:33:49.890+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.864 seconds
+[2026-06-30T02:49:29.276+0000] {processor.py:161} INFO - Started process (PID=18676) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:49:29.279+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:49:29.282+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:49:29.282+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:49:32.225+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:49:32.329+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:49:32.328+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:49:32.387+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:49:32.386+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:49:32.411+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 3.150 seconds
+[2026-06-30T02:50:20.881+0000] {processor.py:161} INFO - Started process (PID=18702) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:20.883+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:50:20.884+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:20.884+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:21.469+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:21.490+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:21.490+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:50:21.502+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:21.502+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:50:21.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.650 seconds
+[2026-06-30T02:50:52.029+0000] {processor.py:161} INFO - Started process (PID=18730) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:52.033+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:50:52.034+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:52.034+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:52.703+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:50:52.727+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:52.727+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:50:52.744+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:50:52.744+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:50:52.759+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.742 seconds
+[2026-06-30T02:51:23.227+0000] {processor.py:161} INFO - Started process (PID=18757) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:23.228+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:51:23.230+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:23.229+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:23.749+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:23.767+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:23.767+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:51:23.775+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:23.775+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:51:23.789+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.569 seconds
+[2026-06-30T02:51:54.265+0000] {processor.py:161} INFO - Started process (PID=18784) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:54.267+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:51:54.268+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:54.267+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:54.908+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:51:54.925+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:54.925+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:51:54.935+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:51:54.935+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:51:54.946+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.697 seconds
+[2026-06-30T02:52:25.432+0000] {processor.py:161} INFO - Started process (PID=18812) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:25.434+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:52:25.435+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:25.435+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:26.044+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:26.064+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:26.064+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:52:26.079+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:26.078+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:52:26.103+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.681 seconds
+[2026-06-30T02:52:56.643+0000] {processor.py:161} INFO - Started process (PID=18839) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:56.647+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:52:56.653+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:56.649+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:57.252+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:52:57.271+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:57.271+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:52:57.281+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:52:57.281+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:52:57.294+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.670 seconds
+[2026-06-30T02:53:27.768+0000] {processor.py:161} INFO - Started process (PID=18866) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:27.771+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:53:27.773+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:27.773+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:28.367+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:28.391+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:28.390+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:53:28.401+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:28.401+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:53:28.413+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.654 seconds
+[2026-06-30T02:53:58.925+0000] {processor.py:161} INFO - Started process (PID=18893) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:58.927+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:53:58.928+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:58.927+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:59.560+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:53:59.575+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:59.575+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:53:59.583+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:53:59.583+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:53:59.606+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.692 seconds
+[2026-06-30T02:54:30.111+0000] {processor.py:161} INFO - Started process (PID=18920) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:54:30.112+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:54:30.114+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:54:30.113+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:54:30.688+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:54:30.702+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:54:30.702+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:54:30.711+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:54:30.711+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:54:30.725+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.631 seconds
+[2026-06-30T02:55:01.258+0000] {processor.py:161} INFO - Started process (PID=18947) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:01.259+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:55:01.261+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:01.261+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:01.846+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:01.868+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:01.867+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:55:01.877+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:01.877+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:55:01.888+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.648 seconds
+[2026-06-30T02:55:32.450+0000] {processor.py:161} INFO - Started process (PID=18973) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:32.454+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:55:32.459+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:32.458+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:33.261+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:55:33.283+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:33.283+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:55:33.294+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:55:33.294+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:55:33.307+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.873 seconds
+[2026-06-30T02:56:03.957+0000] {processor.py:161} INFO - Started process (PID=19001) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:03.965+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:56:03.966+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:03.966+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:04.631+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:04.652+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:04.651+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:56:04.661+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:04.660+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:56:04.672+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.735 seconds
+[2026-06-30T02:56:35.184+0000] {processor.py:161} INFO - Started process (PID=19027) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:35.186+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:56:35.188+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:35.187+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:35.759+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:56:35.784+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:35.784+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:56:35.793+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:56:35.793+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:56:35.807+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.631 seconds
+[2026-06-30T02:57:06.245+0000] {processor.py:161} INFO - Started process (PID=19055) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:06.246+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:57:06.247+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:06.246+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:06.705+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:06.722+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:06.722+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:57:06.729+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:06.729+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:57:06.742+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.504 seconds
+[2026-06-30T02:57:37.303+0000] {processor.py:161} INFO - Started process (PID=19081) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:37.306+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:57:37.308+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:37.307+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:38.073+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:57:38.093+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:38.093+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:57:38.104+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:57:38.104+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:57:38.117+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.822 seconds
+[2026-06-30T02:58:08.611+0000] {processor.py:161} INFO - Started process (PID=19107) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:08.613+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:58:08.614+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:08.614+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:09.197+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:09.215+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:09.215+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:58:09.228+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:09.228+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:58:09.239+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.641 seconds
+[2026-06-30T02:58:39.756+0000] {processor.py:161} INFO - Started process (PID=19135) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:39.759+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:58:39.761+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:39.761+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:40.332+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:58:40.351+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:40.351+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:58:40.361+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:58:40.361+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:58:40.372+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.634 seconds
+[2026-06-30T02:59:10.796+0000] {processor.py:161} INFO - Started process (PID=19163) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:10.798+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:59:10.799+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:10.799+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:11.342+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:11.368+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:11.368+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:59:11.381+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:11.381+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:59:11.393+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.603 seconds
+[2026-06-30T02:59:41.935+0000] {processor.py:161} INFO - Started process (PID=19190) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:41.937+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T02:59:41.938+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:41.937+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:42.511+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T02:59:42.529+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:42.529+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T02:59:42.542+0000] {logging_mixin.py:188} INFO - [2026-06-30T02:59:42.542+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T02:59:42.552+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.639 seconds
+[2026-06-30T03:00:13.027+0000] {processor.py:161} INFO - Started process (PID=19226) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:13.031+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:00:13.033+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:13.032+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:13.938+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:13.953+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:13.953+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:00:13.963+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:13.963+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:00:13.979+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.964 seconds
+[2026-06-30T03:00:44.463+0000] {processor.py:161} INFO - Started process (PID=19254) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:44.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:00:44.468+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:44.467+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:45.040+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:00:45.073+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:45.072+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:00:45.083+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:00:45.083+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:00:45.096+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.644 seconds
+[2026-06-30T03:01:15.587+0000] {processor.py:161} INFO - Started process (PID=19280) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:15.593+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:01:15.598+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:15.596+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:16.258+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:16.277+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:16.276+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:01:16.293+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:16.293+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:01:16.304+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.728 seconds
+[2026-06-30T03:01:46.931+0000] {processor.py:161} INFO - Started process (PID=19308) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:46.933+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:01:46.934+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:46.934+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:47.554+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:01:47.568+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:47.568+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:01:47.581+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:01:47.580+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:01:47.601+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.696 seconds
+[2026-06-30T03:02:18.009+0000] {processor.py:161} INFO - Started process (PID=19335) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:18.012+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:02:18.014+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:18.014+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:18.594+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:18.612+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:18.612+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:02:18.623+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:18.623+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:02:18.636+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.644 seconds
+[2026-06-30T03:02:49.083+0000] {processor.py:161} INFO - Started process (PID=19361) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:49.086+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:02:49.087+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:49.086+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:49.613+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:02:49.638+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:49.637+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:02:49.650+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:02:49.650+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:02:49.662+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.596 seconds
+[2026-06-30T03:03:20.155+0000] {processor.py:161} INFO - Started process (PID=19389) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:20.158+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:03:20.160+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:20.159+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:20.701+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:20.721+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:20.721+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:03:20.731+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:20.730+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:03:20.743+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.629 seconds
+[2026-06-30T03:03:51.255+0000] {processor.py:161} INFO - Started process (PID=19415) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:51.257+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:03:51.257+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:51.257+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:51.801+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:03:51.826+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:51.826+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:03:51.836+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:03:51.836+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:03:51.846+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.602 seconds
+[2026-06-30T03:04:22.338+0000] {processor.py:161} INFO - Started process (PID=19442) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:22.340+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:04:22.341+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:22.340+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:22.956+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:22.977+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:22.977+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:04:22.986+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:22.986+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:04:22.998+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.669 seconds
+[2026-06-30T03:04:53.594+0000] {processor.py:161} INFO - Started process (PID=19469) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:53.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:04:53.597+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:53.597+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:54.348+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:04:54.375+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:54.375+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:04:54.391+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:04:54.391+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:04:54.406+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.824 seconds
+[2026-06-30T03:05:25.033+0000] {processor.py:161} INFO - Started process (PID=19497) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:25.036+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:05:25.037+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:25.037+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:25.669+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:25.687+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:25.687+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:05:25.696+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:25.696+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:05:25.722+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.699 seconds
+[2026-06-30T03:05:56.242+0000] {processor.py:161} INFO - Started process (PID=19524) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:56.244+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:05:56.245+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:56.244+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:56.778+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:05:56.796+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:56.796+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:05:56.804+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:05:56.804+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:05:56.815+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.580 seconds
+[2026-06-30T03:06:27.298+0000] {processor.py:161} INFO - Started process (PID=19551) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:27.300+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:06:27.304+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:27.302+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:27.926+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:27.941+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:27.940+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:06:27.949+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:27.949+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:06:27.960+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.672 seconds
+[2026-06-30T03:06:58.466+0000] {processor.py:161} INFO - Started process (PID=19578) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:58.472+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:06:58.480+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:58.474+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:59.001+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:06:59.020+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:59.020+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:06:59.031+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:06:59.031+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:06:59.043+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.586 seconds
+[2026-06-30T03:07:29.460+0000] {processor.py:161} INFO - Started process (PID=19605) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:07:29.461+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:07:29.462+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:07:29.462+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:07:30.166+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:07:30.180+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:07:30.180+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:07:30.189+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:07:30.189+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:07:30.201+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.748 seconds
+[2026-06-30T03:08:00.758+0000] {processor.py:161} INFO - Started process (PID=19632) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:00.760+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:08:00.761+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:00.761+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:01.314+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:01.334+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:01.334+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:08:01.345+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:01.345+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:08:01.358+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.625 seconds
+[2026-06-30T03:08:31.870+0000] {processor.py:161} INFO - Started process (PID=19659) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:31.871+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:08:31.873+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:31.873+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:32.820+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:08:32.859+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:32.859+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:08:32.872+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:08:32.872+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:08:32.888+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 1.024 seconds
+[2026-06-30T03:09:03.459+0000] {processor.py:161} INFO - Started process (PID=19686) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:03.461+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:09:03.462+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:03.461+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:03.990+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:04.011+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:04.011+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:09:04.021+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:04.021+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:09:04.031+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.583 seconds
+[2026-06-30T03:09:34.605+0000] {processor.py:161} INFO - Started process (PID=19712) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:34.608+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:09:34.610+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:34.610+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:35.332+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:09:35.420+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:35.419+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:09:35.438+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:09:35.437+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:09:35.452+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.869 seconds
+[2026-06-30T03:10:06.015+0000] {processor.py:161} INFO - Started process (PID=19740) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:06.016+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:10:06.018+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:06.017+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:06.530+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:06.552+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:06.552+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:10:06.564+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:06.564+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:10:06.576+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.576 seconds
+[2026-06-30T03:10:37.108+0000] {processor.py:161} INFO - Started process (PID=19767) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:37.111+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:10:37.112+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:37.111+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:37.648+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:10:37.669+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:37.669+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:10:37.679+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:10:37.679+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:10:37.690+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.588 seconds
+[2026-06-30T03:11:08.144+0000] {processor.py:161} INFO - Started process (PID=19793) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:08.148+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:11:08.150+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:08.149+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:08.724+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:08.744+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:08.744+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:11:08.754+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:08.754+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:11:08.765+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.631 seconds
+[2026-06-30T03:11:39.240+0000] {processor.py:161} INFO - Started process (PID=19820) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:39.243+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:11:39.246+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:39.245+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:39.773+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:11:39.792+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:39.792+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:11:39.801+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:11:39.801+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:11:39.811+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.578 seconds
+[2026-06-30T03:12:10.202+0000] {processor.py:161} INFO - Started process (PID=19848) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:10.204+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:12:10.204+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:10.204+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:10.732+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:10.743+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:10.743+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:12:10.751+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:10.751+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:12:10.763+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.567 seconds
+[2026-06-30T03:12:41.221+0000] {processor.py:161} INFO - Started process (PID=19875) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:41.224+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:12:41.226+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:41.225+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:41.799+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:12:41.815+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:41.815+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:12:41.829+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:12:41.828+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:12:41.840+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.634 seconds
+[2026-06-30T03:13:12.294+0000] {processor.py:161} INFO - Started process (PID=19902) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:12.295+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:13:12.297+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:12.297+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:12.824+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:12.845+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:12.845+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:13:12.854+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:12.854+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:13:12.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.583 seconds
+[2026-06-30T03:13:43.370+0000] {processor.py:161} INFO - Started process (PID=19929) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:43.373+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:13:43.374+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:43.374+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:43.924+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:13:43.938+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:43.938+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:13:43.946+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:13:43.946+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:13:43.957+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.596 seconds
+[2026-06-30T03:14:14.429+0000] {processor.py:161} INFO - Started process (PID=19956) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:14.431+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:14:14.433+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:14.432+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:14.934+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:14.950+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:14.950+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:14:14.960+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:14.960+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:14:14.973+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.553 seconds
+[2026-06-30T03:14:45.746+0000] {processor.py:161} INFO - Started process (PID=19983) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:45.754+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:14:45.755+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:45.755+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:46.360+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:14:46.385+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:46.384+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:14:46.394+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:14:46.394+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:14:46.408+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.676 seconds
+[2026-06-30T03:15:16.850+0000] {processor.py:161} INFO - Started process (PID=20010) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:16.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:15:16.854+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:16.853+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:17.453+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:17.476+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:17.475+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:15:17.488+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:17.488+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:15:17.499+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.658 seconds
+[2026-06-30T03:15:47.974+0000] {processor.py:161} INFO - Started process (PID=20037) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:47.977+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:15:47.978+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:47.978+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:48.649+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:15:48.670+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:48.670+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:15:48.681+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:15:48.681+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:15:48.701+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.733 seconds
+[2026-06-30T03:16:19.173+0000] {processor.py:161} INFO - Started process (PID=20063) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:19.175+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:16:19.177+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:19.176+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:19.664+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:19.687+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:19.687+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:16:19.696+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:19.695+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:16:19.706+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.539 seconds
+[2026-06-30T03:16:50.179+0000] {processor.py:161} INFO - Started process (PID=20091) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:50.182+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:16:50.184+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:50.183+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:50.890+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:16:50.905+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:50.905+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:16:50.919+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:16:50.918+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:16:50.932+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.761 seconds
+[2026-06-30T03:17:21.418+0000] {processor.py:161} INFO - Started process (PID=20118) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:21.419+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:17:21.421+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:21.421+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:21.926+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:21.940+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:21.939+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:17:21.950+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:21.950+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:17:21.962+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.550 seconds
+[2026-06-30T03:17:52.431+0000] {processor.py:161} INFO - Started process (PID=20144) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:52.433+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:17:52.435+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:52.434+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:53.221+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:17:53.250+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:53.250+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:17:53.262+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:17:53.262+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:17:53.277+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.856 seconds
+[2026-06-30T03:18:23.855+0000] {processor.py:161} INFO - Started process (PID=20171) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:23.858+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:18:23.861+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:23.860+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:24.509+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:24.540+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:24.540+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:18:24.555+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:24.555+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:18:24.576+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.735 seconds
+[2026-06-30T03:18:55.082+0000] {processor.py:161} INFO - Started process (PID=20199) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:55.084+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:18:55.086+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:55.086+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:55.639+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:18:55.659+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:55.658+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:18:55.667+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:18:55.667+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:18:55.678+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.608 seconds
+[2026-06-30T03:19:26.111+0000] {processor.py:161} INFO - Started process (PID=20226) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:26.113+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:19:26.115+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:26.115+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:26.650+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:26.669+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:26.669+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:19:26.677+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:26.677+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:19:26.688+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.584 seconds
+[2026-06-30T03:19:57.233+0000] {processor.py:161} INFO - Started process (PID=20251) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:57.236+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:19:57.238+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:57.238+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:57.746+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:19:57.765+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:57.765+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:19:57.774+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:19:57.774+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:19:57.785+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.562 seconds
+[2026-06-30T03:20:28.255+0000] {processor.py:161} INFO - Started process (PID=20279) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:28.258+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:20:28.259+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:28.258+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:28.781+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:28.797+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:28.797+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:20:28.806+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:28.806+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:20:28.818+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.576 seconds
+[2026-06-30T03:20:59.322+0000] {processor.py:161} INFO - Started process (PID=20307) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:59.330+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:20:59.332+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:59.331+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:59.958+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:20:59.973+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:59.972+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:20:59.983+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:20:59.983+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:20:59.996+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.683 seconds
+[2026-06-30T03:21:30.445+0000] {processor.py:161} INFO - Started process (PID=20334) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:21:30.446+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:21:30.448+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:21:30.447+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:21:30.981+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:21:31.011+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:21:31.011+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:21:31.020+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:21:31.020+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:21:31.031+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.595 seconds
+[2026-06-30T03:22:01.532+0000] {processor.py:161} INFO - Started process (PID=20360) to work on /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:22:01.534+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_postgres_to_bq.py for tasks to queue
+[2026-06-30T03:22:01.535+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:22:01.535+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:22:02.078+0000] {processor.py:840} INFO - DAG(s) 'logistics_postgres_to_bq' retrieved from /opt/airflow/dags/dag_postgres_to_bq.py
+[2026-06-30T03:22:02.099+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:22:02.098+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-06-30T03:22:02.110+0000] {logging_mixin.py:188} INFO - [2026-06-30T03:22:02.110+0000] {dag.py:3954} INFO - Setting next_dagrun for logistics_postgres_to_bq to None, run_after=None
+[2026-06-30T03:22:02.124+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_postgres_to_bq.py took 0.608 seconds

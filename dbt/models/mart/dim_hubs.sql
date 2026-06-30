@@ -4,4 +4,4 @@ SELECT
     UPPER(city) AS hub_city,
     lat AS latitude,
     lon AS longitude
-FROM {{ ref('hubs') }}
+FROM {{ source('postgres_source', 'hubs') }}

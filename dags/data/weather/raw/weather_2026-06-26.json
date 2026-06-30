@@ -1,0 +1,95 @@
+[
+    {
+        "latitude": 21.05448,
+        "longitude": 105.898476,
+        "generationtime_ms": 0.07855892181396484,
+        "utc_offset_seconds": 25200,
+        "timezone": "Asia/Bangkok",
+        "timezone_abbreviation": "GMT+7",
+        "elevation": 19.0,
+        "current_units": {
+            "time": "iso8601",
+            "interval": "seconds",
+            "temperature_2m": "\u00b0C",
+            "precipitation": "mm",
+            "rain": "mm",
+            "showers": "mm",
+            "snowfall": "cm",
+            "weather_code": "wmo code"
+        },
+        "current": {
+            "time": "2026-06-27T07:45",
+            "interval": 900,
+            "temperature_2m": 26.6,
+            "precipitation": 0.0,
+            "rain": 0.0,
+            "showers": 0.0,
+            "snowfall": 0.0,
+            "weather_code": 3
+        },
+        "hub_city": "Hanoi",
+        "captured_at": "2026-06-26"
+    },
+    {
+        "latitude": 16.063269,
+        "longitude": 108.23864,
+        "generationtime_ms": 0.06771087646484375,
+        "utc_offset_seconds": 25200,
+        "timezone": "Asia/Bangkok",
+        "timezone_abbreviation": "GMT+7",
+        "elevation": 8.0,
+        "current_units": {
+            "time": "iso8601",
+            "interval": "seconds",
+            "temperature_2m": "\u00b0C",
+            "precipitation": "mm",
+            "rain": "mm",
+            "showers": "mm",
+            "snowfall": "cm",
+            "weather_code": "wmo code"
+        },
+        "current": {
+            "time": "2026-06-27T07:45",
+            "interval": 900,
+            "temperature_2m": 31.4,
+            "precipitation": 0.0,
+            "rain": 0.0,
+            "showers": 0.0,
+            "snowfall": 0.0,
+            "weather_code": 3
+        },
+        "hub_city": "Da_Nang",
+        "captured_at": "2026-06-26"
+    },
+    {
+        "latitude": 10.790861,
+        "longitude": 106.6313,
+        "generationtime_ms": 0.11610984802246094,
+        "utc_offset_seconds": 25200,
+        "timezone": "Asia/Bangkok",
+        "timezone_abbreviation": "GMT+7",
+        "elevation": 6.0,
+        "current_units": {
+            "time": "iso8601",
+            "interval": "seconds",
+            "temperature_2m": "\u00b0C",
+            "precipitation": "mm",
+            "rain": "mm",
+            "showers": "mm",
+            "snowfall": "cm",
+            "weather_code": "wmo code"
+        },
+        "current": {
+            "time": "2026-06-27T07:45",
+            "interval": 900,
+            "temperature_2m": 28.3,
+            "precipitation": 0.0,
+            "rain": 0.0,
+            "showers": 0.0,
+            "snowfall": 0.0,
+            "weather_code": 0
+        },
+        "hub_city": "HCM",
+        "captured_at": "2026-06-26"
+    }
+]

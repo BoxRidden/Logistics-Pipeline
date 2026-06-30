@@ -1,69 +1,61 @@
+import random
+from datetime import datetime
+import psycopg2
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
-import psycopg2
-import random
-import uuid
+from pipeline_datasets import postgres_dataset
 
-# Database connection details 
-DB_CONFIG = {
-    "host": "postgres-source",
-    "port": 5432,
-    "user": "logistics_admin",
-    "password": "supersecret",
-    "dbname": "logistics_db"
-}
-
-def simulate_shipments():
-    """Connects to Postgres to create new orders and update old ones."""
-    conn = psycopg2.connect(**DB_CONFIG)
+def generate_fake_data():
+    # Connect to local Postgres inside Docker
+    conn = psycopg2.connect(
+        host="postgres-airflow",
+        database="airflow",
+        user="airflow",
+        password="airflow"
+    )
     cursor = conn.cursor()
-#Update shipments
-    cursor.execute("""
-        UPDATE shipments 
-        SET status = CASE 
-            WHEN status = 'Pending' THEN 'In Transit'
-            WHEN status = 'In Transit' THEN 'Delivered'
-            ELSE status END,
-            updated_at = CURRENT_TIMESTAMP
-        WHERE status IN ('Pending', 'In Transit')
-    """)
-    updated_count = cursor.rowcount
 
-    #Generate 5 to 15 new shipments
-    new_shipments_count = random.randint(5, 15)
-    for _ in range(new_shipments_count):
-        tracking_code = f"VN-{uuid.uuid4().hex[:8].upper()}"
-        hub_id = random.choice([1, 2, 3]) # Hanoi, Da Nang, HCM
-        driver_id = random.choice([1, 2, 3])
-        city = random.choice(["Hanoi", "Hai Phong", "Da Nang", "Nha Trang", "Ho Chi Minh City", "Can Tho"])
-        
-        cursor.execute("""
-            INSERT INTO shipments (tracking_code, hub_id, driver_id, customer_city, status)
-            VALUES (%s, %s, %s, %s, 'Pending')
-        """, (tracking_code, hub_id, driver_id, city))
+    # 1. Build the database tables if they don't exist
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS hubs (
+        hub_id SERIAL PRIMARY KEY, name VARCHAR(50), city VARCHAR(50), lat FLOAT, lon FLOAT
+    );
+    CREATE TABLE IF NOT EXISTS drivers (
+        driver_id SERIAL PRIMARY KEY, name VARCHAR(50), vehicle_type VARCHAR(50), created_at TIMESTAMP
+    );
+    CREATE TABLE IF NOT EXISTS shipments (
+        shipment_id SERIAL PRIMARY KEY, tracking_code VARCHAR(50), hub_id INT,
+        driver_id INT, customer_city VARCHAR(50), status VARCHAR(20),
+        created_at TIMESTAMP, updated_at TIMESTAMP
+    );
+    """)
+
+    # 2. Seed the basic dimensions if empty
+    cursor.execute("SELECT COUNT(*) FROM hubs;")
+    if cursor.fetchone()[0] == 0:
+        cursor.execute("INSERT INTO hubs (name, city, lat, lon) VALUES ('Hanoi Central', 'Hanoi', 21.0285, 105.8542), ('Da Nang Hub', 'Da Nang', 16.0471, 108.2068), ('HCM City Base', 'Ho Chi Minh City', 10.8231, 106.6297);")
+        cursor.execute("INSERT INTO drivers (name, vehicle_type, created_at) VALUES ('John Doe', 'Truck', NOW()), ('Jane Smith', 'Motorcycle', NOW()), ('Nguyen Van A', 'Van', NOW());")
+
+    # 3. Generate a burst of 5-10 random shipments
+    cities = ['Hanoi', 'Da Nang', 'Ho Chi Minh City']
+    statuses = ['Pending', 'In Transit', 'Delivered']
+    
+    for _ in range(random.randint(5, 10)):
+        cursor.execute(f"""
+        INSERT INTO shipments (tracking_code, hub_id, driver_id, customer_city, status, created_at, updated_at)
+        VALUES ('TRK-{random.randint(10000,99999)}', {random.randint(1, 3)}, {random.randint(1, 3)}, '{random.choice(cities)}', '{random.choice(statuses)}', NOW(), NOW());
+        """)
 
     conn.commit()
     cursor.close()
     conn.close()
-    print(f"Updated {updated_count} old shipments. Created {new_shipments_count} new shipments.")
+    print("Successfully generated new shipments in local database.")
 
-# Define the Airflow DAG
-default_args = {
-    'owner': 'data_engineer',
-    'start_date': datetime(2023, 1, 1),
-    'retries': 1,
-}
+default_args = {'owner': 'airflow', 'start_date': datetime(2026, 6, 1)}
 
-with DAG(
-    'logistics_shipment_simulator',
-    default_args=default_args,
-    schedule_interval=timedelta(minutes=2), # Runs every 2 minutes
-    catchup=False,
-    tags=['simulation', 'source_db']
-) as dag:
-
-    run_simulation = PythonOperator(
-        task_id='generate_and_update_shipments',
-        python_callable=simulate_shipments
+with DAG('dag_shipment_sim', default_args=default_args, schedule_interval='@hourly', catchup=False) as dag:
+    PythonOperator(
+        task_id='generate_data', 
+        python_callable=generate_fake_data,
+        outlets=[postgres_dataset] # This signals that the Postgres database has fresh data!
     )

@@ -1,4 +1,0 @@
-shipment_id,tracking_code,hub_id,driver_id,customer_city,status,created_at,updated_at
-101,TRK-1001,1,1,Hanoi,Delivered,2026-06-25 08:00:00,2026-06-25 12:00:00
-102,TRK-1002,2,2,Da Nang,In Transit,2026-06-25 09:00:00,2026-06-25 10:00:00
-103,TRK-1003,3,3,Ho Chi Minh City,Pending,2026-06-25 10:00:00,2026-06-25 10:00:00
