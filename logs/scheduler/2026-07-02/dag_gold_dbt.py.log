@@ -1,0 +1,210 @@
+[2026-07-02T00:48:23.373+0000] {processor.py:161} INFO - Started process (PID=41399) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T00:48:23.375+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T00:48:23.377+0000] {logging_mixin.py:188} INFO - [2026-07-02T00:48:23.377+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T00:48:23.392+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T00:48:23.440+0000] {logging_mixin.py:188} INFO - [2026-07-02T00:48:23.440+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T00:48:23.467+0000] {logging_mixin.py:188} INFO - [2026-07-02T00:48:23.467+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T00:48:23.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.126 seconds
+[2026-07-02T01:58:50.939+0000] {processor.py:161} INFO - Started process (PID=42017) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T01:58:50.941+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T01:58:50.943+0000] {logging_mixin.py:188} INFO - [2026-07-02T01:58:50.943+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T01:58:50.953+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T01:58:50.978+0000] {logging_mixin.py:188} INFO - [2026-07-02T01:58:50.978+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T01:58:50.991+0000] {logging_mixin.py:188} INFO - [2026-07-02T01:58:50.991+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T01:58:51.004+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.069 seconds
+[2026-07-02T02:32:09.017+0000] {processor.py:161} INFO - Started process (PID=42615) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:32:09.036+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T02:32:09.046+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:32:09.046+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:32:09.099+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:32:09.132+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:32:09.132+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T02:32:09.161+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:32:09.161+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T02:32:09.199+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.226 seconds
+[2026-07-02T02:42:05.846+0000] {processor.py:161} INFO - Started process (PID=43224) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:42:05.849+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T02:42:05.852+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:42:05.852+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:42:05.884+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:42:05.940+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:42:05.940+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T02:42:05.975+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:42:05.975+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T02:42:06.006+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.189 seconds
+[2026-07-02T02:47:29.352+0000] {processor.py:161} INFO - Started process (PID=43291) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:47:29.353+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T02:47:29.358+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:47:29.357+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:47:29.400+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:47:29.460+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:47:29.460+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T02:47:29.491+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:47:29.491+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T02:47:29.516+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.175 seconds
+[2026-07-02T02:58:14.455+0000] {processor.py:161} INFO - Started process (PID=43326) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:58:14.456+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T02:58:14.461+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:58:14.459+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:58:14.484+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:58:14.538+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:58:14.538+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T02:58:14.563+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:58:14.563+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T02:58:14.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.151 seconds
+[2026-07-02T02:59:47.098+0000] {processor.py:161} INFO - Started process (PID=43371) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:59:47.120+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T02:59:47.280+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:59:47.277+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:59:47.392+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T02:59:47.557+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:59:47.556+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T02:59:47.612+0000] {logging_mixin.py:188} INFO - [2026-07-02T02:59:47.612+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T02:59:47.656+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.625 seconds
+[2026-07-02T03:00:18.436+0000] {processor.py:161} INFO - Started process (PID=43964) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:18.438+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:00:18.442+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:18.441+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:18.477+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:18.527+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:18.526+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:00:18.543+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:18.543+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:00:18.557+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.148 seconds
+[2026-07-02T03:00:48.702+0000] {processor.py:161} INFO - Started process (PID=44047) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:48.704+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:00:48.709+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:48.707+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:48.741+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:00:48.789+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:48.789+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:00:48.831+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:00:48.830+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:00:48.865+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.198 seconds
+[2026-07-02T03:01:19.079+0000] {processor.py:161} INFO - Started process (PID=44084) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:19.081+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:01:19.085+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:19.085+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:19.107+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:19.150+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:19.150+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:01:19.167+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:19.167+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:01:19.187+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.115 seconds
+[2026-07-02T03:01:50.133+0000] {processor.py:161} INFO - Started process (PID=44121) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:50.135+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:01:50.139+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:50.139+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:50.163+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:01:50.190+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:50.190+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:01:50.211+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:01:50.210+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:01:50.231+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.108 seconds
+[2026-07-02T03:02:20.343+0000] {processor.py:161} INFO - Started process (PID=44191) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:20.345+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:02:20.350+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:20.350+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:20.383+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:20.414+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:20.414+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:02:20.437+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:20.437+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:02:20.455+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.124 seconds
+[2026-07-02T03:02:51.476+0000] {processor.py:161} INFO - Started process (PID=44228) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:51.478+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:02:51.482+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:51.482+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:51.504+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:02:51.540+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:51.540+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:02:51.560+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:02:51.560+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:02:51.578+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.110 seconds
+[2026-07-02T03:03:21.670+0000] {processor.py:161} INFO - Started process (PID=44265) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:21.671+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:03:21.675+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:21.675+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:21.713+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:21.765+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:21.765+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:03:21.795+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:21.795+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:03:21.828+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.177 seconds
+[2026-07-02T03:03:51.965+0000] {processor.py:161} INFO - Started process (PID=44302) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:51.967+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:03:51.970+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:51.970+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:51.990+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:03:52.025+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:52.025+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:03:52.045+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:03:52.045+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:03:52.071+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.113 seconds
+[2026-07-02T03:04:23.182+0000] {processor.py:161} INFO - Started process (PID=44339) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:23.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:04:23.188+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:23.187+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:23.223+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:23.437+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:23.435+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:04:23.477+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:23.477+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:04:23.515+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.359 seconds
+[2026-07-02T03:04:53.662+0000] {processor.py:161} INFO - Started process (PID=44382) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:53.669+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:04:53.672+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:53.672+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:53.706+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:04:53.769+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:53.769+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:04:53.794+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:04:53.794+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:04:53.816+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.175 seconds
+[2026-07-02T03:05:23.915+0000] {processor.py:161} INFO - Started process (PID=44419) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:23.916+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:05:23.919+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:23.918+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:23.941+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:23.968+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:23.968+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:05:23.983+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:23.982+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:05:24.002+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.096 seconds
+[2026-07-02T03:05:54.240+0000] {processor.py:161} INFO - Started process (PID=44456) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:54.241+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:05:54.244+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:54.244+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:54.267+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:05:54.293+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:54.293+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:05:54.311+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:05:54.310+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:05:54.345+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.122 seconds
+[2026-07-02T03:06:24.613+0000] {processor.py:161} INFO - Started process (PID=44493) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:24.615+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:06:24.621+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:24.620+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:24.642+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:24.673+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:24.673+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:06:24.688+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:24.688+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:06:24.702+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.096 seconds
+[2026-07-02T03:06:55.677+0000] {processor.py:161} INFO - Started process (PID=44530) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:55.679+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:06:55.686+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:55.685+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:55.719+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:06:55.765+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:55.765+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:06:55.789+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:06:55.789+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:06:55.816+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.154 seconds
+[2026-07-02T03:07:26.245+0000] {processor.py:161} INFO - Started process (PID=44567) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:26.246+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:07:26.251+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:26.251+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:26.277+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:26.298+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:26.298+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:07:26.312+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:26.312+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:07:26.331+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.093 seconds
+[2026-07-02T03:07:56.470+0000] {processor.py:161} INFO - Started process (PID=44604) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:56.471+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:07:56.475+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:56.475+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:56.494+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:07:56.522+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:56.522+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:07:56.544+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:07:56.544+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:07:56.561+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.100 seconds
+[2026-07-02T03:08:27.399+0000] {processor.py:161} INFO - Started process (PID=44641) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:27.400+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:08:27.401+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:27.401+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:27.414+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:27.437+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:27.437+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:08:27.450+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:27.450+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:08:27.475+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.084 seconds
+[2026-07-02T03:08:57.647+0000] {processor.py:161} INFO - Started process (PID=44678) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:57.650+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:08:57.659+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:57.659+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:57.716+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:08:57.774+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:57.774+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:08:57.801+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:08:57.801+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:08:57.835+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.203 seconds
+[2026-07-02T03:09:28.100+0000] {processor.py:161} INFO - Started process (PID=44715) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:28.105+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:09:28.107+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:28.107+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:28.138+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:28.193+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:28.193+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:09:28.230+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:28.229+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:09:28.270+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.179 seconds
+[2026-07-02T03:09:59.111+0000] {processor.py:161} INFO - Started process (PID=44769) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:59.113+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:09:59.114+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:59.114+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:59.128+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:09:59.169+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:59.169+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:09:59.201+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:09:59.201+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:09:59.226+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.119 seconds
+[2026-07-02T03:10:30.000+0000] {processor.py:161} INFO - Started process (PID=44824) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:10:30.001+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:10:30.004+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:10:30.004+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:10:30.015+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:10:30.043+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:10:30.043+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:10:30.067+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:10:30.067+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:10:30.080+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.086 seconds
+[2026-07-02T03:11:00.377+0000] {processor.py:161} INFO - Started process (PID=44861) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:00.378+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:11:00.380+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:00.380+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:00.390+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:00.413+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:00.413+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:11:00.427+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:00.427+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:11:00.446+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.075 seconds
+[2026-07-02T03:11:30.561+0000] {processor.py:161} INFO - Started process (PID=44898) to work on /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:30.563+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_gold_dbt.py for tasks to queue
+[2026-07-02T03:11:30.564+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:30.564+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:30.579+0000] {processor.py:840} INFO - DAG(s) 'gold_dbt_dag' retrieved from /opt/airflow/dags/dag_gold_dbt.py
+[2026-07-02T03:11:30.602+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:30.601+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:11:30.615+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:30.615+0000] {dag.py:3954} INFO - Setting next_dagrun for gold_dbt_dag to None, run_after=None
+[2026-07-02T03:11:30.631+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_gold_dbt.py took 0.076 seconds

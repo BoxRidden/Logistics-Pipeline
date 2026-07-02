@@ -9,7 +9,7 @@ x-airflow-common:
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-auth db-dtypes"
+    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-auth db-dtypes pyspark"
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

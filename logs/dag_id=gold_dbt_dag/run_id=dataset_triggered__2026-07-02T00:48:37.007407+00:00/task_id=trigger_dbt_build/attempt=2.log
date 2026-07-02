@@ -1,0 +1,43 @@
+[2026-07-02T03:01:58.477+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-02T03:01:58.509+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-02T00:48:37.007407+00:00 [queued]>
+[2026-07-02T03:01:58.513+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-02T00:48:37.007407+00:00 [queued]>
+[2026-07-02T03:01:58.514+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-07-02T03:01:58.521+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-02 00:48:37.007407+00:00
+[2026-07-02T03:01:58.527+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-02T00:48:37.007407+00:00', '--job-id', '158', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmpl35ntvmp']
+[2026-07-02T03:01:58.530+0000] {standard_task_runner.py:91} INFO - Job 158: Subtask trigger_dbt_build
+[2026-07-02T03:01:58.529+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=44158) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-02T03:01:58.530+0000] {standard_task_runner.py:63} INFO - Started process 44159 to run task
+[2026-07-02T03:01:58.559+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-02T00:48:37.007407+00:00 [running]> on host bd23e89d97be
+[2026-07-02T03:01:58.605+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-02T00:48:37.007407+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-02T00:48:37.007407+00:00'
+[2026-07-02T03:01:58.606+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-02T03:01:58.614+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-02T03:01:58.616+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-02T03:01:58.620+0000] {subprocess.py:86} INFO - Output:
+[2026-07-02T03:01:59.798+0000] {subprocess.py:93} INFO - [0m03:01:59  Running with dbt=1.11.11
+[2026-07-02T03:02:00.401+0000] {subprocess.py:93} INFO - [0m03:02:00  Registered adapter: bigquery=1.11.3
+[2026-07-02T03:02:00.613+0000] {subprocess.py:93} INFO - [0m03:02:00  Found 5 models, 4 sources, 553 macros
+[2026-07-02T03:02:00.615+0000] {subprocess.py:93} INFO - [0m03:02:00
+[2026-07-02T03:02:00.615+0000] {subprocess.py:93} INFO - [0m03:02:00  Concurrency: 4 threads (target='dev')
+[2026-07-02T03:02:00.615+0000] {subprocess.py:93} INFO - [0m03:02:00
+[2026-07-02T03:02:03.202+0000] {subprocess.py:93} INFO - [0m03:02:03  1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[2026-07-02T03:02:03.203+0000] {subprocess.py:93} INFO - [0m03:02:03  2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[2026-07-02T03:02:03.203+0000] {subprocess.py:93} INFO - [0m03:02:03  3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[2026-07-02T03:02:03.204+0000] {subprocess.py:93} INFO - [0m03:02:03  4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[2026-07-02T03:02:05.632+0000] {subprocess.py:93} INFO - [0m03:02:05  3 of 5 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 2.42s]
+[2026-07-02T03:02:05.633+0000] {subprocess.py:93} INFO - [0m03:02:05  4 of 5 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 2.42s]
+[2026-07-02T03:02:07.155+0000] {subprocess.py:93} INFO - [0m03:02:07  2 of 5 OK created sql table model logistics_mart.dim_hubs ...................... [[32mCREATE TABLE (3.0 rows, 149.0 Bytes processed)[0m in 3.95s]
+[2026-07-02T03:02:07.160+0000] {subprocess.py:93} INFO - [0m03:02:07  5 of 5 START sql table model logistics_mart.fact_shipment_weather .............. [RUN]
+[2026-07-02T03:02:07.405+0000] {subprocess.py:93} INFO - [0m03:02:07  1 of 5 OK created sql table model logistics_mart.dim_drivers ................... [[32mCREATE TABLE (3.0 rows, 108.0 Bytes processed)[0m in 4.20s]
+[2026-07-02T03:02:11.331+0000] {subprocess.py:93} INFO - [0m03:02:11  5 of 5 OK created sql table model logistics_mart.fact_shipment_weather ......... [[32mCREATE TABLE (175.0 rows, 11.4 KiB processed)[0m in 4.17s]
+[2026-07-02T03:02:11.380+0000] {subprocess.py:93} INFO - [0m03:02:11
+[2026-07-02T03:02:11.381+0000] {subprocess.py:93} INFO - [0m03:02:11  Finished running 3 table models, 2 view models in 0 hours 0 minutes and 10.76 seconds (10.76s).
+[2026-07-02T03:02:11.433+0000] {subprocess.py:93} INFO - [0m03:02:11
+[2026-07-02T03:02:11.435+0000] {subprocess.py:93} INFO - [0m03:02:11  [32mCompleted successfully[0m
+[2026-07-02T03:02:11.435+0000] {subprocess.py:93} INFO - [0m03:02:11
+[2026-07-02T03:02:11.437+0000] {subprocess.py:93} INFO - [0m03:02:11  Done. PASS=5 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=5
+[2026-07-02T03:02:13.601+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-02T03:02:13.608+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-02T03:02:13.636+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-02T00:48:37.007407+00:00, execution_date=20260702T004837, start_date=20260702T030158, end_date=20260702T030213
+[2026-07-02T03:02:13.691+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-02T03:02:13.714+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-02T03:02:13.715+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

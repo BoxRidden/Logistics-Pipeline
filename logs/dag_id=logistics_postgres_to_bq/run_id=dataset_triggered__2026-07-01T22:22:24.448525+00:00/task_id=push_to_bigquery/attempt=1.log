@@ -1,0 +1,20 @@
+[2026-07-01T22:22:25.810+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-01T22:22:25.823+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-01T22:22:24.448525+00:00 [queued]>
+[2026-07-01T22:22:25.827+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-01T22:22:24.448525+00:00 [queued]>
+[2026-07-01T22:22:25.827+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-07-01T22:22:25.831+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): push_to_bigquery> on 2026-07-01 22:22:24.448525+00:00
+[2026-07-01T22:22:25.836+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=40194) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-01T22:22:25.837+0000] {standard_task_runner.py:63} INFO - Started process 40222 to run task
+[2026-07-01T22:22:25.836+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'logistics_postgres_to_bq', 'push_to_bigquery', 'dataset_triggered__2026-07-01T22:22:24.448525+00:00', '--job-id', '123', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_to_bq.py', '--cfg-path', '/tmp/tmpv69apy8v']
+[2026-07-01T22:22:25.837+0000] {standard_task_runner.py:91} INFO - Job 123: Subtask push_to_bigquery
+[2026-07-01T22:22:25.861+0000] {task_command.py:426} INFO - Running <TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-01T22:22:24.448525+00:00 [running]> on host bd23e89d97be
+[2026-07-01T22:22:25.913+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='logistics_postgres_to_bq' AIRFLOW_CTX_TASK_ID='push_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2026-07-01T22:22:24.448525+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-01T22:22:24.448525+00:00'
+[2026-07-01T22:22:25.914+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-01T22:22:26.823+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-07-02T01:58:57.517+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to failed. Terminating instance.
+[2026-07-02T01:58:57.539+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-07-02T01:58:57.545+0000] {process_utils.py:132} INFO - Sending 15 to group 40222. PIDs of all processes in the group: [40222]
+[2026-07-02T01:58:57.545+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 40222
+[2026-07-02T01:58:57.551+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-07-02T01:58:57.577+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-02T01:58:57.686+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=40222, status='terminated', exitcode=0, started='22:22:25') (40222) terminated with exit code 0

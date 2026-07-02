@@ -1,0 +1,40 @@
+[2026-06-30T22:03:40.983+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-06-30T22:03:40.999+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: tomorrowio_bronze_to_silver.spark_weather_to_iceberg scheduled__2026-06-30T21:00:00+00:00 [queued]>
+[2026-06-30T22:03:41.003+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: tomorrowio_bronze_to_silver.spark_weather_to_iceberg scheduled__2026-06-30T21:00:00+00:00 [queued]>
+[2026-06-30T22:03:41.003+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-06-30T22:03:41.008+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): spark_weather_to_iceberg> on 2026-06-30 21:00:00+00:00
+[2026-06-30T22:03:41.012+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'tomorrowio_bronze_to_silver', 'spark_weather_to_iceberg', 'scheduled__2026-06-30T21:00:00+00:00', '--job-id', '90', '--raw', '--subdir', 'DAGS_FOLDER/dag_tomorrowio.py', '--cfg-path', '/tmp/tmpiyr_mpsr']
+[2026-06-30T22:03:41.015+0000] {standard_task_runner.py:91} INFO - Job 90: Subtask spark_weather_to_iceberg
+[2026-06-30T22:03:41.016+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=27036) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-30T22:03:41.017+0000] {standard_task_runner.py:63} INFO - Started process 27039 to run task
+[2026-06-30T22:03:41.038+0000] {task_command.py:426} INFO - Running <TaskInstance: tomorrowio_bronze_to_silver.spark_weather_to_iceberg scheduled__2026-06-30T21:00:00+00:00 [running]> on host c0dde85f51a2
+[2026-06-30T22:03:41.182+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='tomorrowio_bronze_to_silver' AIRFLOW_CTX_TASK_ID='spark_weather_to_iceberg' AIRFLOW_CTX_EXECUTION_DATE='2026-06-30T21:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-30T21:00:00+00:00'
+[2026-06-30T22:03:41.182+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-06-30T22:03:41.187+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-30T22:03:41.188+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/dags/spark/silver_weather.py "gs://your-lakehouse-bucket/bronze/weather/weather_forecast_latest.parquet" "weather_iceberg"']
+[2026-06-30T22:03:41.192+0000] {subprocess.py:86} INFO - Output:
+[2026-06-30T22:03:41.230+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-06-30T22:03:41.230+0000] {subprocess.py:93} INFO -   File "/opt/***/dags/spark/silver_weather.py", line 2, in <module>
+[2026-06-30T22:03:41.230+0000] {subprocess.py:93} INFO -     from pyspark.sql import SparkSession
+[2026-06-30T22:03:41.230+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'pyspark'
+[2026-06-30T22:03:41.232+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-06-30T22:03:41.232+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-06-30T22:03:41.237+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-06-30T22:03:41.238+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=tomorrowio_bronze_to_silver, task_id=spark_weather_to_iceberg, run_id=scheduled__2026-06-30T21:00:00+00:00, execution_date=20260630T210000, start_date=20260630T220341, end_date=20260630T220341
+[2026-06-30T22:03:41.242+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 90 for task spark_weather_to_iceberg (Bash command failed. The command returned a non-zero exit code 1.; 27039)
+[2026-06-30T22:03:41.280+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-06-30T22:03:41.287+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-30T22:03:41.287+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
