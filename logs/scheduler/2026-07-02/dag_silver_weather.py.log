@@ -250,3 +250,94 @@
 [2026-07-02T03:11:27.579+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:27.579+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2026-07-02T03:11:27.590+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:27.590+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
 [2026-07-02T03:11:27.600+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.078 seconds
+[2026-07-02T03:11:58.042+0000] {processor.py:161} INFO - Started process (PID=44930) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:11:58.048+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:11:58.052+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:58.052+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:11:58.061+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:11:58.075+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:58.075+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:11:58.084+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:11:58.083+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:11:58.093+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.060 seconds
+[2026-07-02T03:12:28.229+0000] {processor.py:161} INFO - Started process (PID=44967) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:28.231+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:12:28.233+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:28.233+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:28.243+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:28.258+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:28.258+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:12:28.267+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:28.267+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:12:28.275+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.052 seconds
+[2026-07-02T03:12:58.575+0000] {processor.py:161} INFO - Started process (PID=45004) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:58.577+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:12:58.580+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:58.579+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:58.598+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:12:58.624+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:58.624+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:12:58.637+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:12:58.637+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:12:58.651+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.087 seconds
+[2026-07-02T03:13:28.856+0000] {processor.py:161} INFO - Started process (PID=45041) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:28.857+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:13:28.859+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:28.859+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:28.878+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:28.896+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:28.896+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:13:28.909+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:28.909+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:13:28.920+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.071 seconds
+[2026-07-02T03:13:59.028+0000] {processor.py:161} INFO - Started process (PID=45078) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:59.029+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:13:59.030+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:59.030+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:59.037+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:13:59.052+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:59.052+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:13:59.069+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:13:59.069+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:13:59.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.060 seconds
+[2026-07-02T03:14:29.677+0000] {processor.py:161} INFO - Started process (PID=45115) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:14:29.678+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:14:29.679+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:14:29.679+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:14:29.689+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:14:29.705+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:14:29.704+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:14:29.715+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:14:29.715+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:14:29.727+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.059 seconds
+[2026-07-02T03:15:00.359+0000] {processor.py:161} INFO - Started process (PID=45152) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:00.360+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:15:00.363+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:00.363+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:00.388+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:00.429+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:00.428+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:15:00.454+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:00.453+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:15:00.466+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.119 seconds
+[2026-07-02T03:15:30.994+0000] {processor.py:161} INFO - Started process (PID=45189) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:30.995+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:15:30.996+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:30.996+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:31.005+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:15:31.034+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:31.034+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:15:31.049+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:15:31.048+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:15:31.061+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.071 seconds
+[2026-07-02T03:16:01.650+0000] {processor.py:161} INFO - Started process (PID=45226) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:01.651+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:16:01.653+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:01.653+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:01.662+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:01.682+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:01.682+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:16:01.692+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:01.692+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:16:01.701+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.056 seconds
+[2026-07-02T03:16:32.024+0000] {processor.py:161} INFO - Started process (PID=45263) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:32.026+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:16:32.029+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:32.028+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:32.046+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:16:32.070+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:32.070+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:16:32.083+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:16:32.083+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:16:32.097+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.082 seconds
+[2026-07-02T03:17:02.655+0000] {processor.py:161} INFO - Started process (PID=45300) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:02.657+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:17:02.658+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:02.658+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:02.668+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:02.683+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:02.683+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:17:02.693+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:02.693+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:17:02.702+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.053 seconds
+[2026-07-02T03:17:32.747+0000] {processor.py:161} INFO - Started process (PID=45337) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:32.748+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:17:32.751+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:32.750+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:32.759+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:17:32.777+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:32.777+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:17:32.789+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:17:32.788+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:17:32.802+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.063 seconds
+[2026-07-02T03:18:03.016+0000] {processor.py:161} INFO - Started process (PID=45374) to work on /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:18:03.017+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_weather.py for tasks to queue
+[2026-07-02T03:18:03.019+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:18:03.019+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:18:03.031+0000] {processor.py:840} INFO - DAG(s) 'silver_weather_dag' retrieved from /opt/airflow/dags/dag_silver_weather.py
+[2026-07-02T03:18:03.051+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:18:03.051+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-02T03:18:03.061+0000] {logging_mixin.py:188} INFO - [2026-07-02T03:18:03.061+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_weather_dag to None, run_after=None
+[2026-07-02T03:18:03.071+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_weather.py took 0.065 seconds
