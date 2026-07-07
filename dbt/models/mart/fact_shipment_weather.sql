@@ -31,3 +31,4 @@ LEFT JOIN weather w
     ON h.hub_city = w.hub_city 
     -- Matches weather to the day the order was placed
     AND DATE(s.order_placed_at) = DATE(w.weather_captured_at)
+    

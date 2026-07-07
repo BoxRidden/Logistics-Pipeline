@@ -53,3 +53,4 @@ with DAG(
         python_callable=generate_modular_data,
         outlets=[bronze_cdc_dataset] # Signals the ingestion DAG to run next
     )
+    

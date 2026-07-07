@@ -1,0 +1,252 @@
+[2026-07-04T00:15:28.643+0000] {processor.py:161} INFO - Started process (PID=28334) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T00:15:28.644+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T00:15:28.644+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:28.644+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T00:15:28.980+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T00:15:28.993+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:28.992+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T00:15:29.002+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:29.002+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 00:00:00+00:00, run_after=2026-07-04 01:00:00+00:00
+[2026-07-04T00:15:29.013+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.372 seconds
+[2026-07-04T01:25:39.103+0000] {processor.py:161} INFO - Started process (PID=28970) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T01:25:39.104+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T01:25:39.104+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.104+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T01:25:39.488+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T01:25:39.499+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.499+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T01:25:39.508+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.508+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 01:00:00+00:00, run_after=2026-07-04 02:00:00+00:00
+[2026-07-04T01:25:39.517+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.417 seconds
+[2026-07-04T02:49:14.529+0000] {processor.py:161} INFO - Started process (PID=29574) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T02:49:14.531+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T02:49:14.533+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:14.532+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T02:49:14.993+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T02:49:15.003+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:15.003+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T02:49:15.014+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:15.014+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 02:00:00+00:00, run_after=2026-07-04 03:00:00+00:00
+[2026-07-04T02:49:15.027+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.515 seconds
+[2026-07-04T03:50:20.320+0000] {processor.py:161} INFO - Started process (PID=30228) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T03:50:20.321+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T03:50:20.321+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.321+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T03:50:20.628+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T03:50:20.638+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.638+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T03:50:20.648+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.648+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 03:00:00+00:00, run_after=2026-07-04 04:00:00+00:00
+[2026-07-04T03:50:20.661+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.345 seconds
+[2026-07-04T05:08:37.963+0000] {processor.py:161} INFO - Started process (PID=30864) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T05:08:37.964+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T05:08:37.964+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:37.964+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T05:08:38.260+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T05:08:38.270+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:38.270+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T05:08:38.287+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:38.287+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 05:00:00+00:00, run_after=2026-07-04 06:00:00+00:00
+[2026-07-04T05:08:38.303+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.343 seconds
+[2026-07-04T06:09:33.268+0000] {processor.py:161} INFO - Started process (PID=31488) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:09:33.269+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T06:09:33.269+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.269+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:09:33.635+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:09:33.650+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.648+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:09:33.662+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.662+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:09:33.672+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.407 seconds
+[2026-07-04T06:47:06.687+0000] {processor.py:161} INFO - Started process (PID=32089) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:47:06.687+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T06:47:06.688+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:06.688+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:47:08.270+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:47:08.286+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:08.286+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:47:08.302+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:08.302+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:47:08.321+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 1.637 seconds
+[2026-07-04T06:58:21.581+0000] {processor.py:161} INFO - Started process (PID=32191) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:58:21.582+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T06:58:21.584+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:21.583+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:58:21.966+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T06:58:21.975+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:21.975+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:58:21.986+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:21.986+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:58:21.996+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.419 seconds
+[2026-07-04T07:05:22.990+0000] {processor.py:161} INFO - Started process (PID=32316) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:05:22.991+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:05:22.991+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:22.991+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:05:23.297+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:05:23.308+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:23.307+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:05:23.317+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:23.317+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:05:23.329+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.344 seconds
+[2026-07-04T07:13:31.737+0000] {processor.py:161} INFO - Started process (PID=32926) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:13:31.738+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:13:31.738+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:31.738+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:13:32.076+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:13:32.085+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:32.085+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:13:32.094+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:32.094+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:13:32.101+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.368 seconds
+[2026-07-04T07:17:37.791+0000] {processor.py:161} INFO - Started process (PID=33043) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:17:37.792+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:17:37.793+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:37.793+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:17:38.162+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:17:38.180+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:38.179+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:17:38.196+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:38.196+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:17:38.212+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.427 seconds
+[2026-07-04T07:24:48.168+0000] {processor.py:161} INFO - Started process (PID=33111) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:24:48.169+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:24:48.169+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.169+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:24:48.462+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:24:48.481+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.481+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:24:48.498+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.497+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:24:48.516+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.352 seconds
+[2026-07-04T07:27:41.180+0000] {processor.py:161} INFO - Started process (PID=33148) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:27:41.181+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:27:41.181+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.181+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:27:41.498+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:27:41.513+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.512+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:27:41.527+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.527+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:27:41.537+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.371 seconds
+[2026-07-04T07:32:19.925+0000] {processor.py:161} INFO - Started process (PID=33185) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:32:19.926+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:32:19.926+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:19.926+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:32:20.271+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:32:20.296+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:20.295+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:32:20.308+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:20.307+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:32:20.322+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.402 seconds
+[2026-07-04T07:38:09.902+0000] {processor.py:161} INFO - Started process (PID=33222) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:38:09.903+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T07:38:09.904+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:09.904+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:38:10.336+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T07:38:10.350+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:10.350+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:38:10.362+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:10.362+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:38:10.373+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.476 seconds
+[2026-07-04T08:42:34.056+0000] {processor.py:161} INFO - Started process (PID=33263) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T08:42:34.059+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T08:42:34.059+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.059+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T08:42:34.466+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T08:42:34.480+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.480+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T08:42:34.497+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.497+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 08:00:00+00:00, run_after=2026-07-04 09:00:00+00:00
+[2026-07-04T08:42:34.511+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.466 seconds
+[2026-07-04T09:41:49.249+0000] {processor.py:161} INFO - Started process (PID=33878) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T09:41:49.250+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T09:41:49.251+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.251+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T09:41:49.557+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T09:41:49.577+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.577+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T09:41:49.587+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.587+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 08:00:00+00:00, run_after=2026-07-04 09:00:00+00:00
+[2026-07-04T09:41:49.597+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.353 seconds
+[2026-07-04T10:46:17.149+0000] {processor.py:161} INFO - Started process (PID=34482) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T10:46:17.150+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T10:46:17.151+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.151+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T10:46:17.472+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T10:46:17.482+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.482+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T10:46:17.495+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.495+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 10:00:00+00:00, run_after=2026-07-04 11:00:00+00:00
+[2026-07-04T10:46:17.507+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.362 seconds
+[2026-07-04T11:57:13.961+0000] {processor.py:161} INFO - Started process (PID=35088) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T11:57:13.962+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T11:57:13.963+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:13.962+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T11:57:14.309+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T11:57:14.319+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:14.319+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T11:57:14.329+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:14.329+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 10:00:00+00:00, run_after=2026-07-04 11:00:00+00:00
+[2026-07-04T11:57:14.338+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.393 seconds
+[2026-07-04T12:10:07.012+0000] {processor.py:161} INFO - Started process (PID=35709) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:10:07.013+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T12:10:07.014+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.013+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:10:07.330+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:10:07.338+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.338+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:10:07.347+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.347+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:10:07.353+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.345 seconds
+[2026-07-04T12:12:07.907+0000] {processor.py:161} INFO - Started process (PID=36341) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:12:07.908+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T12:12:07.909+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:07.909+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:12:08.341+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:12:08.358+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:08.358+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:12:08.371+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:08.371+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:12:08.383+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.484 seconds
+[2026-07-04T12:31:19.825+0000] {processor.py:161} INFO - Started process (PID=36378) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:31:19.825+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T12:31:19.826+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:19.826+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:31:20.147+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T12:31:20.157+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:20.157+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:31:20.166+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:20.166+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:31:20.175+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.356 seconds
+[2026-07-04T13:12:07.266+0000] {processor.py:161} INFO - Started process (PID=36424) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:12:07.266+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T13:12:07.267+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.267+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:12:07.526+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:12:07.534+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.534+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T13:12:07.542+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.542+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 13:00:00+00:00, run_after=2026-07-04 14:00:00+00:00
+[2026-07-04T13:12:07.548+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.286 seconds
+[2026-07-04T13:31:56.113+0000] {processor.py:161} INFO - Started process (PID=37048) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:31:56.114+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T13:31:56.115+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.115+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:31:56.681+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T13:31:56.736+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.736+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T13:31:56.751+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.751+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 13:00:00+00:00, run_after=2026-07-04 14:00:00+00:00
+[2026-07-04T13:31:56.771+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.663 seconds
+[2026-07-04T14:30:06.887+0000] {processor.py:161} INFO - Started process (PID=37092) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T14:30:06.890+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T14:30:06.893+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:06.892+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T14:30:08.009+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T14:30:08.039+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:08.038+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T14:30:08.070+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:08.070+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 14:00:00+00:00, run_after=2026-07-04 15:00:00+00:00
+[2026-07-04T14:30:08.110+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 1.236 seconds
+[2026-07-04T15:19:18.109+0000] {processor.py:161} INFO - Started process (PID=37692) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:19:18.109+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T15:19:18.110+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.110+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:19:18.667+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:19:18.688+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.688+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:19:18.706+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.706+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:19:18.722+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.616 seconds
+[2026-07-04T15:51:51.772+0000] {processor.py:161} INFO - Started process (PID=38293) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:51:51.773+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T15:51:51.774+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:51.774+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:51:52.051+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:51:52.061+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:52.061+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:51:52.069+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:52.069+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:51:52.077+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.310 seconds
+[2026-07-04T15:54:01.843+0000] {processor.py:161} INFO - Started process (PID=38335) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:54:01.844+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T15:54:01.845+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:01.844+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:54:02.312+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T15:54:02.343+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:02.342+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:54:02.363+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:02.363+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:54:02.379+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.539 seconds
+[2026-07-04T16:28:52.317+0000] {processor.py:161} INFO - Started process (PID=38375) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T16:28:52.318+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T16:28:52.319+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.319+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T16:28:52.685+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T16:28:52.695+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.695+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T16:28:52.703+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.703+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 16:00:00+00:00, run_after=2026-07-04 17:00:00+00:00
+[2026-07-04T16:28:52.711+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.401 seconds
+[2026-07-04T17:02:16.976+0000] {processor.py:161} INFO - Started process (PID=38994) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T17:02:16.978+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T17:02:16.979+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:16.978+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T17:02:17.914+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T17:02:17.969+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:17.968+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T17:02:18.011+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:18.010+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 17:00:00+00:00, run_after=2026-07-04 18:00:00+00:00
+[2026-07-04T17:02:18.050+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 1.081 seconds
+[2026-07-04T18:03:15.820+0000] {processor.py:161} INFO - Started process (PID=39604) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:03:15.821+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T18:03:15.822+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:15.821+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:03:16.164+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:03:16.174+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:16.174+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T18:03:16.184+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:16.184+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 18:00:00+00:00, run_after=2026-07-04 19:00:00+00:00
+[2026-07-04T18:03:16.193+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.377 seconds
+[2026-07-04T18:41:31.467+0000] {processor.py:161} INFO - Started process (PID=40227) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:41:31.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T18:41:31.468+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.467+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:41:31.712+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T18:41:31.722+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.722+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T18:41:31.730+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.730+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 18:00:00+00:00, run_after=2026-07-04 19:00:00+00:00
+[2026-07-04T18:41:31.738+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.274 seconds
+[2026-07-04T19:43:21.838+0000] {processor.py:161} INFO - Started process (PID=40269) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T19:43:21.839+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T19:43:21.840+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:21.839+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T19:43:22.226+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T19:43:22.237+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:22.237+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T19:43:22.248+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:22.248+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 19:00:00+00:00, run_after=2026-07-04 20:00:00+00:00
+[2026-07-04T19:43:22.258+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.423 seconds
+[2026-07-04T21:23:04.977+0000] {processor.py:161} INFO - Started process (PID=40877) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T21:23:04.977+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T21:23:04.978+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:04.978+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T21:23:05.256+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T21:23:05.266+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:05.266+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T21:23:05.276+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:05.276+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 20:00:00+00:00, run_after=2026-07-04 21:00:00+00:00
+[2026-07-04T21:23:05.285+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.311 seconds
+[2026-07-04T22:43:03.434+0000] {processor.py:161} INFO - Started process (PID=41466) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T22:43:03.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T22:43:03.435+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.435+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T22:43:03.691+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T22:43:03.700+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.700+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T22:43:03.708+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.708+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 21:00:00+00:00, run_after=2026-07-04 22:00:00+00:00
+[2026-07-04T22:43:03.716+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.286 seconds
+[2026-07-04T23:26:32.222+0000] {processor.py:161} INFO - Started process (PID=42087) to work on /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T23:26:32.224+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_tomorrowio.py for tasks to queue
+[2026-07-04T23:26:32.224+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.224+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T23:26:32.533+0000] {processor.py:840} INFO - DAG(s) 'weather_tomorrowio_pipeline' retrieved from /opt/airflow/dags/dag_tomorrowio.py
+[2026-07-04T23:26:32.543+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.543+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T23:26:32.555+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.555+0000] {dag.py:3954} INFO - Setting next_dagrun for weather_tomorrowio_pipeline to 2026-07-04 23:00:00+00:00, run_after=2026-07-05 00:00:00+00:00
+[2026-07-04T23:26:32.564+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_tomorrowio.py took 0.349 seconds

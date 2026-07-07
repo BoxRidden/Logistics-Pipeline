@@ -1,0 +1,252 @@
+[2026-07-04T00:15:29.059+0000] {processor.py:161} INFO - Started process (PID=28352) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T00:15:29.059+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T00:15:29.060+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:29.060+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T00:15:29.070+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T00:15:29.082+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:29.082+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T00:15:29.092+0000] {logging_mixin.py:188} INFO - [2026-07-04T00:15:29.092+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 00:00:00+00:00, run_after=2026-07-04 01:00:00+00:00
+[2026-07-04T00:15:29.100+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.044 seconds
+[2026-07-04T01:25:39.535+0000] {processor.py:161} INFO - Started process (PID=28984) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T01:25:39.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T01:25:39.537+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.537+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T01:25:39.547+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T01:25:39.560+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.560+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T01:25:39.571+0000] {logging_mixin.py:188} INFO - [2026-07-04T01:25:39.571+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 01:00:00+00:00, run_after=2026-07-04 02:00:00+00:00
+[2026-07-04T01:25:39.581+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.050 seconds
+[2026-07-04T02:49:15.053+0000] {processor.py:161} INFO - Started process (PID=29591) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T02:49:15.054+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T02:49:15.054+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:15.054+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T02:49:15.064+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T02:49:15.078+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:15.078+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T02:49:15.089+0000] {logging_mixin.py:188} INFO - [2026-07-04T02:49:15.089+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 02:00:00+00:00, run_after=2026-07-04 03:00:00+00:00
+[2026-07-04T02:49:15.098+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.048 seconds
+[2026-07-04T03:50:20.678+0000] {processor.py:161} INFO - Started process (PID=30243) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T03:50:20.678+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T03:50:20.680+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.679+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T03:50:20.690+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T03:50:20.704+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.703+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T03:50:20.716+0000] {logging_mixin.py:188} INFO - [2026-07-04T03:50:20.716+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 03:00:00+00:00, run_after=2026-07-04 04:00:00+00:00
+[2026-07-04T03:50:20.847+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.173 seconds
+[2026-07-04T05:08:38.440+0000] {processor.py:161} INFO - Started process (PID=30880) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T05:08:38.443+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T05:08:38.444+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:38.444+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T05:08:38.464+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T05:08:38.624+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:38.623+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T05:08:38.687+0000] {logging_mixin.py:188} INFO - [2026-07-04T05:08:38.687+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 05:00:00+00:00, run_after=2026-07-04 06:00:00+00:00
+[2026-07-04T05:08:38.792+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.357 seconds
+[2026-07-04T06:09:33.745+0000] {processor.py:161} INFO - Started process (PID=31504) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:09:33.745+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T06:09:33.746+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.746+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:09:33.755+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:09:33.771+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.771+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:09:33.782+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:09:33.782+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:09:33.790+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.049 seconds
+[2026-07-04T06:47:08.454+0000] {processor.py:161} INFO - Started process (PID=32100) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:47:08.456+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T06:47:08.458+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:08.457+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:47:08.478+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:47:08.502+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:08.501+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:47:08.526+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:47:08.526+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:47:08.541+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.093 seconds
+[2026-07-04T06:58:21.990+0000] {processor.py:161} INFO - Started process (PID=32206) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:58:21.991+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T06:58:21.992+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:21.992+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:58:22.001+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T06:58:22.013+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:22.013+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T06:58:22.024+0000] {logging_mixin.py:188} INFO - [2026-07-04T06:58:22.024+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 06:00:00+00:00, run_after=2026-07-04 07:00:00+00:00
+[2026-07-04T06:58:22.033+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.045 seconds
+[2026-07-04T07:05:23.406+0000] {processor.py:161} INFO - Started process (PID=32333) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:05:23.407+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:05:23.407+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:23.407+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:05:23.417+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:05:23.430+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:23.430+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:05:23.445+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:05:23.445+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:05:23.458+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.055 seconds
+[2026-07-04T07:13:32.163+0000] {processor.py:161} INFO - Started process (PID=32939) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:13:32.164+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:13:32.164+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:32.164+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:13:32.177+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:13:32.192+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:32.191+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:13:32.204+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:13:32.204+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:13:32.215+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.055 seconds
+[2026-07-04T07:17:38.199+0000] {processor.py:161} INFO - Started process (PID=33055) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:17:38.200+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:17:38.200+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:38.200+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:17:38.218+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:17:38.246+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:38.245+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:17:38.272+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:17:38.272+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:17:38.290+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.097 seconds
+[2026-07-04T07:24:48.547+0000] {processor.py:161} INFO - Started process (PID=33122) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:24:48.548+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:24:48.550+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.549+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:24:48.571+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:24:48.597+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.597+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:24:48.618+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:24:48.617+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:24:48.639+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.097 seconds
+[2026-07-04T07:27:41.565+0000] {processor.py:161} INFO - Started process (PID=33159) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:27:41.565+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:27:41.566+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.566+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:27:41.577+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:27:41.592+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.592+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:27:41.604+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:27:41.604+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:27:41.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.050 seconds
+[2026-07-04T07:32:20.340+0000] {processor.py:161} INFO - Started process (PID=33196) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:32:20.341+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:32:20.343+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:20.342+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:32:20.355+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:32:20.369+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:20.368+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:32:20.378+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:32:20.377+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:32:20.390+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.052 seconds
+[2026-07-04T07:38:10.392+0000] {processor.py:161} INFO - Started process (PID=33233) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:38:10.392+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T07:38:10.393+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:10.393+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:38:10.406+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T07:38:10.418+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:10.418+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T07:38:10.445+0000] {logging_mixin.py:188} INFO - [2026-07-04T07:38:10.445+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 07:00:00+00:00, run_after=2026-07-04 08:00:00+00:00
+[2026-07-04T07:38:10.456+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.067 seconds
+[2026-07-04T08:42:34.535+0000] {processor.py:161} INFO - Started process (PID=33275) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T08:42:34.536+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T08:42:34.536+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.536+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T08:42:34.550+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T08:42:34.564+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.564+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T08:42:34.574+0000] {logging_mixin.py:188} INFO - [2026-07-04T08:42:34.574+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 08:00:00+00:00, run_after=2026-07-04 09:00:00+00:00
+[2026-07-04T08:42:34.582+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.051 seconds
+[2026-07-04T09:41:49.618+0000] {processor.py:161} INFO - Started process (PID=33889) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T09:41:49.619+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T09:41:49.619+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.619+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T09:41:49.627+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T09:41:49.639+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.639+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T09:41:49.649+0000] {logging_mixin.py:188} INFO - [2026-07-04T09:41:49.649+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 08:00:00+00:00, run_after=2026-07-04 09:00:00+00:00
+[2026-07-04T09:41:49.661+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.046 seconds
+[2026-07-04T10:46:17.530+0000] {processor.py:161} INFO - Started process (PID=34495) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T10:46:17.531+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T10:46:17.532+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.531+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T10:46:17.545+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T10:46:17.562+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.562+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T10:46:17.578+0000] {logging_mixin.py:188} INFO - [2026-07-04T10:46:17.578+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 10:00:00+00:00, run_after=2026-07-04 11:00:00+00:00
+[2026-07-04T10:46:17.588+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.062 seconds
+[2026-07-04T11:57:14.360+0000] {processor.py:161} INFO - Started process (PID=35099) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T11:57:14.361+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T11:57:14.361+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:14.361+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T11:57:14.371+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T11:57:14.384+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:14.384+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T11:57:14.401+0000] {logging_mixin.py:188} INFO - [2026-07-04T11:57:14.401+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 10:00:00+00:00, run_after=2026-07-04 11:00:00+00:00
+[2026-07-04T11:57:14.422+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.065 seconds
+[2026-07-04T12:10:07.280+0000] {processor.py:161} INFO - Started process (PID=35720) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:10:07.280+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T12:10:07.281+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.280+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:10:07.290+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:10:07.301+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.301+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:10:07.312+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:10:07.312+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:10:07.322+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.045 seconds
+[2026-07-04T12:12:08.405+0000] {processor.py:161} INFO - Started process (PID=36352) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:12:08.406+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T12:12:08.407+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:08.407+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:12:08.420+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:12:08.437+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:08.437+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:12:08.454+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:12:08.453+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:12:08.463+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.062 seconds
+[2026-07-04T12:31:20.257+0000] {processor.py:161} INFO - Started process (PID=36391) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:31:20.258+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T12:31:20.258+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:20.258+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:31:20.265+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T12:31:20.275+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:20.275+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T12:31:20.282+0000] {logging_mixin.py:188} INFO - [2026-07-04T12:31:20.282+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 12:00:00+00:00, run_after=2026-07-04 13:00:00+00:00
+[2026-07-04T12:31:20.289+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.035 seconds
+[2026-07-04T13:12:07.435+0000] {processor.py:161} INFO - Started process (PID=36436) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:12:07.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T13:12:07.436+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.436+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:12:07.449+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:12:07.466+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.466+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T13:12:07.479+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:12:07.479+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 13:00:00+00:00, run_after=2026-07-04 14:00:00+00:00
+[2026-07-04T13:12:07.488+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.057 seconds
+[2026-07-04T13:31:56.797+0000] {processor.py:161} INFO - Started process (PID=37059) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:31:56.798+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T13:31:56.799+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.798+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:31:56.814+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T13:31:56.833+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.833+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T13:31:56.850+0000] {logging_mixin.py:188} INFO - [2026-07-04T13:31:56.850+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 13:00:00+00:00, run_after=2026-07-04 14:00:00+00:00
+[2026-07-04T13:31:56.864+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.071 seconds
+[2026-07-04T14:30:08.173+0000] {processor.py:161} INFO - Started process (PID=37107) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T14:30:08.177+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T14:30:08.179+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:08.178+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T14:30:08.214+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T14:30:08.255+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:08.255+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T14:30:08.289+0000] {logging_mixin.py:188} INFO - [2026-07-04T14:30:08.288+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 14:00:00+00:00, run_after=2026-07-04 15:00:00+00:00
+[2026-07-04T14:30:08.328+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.164 seconds
+[2026-07-04T15:19:18.688+0000] {processor.py:161} INFO - Started process (PID=37703) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:19:18.690+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T15:19:18.691+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.690+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:19:18.709+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:19:18.734+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.734+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:19:18.765+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:19:18.765+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:19:18.794+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.112 seconds
+[2026-07-04T15:51:52.094+0000] {processor.py:161} INFO - Started process (PID=38304) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:51:52.094+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T15:51:52.095+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:52.094+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:51:52.102+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:51:52.114+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:52.113+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:51:52.125+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:51:52.125+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:51:52.136+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.045 seconds
+[2026-07-04T15:54:02.463+0000] {processor.py:161} INFO - Started process (PID=38346) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:54:02.465+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T15:54:02.465+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:02.465+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:54:02.520+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T15:54:02.551+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:02.551+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T15:54:02.567+0000] {logging_mixin.py:188} INFO - [2026-07-04T15:54:02.566+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 15:00:00+00:00, run_after=2026-07-04 16:00:00+00:00
+[2026-07-04T15:54:02.580+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.125 seconds
+[2026-07-04T16:28:52.731+0000] {processor.py:161} INFO - Started process (PID=38388) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T16:28:52.732+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T16:28:52.732+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.732+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T16:28:52.742+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T16:28:52.755+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.755+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T16:28:52.765+0000] {logging_mixin.py:188} INFO - [2026-07-04T16:28:52.765+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 16:00:00+00:00, run_after=2026-07-04 17:00:00+00:00
+[2026-07-04T16:28:52.774+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.046 seconds
+[2026-07-04T17:02:18.113+0000] {processor.py:161} INFO - Started process (PID=39010) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T17:02:18.115+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T17:02:18.117+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:18.117+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T17:02:18.152+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T17:02:18.193+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:18.192+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T17:02:18.254+0000] {logging_mixin.py:188} INFO - [2026-07-04T17:02:18.254+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 17:00:00+00:00, run_after=2026-07-04 18:00:00+00:00
+[2026-07-04T17:02:18.334+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.229 seconds
+[2026-07-04T18:03:16.229+0000] {processor.py:161} INFO - Started process (PID=39619) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:03:16.230+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T18:03:16.230+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:16.230+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:03:16.240+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:03:16.250+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:16.250+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T18:03:16.259+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:03:16.259+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 18:00:00+00:00, run_after=2026-07-04 19:00:00+00:00
+[2026-07-04T18:03:16.267+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.044 seconds
+[2026-07-04T18:41:31.758+0000] {processor.py:161} INFO - Started process (PID=40238) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:41:31.758+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T18:41:31.759+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.759+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:41:31.771+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T18:41:31.788+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.788+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T18:41:31.803+0000] {logging_mixin.py:188} INFO - [2026-07-04T18:41:31.803+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 18:00:00+00:00, run_after=2026-07-04 19:00:00+00:00
+[2026-07-04T18:41:31.823+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.069 seconds
+[2026-07-04T19:43:22.307+0000] {processor.py:161} INFO - Started process (PID=40284) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T19:43:22.308+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T19:43:22.309+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:22.309+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T19:43:22.319+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T19:43:22.339+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:22.339+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T19:43:22.352+0000] {logging_mixin.py:188} INFO - [2026-07-04T19:43:22.351+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 19:00:00+00:00, run_after=2026-07-04 20:00:00+00:00
+[2026-07-04T19:43:22.362+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.059 seconds
+[2026-07-04T21:23:05.356+0000] {processor.py:161} INFO - Started process (PID=40890) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T21:23:05.356+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T21:23:05.357+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:05.357+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T21:23:05.373+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T21:23:05.385+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:05.385+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T21:23:05.394+0000] {logging_mixin.py:188} INFO - [2026-07-04T21:23:05.394+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 20:00:00+00:00, run_after=2026-07-04 21:00:00+00:00
+[2026-07-04T21:23:05.403+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.052 seconds
+[2026-07-04T22:43:03.739+0000] {processor.py:161} INFO - Started process (PID=41477) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T22:43:03.739+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T22:43:03.739+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.739+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T22:43:03.747+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T22:43:03.756+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.756+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T22:43:03.764+0000] {logging_mixin.py:188} INFO - [2026-07-04T22:43:03.764+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 21:00:00+00:00, run_after=2026-07-04 22:00:00+00:00
+[2026-07-04T22:43:03.774+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.038 seconds
+[2026-07-04T23:26:32.583+0000] {processor.py:161} INFO - Started process (PID=42100) to work on /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T23:26:32.584+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_shipment_sim.py for tasks to queue
+[2026-07-04T23:26:32.585+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.585+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T23:26:32.599+0000] {processor.py:840} INFO - DAG(s) 'dag_shipment_sim' retrieved from /opt/airflow/dags/dag_shipment_sim.py
+[2026-07-04T23:26:32.620+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.620+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-04T23:26:32.635+0000] {logging_mixin.py:188} INFO - [2026-07-04T23:26:32.635+0000] {dag.py:3954} INFO - Setting next_dagrun for dag_shipment_sim to 2026-07-04 23:00:00+00:00, run_after=2026-07-05 00:00:00+00:00
+[2026-07-04T23:26:32.649+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_shipment_sim.py took 0.069 seconds

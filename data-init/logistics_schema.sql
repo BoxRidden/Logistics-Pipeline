@@ -1,40 +1,35 @@
-CREATE TABLE IF NOT EXISTS hubs (
+-- Drop tables if resetting environment during development
+DROP TABLE IF EXISTS shipments CASCADE;
+DROP TABLE IF EXISTS drivers CASCADE;
+DROP TABLE IF EXISTS hubs CASCADE;
+
+CREATE TABLE hubs (
     hub_id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    city VARCHAR(100),
-    lat DECIMAL(9,6),
-    lon DECIMAL(9,6),
+    name VARCHAR(100) NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    lat DECIMAL(9,6) NOT NULL,
+    lon DECIMAL(9,6) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS drivers (
+CREATE TABLE drivers (
     driver_id SERIAL PRIMARY KEY,
-    name VARCHAR(100),
-    vehicle_type VARCHAR(50),
+    name VARCHAR(100) NOT NULL,
+    vehicle_type VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NOT EXISTS shipments (
+CREATE TABLE shipments (
     shipment_id SERIAL PRIMARY KEY,
-    tracking_code VARCHAR(50) UNIQUE,
+    tracking_code VARCHAR(50) UNIQUE NOT NULL,
     hub_id INT REFERENCES hubs(hub_id),
     driver_id INT REFERENCES drivers(driver_id),
-    customer_city VARCHAR(100),
-    status VARCHAR(50), -- 'Pending', 'In Transit', 'Delivered', 'Delayed'
+    customer_city VARCHAR(100) NOT NULL,
+    status VARCHAR(50) NOT NULL CHECK (status IN ('Pending', 'In Transit', 'Delivered', 'Delayed', 'Cancelled')),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Insert base Hubs (For tracking weathers)
-INSERT INTO hubs (name, city, lat, lon) VALUES
-('Hanoi Central Hub', 'Hanoi', 21.0285, 105.8542),
-('Da Nang Port Hub', 'Da Nang', 16.0471, 108.2068),
-('HCM South Hub', 'Ho Chi Minh City', 10.8231, 106.6297)
-ON CONFLICT DO NOTHING;
-
--- Insert base Drivers
-INSERT INTO drivers (name, vehicle_type) VALUES
-('Nguyen Van A', 'Motorcycle'),
-('Tran Thi B', 'Truck'),
-('Le Van C', 'Van')
-ON CONFLICT DO NOTHING;
+-- Performance Indexes for Extraction and Joins
+CREATE INDEX shipments_updated_at ON shipments(updated_at);
+CREATE INDEX shipments_hub_status ON shipments(hub_id, status);

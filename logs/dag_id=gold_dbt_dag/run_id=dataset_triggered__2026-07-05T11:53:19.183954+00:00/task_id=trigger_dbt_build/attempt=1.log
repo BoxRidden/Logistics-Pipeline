@@ -1,0 +1,57 @@
+[2026-07-05T11:53:19.860+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-05T11:53:19.877+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-05T11:53:19.183954+00:00 [queued]>
+[2026-07-05T11:53:19.881+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-05T11:53:19.183954+00:00 [queued]>
+[2026-07-05T11:53:19.881+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-07-05T11:53:19.886+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-05 11:53:19.183954+00:00
+[2026-07-05T11:53:19.890+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=50040) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-05T11:53:19.890+0000] {standard_task_runner.py:63} INFO - Started process 50041 to run task
+[2026-07-05T11:53:19.890+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-05T11:53:19.183954+00:00', '--job-id', '671', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmp7jdwgh7d']
+[2026-07-05T11:53:19.891+0000] {standard_task_runner.py:91} INFO - Job 671: Subtask trigger_dbt_build
+[2026-07-05T11:53:19.924+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-05T11:53:19.183954+00:00 [running]> on host bd23e89d97be
+[2026-07-05T11:53:19.961+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-05T11:53:19.183954+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-05T11:53:19.183954+00:00'
+[2026-07-05T11:53:19.961+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-05T11:53:19.968+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-05T11:53:19.968+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-05T11:53:19.971+0000] {subprocess.py:86} INFO - Output:
+[2026-07-05T11:53:20.977+0000] {subprocess.py:93} INFO - [0m11:53:20  Running with dbt=1.11.11
+[2026-07-05T11:53:21.844+0000] {subprocess.py:93} INFO - [0m11:53:21  Registered adapter: bigquery=1.11.3
+[2026-07-05T11:53:22.137+0000] {subprocess.py:93} INFO - [0m11:53:22  Found 5 models, 4 sources, 553 macros
+[2026-07-05T11:53:22.138+0000] {subprocess.py:93} INFO - [0m11:53:22
+[2026-07-05T11:53:22.138+0000] {subprocess.py:93} INFO - [0m11:53:22  Concurrency: 4 threads (target='dev')
+[2026-07-05T11:53:22.139+0000] {subprocess.py:93} INFO - [0m11:53:22
+[2026-07-05T11:53:23.880+0000] {subprocess.py:93} INFO - [0m11:53:23  1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[2026-07-05T11:53:23.881+0000] {subprocess.py:93} INFO - [0m11:53:23  2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[2026-07-05T11:53:23.882+0000] {subprocess.py:93} INFO - [0m11:53:23  3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[2026-07-05T11:53:23.882+0000] {subprocess.py:93} INFO - [0m11:53:23  4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[2026-07-05T11:53:25.994+0000] {subprocess.py:93} INFO - [0m11:53:25  4 of 5 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 2.11s]
+[2026-07-05T11:53:25.994+0000] {subprocess.py:93} INFO - [0m11:53:25  3 of 5 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 2.11s]
+[2026-07-05T16:31:05.146+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2026-07-05T16:31:05.151+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-07-05T16:31:05.155+0000] {process_utils.py:132} INFO - Sending 15 to group 50041. PIDs of all processes in the group: [50042, 50056, 50041]
+[2026-07-05T16:31:05.156+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 50041
+[2026-07-05T16:31:05.159+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-07-05T16:31:05.168+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-07-05T16:31:05.170+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-05T16:31:05.211+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-07-05T16:31:05.220+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-05T11:53:19.183954+00:00, execution_date=20260705T115319, start_date=20260705T115319, end_date=20260705T163105
+[2026-07-05T16:31:05.255+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=50041, status='terminated', exitcode=2, started='11:53:19') (50041) terminated with exit code 2
+[2026-07-05T16:31:05.255+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=50042, status='terminated', started='11:53:19') (50042) terminated with exit code None
+[2026-07-05T16:31:05.256+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=50056, status='terminated', started='11:53:21') (50056) terminated with exit code None

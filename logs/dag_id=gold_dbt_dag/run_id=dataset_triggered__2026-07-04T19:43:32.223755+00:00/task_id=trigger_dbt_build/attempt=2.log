@@ -1,0 +1,97 @@
+[2026-07-05T02:35:37.887+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-05T02:35:37.913+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-04T19:43:32.223755+00:00 [queued]>
+[2026-07-05T02:35:37.917+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-04T19:43:32.223755+00:00 [queued]>
+[2026-07-05T02:35:37.917+0000] {taskinstance.py:2306} INFO - Starting attempt 2 of 2
+[2026-07-05T02:35:37.924+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-04 19:43:32.223755+00:00
+[2026-07-05T02:35:37.932+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=43919) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-05T02:35:37.931+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-04T19:43:32.223755+00:00', '--job-id', '608', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmp8du8ry2c']
+[2026-07-05T02:35:37.932+0000] {standard_task_runner.py:63} INFO - Started process 43931 to run task
+[2026-07-05T02:35:37.932+0000] {standard_task_runner.py:91} INFO - Job 608: Subtask trigger_dbt_build
+[2026-07-05T02:35:37.976+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-04T19:43:32.223755+00:00 [running]> on host bd23e89d97be
+[2026-07-05T02:35:38.012+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-04T19:43:32.223755+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-04T19:43:32.223755+00:00'
+[2026-07-05T02:35:38.013+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-05T02:35:38.019+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-05T02:35:38.020+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-05T02:35:38.026+0000] {subprocess.py:86} INFO - Output:
+[2026-07-05T02:35:39.852+0000] {subprocess.py:93} INFO - [0m02:35:39  Running with dbt=1.11.11
+[2026-07-05T02:35:40.537+0000] {subprocess.py:93} INFO - [0m02:35:40  Registered adapter: bigquery=1.11.3
+[2026-07-05T02:35:40.844+0000] {subprocess.py:93} INFO - [0m02:35:40  Found 5 models, 4 sources, 553 macros
+[2026-07-05T02:35:40.846+0000] {subprocess.py:93} INFO - [0m02:35:40
+[2026-07-05T02:35:40.846+0000] {subprocess.py:93} INFO - [0m02:35:40  Concurrency: 4 threads (target='dev')
+[2026-07-05T02:35:40.847+0000] {subprocess.py:93} INFO - [0m02:35:40
+[2026-07-05T02:35:42.368+0000] {subprocess.py:93} INFO - [0m02:35:42  1 of 5 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[2026-07-05T02:35:42.369+0000] {subprocess.py:93} INFO - [0m02:35:42  2 of 5 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[2026-07-05T02:35:42.370+0000] {subprocess.py:93} INFO - [0m02:35:42  3 of 5 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[2026-07-05T02:35:42.371+0000] {subprocess.py:93} INFO - [0m02:35:42  4 of 5 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[2026-07-05T04:47:04.589+0000] {subprocess.py:93} INFO - [0m04:47:04  2 of 5 ERROR creating sql table model logistics_mart.dim_hubs .................. [[31mERROR[0m in 7882.21s]
+[2026-07-05T04:47:06.648+0000] {subprocess.py:93} INFO - [0m04:47:06  1 of 5 ERROR creating sql table model logistics_mart.dim_drivers ............... [[31mERROR[0m in 7884.27s]
+[2026-07-05T05:36:36.321+0000] {subprocess.py:93} INFO - [0m05:36:36  4 of 5 ERROR creating sql view model logistics_mart.stg_weather ................ [[31mERROR[0m in 10853.94s]
+[2026-07-05T06:48:51.396+0000] {subprocess.py:93} INFO - [0m06:48:51  3 of 5 ERROR creating sql view model logistics_mart.stg_shipments .............. [[31mERROR[0m in 15189.02s]
+[2026-07-05T06:48:51.401+0000] {subprocess.py:93} INFO - [0m06:48:51  5 of 5 SKIP relation logistics_mart.fact_shipment_weather ...................... [[33mSKIP[0m]
+[2026-07-05T06:48:51.445+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.446+0000] {subprocess.py:93} INFO - [0m06:48:51  Finished running 3 table models, 2 view models in 4 hours 13 minutes and 10.60 seconds (15190.60s).
+[2026-07-05T06:48:51.512+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.513+0000] {subprocess.py:93} INFO - [0m06:48:51  [31mCompleted with 4 errors, 0 partial successes, and 0 warnings:[0m
+[2026-07-05T06:48:51.513+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.514+0000] {subprocess.py:93} INFO - [0m06:48:51  [31mFailure in model dim_hubs (models/mart/dim_hubs.sql)[0m
+[2026-07-05T06:48:51.514+0000] {subprocess.py:93} INFO - [0m06:48:51    Database Error in model dim_hubs (models/mart/dim_hubs.sql)
+[2026-07-05T06:48:51.514+0000] {subprocess.py:93} INFO -   409 POST https://bigquery.googleapis.com/bigquery/v2/projects/logistics-500519/jobs?prettyPrint=false: Already Exists: Job logistics-500519:US.e8d414ff-d063-4745-aee2-c0671d037136
+[2026-07-05T06:48:51.515+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.515+0000] {subprocess.py:93} INFO -   Location: None
+[2026-07-05T06:48:51.516+0000] {subprocess.py:93} INFO -   Job ID: e8d414ff-d063-4745-aee2-c0671d037136
+[2026-07-05T06:48:51.516+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.516+0000] {subprocess.py:93} INFO -   compiled code at target/run/logistics_lakehouse/models/mart/dim_hubs.sql
+[2026-07-05T06:48:51.517+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.517+0000] {subprocess.py:93} INFO - [0m06:48:51    compiled code at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+[2026-07-05T06:48:51.517+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.517+0000] {subprocess.py:93} INFO - [0m06:48:51  [31mFailure in model dim_drivers (models/mart/dim_drivers.sql)[0m
+[2026-07-05T06:48:51.518+0000] {subprocess.py:93} INFO - [0m06:48:51    Database Error in model dim_drivers (models/mart/dim_drivers.sql)
+[2026-07-05T06:48:51.518+0000] {subprocess.py:93} INFO -   409 POST https://bigquery.googleapis.com/bigquery/v2/projects/logistics-500519/jobs?prettyPrint=false: Already Exists: Job logistics-500519:US.ddd896e2-1e73-4d27-b300-8c061d89df86
+[2026-07-05T06:48:51.519+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.519+0000] {subprocess.py:93} INFO -   Location: None
+[2026-07-05T06:48:51.519+0000] {subprocess.py:93} INFO -   Job ID: ddd896e2-1e73-4d27-b300-8c061d89df86
+[2026-07-05T06:48:51.520+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.520+0000] {subprocess.py:93} INFO -   compiled code at target/run/logistics_lakehouse/models/mart/dim_drivers.sql
+[2026-07-05T06:48:51.521+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.521+0000] {subprocess.py:93} INFO - [0m06:48:51    compiled code at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+[2026-07-05T06:48:51.521+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.522+0000] {subprocess.py:93} INFO - [0m06:48:51  [31mFailure in model stg_weather (models/staging/stg_weather.sql)[0m
+[2026-07-05T06:48:51.522+0000] {subprocess.py:93} INFO - [0m06:48:51    Database Error in model stg_weather (models/staging/stg_weather.sql)
+[2026-07-05T06:48:51.523+0000] {subprocess.py:93} INFO -   ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-05T06:48:51.523+0000] {subprocess.py:93} INFO -   compiled code at target/run/logistics_lakehouse/models/staging/stg_weather.sql
+[2026-07-05T06:48:51.523+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.524+0000] {subprocess.py:93} INFO - [0m06:48:51    compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+[2026-07-05T06:48:51.524+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.525+0000] {subprocess.py:93} INFO - [0m06:48:51  [31mFailure in model stg_shipments (models/staging/stg_shipments.sql)[0m
+[2026-07-05T06:48:51.525+0000] {subprocess.py:93} INFO - [0m06:48:51    Database Error in model stg_shipments (models/staging/stg_shipments.sql)
+[2026-07-05T06:48:51.525+0000] {subprocess.py:93} INFO -   409 POST https://bigquery.googleapis.com/bigquery/v2/projects/logistics-500519/jobs?prettyPrint=false: Already Exists: Job logistics-500519:US.ed583be0-b1da-4ac7-8273-52027d501fb4
+[2026-07-05T06:48:51.525+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO -   Location: None
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO -   Job ID: ed583be0-b1da-4ac7-8273-52027d501fb4
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO - 
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO -   compiled code at target/run/logistics_lakehouse/models/staging/stg_shipments.sql
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.526+0000] {subprocess.py:93} INFO - [0m06:48:51    compiled code at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+[2026-07-05T06:48:51.527+0000] {subprocess.py:93} INFO - [0m06:48:51
+[2026-07-05T06:48:51.527+0000] {subprocess.py:93} INFO - [0m06:48:51  Done. PASS=0 WARN=0 ERROR=4 SKIP=1 NO-OP=0 TOTAL=5
+[2026-07-05T06:48:57.743+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-05T06:48:57.746+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-05T06:48:57.765+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-05T06:48:57.771+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-04T19:43:32.223755+00:00, execution_date=20260704T194332, start_date=20260705T023537, end_date=20260705T064857
+[2026-07-05T06:48:57.786+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 608 for task trigger_dbt_build (Bash command failed. The command returned a non-zero exit code 1.; 43931)
+[2026-07-05T06:48:57.812+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-05T06:48:57.829+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-05T06:48:57.833+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

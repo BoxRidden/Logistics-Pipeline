@@ -1,0 +1,90 @@
+[2026-07-05T05:17:45.568+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-05T05:17:45.610+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-05T05:17:44.187490+00:00 [queued]>
+[2026-07-05T05:17:45.617+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-05T05:17:44.187490+00:00 [queued]>
+[2026-07-05T05:17:45.618+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-07-05T05:17:45.623+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): push_to_bigquery> on 2026-07-05 05:17:44.187490+00:00
+[2026-07-05T05:17:45.628+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=45321) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-05T05:17:45.629+0000] {standard_task_runner.py:63} INFO - Started process 45351 to run task
+[2026-07-05T05:17:45.629+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'logistics_postgres_to_bq', 'push_to_bigquery', 'dataset_triggered__2026-07-05T05:17:44.187490+00:00', '--job-id', '627', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_to_bq.py', '--cfg-path', '/tmp/tmpyvbwmec3']
+[2026-07-05T05:17:45.630+0000] {standard_task_runner.py:91} INFO - Job 627: Subtask push_to_bigquery
+[2026-07-05T05:17:45.663+0000] {task_command.py:426} INFO - Running <TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-05T05:17:44.187490+00:00 [running]> on host bd23e89d97be
+[2026-07-05T05:17:45.705+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='logistics_postgres_to_bq' AIRFLOW_CTX_TASK_ID='push_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2026-07-05T05:17:44.187490+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-05T05:17:44.187490+00:00'
+[2026-07-05T05:17:45.706+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-05T05:17:46.686+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-07-05T05:17:50.452+0000] {logging_mixin.py:188} INFO - Pushed 731 rows from shipments to BigQuery.
+[2026-07-05T05:17:50.455+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-07-05T05:18:08.716+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-05T05:18:08.723+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_postgres_to_bq.py", line 39, in extract_load_postgres_to_bq
+    job.result()
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 971, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 256, in result
+    self._blocking_poll(timeout=timeout, retry=retry, polling=polling)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 137, in _blocking_poll
+    polling(self._done_or_raise)(retry=retry)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 216, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 119, in _done_or_raise
+    if not self.done(retry=retry):
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 938, in done
+    self.reload(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 828, in reload
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 831, in _call_api
+    return call()
+           ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 482, in api_request
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 341, in _make_request
+    return self._do_request(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 379, in _do_request
+    return self.http.request(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/auth/transport/requests.py", line 543, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 711, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-05T05:18:08.745+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=logistics_postgres_to_bq, task_id=push_to_bigquery, run_id=dataset_triggered__2026-07-05T05:17:44.187490+00:00, execution_date=20260705T051744, start_date=20260705T051745, end_date=20260705T051808
+[2026-07-05T05:18:08.758+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 627 for task push_to_bigquery (('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); 45351)
+[2026-07-05T05:18:08.797+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-05T05:18:08.814+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-05T05:18:08.815+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

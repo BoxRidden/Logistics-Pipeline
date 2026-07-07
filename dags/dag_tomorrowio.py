@@ -22,4 +22,4 @@ with DAG('weather_tomorrowio_pipeline', default_args=default_args, schedule_inte
         python_callable=fetch_and_store_bronze,
         outlets=[bronze_weather_tomorrow] # ANNOUNCES: Bronze is ready!
     )
-    
+

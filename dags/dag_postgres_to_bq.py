@@ -40,7 +40,7 @@ def extract_load_postgres_to_bq():
         print(f"Pushed {len(df)} rows from {table} to BigQuery.")
 
     pg_conn.close()
-
+#Check again if this startdate is any more relevant to the DAG schedule. 
 default_args = {'owner': 'airflow', 'start_date': datetime(2026, 6, 1)}
 
 with DAG('logistics_postgres_to_bq', default_args=default_args, schedule=[bronze_cdc_dataset], catchup=False) as dag:
