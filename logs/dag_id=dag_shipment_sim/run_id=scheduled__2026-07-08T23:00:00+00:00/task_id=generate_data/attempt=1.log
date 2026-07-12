@@ -1,0 +1,20 @@
+[2026-07-09T00:00:55.255+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-09T00:00:55.271+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dag_shipment_sim.generate_data scheduled__2026-07-08T23:00:00+00:00 [queued]>
+[2026-07-09T00:00:55.280+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dag_shipment_sim.generate_data scheduled__2026-07-08T23:00:00+00:00 [queued]>
+[2026-07-09T00:00:55.282+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-07-09T00:00:55.291+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): generate_data> on 2026-07-08 23:00:00+00:00
+[2026-07-09T00:00:55.297+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'dag_shipment_sim', 'generate_data', 'scheduled__2026-07-08T23:00:00+00:00', '--job-id', '1208', '--raw', '--subdir', 'DAGS_FOLDER/dag_shipment_sim.py', '--cfg-path', '/tmp/tmpgp6uo746']
+[2026-07-09T00:00:55.300+0000] {standard_task_runner.py:91} INFO - Job 1208: Subtask generate_data
+[2026-07-09T00:00:55.301+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=40155) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-09T00:00:55.301+0000] {standard_task_runner.py:63} INFO - Started process 40158 to run task
+[2026-07-09T00:00:55.340+0000] {task_command.py:426} INFO - Running <TaskInstance: dag_shipment_sim.generate_data scheduled__2026-07-08T23:00:00+00:00 [running]> on host bd23e89d97be
+[2026-07-09T00:00:55.383+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='dag_shipment_sim' AIRFLOW_CTX_TASK_ID='generate_data' AIRFLOW_CTX_EXECUTION_DATE='2026-07-08T23:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-08T23:00:00+00:00'
+[2026-07-09T00:00:55.384+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-09T00:00:55.393+0000] {logging_mixin.py:188} INFO - Successfully generated and inserted 6 shipments using modular architecture.
+[2026-07-09T00:00:55.393+0000] {python.py:237} INFO - Done. Returned value was: None
+[2026-07-09T00:00:55.393+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-09T00:00:55.395+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/models/baseoperator.py:1564 RemovedInAirflow3Warning: Passing 'execution_date' to 'TaskInstance.xcom_push()' is deprecated.
+[2026-07-09T00:00:55.403+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=dag_shipment_sim, task_id=generate_data, run_id=scheduled__2026-07-08T23:00:00+00:00, execution_date=20260708T230000, start_date=20260709T000055, end_date=20260709T000055
+[2026-07-09T00:00:55.441+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-07-09T00:00:55.448+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-09T00:00:55.448+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

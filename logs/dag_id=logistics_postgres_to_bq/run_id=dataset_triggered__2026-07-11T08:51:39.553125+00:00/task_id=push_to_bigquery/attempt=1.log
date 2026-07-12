@@ -1,0 +1,109 @@
+[2026-07-11T08:51:40.692+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-11T08:51:40.704+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-11T08:51:39.553125+00:00 [queued]>
+[2026-07-11T08:51:40.707+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-11T08:51:39.553125+00:00 [queued]>
+[2026-07-11T08:51:40.707+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-07-11T08:51:40.713+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): push_to_bigquery> on 2026-07-11 08:51:39.553125+00:00
+[2026-07-11T08:51:40.717+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=65311) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-11T08:51:40.718+0000] {standard_task_runner.py:63} INFO - Started process 65319 to run task
+[2026-07-11T08:51:40.718+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'logistics_postgres_to_bq', 'push_to_bigquery', 'dataset_triggered__2026-07-11T08:51:39.553125+00:00', '--job-id', '1601', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_to_bq.py', '--cfg-path', '/tmp/tmphn7rcuvp']
+[2026-07-11T08:51:40.719+0000] {standard_task_runner.py:91} INFO - Job 1601: Subtask push_to_bigquery
+[2026-07-11T08:51:40.739+0000] {task_command.py:426} INFO - Running <TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-11T08:51:39.553125+00:00 [running]> on host bd23e89d97be
+[2026-07-11T08:51:40.773+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='logistics_postgres_to_bq' AIRFLOW_CTX_TASK_ID='push_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2026-07-11T08:51:39.553125+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-11T08:51:39.553125+00:00'
+[2026-07-11T08:51:40.774+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-11T08:51:40.898+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff659371a0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:40.903+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65503bf0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:40.907+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65538080>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:41.302+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65538920>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:41.305+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65538da0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:41.307+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65539220>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.121+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65539a30>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.125+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65539e50>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.130+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553a300>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.632+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553ac00>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.637+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553b020>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:42.641+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553b380>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:47.840+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553bad0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:47.862+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6553bf50>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:47.876+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65570140>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:56.600+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65570980>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:56.606+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65570ce0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T08:51:56.611+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65570fe0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T09:35:59.928+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65571700>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T09:36:00.067+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65571c40>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T09:36:00.338+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff65571f70>: Failed to resolve 'oauth2.googleapis.com' ([Errno -2] Name or service not known)")': /token
+[2026-07-11T10:03:13.719+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:34 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-07-11T11:09:40.005+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-11T11:09:40.044+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_postgres_to_bq.py", line 39, in extract_load_postgres_to_bq
+    job.result()
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 971, in result
+    return super(_AsyncJob, self).result(timeout=timeout, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 256, in result
+    self._blocking_poll(timeout=timeout, retry=retry, polling=polling)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 137, in _blocking_poll
+    polling(self._done_or_raise)(retry=retry)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+           ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_base.py", line 216, in _retry_error_helper
+    raise final_exc from source_exc
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/retry/retry_unary.py", line 147, in retry_target
+    result = target()
+             ^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/api_core/future/polling.py", line 119, in _done_or_raise
+    if not self.done(retry=retry):
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 938, in done
+    self.reload(retry=retry, timeout=timeout)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/job/base.py", line 828, in reload
+    api_response = client._call_api(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 831, in _call_api
+    return call()
+           ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 482, in api_request
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 341, in _make_request
+    return self._do_request(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/_http/__init__.py", line 379, in _do_request
+    return self.http.request(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/auth/transport/requests.py", line 543, in request
+    response = super(AuthorizedSession, self).request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/requests/adapters.py", line 711, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-11T11:09:40.115+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=logistics_postgres_to_bq, task_id=push_to_bigquery, run_id=dataset_triggered__2026-07-11T08:51:39.553125+00:00, execution_date=20260711T085139, start_date=20260711T085140, end_date=20260711T110940
+[2026-07-11T11:09:40.164+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1601 for task push_to_bigquery (('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); 65319)
+[2026-07-11T11:09:40.256+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-11T11:09:40.307+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-11T11:09:40.310+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

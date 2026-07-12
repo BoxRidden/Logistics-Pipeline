@@ -1,0 +1,71 @@
+[2026-07-12T11:26:02.613+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-12T11:26:02.638+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-12T11:26:00.855889+00:00 [queued]>
+[2026-07-12T11:26:02.647+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-12T11:26:00.855889+00:00 [queued]>
+[2026-07-12T11:26:02.647+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-07-12T11:26:02.680+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): push_to_bigquery> on 2026-07-12 11:26:00.855889+00:00
+[2026-07-12T11:26:02.694+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=15453) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-12T11:26:02.695+0000] {standard_task_runner.py:63} INFO - Started process 15538 to run task
+[2026-07-12T11:26:02.696+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'logistics_postgres_to_bq', 'push_to_bigquery', 'dataset_triggered__2026-07-12T11:26:00.855889+00:00', '--job-id', '138', '--raw', '--subdir', 'DAGS_FOLDER/dag_postgres_to_bq.py', '--cfg-path', '/tmp/tmpv0kt_b3d']
+[2026-07-12T11:26:02.698+0000] {standard_task_runner.py:91} INFO - Job 138: Subtask push_to_bigquery
+[2026-07-12T11:26:02.739+0000] {task_command.py:426} INFO - Running <TaskInstance: logistics_postgres_to_bq.push_to_bigquery dataset_triggered__2026-07-12T11:26:00.855889+00:00 [running]> on host ad4e12f53b08
+[2026-07-12T11:26:02.828+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='logistics_postgres_to_bq' AIRFLOW_CTX_TASK_ID='push_to_bigquery' AIRFLOW_CTX_EXECUTION_DATE='2026-07-12T11:26:00.855889+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-12T11:26:00.855889+00:00'
+[2026-07-12T11:26:02.830+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-12T11:26:11.006+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff6d7928d0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)")': /token
+[2026-07-12T11:45:08.922+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1000)'))': /token
+[2026-07-12T11:45:53.127+0000] {connectionpool.py:874} WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /v1/projects/-/serviceAccounts/dbt-logistics-runner@project-592ab4fe-f210-4e44-9b9.iam.gserviceaccount.com/allowedLocations
+[2026-07-12T11:46:07.581+0000] {logging_mixin.py:188} WARNING - /opt/***/dags/dag_postgres_to_bq.py:38 UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.
+[2026-07-12T11:46:18.852+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-12T11:46:18.858+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 2584, in load_table_from_file
+    response = self._do_multipart_upload(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 3148, in _do_multipart_upload
+    response = upload.transmit(
+               ^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/resumable_media/requests/upload.py", line 153, in transmit
+    return _request_helpers.wait_and_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/resumable_media/requests/_request_helpers.py", line 155, in wait_and_retry
+    response = func()
+               ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/resumable_media/requests/upload.py", line 149, in retriable_request
+    self._process_response(result)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/resumable_media/_upload.py", line 125, in _process_response
+    _helpers.require_status_code(response, (http.client.OK,), self._get_status_code)
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/resumable_media/_helpers.py", line 108, in require_status_code
+    raise common.InvalidResponse(
+google.resumable_media.common.InvalidResponse: ('Request failed with status code', 400, 'Expected one of', 200)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/dag_postgres_to_bq.py", line 42, in extract_load_postgres_to_bq
+    job = bq_client.load_table_from_dataframe(chunk, table_dest, job_config=job_config)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 2824, in load_table_from_dataframe
+    return self.load_table_from_file(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/google/cloud/bigquery/client.py", line 2588, in load_table_from_file
+    raise exceptions.from_http_response(exc.response)
+google.api_core.exceptions.BadRequest: 400 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/logistics-500519/jobs?uploadType=multipart: Schema update options should only be specified with WRITE_APPEND disposition, or with WRITE_TRUNCATE disposition on a table partition.
+[2026-07-12T11:46:18.882+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=logistics_postgres_to_bq, task_id=push_to_bigquery, run_id=dataset_triggered__2026-07-12T11:26:00.855889+00:00, execution_date=20260712T112600, start_date=20260712T112602, end_date=20260712T114618
+[2026-07-12T11:46:18.905+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 138 for task push_to_bigquery (400 POST https://bigquery.googleapis.com/upload/bigquery/v2/projects/logistics-500519/jobs?uploadType=multipart: Schema update options should only be specified with WRITE_APPEND disposition, or with WRITE_TRUNCATE disposition on a table partition.; 15538)
+[2026-07-12T11:46:18.959+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-12T11:46:18.982+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-12T11:46:18.983+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

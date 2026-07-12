@@ -1,0 +1,63 @@
+[2026-07-10T06:08:31.711+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-10T06:08:31.728+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T06:08:31.035554+00:00 [queued]>
+[2026-07-10T06:08:31.731+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T06:08:31.035554+00:00 [queued]>
+[2026-07-10T06:08:31.731+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-07-10T06:08:31.736+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-10 06:08:31.035554+00:00
+[2026-07-10T06:08:31.739+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-10T06:08:31.035554+00:00', '--job-id', '1421', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmpq0jj2jqc']
+[2026-07-10T06:08:31.742+0000] {standard_task_runner.py:91} INFO - Job 1421: Subtask trigger_dbt_build
+[2026-07-10T06:08:31.748+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=13110) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-10T06:08:31.748+0000] {standard_task_runner.py:63} INFO - Started process 13111 to run task
+[2026-07-10T06:08:31.774+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T06:08:31.035554+00:00 [running]> on host bd23e89d97be
+[2026-07-10T06:08:31.805+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-10T06:08:31.035554+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-10T06:08:31.035554+00:00'
+[2026-07-10T06:08:31.806+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-10T06:08:31.818+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-10T06:08:31.819+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-10T06:08:31.823+0000] {subprocess.py:86} INFO - Output:
+[2026-07-10T06:08:33.165+0000] {subprocess.py:93} INFO - [0m06:08:33  Running with dbt=1.11.11
+[2026-07-10T06:08:33.763+0000] {subprocess.py:93} INFO - [0m06:08:33  Registered adapter: bigquery=1.11.3
+[2026-07-10T06:08:34.030+0000] {subprocess.py:93} INFO - [0m06:08:34  Found 6 models, 4 sources, 553 macros
+[2026-07-10T06:08:34.032+0000] {subprocess.py:93} INFO - [0m06:08:34
+[2026-07-10T06:08:34.033+0000] {subprocess.py:93} INFO - [0m06:08:34  Concurrency: 4 threads (target='dev')
+[2026-07-10T06:08:34.033+0000] {subprocess.py:93} INFO - [0m06:08:34
+[2026-07-10T06:08:36.167+0000] {subprocess.py:93} INFO - [0m06:08:36  2 of 6 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[2026-07-10T06:08:36.169+0000] {subprocess.py:93} INFO - [0m06:08:36  1 of 6 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[2026-07-10T06:08:36.169+0000] {subprocess.py:93} INFO - [0m06:08:36  3 of 6 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[2026-07-10T06:08:36.169+0000] {subprocess.py:93} INFO - [0m06:08:36  4 of 6 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[2026-07-10T06:21:12.688+0000] {subprocess.py:93} INFO - [0m06:21:12  4 of 6 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 9.97s]
+[2026-07-10T06:21:14.726+0000] {subprocess.py:93} INFO - [0m06:21:12  3 of 6 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 9.97s]
+[2026-07-10T06:21:18.117+0000] {subprocess.py:93} INFO - [0m06:21:18  5 of 6 START sql view model logistics_mart.stg_weather_consensus ............... [RUN]
+[2026-07-10T06:21:18.170+0000] {subprocess.py:93} INFO - [0m06:21:18  2 of 6 OK created sql table model logistics_mart.dim_hubs ...................... [[32mCREATE TABLE (3.0 rows, 149.0 Bytes processed)[0m in 761.97s]
+[2026-07-10T06:21:18.172+0000] {subprocess.py:93} INFO - [0m06:21:18  1 of 6 OK created sql table model logistics_mart.dim_drivers ................... [[32mCREATE TABLE (3.0 rows, 108.0 Bytes processed)[0m in 761.98s]
+[2026-07-10T06:21:18.349+0000] {subprocess.py:93} INFO - [0m06:21:18  6 of 6 START sql table model logistics_mart.fact_shipment_weather .............. [RUN]
+[2026-07-10T06:21:23.917+0000] {subprocess.py:93} INFO - [0m06:21:23  BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:52113cca-21aa-4374-9699-3f0c67de3f93&page=queryresults
+[2026-07-10T06:21:24.907+0000] {subprocess.py:93} INFO - [0m06:21:24  5 of 6 ERROR creating sql view model logistics_mart.stg_weather_consensus ...... [[31mERROR[0m in 6.73s]
+[2026-07-10T06:21:34.046+0000] {local_task_job_runner.py:310} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2026-07-10T06:21:34.064+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2026-07-10T06:21:34.087+0000] {process_utils.py:132} INFO - Sending 15 to group 13111. PIDs of all processes in the group: [13112, 13126, 13111]
+[2026-07-10T06:21:34.088+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 13111
+[2026-07-10T06:21:34.090+0000] {taskinstance.py:2611} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-07-10T06:21:34.102+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-07-10T06:21:34.151+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-10T06:21:34.270+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 234, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 2613, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-07-10T06:21:34.301+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-10T06:08:31.035554+00:00, execution_date=20260710T060831, start_date=20260710T060831, end_date=20260710T062134
+[2026-07-10T06:21:34.388+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=13112, status='terminated', started='06:08:31') (13112) terminated with exit code None
+[2026-07-10T06:21:34.391+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=13111, status='terminated', exitcode=2, started='06:08:30') (13111) terminated with exit code 2
+[2026-07-10T06:21:34.391+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=13126, status='terminated', started='06:08:33') (13126) terminated with exit code None

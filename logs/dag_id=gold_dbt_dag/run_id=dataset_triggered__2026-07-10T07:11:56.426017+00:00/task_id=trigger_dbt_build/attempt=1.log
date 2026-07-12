@@ -1,0 +1,68 @@
+[2026-07-10T07:11:58.479+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-10T07:11:58.793+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T07:11:56.426017+00:00 [queued]>
+[2026-07-10T07:11:58.843+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T07:11:56.426017+00:00 [queued]>
+[2026-07-10T07:11:58.843+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-07-10T07:11:58.860+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-10 07:11:56.426017+00:00
+[2026-07-10T07:11:58.871+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-10T07:11:56.426017+00:00', '--job-id', '1427', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmplp0ym1l5']
+[2026-07-10T07:11:58.877+0000] {standard_task_runner.py:91} INFO - Job 1427: Subtask trigger_dbt_build
+[2026-07-10T07:11:58.897+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=16229) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-10T07:11:58.898+0000] {standard_task_runner.py:63} INFO - Started process 16230 to run task
+[2026-07-10T07:11:58.951+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-10T07:11:56.426017+00:00 [running]> on host bd23e89d97be
+[2026-07-10T07:11:59.038+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-10T07:11:56.426017+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-10T07:11:56.426017+00:00'
+[2026-07-10T07:11:59.039+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-10T07:11:59.056+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-10T07:11:59.058+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-10T07:11:59.065+0000] {subprocess.py:86} INFO - Output:
+[2026-07-10T07:12:00.891+0000] {subprocess.py:93} INFO - [0m07:12:00  Running with dbt=1.11.11
+[2026-07-10T07:12:01.679+0000] {subprocess.py:93} INFO - [0m07:12:01  Registered adapter: bigquery=1.11.3
+[2026-07-10T07:12:02.005+0000] {subprocess.py:93} INFO - [0m07:12:02  Found 6 models, 4 sources, 553 macros
+[2026-07-10T07:12:02.007+0000] {subprocess.py:93} INFO - [0m07:12:02
+[2026-07-10T07:12:02.008+0000] {subprocess.py:93} INFO - [0m07:12:02  Concurrency: 4 threads (target='dev')
+[2026-07-10T07:12:02.008+0000] {subprocess.py:93} INFO - [0m07:12:02
+[2026-07-10T07:12:03.910+0000] {subprocess.py:93} INFO - [0m07:12:03  1 of 6 START sql table model logistics_mart.dim_drivers ........................ [RUN]
+[2026-07-10T07:12:03.911+0000] {subprocess.py:93} INFO - [0m07:12:03  2 of 6 START sql table model logistics_mart.dim_hubs ........................... [RUN]
+[2026-07-10T07:12:03.912+0000] {subprocess.py:93} INFO - [0m07:12:03  3 of 6 START sql view model logistics_mart.stg_shipments ....................... [RUN]
+[2026-07-10T07:12:03.912+0000] {subprocess.py:93} INFO - [0m07:12:03  4 of 6 START sql view model logistics_mart.stg_weather ......................... [RUN]
+[2026-07-10T07:12:06.007+0000] {subprocess.py:93} INFO - [0m07:12:06  3 of 6 OK created sql view model logistics_mart.stg_shipments .................. [[32mCREATE VIEW (0 processed)[0m in 2.09s]
+[2026-07-10T07:12:06.009+0000] {subprocess.py:93} INFO - [0m07:12:06  4 of 6 OK created sql view model logistics_mart.stg_weather .................... [[32mCREATE VIEW (0 processed)[0m in 2.09s]
+[2026-07-10T07:12:06.010+0000] {subprocess.py:93} INFO - [0m07:12:06  5 of 6 START sql view model logistics_mart.stg_weather_consensus ............... [RUN]
+[2026-07-10T07:12:07.368+0000] {subprocess.py:93} INFO - [0m07:12:07  BigQuery adapter: https://console.cloud.google.com/bigquery?project=logistics-500519&j=bq:US:41b741af-cd9f-4d69-9cec-c6669b0ac516&page=queryresults
+[2026-07-10T07:12:07.400+0000] {subprocess.py:93} INFO - [0m07:12:07  5 of 6 ERROR creating sql view model logistics_mart.stg_weather_consensus ...... [[31mERROR[0m in 1.39s]
+[2026-07-10T07:12:07.703+0000] {subprocess.py:93} INFO - [0m07:12:07  1 of 6 OK created sql table model logistics_mart.dim_drivers ................... [[32mCREATE TABLE (3.0 rows, 108.0 Bytes processed)[0m in 3.79s]
+[2026-07-10T07:12:07.757+0000] {subprocess.py:93} INFO - [0m07:12:07  2 of 6 OK created sql table model logistics_mart.dim_hubs ...................... [[32mCREATE TABLE (3.0 rows, 149.0 Bytes processed)[0m in 3.84s]
+[2026-07-10T07:12:07.759+0000] {subprocess.py:93} INFO - [0m07:12:07  6 of 6 START sql table model logistics_mart.fact_shipment_weather .............. [RUN]
+[2026-07-10T07:27:26.489+0000] {subprocess.py:93} INFO - [0m07:27:26  6 of 6 OK created sql table model logistics_mart.fact_shipment_weather ......... [[32mCREATE TABLE (1.7k rows, 105.0 KiB processed)[0m in 918.73s]
+[2026-07-10T07:27:26.539+0000] {subprocess.py:93} INFO - [0m07:27:26
+[2026-07-10T07:27:26.540+0000] {subprocess.py:93} INFO - [0m07:27:26  Finished running 3 table models, 3 view models in 0 hours 15 minutes and 24.53 seconds (924.53s).
+[2026-07-10T07:27:26.603+0000] {subprocess.py:93} INFO - [0m07:27:26
+[2026-07-10T07:27:26.603+0000] {subprocess.py:93} INFO - [0m07:27:26  [31mCompleted with 1 error, 0 partial successes, and 0 warnings:[0m
+[2026-07-10T07:27:26.605+0000] {subprocess.py:93} INFO - [0m07:27:26
+[2026-07-10T07:27:26.605+0000] {subprocess.py:93} INFO - [0m07:27:26  [31mFailure in model stg_weather_consensus (models/staging/stg_weather_consensus.sql)[0m
+[2026-07-10T07:27:26.606+0000] {subprocess.py:93} INFO - [0m07:27:26    Database Error in model stg_weather_consensus (models/staging/stg_weather_consensus.sql)
+[2026-07-10T07:27:26.606+0000] {subprocess.py:93} INFO -   Unrecognized name: fetched_at at [11:11]
+[2026-07-10T07:27:26.606+0000] {subprocess.py:93} INFO -   compiled code at target/run/logistics_lakehouse/models/staging/stg_weather_consensus.sql
+[2026-07-10T07:27:26.606+0000] {subprocess.py:93} INFO - [0m07:27:26
+[2026-07-10T07:27:26.607+0000] {subprocess.py:93} INFO - [0m07:27:26    compiled code at target/compiled/logistics_lakehouse/models/staging/stg_weather_consensus.sql
+[2026-07-10T07:27:26.607+0000] {subprocess.py:93} INFO - [0m07:27:26
+[2026-07-10T07:27:26.607+0000] {subprocess.py:93} INFO - [0m07:27:26  Done. PASS=5 WARN=0 ERROR=1 SKIP=0 NO-OP=0 TOTAL=6
+[2026-07-10T07:27:28.747+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-10T07:27:28.750+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-10T07:27:28.770+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-10T07:27:28.778+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-10T07:11:56.426017+00:00, execution_date=20260710T071156, start_date=20260710T071158, end_date=20260710T072728
+[2026-07-10T07:27:28.797+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 1427 for task trigger_dbt_build (Bash command failed. The command returned a non-zero exit code 1.; 16230)
+[2026-07-10T07:27:28.838+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-10T07:27:28.854+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-10T07:27:28.854+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

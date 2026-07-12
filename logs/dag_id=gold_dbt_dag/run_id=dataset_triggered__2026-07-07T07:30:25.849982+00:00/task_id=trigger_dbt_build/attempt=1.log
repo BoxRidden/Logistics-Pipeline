@@ -1,0 +1,48 @@
+[2026-07-07T07:30:26.497+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-07T07:30:26.516+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-07T07:30:25.849982+00:00 [queued]>
+[2026-07-07T07:30:26.521+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-07T07:30:25.849982+00:00 [queued]>
+[2026-07-07T07:30:26.521+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-07-07T07:30:26.527+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-07 07:30:25.849982+00:00
+[2026-07-07T07:30:26.531+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-07T07:30:25.849982+00:00', '--job-id', '927', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmpf6amp7g5']
+[2026-07-07T07:30:26.534+0000] {standard_task_runner.py:91} INFO - Job 927: Subtask trigger_dbt_build
+[2026-07-07T07:30:26.533+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=32932) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-07T07:30:26.534+0000] {standard_task_runner.py:63} INFO - Started process 32933 to run task
+[2026-07-07T07:30:26.562+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-07T07:30:25.849982+00:00 [running]> on host bd23e89d97be
+[2026-07-07T07:30:26.603+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-07T07:30:25.849982+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-07T07:30:25.849982+00:00'
+[2026-07-07T07:30:26.603+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-07T07:30:26.610+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-07T07:30:26.611+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-07T07:30:26.616+0000] {subprocess.py:86} INFO - Output:
+[2026-07-07T07:30:28.222+0000] {subprocess.py:93} INFO - [0m07:30:28  Running with dbt=1.11.11
+[2026-07-07T07:30:28.754+0000] {subprocess.py:93} INFO - [0m07:30:28  Registered adapter: bigquery=1.11.3
+[2026-07-07T07:30:28.963+0000] {subprocess.py:93} INFO - [0m07:30:28  Found 6 models, 4 sources, 553 macros
+[2026-07-07T07:30:28.964+0000] {subprocess.py:93} INFO - [0m07:30:28
+[2026-07-07T07:30:28.964+0000] {subprocess.py:93} INFO - [0m07:30:28  Concurrency: 4 threads (target='dev')
+[2026-07-07T07:30:28.965+0000] {subprocess.py:93} INFO - [0m07:30:28
+[2026-07-07T08:34:27.515+0000] {subprocess.py:93} INFO - WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /v1/projects/-/serviceAccounts/dbt-logistics-runner@project-592ab4fe-f210-4e44-9b9.iam.gserviceaccount.com/allowedLocations
+[2026-07-07T08:34:27.658+0000] {subprocess.py:93} INFO - [0m08:34:27
+[2026-07-07T08:34:27.660+0000] {subprocess.py:93} INFO - [0m08:34:27  Finished running  in 1 hours 3 minutes and 58.69 seconds (3838.69s).
+[2026-07-07T08:34:27.691+0000] {subprocess.py:93} INFO - [0m08:34:27  Encountered an error:
+[2026-07-07T08:34:27.693+0000] {subprocess.py:93} INFO - Database Error
+[2026-07-07T08:34:27.694+0000] {subprocess.py:93} INFO -   ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-07T08:34:30.280+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-07-07T08:34:30.284+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-07T08:34:30.329+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-07-07T08:34:30.345+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-07T07:30:25.849982+00:00, execution_date=20260707T073025, start_date=20260707T073026, end_date=20260707T083430
+[2026-07-07T08:34:30.371+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 927 for task trigger_dbt_build (Bash command failed. The command returned a non-zero exit code 2.; 32933)
+[2026-07-07T08:34:30.395+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-07T08:34:30.433+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-07T08:34:30.433+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

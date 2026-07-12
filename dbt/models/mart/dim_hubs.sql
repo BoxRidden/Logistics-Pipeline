@@ -3,5 +3,9 @@ SELECT
     name AS hub_name,
     UPPER(city) AS hub_city,
     lat AS latitude,
-    lon AS longitude
+    lon AS longitude,
+    valid_from,
+    valid_to,
+    is_current
 FROM {{ source('postgres_source', 'hubs') }}
+WHERE is_current = TRUE

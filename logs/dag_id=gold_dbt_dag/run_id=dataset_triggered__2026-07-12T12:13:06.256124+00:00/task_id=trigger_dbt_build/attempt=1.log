@@ -1,0 +1,50 @@
+[2026-07-12T12:13:06.564+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-07-12T12:13:06.581+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-12T12:13:06.256124+00:00 [queued]>
+[2026-07-12T12:13:06.584+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-12T12:13:06.256124+00:00 [queued]>
+[2026-07-12T12:13:06.584+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-07-12T12:13:06.588+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): trigger_dbt_build> on 2026-07-12 12:13:06.256124+00:00
+[2026-07-12T12:13:06.592+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'gold_dbt_dag', 'trigger_dbt_build', 'dataset_triggered__2026-07-12T12:13:06.256124+00:00', '--job-id', '146', '--raw', '--subdir', 'DAGS_FOLDER/dag_gold_dbt.py', '--cfg-path', '/tmp/tmpkx9cr_9y']
+[2026-07-12T12:13:06.593+0000] {standard_task_runner.py:91} INFO - Job 146: Subtask trigger_dbt_build
+[2026-07-12T12:13:06.594+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=16861) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-07-12T12:13:06.594+0000] {standard_task_runner.py:63} INFO - Started process 16862 to run task
+[2026-07-12T12:13:06.614+0000] {task_command.py:426} INFO - Running <TaskInstance: gold_dbt_dag.trigger_dbt_build dataset_triggered__2026-07-12T12:13:06.256124+00:00 [running]> on host ad4e12f53b08
+[2026-07-12T12:13:06.653+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data_engineer' AIRFLOW_CTX_DAG_ID='gold_dbt_dag' AIRFLOW_CTX_TASK_ID='trigger_dbt_build' AIRFLOW_CTX_EXECUTION_DATE='2026-07-12T12:13:06.256124+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='dataset_triggered__2026-07-12T12:13:06.256124+00:00'
+[2026-07-12T12:13:06.653+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-07-12T12:13:06.661+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-12T12:13:06.661+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt && dbt build --profiles-dir . --target dev']
+[2026-07-12T12:13:06.665+0000] {subprocess.py:86} INFO - Output:
+[2026-07-12T12:13:07.997+0000] {subprocess.py:93} INFO - [0m12:13:07  Running with dbt=1.11.11
+[2026-07-12T12:13:08.521+0000] {subprocess.py:93} INFO - [0m12:13:08  Registered adapter: bigquery=1.11.3
+[2026-07-12T12:13:08.732+0000] {subprocess.py:93} INFO - [0m12:13:08  Found 6 models, 4 sources, 553 macros
+[2026-07-12T12:13:08.733+0000] {subprocess.py:93} INFO - [0m12:13:08
+[2026-07-12T12:13:08.734+0000] {subprocess.py:93} INFO - [0m12:13:08  Concurrency: 4 threads (target='dev')
+[2026-07-12T12:13:08.734+0000] {subprocess.py:93} INFO - [0m12:13:08
+[2026-07-12T12:13:16.801+0000] {subprocess.py:93} INFO - WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff681440e0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)")': /token
+[2026-07-12T12:15:03.421+0000] {subprocess.py:93} INFO - WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff681442c0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)")': /token
+[2026-07-12T12:15:11.440+0000] {subprocess.py:93} INFO - WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff68134920>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)")': /token
+[2026-07-12T12:15:19.533+0000] {subprocess.py:93} INFO - [0m12:15:19
+[2026-07-12T12:15:19.545+0000] {subprocess.py:93} INFO - [0m12:15:19  Finished running  in 0 hours 2 minutes and 10.79 seconds (130.79s).
+[2026-07-12T12:15:19.545+0000] {subprocess.py:93} INFO - [0m12:15:19  Encountered an error:
+[2026-07-12T12:15:19.545+0000] {subprocess.py:93} INFO - Database Error
+[2026-07-12T12:15:19.545+0000] {subprocess.py:93} INFO -   HTTPSConnectionPool(host='oauth2.googleapis.com', port=443): Max retries exceeded with url: /token (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0xffff684e76b0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)"))
+[2026-07-12T12:18:15.868+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-07-12T12:18:15.872+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-07-12T12:18:15.889+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-07-12T12:18:15.895+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=gold_dbt_dag, task_id=trigger_dbt_build, run_id=dataset_triggered__2026-07-12T12:13:06.256124+00:00, execution_date=20260712T121306, start_date=20260712T121306, end_date=20260712T121815
+[2026-07-12T12:18:15.905+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 146 for task trigger_dbt_build (Bash command failed. The command returned a non-zero exit code 2.; 16862)
+[2026-07-12T12:18:15.914+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-07-12T12:18:15.926+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-07-12T12:18:15.927+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
