@@ -25,15 +25,19 @@ weather AS (
 SELECT
     s.shipment_id,
     s.tracking_code,
-    s.shipment_status,
-    s.destination_city,
-    h.hub_name,
-    h.hub_city,
+    s.shipment_status,                 -- Reverted to staging alias
+    s.order_type,
+    s.product_category,
+    s.revenue,
+    s.item_quantity,
+    s.destination_city,                -- Reverted to staging alias
+    h.hub_name AS store_name,
+    h.hub_id AS store_id,
     w.temperature_celsius,
     w.precipitation_mm,
-    w.weather_code,
-    s.order_placed_at,
-    s.last_updated_at
+    w.weather_code AS weather_condition,
+    s.order_placed_at AS order_placed_at_utc, -- Reverted to staging alias
+    s.last_updated_at AS last_updated_at_utc  -- Reverted to staging alias
 FROM shipments s
 LEFT JOIN hubs h 
     ON s.hub_id = h.hub_id 
