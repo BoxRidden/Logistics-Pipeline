@@ -635,3 +635,66 @@
 [2026-07-13T03:07:10.905+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:07:10.904+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2026-07-13T03:07:10.913+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:07:10.913+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
 [2026-07-13T03:07:10.920+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.040 seconds
+[2026-07-13T03:07:41.996+0000] {processor.py:161} INFO - Started process (PID=52782) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:07:41.996+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:07:41.998+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:07:41.998+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:07:42.003+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:07:42.014+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:07:42.014+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:07:42.023+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:07:42.023+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:07:42.030+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.037 seconds
+[2026-07-13T03:08:12.851+0000] {processor.py:161} INFO - Started process (PID=52819) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:12.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:08:12.853+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:12.853+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:12.860+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:12.874+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:12.873+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:08:12.883+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:12.882+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:08:12.891+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.042 seconds
+[2026-07-13T03:08:44.033+0000] {processor.py:161} INFO - Started process (PID=52856) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:44.034+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:08:44.036+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:44.035+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:44.045+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:08:44.060+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:44.060+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:08:44.074+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:08:44.073+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:08:44.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.051 seconds
+[2026-07-13T03:09:15.138+0000] {processor.py:161} INFO - Started process (PID=52893) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:15.140+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:09:15.142+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:15.142+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:15.151+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:15.162+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:15.162+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:09:15.172+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:15.172+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:09:15.183+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.048 seconds
+[2026-07-13T03:09:46.156+0000] {processor.py:161} INFO - Started process (PID=52930) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:46.157+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:09:46.158+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:46.158+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:46.163+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:09:46.178+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:46.178+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:09:46.187+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:09:46.187+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:09:46.196+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.043 seconds
+[2026-07-13T03:10:17.011+0000] {processor.py:161} INFO - Started process (PID=52968) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:17.012+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:10:17.013+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:17.013+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:17.018+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:17.033+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:17.033+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:10:17.040+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:17.040+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:10:17.048+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.039 seconds
+[2026-07-13T03:10:47.923+0000] {processor.py:161} INFO - Started process (PID=53004) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:47.923+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:10:47.925+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:47.925+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:47.934+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:10:47.945+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:47.945+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:10:47.954+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:10:47.954+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:10:47.965+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.045 seconds
+[2026-07-13T03:11:20.166+0000] {processor.py:161} INFO - Started process (PID=53041) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:20.167+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:11:20.169+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:20.169+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:20.182+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:20.206+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:20.206+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:11:20.218+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:20.218+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:11:20.232+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.072 seconds
+[2026-07-13T03:11:51.577+0000] {processor.py:161} INFO - Started process (PID=53079) to work on /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:51.578+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/dag_silver_cdc.py for tasks to queue
+[2026-07-13T03:11:51.579+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:51.579+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:51.590+0000] {processor.py:840} INFO - DAG(s) 'silver_cdc_dag' retrieved from /opt/airflow/dags/dag_silver_cdc.py
+[2026-07-13T03:11:51.602+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:51.602+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2026-07-13T03:11:51.611+0000] {logging_mixin.py:188} INFO - [2026-07-13T03:11:51.611+0000] {dag.py:3954} INFO - Setting next_dagrun for silver_cdc_dag to None, run_after=None
+[2026-07-13T03:11:51.622+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/dag_silver_cdc.py took 0.048 seconds
