@@ -1,3 +1,4 @@
 config/gcp-key.json
 config/gcp-key.json
 .env
+logs/
