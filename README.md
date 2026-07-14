@@ -38,6 +38,32 @@ This project was built primarily as a hands-on practice exercise to explore mode
 └── README.md
 ```
 
+| Requirement | Notes |
+|---|---|
+| Docker Desktop ≥ 4.x | Allocate **≥ 8 GB RAM** in Docker settings (required for PySpark & Airflow) |
+| GCP Project | With BigQuery and Cloud Storage APIs enabled |
+| GCP Service Account | Roles: `BigQuery Admin`, `Storage Admin` |
+| API Keys | Tomorrow.io API key (Open-Meteo is open-source/free) |
+
+### 1. Clone the repository
+
+```bash
+git clone [https://github.com/](https://github.com/)<your-username>/highlands-lakehouse.git
+cd highlands-lakehouse
+```
+
+### 2. Configure environment variables
+Copy the example environment file and fill in your specific values:
+
+```
+cp .env.example .env
+```
+### 3. Place your GCP Service Account key
+Save your JSON key file directly into the config directory:
+
+```
+config/gcp-key.json
+```
 
 ## Layer Schema
 
