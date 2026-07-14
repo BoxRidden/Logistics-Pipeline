@@ -9,7 +9,7 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
         .appName("Silver_CDC_Processor") \
         .getOrCreate()
 
-    # Read Bronze data (Mocked for local development)
+    # Read Bronze data (mocked for local dev)
     if bronze_path == "None" or "dummy" in bronze_path or "gs://" in bronze_path:
         data = [("TRK-123", "2026-07-01T08:00:00", "Hanoi", "UPDATE"), 
                 ("TRK-456", "2026-07-01T08:05:00", "Saigon", "INSERT")]

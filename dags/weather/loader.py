@@ -25,20 +25,20 @@ class ParquetLoader:
             print("[WARN] No data provided to ParquetLoader. Skipping.")
             return None
 
-        # 1. Ensure local directory exists
+        # Ensure local directory exists
         os.makedirs(self.destination_path, exist_ok=True)
         
-        # 2. Convert raw dictionary list to DataFrame
+        # Convert raw dictionary list to DataFrame
         df = pd.DataFrame(data)
         
-        # 3. Generate unique timestamped filename
+        # Generate unique timestamped filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{filename_prefix}_{timestamp}.parquet"
         full_path = os.path.join(self.destination_path, file_name)
         
-        # 4. Write out optimized Parquet file
+        # Write out optimized Parquet file
         table = pa.Table.from_pandas(df)
         pq.write_table(table, full_path, compression='snappy')
         
-        print(f"SUCCESS: Weather payload serialized to {full_path}")
+        print(f"Weather payload serialized to {full_path}")
         return full_path

@@ -1,8 +1,8 @@
 """
 DAG: logistics_postgres_to_bq
 Description: Extracts operational CDC data from PostgreSQL and pushes to BigQuery.
-             Implements explicit BigQuery schema definitions to guarantee type safety
-             for Slowly Changing Dimension (SCD) timestamp columns.
+             Implements explicit BigQuery schema definitions and a Staging-to-MERGE 
+             Upsert architecture to protect downstream Materialized Views.
 """
 
 import psycopg2
@@ -12,14 +12,11 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from google.oauth2 import service_account
 from google.cloud import bigquery
+from google.api_core.exceptions import NotFound
 
 from pipeline_datasets import bronze_cdc_dataset, silver_cdc_dataset, silver_weather_dataset
 
-# =============================================================================
-# EXPLICIT SCHEMA DEFINITIONS
-# Reviewer Note: Hardcoding the schemas prevents BigQuery from inferring 
-# completely NULL columns (like valid_to) as INT64/FLOAT64.
-# =============================================================================
+
 BQ_SCHEMAS = {
     "hubs": [
         bigquery.SchemaField("hub_id", "INTEGER"),
@@ -55,6 +52,14 @@ BQ_SCHEMAS = {
     ]
 }
 
+# Define Primary Keys for the MERGE logic
+# SCD tables use a composite key (ID + valid_from) to prevent duplicate matches
+PK_MAP = {
+    "shipments": ["shipment_id"],
+    "hubs": ["hub_id", "valid_from"],
+    "drivers": ["driver_id", "valid_from"]
+}
+
 def extract_load_postgres_to_bq():
     key_path = "/opt/airflow/config/gcp-key.json"
     project_id = "logistics-500519"
@@ -66,7 +71,7 @@ def extract_load_postgres_to_bq():
     dataset_ref = bq_client.dataset(dataset_id)
     try:
         bq_client.get_dataset(dataset_ref)
-    except Exception:
+    except NotFound:
         bq_client.create_dataset(bigquery.Dataset(dataset_ref))
 
     pg_conn = psycopg2.connect(
@@ -74,20 +79,25 @@ def extract_load_postgres_to_bq():
     ) 
 
     for table_name in ["shipments", "hubs", "drivers"]:
-        table_dest = f"{project_id}.{dataset_id}.{table_name}"
+        main_table_id = f"{project_id}.{dataset_id}.{table_name}"
+        staging_table_id = f"{project_id}.{dataset_id}.{table_name}_staging"
         
-        # Drop table to purge the corrupted INT64 schema completely
-        bq_client.delete_table(table_dest, not_found_ok=True)
+        # Ensure main Table exists 
+        try:
+            bq_client.get_table(main_table_id)
+        except NotFound:
+            table = bigquery.Table(main_table_id, schema=BQ_SCHEMAS[table_name])
+            bq_client.create_table(table)
         
+        # Load Postgres Data into Staging Table
         job_config = bigquery.LoadJobConfig(
-            write_disposition="WRITE_TRUNCATE",
-            schema=BQ_SCHEMAS[table_name]  # Enforce the strict schema mapping
+            write_disposition="WRITE_TRUNCATE", # Always overwrite staging table safely
+            schema=BQ_SCHEMAS[table_name]  
         )
         
         query = f"SELECT * FROM {table_name}"
         
         for i, chunk in enumerate(pd.read_sql_query(query, pg_conn, chunksize=10000)):
-            # Convert temporal columns to proper datetime objects for the client
             for col in ["created_at", "updated_at", "valid_from", "valid_to"]:
                 if col in chunk.columns:
                     chunk[col] = pd.to_datetime(chunk[col], errors='coerce')
@@ -95,8 +105,34 @@ def extract_load_postgres_to_bq():
             if i > 0:
                 job_config.write_disposition = "WRITE_APPEND"
                 
-            job = bq_client.load_table_from_dataframe(chunk, table_dest, job_config=job_config)
+            job = bq_client.load_table_from_dataframe(chunk, staging_table_id, job_config=job_config)
             job.result()
+
+        # Dynamic MERGE (Upsert) from Staging to Main
+        columns = [field.name for field in BQ_SCHEMAS[table_name]]
+        pks = PK_MAP[table_name]
+        
+        join_conditions = " AND ".join([f"T.{pk} = S.{pk}" for pk in pks])
+        update_set = ", ".join([f"T.{col} = S.{col}" for col in columns if col not in pks])
+        insert_cols = ", ".join(columns)
+        insert_vals = ", ".join([f"S.{col}" for col in columns])
+        
+        merge_query = f"""
+        MERGE `{main_table_id}` T
+        USING `{staging_table_id}` S
+        ON {join_conditions}
+        WHEN MATCHED THEN
+            UPDATE SET {update_set}
+        WHEN NOT MATCHED THEN
+            INSERT ({insert_cols})
+            VALUES ({insert_vals})
+        """
+        
+        merge_job = bq_client.query(merge_query)
+        merge_job.result()
+        
+        # Clean up Staging Table
+        bq_client.delete_table(staging_table_id, not_found_ok=True)
 
     pg_conn.close()
 

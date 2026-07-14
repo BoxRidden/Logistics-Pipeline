@@ -4,7 +4,7 @@ from pyspark.sql import SparkSession
 def build_spark_session(app_name: str) -> SparkSession:
     """
     Initializes a SparkSession with Hadoop configurations required for GCS authentication.
-    Reviewer Note: Service account key path must align with the container volume mount.
+    Service account key path must align with the container volume mount.
     """
     return (
         SparkSession.builder

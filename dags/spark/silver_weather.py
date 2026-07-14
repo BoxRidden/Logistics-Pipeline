@@ -24,7 +24,7 @@ def process_weather_to_iceberg(bronze_path, silver_table):
     output_path = f"/opt/airflow/lakehouse/silver/{silver_table}"
     df_weather.write.mode("overwrite").parquet(output_path)
         
-    print(f"SUCCESS: Data written to {output_path}")
+    print(f"Data written to {output_path}")
     spark.stop()
 
 if __name__ == "__main__":

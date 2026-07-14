@@ -5,10 +5,10 @@ from airflow.datasets import Dataset
 # ==========================================
 # These are triggered when your extraction DAGs finish pulling raw data.
 
-# 1. Logistics / CDC Data
+# Logistics / CDC Data
 bronze_cdc_dataset = Dataset("ds://bronze/cdc/shipments")
 
-# 2. Weather APIs
+# Weather APIs
 bronze_weather_tomorrow = Dataset("ds://bronze/weather/tomorrowio")
 bronze_weather_openmeteo = Dataset("ds://bronze/weather/openmeteo")
 bronze_weather_openweather = Dataset("ds://bronze/weather/openweather")

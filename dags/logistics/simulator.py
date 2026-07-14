@@ -9,8 +9,7 @@ class ShipmentSimulator:
         status_weights = [10, 30, 45, 10, 5]
         
         for i in range(num_records):
-            # Guarantee at least one of each status exists in the payload
-            # by overriding the randomizer for the first 5 iterations
+            # Guarantee at least one of each status exists in the payload by overriding the randomizer for the first 5 iterations
             if i < len(status_options):
                 assigned_status = status_options[i]
             else:

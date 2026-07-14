@@ -6,7 +6,7 @@ class PostgresRepository:
         self.cursor = self.conn.cursor()
 
     def initialize_schema(self, hubs, drivers):
-        # Reviewer Note: Execute DROP statements to flush the outdated Type 1 schemas
+        #Execute DROP statements to flush the outdated Type 1 schemas
         self.cursor.execute("""
         DROP TABLE IF EXISTS shipments CASCADE;
         DROP TABLE IF EXISTS drivers CASCADE;
@@ -30,7 +30,7 @@ class PostgresRepository:
         );
         """)
 
-        # Re-seed dimension tables with valid_from/is_current assumptions
+        #Re-seed dimension tables with valid_from/is_current assumptions
         for h in hubs:
             self.cursor.execute(f"INSERT INTO hubs (hub_id, name, city, lat, lon) VALUES ({h[0]}, '{h[1]}', '{h[2]}', {h[3]}, {h[4]});")
 

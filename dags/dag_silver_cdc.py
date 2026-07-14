@@ -5,7 +5,7 @@ from pipeline_datasets import bronze_cdc_dataset, silver_cdc_dataset
 
 default_args = {'owner': 'data_engineer', 'start_date': datetime(2026, 6, 1)}
 
-# Notice the schedule is a Dataset, not a time!
+# Schedule parameter
 with DAG(
     'silver_cdc_dag',
     default_args=default_args,

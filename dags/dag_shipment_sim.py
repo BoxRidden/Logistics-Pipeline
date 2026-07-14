@@ -10,7 +10,7 @@ from logistics.repository import PostgresRepository
 from logistics.profiles import HUBS, DRIVERS
 
 def generate_modular_data():
-    # 1. Connect to the local database
+    # Connect to the local database
     repo = PostgresRepository(
         host="postgres-airflow",
         database="airflow",
@@ -18,18 +18,18 @@ def generate_modular_data():
         password="airflow"
     )
 
-    # 2. Build tables and seed the dimensions (Hubs and Drivers)
+    # Build tables and seed the dimensions (Hubs and Drivers)
     repo.initialize_schema(HUBS, DRIVERS)
 
-    # 3. Generate the random shipment payloads
+    # Generate the random shipment payloads
     simulator = ShipmentSimulator()
     random_batch_size = random.randint(5, 10)
     shipments_payload = simulator.generate_payload(random_batch_size)
 
-    # 4. Insert the simulated shipments into Postgres
+    # Insert the simulated shipments into Postgres
     repo.insert_shipments(shipments_payload)
 
-    # 5. Safely close the connection
+    # Safely close the connection
     repo.close()
     print(f"Successfully generated and inserted {len(shipments_payload)} shipments using modular architecture.")
 

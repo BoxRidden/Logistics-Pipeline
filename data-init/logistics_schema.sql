@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS shipments CASCADE;
 DROP TABLE IF EXISTS drivers CASCADE;
 DROP TABLE IF EXISTS hubs CASCADE;
 
--- Upgraded to SCD Type 2 structure
+-- Upgraded to SCD Type 2 structure (note to self: check if it's outdated or not)
 CREATE TABLE hubs (
     hub_id INT NOT NULL,
     name VARCHAR(100) NOT NULL,

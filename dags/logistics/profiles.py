@@ -5,10 +5,10 @@ This module contains static master data for the shipment simulator
 and the business logic mapping weather conditions to supply chain impacts.
 """
 
-# ── Master Data Constants ────────────────────────────────────────────────
+#Master Data Constants 
 CITIES = ['Hanoi', 'Da Nang', 'Ho Chi Minh City']
 
-# Added 'Delayed' so our weather logic has a valid status to fall back on!
+#Added 'Delayed' as valid status fallback 
 STATUSES = ['Pending', 'In Transit', 'Delayed', 'Delivered', 'Cancelled'] 
 
 CATEGORIES = ['Electronics', 'Clothing', 'Groceries', 'Furniture', 'Documents']
@@ -27,21 +27,21 @@ DRIVERS = [
 ]
 
 
-# ── Weather Impact Profiles ──────────────────────────────────────────────
+# Weather Impact Profiles 
 WEATHER_LOGISTICS_PROFILES: dict[str, dict] = {
-    # ── Severe Disruptions ───────────────────────────────────────────────────
+    # Severe Disruptions 
     "Thunderstorm":  {"delay_prob": 0.85, "cancel_prob": 0.10, "transit_time_multiplier": 2.5, "status_weights": {"In Transit": 2, "Delayed": 7, "Delivered": 1}},
     "Heavy snow":    {"delay_prob": 0.90, "cancel_prob": 0.15, "transit_time_multiplier": 3.0, "status_weights": {"In Transit": 1, "Delayed": 8, "Delivered": 1}},
     "Tornado":       {"delay_prob": 0.99, "cancel_prob": 0.50, "transit_time_multiplier": 5.0, "status_weights": {"In Transit": 1, "Delayed": 9, "Delivered": 0}},
     "Freezing rain": {"delay_prob": 0.80, "cancel_prob": 0.05, "transit_time_multiplier": 2.0, "status_weights": {"In Transit": 3, "Delayed": 6, "Delivered": 1}},
 
-    # ── Moderate Disruptions ─────────────────────────────────────────────────
+    # Moderate Disruptions 
     "Rain":          {"delay_prob": 0.40, "cancel_prob": 0.01, "transit_time_multiplier": 1.3, "status_weights": {"In Transit": 5, "Delayed": 3, "Delivered": 2}},
     "Snow":          {"delay_prob": 0.60, "cancel_prob": 0.03, "transit_time_multiplier": 1.7, "status_weights": {"In Transit": 4, "Delayed": 5, "Delivered": 1}},
     "Fog":           {"delay_prob": 0.55, "cancel_prob": 0.02, "transit_time_multiplier": 1.5, "status_weights": {"In Transit": 4, "Delayed": 4, "Delivered": 2}},
     "Drizzle":       {"delay_prob": 0.20, "cancel_prob": 0.00, "transit_time_multiplier": 1.1, "status_weights": {"In Transit": 6, "Delayed": 1, "Delivered": 3}},
 
-    # ── Optimal Conditions ───────────────────────────────────────────────────
+    # Optimal Conditions 
     "Clear":         {"delay_prob": 0.05, "cancel_prob": 0.00, "transit_time_multiplier": 1.0, "status_weights": {"In Transit": 4, "Delayed": 0, "Delivered": 6}},
     "Clouds":        {"delay_prob": 0.08, "cancel_prob": 0.00, "transit_time_multiplier": 1.0, "status_weights": {"In Transit": 5, "Delayed": 0, "Delivered": 5}},
     "Overcast":      {"delay_prob": 0.10, "cancel_prob": 0.00, "transit_time_multiplier": 1.0, "status_weights": {"In Transit": 5, "Delayed": 1, "Delivered": 4}},

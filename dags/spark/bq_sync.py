@@ -8,7 +8,7 @@ def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_ur
     """
     client = bigquery.Client(project=project_id)
     
-    # 1. Ensure the Gold dataset exists
+    #Ensure the Gold dataset exists
     dataset_ref = client.dataset(dataset_id)
     try:
         client.get_dataset(dataset_ref)
@@ -18,7 +18,7 @@ def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_ur
 
     table_id = f"{project_id}.{dataset_id}.{table_name}"
 
-    # 2. Configure the External Table to read Iceberg formats natively
+    #Configure the external table to read Iceberg formats natively
     external_config = bigquery.ExternalConfig("ICEBERG")
     # BigQuery expects the path to the Iceberg metadata directory or specific .metadata.json
     external_config.source_uris = [gcs_metadata_uri]
@@ -26,7 +26,7 @@ def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_ur
     table = bigquery.Table(table_id)
     table.external_data_configuration = external_config
 
-    # 3. Apply the table to BigQuery
+    #Apply the table to BigQuery
     # If the table exists, this updates its pointer to the latest Iceberg metadata
     try:
         client.delete_table(table_id, not_found_ok=True) # Drop old pointer
@@ -36,7 +36,6 @@ def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_ur
         print(f"Failed to sync to BigQuery: {e}")
 
 if __name__ == "__main__":
-    # Example usage: python bq_sync.py logistics-500519 gold_layer silver_shipments gs://your-lakehouse/silver/shipments/metadata/v1.metadata.json
     project = sys.argv[1]
     dataset = sys.argv[2]
     table = sys.argv[3]
