@@ -23,6 +23,21 @@ This project was built primarily as a hands-on practice exercise to explore mode
 ## Tech Stack
 
 ## Project Structure
+```text
+├── dags/
+│   ├── dag_shipment_sim.py         # Generates synthetic order data
+│   ├── dag_postgres_to_bq.py       # ELT ingestion (Postgres -> Staging -> MERGE)
+│   ├── dag_gold_dbt.py             # dbt execution and transformation
+│   ├── dag_silver_cdc.py           # Spark CDC to Iceberg processing
+│   ├── dag_tomorrowio.py           # Weather API ingestion
+│   └── logistics/                  # Core Python modules for simulation
+├── dbt/                            # dbt project folder (models, profiles.yml)
+├── data-init/                      # SQL scripts for DB initialization & BQ Views
+├── docker-compose.yaml             # Airflow & Postgres container configurations
+├── requirements.txt                # Python dependencies
+└── README.md
+```
+
 
 ## Layer Schema
 
