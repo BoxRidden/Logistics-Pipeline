@@ -64,8 +64,36 @@ Save your JSON key file directly into the config directory:
 ```
 config/gcp-key.json
 ```
+### 4. Build and start the Infrastructure
 
+```
+chmod +x startup.sh
+./startup.sh
+```
+### 5. Configure BigQuery (Materialized View)
+The raw datasets (logistics_raw) and tables will be auto-created by the Airflow ingestion DAG. However, the high-performance Materialized View for the Looker Studio dashboard must be created manually in the BigQuery Console once the base shipments table exists.
+After running the `logistics_postgres_to_bq` DAG for the first time, 
+copy the contents of `data-init/gold_bq_mv.sql` and run it in your BigQuery SQL Workspace.
+
+### 6. Configure dbt
+Update the dbt/profiles.yml file to match your specific GCP Project ID:
+```
+logistics_profile:
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: "your-gcp-project-id" # <--- UPDATE THIS
+      dataset: logistics_mart
+      threads: 4
+      keyfile: /opt/airflow/config/gcp-key.json
+```
+Verify the connection is working from inside the Airflow container (optional):
+```
+docker exec -it $(docker ps -qf "name=airflow-webserver") bash -c "cd /opt/airflow/dbt && dbt debug"
+```
 ## Layer Schema
+
 
 ## Setup Guide
 
