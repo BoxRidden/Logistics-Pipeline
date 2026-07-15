@@ -5,3 +5,9 @@ logs/
 __pycache__/
 *.py[cod]
 *$py.class
+data/raw
+airflow.cfg
+airflow.db
+dbt/logs
+.vscode
+.idea
