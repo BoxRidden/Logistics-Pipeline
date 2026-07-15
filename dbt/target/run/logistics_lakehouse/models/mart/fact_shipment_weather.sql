@@ -46,7 +46,6 @@ LEFT JOIN hubs h
     AND s.order_placed_at >= h.valid_from 
     AND (s.order_placed_at < h.valid_to OR h.valid_to IS NULL)
 LEFT JOIN latest_weather w 
-    -- Now we only join on the City, bypassing the strict hourly timestamp requirement
     ON UPPER(h.hub_city) = UPPER(w.hub_city)
     );
   

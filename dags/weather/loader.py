@@ -7,7 +7,7 @@ from datetime import datetime
 class ParquetLoader:
     def __init__(self, destination_path: str):
         """
-        Reviewer Note: The destination_path should point to a local directory 
+        Note: The destination_path should point to a local directory 
         during this phase, as native GCS upload requires Google Cloud Storage 
         client libraries which are currently bypassed in the architecture.
         """
