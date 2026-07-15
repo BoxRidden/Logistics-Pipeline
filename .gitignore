@@ -11,3 +11,6 @@ airflow.db
 dbt/logs
 .vscode
 .idea
+dbt_modules/
+dbt_packages/
+target/
