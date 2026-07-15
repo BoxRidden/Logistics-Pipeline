@@ -22,7 +22,7 @@ SELECT
     hub_id,
     driver_id,
     
-    --Pass the new columns through to the fact model
+    --Pass the new columns through to the fact model 
     revenue,
     item_quantity,
     product_category,

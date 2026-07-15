@@ -1,9 +1,7 @@
--- ============================================================================
--- FILE: seed_data.sql
--- DESCRIPTION: Populates initial dimensional baseline data (Hubs, Drivers).
--- REVIEWER NOTE: Uses ON CONFLICT DO NOTHING to ensure idempotency during
--- automated integration testing or container re-initialization.
--- ============================================================================
+-- Populates initial dimensional baseline data (Hubs, Drivers).
+-- Uses ON CONFLICT DO NOTHING to ensure idempotency during
+-- automated integration testing or container re-initialization. 
+
 
 -- Seed Hubs (Dimensional Baseline for Weather Joins)
 -- Explicitly seeding SCD Type 2 initial states

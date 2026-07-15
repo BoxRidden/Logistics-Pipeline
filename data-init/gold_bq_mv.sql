@@ -1,9 +1,6 @@
--- ============================================================================
--- FILE: gold_bq_mv.sql
--- DESCRIPTION: Materialized view for near-real-time dashboard scorecards.
--- PERFORMANCE NOTE: Looker Studio will query this view for operational charts,
+-- Materialized view for near-real-time dashboard scorecards.
+-- Looker Studio will query this view for operational charts,
 -- benefiting from automatic incremental background refreshes by BigQuery.
--- ============================================================================
 
 CREATE MATERIALIZED VIEW `logistics-500519.logistics_mart.realtime_order_stats` AS
 SELECT
