@@ -1,18 +1,18 @@
 from airflow.datasets import Dataset
+import os
+
+GCS_BUCKET = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
+
+# ==========================================
 # BRONZE LAYER (Raw Ingestion Signals)
-# These are triggered when extraction DAGs finish pulling raw data.
+# ==========================================
+bronze_cdc_dataset = Dataset(f"gs://{GCS_BUCKET}/bronze/cdc/shipments")
+bronze_weather_tomorrow = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/tomorrowio")
+bronze_weather_openmeteo = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/openmeteo")
+bronze_weather_openweather = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/openweather")
 
-# Logistics / CDC Data
-bronze_cdc_dataset = Dataset("ds://bronze/cdc/shipments")
-
-# Weather APIs
-bronze_weather_tomorrow = Dataset("ds://bronze/weather/tomorrowio")
-bronze_weather_openmeteo = Dataset("ds://bronze/weather/openmeteo")
-bronze_weather_openweather = Dataset("ds://bronze/weather/openweather")
-
-
+# ==========================================
 # SILVER LAYER (Iceberg Processing Signals)
-# These are triggered when PySpark finishes merging Bronze data into Iceberg.
-
-silver_cdc_dataset = Dataset("ds://silver/cdc")
-silver_weather_dataset = Dataset("ds://silver/weather")
+# ==========================================
+silver_cdc_dataset = Dataset(f"gs://{GCS_BUCKET}/silver/cdc")
+silver_weather_dataset = Dataset(f"gs://{GCS_BUCKET}/silver/weather")

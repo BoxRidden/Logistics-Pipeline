@@ -7,38 +7,33 @@ from datetime import datetime
 class ParquetLoader:
     def __init__(self, destination_path: str):
         """
-        Note: The destination_path should point to a local directory 
-        during this phase, as native GCS upload requires Google Cloud Storage 
-        client libraries which are currently bypassed in the architecture.
+        Production loader that writes directly to Google Cloud Storage.
+        Relies on GOOGLE_APPLICATION_CREDENTIALS being set in the environment.
         """
-        # Fallback to local lakehouse if an external GCS path is passed
-        if destination_path.startswith("gs://"):
-            self.destination_path = "/opt/airflow/lakehouse/bronze/weather/"
-        else:
-            self.destination_path = destination_path
+        self.destination_path = destination_path
 
     def save_as_parquet(self, data: list, filename_prefix: str) -> str:
-        """
-        Serializes JSON dictionary arrays into Parquet format with Snappy compression.
-        """
         if not data:
             print("[WARN] No data provided to ParquetLoader. Skipping.")
             return None
-
-        # Ensure local directory exists
-        os.makedirs(self.destination_path, exist_ok=True)
         
-        # Convert raw dictionary list to DataFrame
+        # 1. Convert raw dictionary list to DataFrame
         df = pd.DataFrame(data)
         
-        # Generate unique timestamped filename
+        # 2. Generate unique timestamped filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{filename_prefix}_{timestamp}.parquet"
-        full_path = os.path.join(self.destination_path, file_name)
         
-        # Write out optimized Parquet file
-        table = pa.Table.from_pandas(df)
-        pq.write_table(table, full_path, compression='snappy')
+        # Ensure path ends with a slash before appending filename
+        if not self.destination_path.endswith('/'):
+            self.destination_path += '/'
+            
+        full_gcs_path = f"{self.destination_path}{file_name}"
         
-        print(f"Weather payload serialized to {full_path}")
-        return full_path
+        # 3. Write directly to GCS via Pandas and gcsfs
+        # Pandas automatically detects the gs:// prefix and uses your GCP Service Account
+        print(f"Uploading Parquet file to GCP: {full_gcs_path}")
+        df.to_parquet(full_gcs_path, compression='snappy', index=False)
+        
+        print(f"SUCCESS: Weather payload serialized and uploaded to {full_gcs_path}")
+        return full_gcs_path

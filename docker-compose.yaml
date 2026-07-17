@@ -9,7 +9,20 @@ x-airflow-common:
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres-airflow/airflow
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
-    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-auth db-dtypes pyspark"
+    AIRFLOW__WEBSERVER__SECRET_KEY: 'a_very_secure_random_string_12345'
+    
+    # 1. Added GCP Storage & dbt dependencies for Phase 2 & 3
+    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-cloud-storage google-auth db-dtypes pyspark dbt-bigquery"
+    
+    # 2. Passed API Keys from your local .env into the Airflow containers
+    TOMORROWIO_API_KEY: ${TOMORROWIO_API_KEY}
+    OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
+    
+    # 3. Passed GCP Project Settings & Service Account Auth
+    GCS_BRONZE_BUCKET: ${GCS_BRONZE_BUCKET}
+    GCP_SA_KEYFILE: /opt/airflow/config/gcp-key.json
+    GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/config/gcp-key.json
+
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -34,7 +47,7 @@ services:
       retries: 5
     restart: always
 
-  # 2. Source Database 
+  # 2. Source Database (Logistics CDC Simulation)
   postgres-source:
     image: postgres:13
     environment:
@@ -44,7 +57,7 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - ./data-init:/docker-entrypoint-initdb.d # Auto-runs SQL scripts
+      - ./data-init:/docker-entrypoint-initdb.d
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "logistics_admin"]
       interval: 10s
@@ -63,13 +76,19 @@ services:
       retries: 5
     restart: always
 
-  # 4. Airflow Scheduler
+  # 4. Airflow Scheduler (Handles Data-Aware Datasets)
   airflow-scheduler:
     <<: *airflow-common
-    command: scheduler
+    command: scheduler 
     restart: always
 
-  # 5. Airflow Initialization 
+  # 5. Airflow Triggerer (Required for modern Airflow sensors/datasets)
+  airflow-triggerer:
+    <<: *airflow-common
+    command: triggerer
+    restart: always
+
+  # 6. Airflow Initialization 
   airflow-init:
     <<: *airflow-common
     command: version
