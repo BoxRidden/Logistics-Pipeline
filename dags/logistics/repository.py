@@ -6,7 +6,7 @@ class PostgresRepository:
         self.cursor = self.conn.cursor()
 
     def initialize_schema(self, hubs, drivers):
-        #Execute DROP statements to flush the outdated Type 1 schemas
+        #Execute DROP statements to flush the outdated Type 1 schemas 
         self.cursor.execute("""
         DROP TABLE IF EXISTS shipments CASCADE;
         DROP TABLE IF EXISTS drivers CASCADE;

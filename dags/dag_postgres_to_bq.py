@@ -103,7 +103,7 @@ def extract_load_postgres_to_bq():
                     chunk[col] = pd.to_datetime(chunk[col], errors='coerce')
 
             if i > 0:
-                job_config.write_disposition = "WRITE_APPEND"
+                job_config.write_disposition = "WRITE_APPEND" 
                 
             job = bq_client.load_table_from_dataframe(chunk, staging_table_id, job_config=job_config)
             job.result()

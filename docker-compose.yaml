@@ -11,8 +11,8 @@ x-airflow-common:
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__WEBSERVER__SECRET_KEY: 'a_very_secure_random_string_12345'
     
-    # 1. Added GCP Storage & dbt dependencies for Phase 2 & 3
-    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-cloud-storage google-auth db-dtypes pyspark dbt-bigquery"
+    # 1. Install additional Python packages for Airflow and dbt
+    _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-cloud-storage google-auth db-dtypes pyspark==3.5.1 dbt-bigquery"
     
     # 2. Passed API Keys from your local .env into the Airflow containers
     TOMORROWIO_API_KEY: ${TOMORROWIO_API_KEY}

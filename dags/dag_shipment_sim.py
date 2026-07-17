@@ -15,12 +15,12 @@ def generate_modular_data():
         host="postgres-airflow",
         database="airflow",
         user="airflow",
-        password="airflow"
+        password="airflow" 
     )
 
     # Build tables and seed the dimensions (Hubs and Drivers)
     repo.initialize_schema(HUBS, DRIVERS)
-
+ 
     # Generate the random shipment payloads
     simulator = ShipmentSimulator()
     random_batch_size = random.randint(5, 10)
