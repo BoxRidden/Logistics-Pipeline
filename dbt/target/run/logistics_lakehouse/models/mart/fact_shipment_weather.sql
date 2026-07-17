@@ -34,7 +34,8 @@ SELECT
     s.shipment_status,
     s.order_type,
     s.product_category,
-    s.revenue,
+    s.revenue_usd,
+    s.revenue_vnd,
     s.item_quantity,
     s.destination_city,
     

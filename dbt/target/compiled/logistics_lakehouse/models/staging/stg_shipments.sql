@@ -6,7 +6,7 @@ WITH raw_shipments AS (
         driver_id,
         customer_city,
         status,
-        --Grab the new columns from the raw BigQuery table
+        -- Grab the new columns from the raw BigQuery table
         revenue,
         item_quantity,
         product_category,
@@ -22,13 +22,15 @@ SELECT
     hub_id,
     driver_id,
     
-    --Pass the new columns through to the fact model 
-    revenue,
+    -- Currency explicit definitions (1 USD = ~25,400 VND)
+    revenue AS revenue_usd,
+    CAST(revenue * 25400 AS INT64) AS revenue_vnd,
+    
     item_quantity,
     product_category,
     order_type,
     
-    --Preserve your existing transformations and aliases
+    -- Preserve your existing transformations and aliases
     UPPER(customer_city) AS destination_city,
     COALESCE(status, 'Unknown') AS shipment_status,
     created_at AS order_placed_at,

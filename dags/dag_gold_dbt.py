@@ -14,7 +14,7 @@ default_args = {
 with DAG(
     'gold_dbt_dag',
     default_args=default_args,
-    schedule=[silver_weather_dataset, silver_cdc_dataset], 
+    schedule=(silver_weather_dataset | silver_cdc_dataset), #OR condition
     catchup=False,
     tags=['transform', 'dbt', 'gold', 'bigquery']
 ) as dag:

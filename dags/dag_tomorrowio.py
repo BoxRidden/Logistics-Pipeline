@@ -2,30 +2,37 @@ import os
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
+
 from weather.fetcher import TomorrowIOFetcher
 from weather.loader import ParquetLoader
 from pipeline_datasets import bronze_weather_tomorrow
+from logistics.profiles import CITIES  # Dynamically import your hubs
 
 def fetch_and_store_bronze(**kwargs):
-    # 1. Securely grab credentials from the Docker environment
     api_key = os.environ.get("TOMORROWIO_API_KEY")
     if not api_key:
         raise ValueError("TOMORROWIO_API_KEY is missing from environment variables.")
         
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
-    
-    # 2. Build the production GCS path (Hive partitioned by source)
-    destination = f"gs://{gcs_bucket}/bronze/weather/tomorrowio/"
+    destination = f"gs://{gcs_bucket}/bronze/weather/tomorrowio/" 
 
-    # 3. Hit the live REST API
     fetcher = TomorrowIOFetcher(api_key=api_key)
-    raw_data = fetcher.get_hourly_forecast("Hanoi") 
-    
-    # 4. Stream directly to Google Cloud Storage
-    loader = ParquetLoader(destination_path=destination)
-    loader.save_as_parquet(raw_data, "weather_forecast")
+    all_weather_data = []
 
-# 5. Added retries and delays for network resilience 
+    # Iterate dynamically through every hub city in your network
+    for city in CITIES:
+        try:
+            print(f"Fetching data for {city}...")
+            city_data = fetcher.get_hourly_forecast(city)
+            all_weather_data.extend(city_data)
+        except Exception as e:
+            print(f"Failed to fetch weather for {city}: {e}")
+            # Continue the loop even if one city's API call drops
+            
+    # Save the combined payload to a single Bronze Parquet file
+    loader = ParquetLoader(destination_path=destination)
+    loader.save_as_parquet(all_weather_data, "weather_forecast")
+
 default_args = {
     'owner': 'data_engineer', 
     'start_date': datetime(2026, 6, 1), 
