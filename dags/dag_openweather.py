@@ -10,7 +10,7 @@ from logistics.profiles import HUBS
 
 def fetch_openweather():
     api_key = os.environ.get("OPENWEATHER_API_KEY")
-    if not api_key or api_key == "your_damn_key_here":
+    if not api_key or api_key == "your_key_here":
         raise ValueError("Valid OPENWEATHER_API_KEY is missing from environment variables.")
         
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
@@ -26,7 +26,7 @@ def fetch_openweather():
         response.raise_for_status()
         data = response.json()
         
-        # OpenWeather returns rain volume in a nested dictionary (e.g., 'rain': {'1h': 2.5})
+        # OpenWeather returns rain volume in a nested dictionary (example 'rain': {'1h': 2.5})
         precipitation = data.get("rain", {}).get("1h", 0.0)
         
         all_weather_data.append({

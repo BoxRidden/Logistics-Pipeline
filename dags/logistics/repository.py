@@ -6,7 +6,7 @@ class PostgresRepository:
         self.cursor = self.conn.cursor()
 
     def initialize_schema(self, hubs, drivers):
-        # 1. Removed DROP TABLE statements so history is preserved
+        # Removed DROP TABLE statements so history is preserved
         self.cursor.execute("""
         CREATE TABLE IF NOT EXISTS hubs (
             hub_id INT PRIMARY KEY, name VARCHAR(50), city VARCHAR(50), lat FLOAT, lon FLOAT,
@@ -26,7 +26,7 @@ class PostgresRepository:
         );
         """)
 
-        # 2. Added ON CONFLICT to safely ignore dimensions if they already exist
+        # Added ON CONFLICT to safely ignore dimensions if they already exist
         for h in hubs:
             self.cursor.execute(f"INSERT INTO hubs (hub_id, name, city, lat, lon) VALUES ({h[0]}, '{h[1]}', '{h[2]}', {h[3]}, {h[4]}) ON CONFLICT (hub_id) DO NOTHING;")
 

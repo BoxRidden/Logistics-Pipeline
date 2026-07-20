@@ -13,16 +13,16 @@ def process_weather_to_iceberg(bronze_path, silver_table):
 
     print(f"Reading real Bronze data from GCS: {bronze_path}")
     
-    # 1. Read the real Parquet files from Google Cloud Storage
+    # Read the real Parquet files from Google Cloud Storage
     df_weather = spark.read.parquet(bronze_path)
     
-    # 2. Transform the data
+    # Transform the data
     df_weather = df_weather.withColumn("date_partition", to_date(col("captured_at")))
 
-    # 3. Ensure the Iceberg namespace exists in GCS
+    # Ensure the Iceberg namespace exists in GCS
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
 
-    # 4. Write back to GCS in Apache Iceberg format
+    # Write back to GCS in Apache Iceberg format
     print("Writing data to Iceberg table...")
     df_weather.write \
         .format("iceberg") \

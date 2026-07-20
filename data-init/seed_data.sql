@@ -4,7 +4,6 @@
 
 
 -- Seed Hubs (Dimensional Baseline for Weather Joins)
--- Explicitly seeding SCD Type 2 initial states
 INSERT INTO hubs (hub_id, name, city, lat, lon, valid_from, is_current) VALUES
 (1, 'Hanoi Central Hub', 'Hanoi', 21.028500, 105.854200, '2026-01-01 00:00:00', TRUE),
 (2, 'Da Nang Port Hub', 'Da Nang', 16.047100, 108.206800, '2026-01-01 00:00:00', TRUE),

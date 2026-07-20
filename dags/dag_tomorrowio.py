@@ -6,7 +6,7 @@ from airflow.operators.python import PythonOperator
 from weather.fetcher import TomorrowIOFetcher
 from weather.loader import ParquetLoader
 from pipeline_datasets import bronze_weather_tomorrow
-from logistics.profiles import CITIES  # Dynamically import your hubs
+from logistics.profiles import CITIES  # Import import your hubs
 
 def fetch_and_store_bronze(**kwargs):
     api_key = os.environ.get("TOMORROWIO_API_KEY")
@@ -19,7 +19,7 @@ def fetch_and_store_bronze(**kwargs):
     fetcher = TomorrowIOFetcher(api_key=api_key)
     all_weather_data = []
 
-    # Iterate dynamically through every hub city in your network
+    # Iterate through every hub city in the network
     for city in CITIES:
         try:
             print(f"Fetching data for {city}...")

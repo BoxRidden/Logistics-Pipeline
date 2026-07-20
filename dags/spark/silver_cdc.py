@@ -5,9 +5,10 @@ from common import build_spark_session
 
 def process_cdc_to_iceberg(bronze_path, silver_table):
     bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
-    
-    # Connects to the cloud using our custom builder
     spark = build_spark_session("Silver_CDC_Processor", bucket)
+    
+    # Disable Iceberg catalog caching to prevent UUID mismatch ghost errors
+    spark.conf.set("spark.sql.catalog.iceberg.cache-enabled", "false")
 
     print(f"Reading real CDC Bronze data from GCS: {bronze_path}")
     df_cdc = spark.read.parquet(bronze_path)
@@ -18,7 +19,12 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
 
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
 
-    print("Writing CDC data to Iceberg table...")
+    # FORCE DROP the table to clear any lingering corrupted metadata in the catalog
+    print(f"Flushing old table state for {silver_table}...")
+    spark.sql(f"DROP TABLE IF EXISTS iceberg.silver.{silver_table}")
+
+    # Write a fresh Iceberg table
+    print("Writing CDC data to pristine Iceberg table...")
     df_cdc.write \
         .format("iceberg") \
         .mode("overwrite") \

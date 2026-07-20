@@ -22,9 +22,9 @@ SELECT
     hub_id,
     driver_id,
     
-    -- Currency explicit definitions (1 USD = ~25,400 VND)
+    -- Currency explicit definitions (1 USD = ~26,200 VND, might need manual update depends on FX rates)
     revenue AS revenue_usd,
-    CAST(revenue * 25400 AS INT64) AS revenue_vnd,
+    CAST(revenue * 26200 AS INT64) AS revenue_vnd,
     
     item_quantity,
     product_category,
