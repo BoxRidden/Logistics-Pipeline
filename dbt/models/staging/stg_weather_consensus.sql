@@ -16,6 +16,6 @@ hourly_grouped AS (
         ARRAY_AGG(weather_code ORDER BY weather_code LIMIT 1)[OFFSET(0)] AS weather_code
     FROM raw_weather
     GROUP BY 1, 2
-)
+) 
 
 SELECT * FROM hourly_grouped

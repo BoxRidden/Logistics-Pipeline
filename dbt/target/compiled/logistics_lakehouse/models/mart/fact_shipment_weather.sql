@@ -65,11 +65,7 @@ SELECT
 FROM shipments s
 LEFT JOIN hubs h 
     ON s.hub_id = h.hub_id 
-    AND s.order_placed_at >= h.valid_from 
-    AND (s.order_placed_at < h.valid_to OR h.valid_to IS NULL)
 LEFT JOIN drivers d
     ON s.driver_id = d.driver_id
-    AND s.order_placed_at >= d.valid_from
-    AND (s.order_placed_at < d.valid_to OR d.valid_to IS NULL)
 LEFT JOIN latest_weather w 
     ON UPPER(h.hub_city) = UPPER(w.hub_city)

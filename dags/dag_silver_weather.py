@@ -3,8 +3,13 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-# Import BOTH the trigger (Bronze) and the emitter (Silver)
-from pipeline_datasets import bronze_weather_tomorrow, silver_weather_dataset
+# UPDATE 1: Import ALL triggers (Bronze) and the emitter (Silver)
+from pipeline_datasets import (
+    bronze_weather_tomorrow,
+    bronze_weather_openmeteo,
+    bronze_weather_openweather,
+    silver_weather_dataset
+)
 
 gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
 
@@ -19,21 +24,21 @@ with DAG(
     'silver_weather_dag', 
     default_args=default_args,
     
-    # Replaced schedule_interval='@hourly' with the Dataset!
-    # This DAG only runs when Tomorrow.io successfully finishes downloading.
-    schedule=[bronze_weather_tomorrow], 
+    # UPDATE 2: Use the pipe (|) for an OR condition. 
+    # This DAG will run if ANY of the three APIs successfully finish downloading.
+    schedule=(bronze_weather_tomorrow | bronze_weather_openmeteo | bronze_weather_openweather), 
     
     catchup=False,
     tags=['silver', 'spark', 'weather', 'event-driven']
 ) as dag:
     
-    # Pass the dynamic GCS bucket path directly into the PySpark script
     BashOperator(
         task_id='spark_weather_to_iceberg',
         bash_command=(
             f'export JAVA_HOME=/usr/lib/jvm/default-java && '
             f'python /opt/airflow/dags/spark/silver_weather.py '
-            f'"gs://{gcs_bucket}/bronze/weather/tomorrowio/*.parquet" "weather_iceberg"'
+            # UPDATE 3: Use a wildcard (*/*.parquet) to grab from tomorrowio, openmeteo, and openweather
+            f'"gs://{gcs_bucket}/bronze/weather/*/*.parquet" "weather_iceberg"'
         ),
         outlets=[silver_weather_dataset] # Broadcasts to the Gold (dbt) layer
     )

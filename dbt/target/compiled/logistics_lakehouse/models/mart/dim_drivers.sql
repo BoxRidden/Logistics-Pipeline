@@ -3,9 +3,6 @@
 SELECT
     driver_id,
     name AS driver_name,
-    vehicle_type,
-    valid_from,
-    valid_to,
-    is_current
+    vehicle_type
 FROM `logistics-500519`.`logistics_raw`.`drivers`
-WHERE is_current = TRUE
+QUALIFY ROW_NUMBER() OVER(PARTITION BY driver_id ORDER BY valid_from DESC) = 1

@@ -3,7 +3,6 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-# 1. FIX: Listen for the bridge signal, output the final silver signal
 from pipeline_datasets import bronze_gcs_cdc_dataset, silver_cdc_dataset
 
 gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
@@ -14,17 +13,19 @@ default_args = {'owner': 'data_engineer', 'start_date': datetime(2026, 6, 1)}
 with DAG(
     'silver_cdc_dag',
     default_args=default_args,
-    
-    # 2. FIX: Will not run until the Pandas extraction DAG finishes 
     schedule=[bronze_gcs_cdc_dataset], 
-    
     catchup=False,
     tags=['silver', 'spark', 'iceberg']
 ) as dag:
 
-    tables = ["shipments", "hubs", "drivers"]
+    # FIX 1: Moved 'shipments' to the end. dbt will only trigger when this list finishes.
+    tables = ["hubs", "drivers", "shipments"]
+    
+    # Variable to help us chain the tasks sequentially 
+    previous_sync = None
 
     for table in tables:
+        
         spark_task = BashOperator(
             task_id=f'spark_cdc_{table}_to_iceberg',
             bash_command=(
@@ -41,8 +42,15 @@ with DAG(
                 f'{gcp_project} logistics_raw {table} '
                 f'"gs://{gcs_bucket}/iceberg/silver/{table}/metadata"'
             ),
-            # Only trigger dbt once the primary shipments table is safely synced to BQ
+            # Only trigger dbt once the final shipments table is synced
             outlets=[silver_cdc_dataset] if table == "shipments" else []
         )
 
+        # 1. Ensure the sync happens after its respective Spark job
         spark_task >> sync_task
+        
+        # FIX 2: Chain the tables sequentially (Hubs -> Drivers -> Shipments) to prevent memory crashes
+        if previous_sync:
+            previous_sync >> spark_task
+            
+        previous_sync = sync_task

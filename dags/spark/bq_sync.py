@@ -1,39 +1,62 @@
 import sys
-from google.cloud import bigquery
+from google.cloud import bigquery, storage
+from google.api_core.exceptions import NotFound
 
-def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_uri):
+def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_dir):
     """
     Creates or updates a BigQuery External Table pointing to an Apache Iceberg 
     metadata layer stored in Google Cloud Storage.
     """
+    # 1. Extract bucket and prefix from the GCS directory string
+    path_parts = gcs_metadata_dir.replace("gs://", "").split("/")
+    bucket_name = path_parts[0]
+    prefix = "/".join(path_parts[1:]) + "/"
+    
+    # 2. Scan GCS to find the exact Iceberg metadata JSON file
+    storage_client = storage.Client(project=project_id)
+    bucket = storage_client.bucket(bucket_name)
+    
+    print(f"Scanning {gcs_metadata_dir} for the latest metadata JSON...")
+    blobs = list(bucket.list_blobs(prefix=prefix))
+    json_blobs = [b for b in blobs if b.name.endswith('.metadata.json')]
+    
+    if not json_blobs:
+        raise FileNotFoundError(f"No Iceberg metadata JSON files found in {gcs_metadata_dir}")
+        
+    # Sort files by creation time to guarantee we always get the newest version
+    latest_blob = max(json_blobs, key=lambda b: b.time_created)
+    latest_uri = f"gs://{bucket_name}/{latest_blob.name}"
+    print(f"Found latest Iceberg metadata: {latest_uri}")
+
+    # 3. Apply it to BigQuery
     client = bigquery.Client(project=project_id)
     
-    # Ensure the Gold dataset exists
     dataset_ref = client.dataset(dataset_id)
     try:
         client.get_dataset(dataset_ref)
-    except Exception:
+    except NotFound:
         client.create_dataset(bigquery.Dataset(dataset_ref))
-        print(f"Created Gold dataset: {dataset_id}")
+        print(f"Created BigQuery dataset: {dataset_id}")
 
     table_id = f"{project_id}.{dataset_id}.{table_name}"
 
-    # Configure the external table to read Iceberg formats natively
-    external_config = bigquery.ExternalConfig("ICEBERG")
-    # BigQuery expects the path to the Iceberg metadata directory or specific .metadata.json
-    external_config.source_uris = [gcs_metadata_uri]
-
     table = bigquery.Table(table_id)
+    external_config = bigquery.ExternalConfig("ICEBERG")
+    external_config.source_uris = [latest_uri] 
     table.external_data_configuration = external_config
 
-    # Apply the table to BigQuery
-    # If the table exists, this updates its pointer to the latest Iceberg metadata
+    # 4. Safely Create or Update (No dropping!)
     try:
-        client.delete_table(table_id, not_found_ok=True) # Drop old pointer
-        table = client.create_table(table)
-        print(f"Successfully synced Iceberg table to BigQuery: {table_id}")
+        # Attempt to update the existing table in-place
+        client.update_table(table, ["external_data_configuration"])
+        print(f"Successfully UPDATED Iceberg table in BigQuery: {table_id}")
+    except NotFound:
+        # If it doesn't exist yet, create it
+        client.create_table(table)
+        print(f"Successfully CREATED Iceberg table in BigQuery: {table_id}")
     except Exception as e:
         print(f"Failed to sync to BigQuery: {e}")
+        raise e
 
 if __name__ == "__main__":
     project = sys.argv[1]
