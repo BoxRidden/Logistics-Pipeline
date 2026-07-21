@@ -7,7 +7,7 @@ SELECT
     hub_id AS store_id,
     status AS shipment_status,
     order_type,
-    -- Truncate to hour to allow BI tools to group time-series efficiently
+    -- Truncate to hour to allow BI tools to group time-series efficiently 
     TIMESTAMP_TRUNC(created_at, HOUR) AS order_hour,
     COUNT(shipment_id) AS order_count,
     SUM(revenue) AS total_revenue,

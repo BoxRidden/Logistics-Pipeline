@@ -19,7 +19,7 @@ def extract_postgres_to_bronze_gcs():
     # Loop through the operational tables 
     for table_name in ["shipments", "hubs", "drivers"]:
         query = f"SELECT * FROM {table_name}"
-        df = pd.read_sql_query(query, pg_conn)
+        df = pd.read_sql_query(query, pg_conn) 
         
         # Ensure timestamp compatibility for Parquet (Microsecond precision for Spark)
         for col in ["created_at", "updated_at", "valid_from", "valid_to"]:

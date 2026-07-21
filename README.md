@@ -29,6 +29,46 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 
 ## Architecture 
 
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          DATA SOURCES                                   │
+│                                                                         │
+│  PostgreSQL (Local Simulator)       Weather APIs                        │
+│  ├── shipments (CDC)                ├── OpenWeather                     │
+│  ├── hubs (CDC)                     ├── Open-Meteo                      │
+│  └── drivers (CDC)                  └── Tomorrow.io                     │
+│                                                                         │
+└──────────────┬──────────────────────────────┬───────────────────────────┘
+               │ Pandas / Python              │ Python / REST API
+               │ (Hourly Extract)             │ (Hourly Fetch)
+               ▼                              ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    BRONZE LAYER — GCS Raw Parquet                       │
+│  gs://{bucket}/bronze/cdc/{table}/                                      │
+│  gs://{bucket}/bronze/weather/{api_name}/                               │
+│                                                                         │
+│  Format: Parquet (Microsecond-precision)   No transformation applied    │
+└──────────────┬──────────────────────────────────────────────────────────┘
+               │ PySpark (Airflow Dataset Triggered / Cache-Disabled)
+               ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                  SILVER LAYER — Apache Iceberg on GCS                   │
+│  gs://{bucket}/iceberg/silver/                                          │
+│  ├── shipments  (Overwrite — accumulating order history)                │
+│  ├── hubs       (Overwrite — latest 1-to-1 dimensional state)           │
+│  ├── drivers    (Overwrite — latest 1-to-1 dimensional state)           │
+│  └── weather    (Append — wildcard batch from all 3 APIs)               │
+│                                                                         │
+│  ACID · Version-hint tracking · Schema evolution · Storage-backed       │
+└──────────────┬──────────────────────────────────────────────────────────┘
+               │ bq_sync.py (Updates BQ pointer via version-hint.text)
+               ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    GOLD LAYER — BigQuery Native (dbt)                   │
+│  Dataset: logistics_mart                                                │
+│  ├── stg_weather_consensus  (dbt view  — 3-API hourly voting consensus) │
+│  ├── fact_shipment_weather  (dbt table — shipment grain, enriched)      │
+│  └── realtime_order_stats   (dbt view  — dual-currency KPIs & counts)   │
+└─────────────────────────────────────────────────────────────────────────┘
 
 ## Pipeline Flow
 
@@ -108,17 +148,17 @@ logistics-lakehouse/
 
 | Table | Description |
 |---|---|
-| `hubs` | hub_id, name, city, lat, lon, valid_from, is_current[cite: 1] |
-| `drivers` | driver_id, name, vehicle_type, valid_from, is_current[cite: 1] |
-| `shipments` | shipment_id, tracking_code, hub_id, driver_id, customer_city, status, revenue, item_quantity, product_category, order_type[cite: 1] |
+| `hubs` | hub_id, name, city, lat, lon, valid_from, is_current |
+| `drivers` | driver_id, name, vehicle_type, valid_from, is_current |
+| `shipments` | shipment_id, tracking_code, hub_id, driver_id, customer_city, status, revenue, item_quantity, product_category, order_type |
 
 ### Bronze — Raw Ingestion (GCS Parquet)
 
 | Path / Target | Source |
 |---|---|
-| `gs://{bucket}/bronze/cdc/shipments/` | PostgreSQL Extract (via Pandas)[cite: 1] |
-| `gs://{bucket}/bronze/cdc/hubs/` | PostgreSQL Extract (via Pandas)[cite: 1] |
-| `gs://{bucket}/bronze/cdc/drivers/` | PostgreSQL Extract (via Pandas)[cite: 1] |
+| `gs://{bucket}/bronze/cdc/shipments/` | PostgreSQL Extract (via Pandas) |
+| `gs://{bucket}/bronze/cdc/hubs/` | PostgreSQL Extract (via Pandas) |
+| `gs://{bucket}/bronze/cdc/drivers/` | PostgreSQL Extract (via Pandas) |
 | `gs://{bucket}/bronze/weather/{api_name}/` | Tomorrow.io, Open-Meteo, OpenWeather |
 
 ### Silver — Cleaned & Integrated (Apache Iceberg)
@@ -138,6 +178,7 @@ logistics-lakehouse/
 | `logistics_mart.fact_shipment_weather` | dbt table | Main analytics fact joining shipments, weather conditions, and 1-to-1 dimensional data |
 | `logistics_mart.realtime_order_stats` | dbt view | Near-real-time operational counts and dual-currency (USD/VND) revenue scorecards |
 
+
 ## Setup Guide
 
 | Requirement | Notes |
@@ -145,13 +186,13 @@ logistics-lakehouse/
 | Docker Desktop ≥ 4.x | Allocate **≥ 8 GB RAM** in Docker settings (required for PySpark & Airflow) |
 | GCP Project | With BigQuery and Cloud Storage APIs enabled |
 | GCP Service Account | Roles: `BigQuery Admin`, `Storage Admin` |
-| API Keys | Tomorrow.io API key (Open-Meteo is open-source/free) |
+| API Keys | Tomorrow.io and OpenWeather API keys (Open-Meteo is open-source/free) |
 
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/](https://github.com/)<your-username>/highlands-lakehouse.git
-cd highlands-lakehouse
+git clone [https://github.com/](https://github.com/)<your-username>/logistics-lakehouse.git
+cd logistics-lakehouse
 ```
 
 ### 2. Configure environment variables
@@ -166,19 +207,8 @@ Save your JSON key file directly into the config directory:
 ```
 config/gcp-key.json
 ```
-### 4. Build and start the Infrastructure
-
-```
-chmod +x startup.sh
-./startup.sh
-```
-### 5. Configure BigQuery (Materialized View)
-The raw datasets (logistics_raw) and tables will be auto-created by the Airflow ingestion DAG. However, the high-performance Materialized View for the Looker Studio dashboard must be created manually in the BigQuery Console once the base shipments table exists.
-After running the `logistics_postgres_to_bq` DAG for the first time, 
-copy the contents of `data-init/gold_bq_mv.sql` and run it in your BigQuery SQL Workspace.
-
-### 6. Configure dbt
-Update the dbt/profiles.yml file to match your specific GCP Project ID:
+### 4. Configure dbt
+Update the dbt/profiles.yml file to match your specific GCP Project ID
 ```
 logistics_profile:
   outputs:
@@ -186,15 +216,25 @@ logistics_profile:
       type: bigquery
       method: service-account
       project: "your-gcp-project-id" # <--- UPDATE THIS
-      dataset: logistics_mart
-      threads: 4
-      keyfile: /opt/airflow/config/gcp-key.json
+      
 ```
 Verify the connection is working from inside the Airflow container (optional):
 ```
 docker exec -it $(docker ps -qf "name=airflow-webserver") bash -c "cd /opt/airflow/dbt && dbt debug"
-```
+```      
 
+
+### 5. Configure BigQuery (Materialized View)
+The raw datasets (logistics_raw) and tables will be auto-created by the Airflow ingestion DAG. However, the high-performance Materialized View for the Looker Studio dashboard must be created manually in the BigQuery Console once the base shipments table exists.
+After running the `logistics_postgres_to_bq` DAG for the first time, 
+copy the contents of `data-init/gold_bq_mv.sql` and run it in your BigQuery SQL Workspace.
+
+### 6. Build and start the infrastructure
+Initialize the environment and spin up the Docker containers
+```
+chmod +x startup.sh
+./startup.sh
+```
 
 ## Running the Pipeline
 
@@ -203,22 +243,26 @@ docker exec -it $(docker ps -qf "name=airflow-webserver") bash -c "cd /opt/airfl
 In the Airflow UI, unpause the DAGs in this order to ensure downstream datasets are ready to catch triggers:
 
 1. `weather_tomorrowio_pipeline`
-2. `silver_weather_dag`
-3. `silver_cdc_dag`
-4. `logistics_postgres_to_bq`
-5. `gold_dbt_dag`
-6. `dag_shipment_sim`
+2. `weather_openweather_pipeline`
+3. `weather_openmeteo_pipeline`
+4. `silver_weather_dag`
+5. `postgres_to_bronze_cdc`
+6. `silver_cdc_dag`
+7. `gold_dbt_dag`
+8. `dag_shipment_sim`
 
 ### Manual trigger
 
 ```
-# 1. Trigger the weather pipeline to fetch live API data and populate Bronze
+# 1. Trigger the weather pipelines to fetch live API data and populate the Bronze layer
 airflow dags trigger weather_tomorrowio_pipeline
+airflow dags trigger weather_openweather_pipeline
+airflow dags trigger weather_openmeteo_pipeline
 
 # 2. Trigger the simulator to generate today's operational data in Postgres
 airflow dags trigger dag_shipment_sim
 
-# Because this architecture uses Airflow Datasets (Data-Aware Scheduling), triggering the simulator will automatically trigger the downstream CDC, BigQuery Ingestion, and dbt transformation DAGs
+# Because this architecture uses Airflow Datasets (Data-Aware Scheduling), triggering the simulator will automatically trigger the downstream Bronze extraction, Silver PySpark processing, BigQuery external table syncing, and Gold dbt transformations.
 ```
 ### Check pipeline status 
 ```
@@ -231,16 +275,19 @@ SELECT * FROM `your-gcp-project-id.logistics_mart.fact_shipment_weather` LIMIT 1
 SELECT * FROM `your-gcp-project-id.logistics_mart.realtime_order_stats` LIMIT 10;
 ```
 
+
 ## DAG Reference
 
 | DAG ID | Schedule / Trigger | Emits Dataset (Outlets) | Description |
 | :--- | :--- | :--- | :--- |
 | **`weather_tomorrowio_pipeline`** | `@hourly` (Cron) | `bronze_weather_tomorrow` | Fetches real-time weather from the Tomorrow.io API and saves it locally as Bronze Parquet files. |
+| **`weather_openweather_pipeline`** | `@hourly` (Cron) | `bronze_weather_openweather` | Fetches real-time weather from the OpenWeather API and saves it locally as Bronze Parquet files. |
+| **`weather_openmeteo_pipeline`** | `@hourly` (Cron) | `bronze_weather_openmeteo`| Fetches real-time weather from the Open-Meteo API and saves it locally as Bronze Parquet files. |
 | **`dag_shipment_sim`** | `@hourly` (Cron) | `bronze_cdc_dataset` | Generates synthetic logistics shipments and driver updates, inserting them into the local PostgreSQL database to simulate live CDC data. |
-| **`silver_weather_dag`** | `Dataset` | `silver_weather_dataset` | Data-aware PySpark job. Triggered when Tomorrow.io data lands. Processes Bronze Parquet into Silver Iceberg tables. |
-| **`silver_cdc_dag`** | `Dataset` | `silver_cdc_dataset` | Data-aware PySpark job. Triggered when the simulator finishes. Processes raw PostgreSQL CDC data into Silver Iceberg tables. |
-| **`logistics_postgres_to_bq`** | `Dataset` | `silver_cdc_dataset`, `silver_weather_dataset` | Extracts the raw Postgres CDC chunks and loads them into BigQuery using a Staging-to-MERGE (Upsert) architecture. |
-| **`gold_dbt_dag`** | `Dataset` | — | Triggered automatically when *both* the silver weather and silver CDC datasets are updated. Executes `dbt build` to transform the data and update BigQuery data marts. |
+| **`postgres_to_bronze_cdc`** | `Dataset` (`bronze_cdc_dataset`) | `bronze_gcs_cdc_dataset` | Extracts the raw Postgres CDC chunks and loads them into GCS as microsecond-precision Parquet files. |
+| **`silver_weather_dag`** | `Dataset` (OR condition) | `silver_weather_dataset` | Data-aware PySpark job. Triggered when ANY of the three weather APIs successfully finish downloading. Processes wildcard Bronze Parquet files into Silver Iceberg tables. |
+| **`silver_cdc_dag`** | `Dataset` (`bronze_gcs_cdc_dataset`) | `silver_cdc_dataset` | Data-aware PySpark job. Sequentially processes raw CDC data into Silver Iceberg tables and updates BigQuery pointer metadata. |
+| **`gold_dbt_dag`** | `Dataset` (OR condition) | — | Triggered automatically when *either* the silver weather or silver CDC datasets are updated. Executes `dbt build` to transform the data and update BigQuery data marts. |
 
 
 ## Dashboard

@@ -18,7 +18,7 @@ class ParquetLoader:
             return None
         
         # Convert raw dictionary list to DataFrame
-        df = pd.DataFrame(data)
+        df = pd.DataFrame(data) 
         
         # Generate unique timestamped filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
