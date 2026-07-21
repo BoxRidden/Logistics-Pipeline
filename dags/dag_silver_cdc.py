@@ -46,7 +46,7 @@ with DAG(
             outlets=[silver_cdc_dataset] if table == "shipments" else []
         )
 
-        # 1. Ensure the sync happens after its respective Spark job
+        # Ensure the sync happens after its respective Spark job
         spark_task >> sync_task
         
         # FIX 2: Chain the tables sequentially (Hubs -> Drivers -> Shipments) to prevent memory crashes

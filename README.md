@@ -18,14 +18,14 @@ This project was built primarily as a hands-on practice exercise to explore mode
 
 Logistics Lakehouse simulates an end-to-end data platform for a regional delivery network operating across major Vietnamese cities. The pipeline:
 
-- **Ingests** operational data (shipments, drivers, hubs) via a Python simulator acting as a CDC stream into PostgreSQL
-- **Enriches** logistics tracking data with **real-time weather** from the Tomorrow.io API
-- **Stores** the data in **Apache Iceberg** format via PySpark and safely loads it into Google BigQuery using an idempotent **Staging-to-MERGE (Upsert)** architecture
-- **Transforms** data through Bronze → Silver → Gold layers
-- **Serves** analytics via **BigQuery Materialized Views** + **dbt-built native tables**
-- **Visualizes** operations through a Looker Studio Command Center showing weather-driven supply chain impacts
+- **Ingests** operational data (shipments, drivers, hubs) via a Python simulator acting as a CDC stream into PostgreSQL.
+- **Enriches** logistics tracking data with **real-time weather consensus modeling** by aggregating live data from Tomorrow.io, OpenWeather, and Open-Meteo.
+- **Extracts** Postgres and API data into a **GCS Bronze Layer** as microsecond-precision Parquet files.
+- **Processes** the raw data into **Apache Iceberg** format via PySpark, dynamically mounting the active metadata (`version-hint.text`) into Google BigQuery as External Tables.
+- **Transforms** data through Bronze → Silver → Gold layers entirely managed by **dbt-bigquery**.
+- **Visualizes** operations through a Looker Studio Command Center showing dual-currency revenue (USD/VND) and weather-driven supply chain impacts.
 
-The core hypothesis being modeled: *severe weather (thunderstorms/rain) → higher delay probabilities and longer transit times; clear weather → optimal delivery rates and faster fulfillment.*
+The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) → higher delay probabilities and longer transit times; clear weather → optimal delivery rates and faster fulfillment.*
 
 ## Architecture 
 
@@ -38,13 +38,13 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain) → high
 | Component | Technology | Role / Version |
 |---|---|---|
 | Orchestration | Apache Airflow | 2.9.1 (Dockerized) |
-| Compute & Processing | PySpark & Pandas | Data chunking, deduping, and ETL |
-| Table Format | Apache Iceberg | Local Hadoop Catalog |
-| Storage Environment | Local Data Lakehouse | Simulated Cloud Storage via Docker |
+| Compute & Processing | PySpark & Pandas | Data chunking, deduping, timestamp standardizing, and ETL |
+| Table Format | Apache Iceberg | Cloud-native Hadoop Catalog |
+| Storage Environment | Google Cloud Storage | Bronze Parquet & Silver Iceberg Metadata |
 | Source Database | PostgreSQL | 13 (Simulated CDC Source) |
-| Data Warehouse | Google Cloud BigQuery | Cloud Analytics Engine & Upsert Target |
-| Transformation | dbt-bigquery | Gold Layer / Data Mart Modeling |
-| External API | Tomorrow.io API | Real-time weather data enrichment |
+| Data Warehouse | Google Cloud BigQuery | Cloud Analytics Engine & Iceberg External Table Host |
+| Transformation | dbt-bigquery | Gold Layer / Data Mart Modeling & Dual-Currency Logic |
+| External APIs | Tomorrow.io, OpenWeather, Open-Meteo | Real-time weather data ensemble |
 | BI / Visualization | Looker Studio | Interactive Command Center UI |
 | Containerization | Docker & Docker Compose | Infrastructure deployment |
 | Runtime | Python 3.9+ & Java (default-jre) | Core execution environments |
@@ -68,6 +68,7 @@ logistics-lakehouse/
 │   ├── dag_silver_cdc.py           # Spark job: CDC → Silver Iceberg tables
 │   ├── dag_silver_weather.py       # Spark job: Weather Parquet → Silver Iceberg tables
 │   ├── dag_gold_dbt.py             # Triggers dbt build for Gold Layer
+│   ├── dag_openmeteo.py            # Fetches Open-Meteo API → GCS Bronze Parquet
 │   │
 │   ├── logistics/                  # Logistics Domain Logic
 │   │   ├── simulator.py            # Generates orders based on weather profiles
@@ -107,38 +108,35 @@ logistics-lakehouse/
 
 | Table | Description |
 |---|---|
-| `hubs` | hub_id, name, city, lat, lon, valid_from, is_current |
-| `drivers` | driver_id, name, vehicle_type, valid_from, is_current |
-| `shipments` | shipment_id, tracking_code, hub_id, driver_id, customer_city, status, revenue, item_quantity, product_category, order_type |
+| `hubs` | hub_id, name, city, lat, lon, valid_from, is_current[cite: 1] |
+| `drivers` | driver_id, name, vehicle_type, valid_from, is_current[cite: 1] |
+| `shipments` | shipment_id, tracking_code, hub_id, driver_id, customer_city, status, revenue, item_quantity, product_category, order_type[cite: 1] |
 
-### Bronze — Raw Ingestion
+### Bronze — Raw Ingestion (GCS Parquet)
 
-| Path / Target | Format | Source |
+| Path / Target | Source |
+|---|---|
+| `gs://{bucket}/bronze/cdc/shipments/` | PostgreSQL Extract (via Pandas)[cite: 1] |
+| `gs://{bucket}/bronze/cdc/hubs/` | PostgreSQL Extract (via Pandas)[cite: 1] |
+| `gs://{bucket}/bronze/cdc/drivers/` | PostgreSQL Extract (via Pandas)[cite: 1] |
+| `gs://{bucket}/bronze/weather/{api_name}/` | Tomorrow.io, Open-Meteo, OpenWeather |
+
+### Silver — Cleaned & Integrated (Apache Iceberg)
+
+| Table | Grain | Strategy | Output |
+|---|---|---|---|
+| `iceberg.silver.shipments` | 1 row per shipment | Overwrite | Mounted to BQ as `logistics_raw.shipments` |
+| `iceberg.silver.hubs` | Latest row per version | Overwrite | Mounted to BQ as `logistics_raw.hubs` |
+| `iceberg.silver.drivers` | Latest row per version | Overwrite | Mounted to BQ as `logistics_raw.drivers` |
+| `iceberg.silver.weather` | 1 row per city per API | Append | Mounted to BQ as `logistics_raw.weather` |
+
+### Gold — BigQuery Data Marts (dbt)
+
+| Table / View | Type | Description |
 |---|---|---|
-| `logistics_raw.shipments_staging` | BigQuery Table | PostgreSQL CDC (via Pandas/Airflow) |
-| `logistics_raw.hubs_staging` | BigQuery Table | PostgreSQL CDC (via Pandas/Airflow) |
-| `logistics_raw.drivers_staging` | BigQuery Table | PostgreSQL CDC (via Pandas/Airflow) |
-| `/opt/airflow/lakehouse/bronze/weather/` | Parquet | Tomorrow.io API (Local Fallback) |
-
-### Silver — Cleaned & Integrated
-
-| Table | Grain | Strategy | Key Columns |
-|---|---|---|---|
-| `logistics_raw.shipments` | 1 row per shipment | MERGE INTO (Upsert) | `shipment_id` |
-| `logistics_raw.hubs` | 1 row per version | SCD Type 2 | `hub_id` + `valid_from` |
-| `logistics_raw.drivers` | 1 row per version | SCD Type 2 | `driver_id` + `valid_from` |
-| `silver.weather` | 1 row per city per fetch | Append (Iceberg) | `hub_city` + `captured_at` |
-
-> **Note:** Applying Slowly Changing Dimension (SCD Type 2) logic on `hubs` and `drivers` guarantees that historical shipments are always joined to the correct dimensional state at the exact time the order was placed.
-
-### Gold — BigQuery Data Marts
-
-| Table / View | Type | Grain | Description |
-|---|---|---|---|
-| `logistics_mart.stg_weather_consensus` | dbt view | city × hour | Hourly aggregation and deduplication of weather API fetches |
-| `logistics_mart.fact_shipment_weather` | dbt table | shipment | Main analytics fact joining shipments, weather conditions, and SCD2 dimensions |
-| `logistics_mart.realtime_order_stats` | BQ Materialized View | hour × store × status | Near-real-time operational counts and revenue scorecards |
-
+| `logistics_mart.stg_weather_consensus` | dbt view | Hourly aggregation and voting consensus of all 3 weather API fetches |
+| `logistics_mart.fact_shipment_weather` | dbt table | Main analytics fact joining shipments, weather conditions, and 1-to-1 dimensional data |
+| `logistics_mart.realtime_order_stats` | dbt view | Near-real-time operational counts and dual-currency (USD/VND) revenue scorecards |
 
 ## Setup Guide
 

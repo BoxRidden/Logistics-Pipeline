@@ -33,6 +33,6 @@ def process_weather_to_iceberg(bronze_path, silver_table):
     spark.stop()
 
 if __name__ == "__main__":
-    bronze_parquet_path = sys.argv[1]
+    bronze_parquet_path = sys.argv[1] 
     table_name = sys.argv[2]
     process_weather_to_iceberg(bronze_parquet_path, table_name)

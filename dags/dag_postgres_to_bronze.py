@@ -16,16 +16,15 @@ def extract_postgres_to_bronze_gcs():
         host="postgres-airflow", database="airflow", user="airflow", password="airflow"
     ) 
 
-    # Loop through the operational tables
+    # Loop through the operational tables 
     for table_name in ["shipments", "hubs", "drivers"]:
         query = f"SELECT * FROM {table_name}"
         df = pd.read_sql_query(query, pg_conn)
         
-        # Ensure timestamp compatibility for Parquet
         # Ensure timestamp compatibility for Parquet (Microsecond precision for Spark)
         for col in ["created_at", "updated_at", "valid_from", "valid_to"]:
             if col in df.columns:
-                # Cast the Pandas datetime to [us] (microseconds) to prevent Spark crash
+                # Cast the Pandas datetime to prevent Spark crash
                 df[col] = pd.to_datetime(df[col], errors='coerce').astype('datetime64[us]')
 
         # Push directly to GCS Bronze path as a Parquet file

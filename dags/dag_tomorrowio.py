@@ -6,7 +6,7 @@ from airflow.operators.python import PythonOperator
 from weather.fetcher import TomorrowIOFetcher
 from weather.loader import ParquetLoader
 from pipeline_datasets import bronze_weather_tomorrow
-from logistics.profiles import CITIES  # Import import your hubs
+from logistics.profiles import CITIES  # Import the hubs
 
 def fetch_and_store_bronze(**kwargs):
     api_key = os.environ.get("TOMORROWIO_API_KEY")

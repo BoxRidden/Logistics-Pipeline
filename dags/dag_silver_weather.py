@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-# UPDATE 1: Import ALL triggers (Bronze) and the emitter (Silver)
+# Import all triggers (Bronze) and the emitter (Silver)
 from pipeline_datasets import (
     bronze_weather_tomorrow,
     bronze_weather_openmeteo,
@@ -23,13 +23,13 @@ default_args = {
 with DAG(
     'silver_weather_dag', 
     default_args=default_args,
-    
-    # UPDATE 2: Use the pipe (|) for an OR condition. 
-    # This DAG will run if ANY of the three APIs successfully finish downloading.
+
+    # OR condition
+    # This DAG will run if any of the three APIs successfully finish downloading
     schedule=(bronze_weather_tomorrow | bronze_weather_openmeteo | bronze_weather_openweather), 
     
     catchup=False,
-    tags=['silver', 'spark', 'weather', 'event-driven']
+    tags=['silver', 'spark', 'weather', 'event-driven'] 
 ) as dag:
     
     BashOperator(
@@ -37,8 +37,8 @@ with DAG(
         bash_command=(
             f'export JAVA_HOME=/usr/lib/jvm/default-java && '
             f'python /opt/airflow/dags/spark/silver_weather.py '
-            # UPDATE 3: Use a wildcard (*/*.parquet) to grab from tomorrowio, openmeteo, and openweather
+            # Uses a wildcard (*/*.parquet) to grab from tomorrowio, openmeteo, and openweather
             f'"gs://{gcs_bucket}/bronze/weather/*/*.parquet" "weather_iceberg"'
         ),
-        outlets=[silver_weather_dataset] # Broadcasts to the Gold (dbt) layer
+        outlets=[silver_weather_dataset] # Broadcasts to the Gold dbt layer
     )

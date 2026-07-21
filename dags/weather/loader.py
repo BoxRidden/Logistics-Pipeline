@@ -1,7 +1,7 @@
 import pandas as pd
 import pyarrow as pa
 import pyarrow.parquet as pq
-import os
+import os 
 from datetime import datetime
 
 class ParquetLoader:
@@ -17,10 +17,10 @@ class ParquetLoader:
             print("[WARN] No data provided to ParquetLoader. Skipping.")
             return None
         
-        # 1. Convert raw dictionary list to DataFrame
+        # Convert raw dictionary list to DataFrame
         df = pd.DataFrame(data)
         
-        # 2. Generate unique timestamped filename
+        # Generate unique timestamped filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{filename_prefix}_{timestamp}.parquet"
         
@@ -31,7 +31,7 @@ class ParquetLoader:
         full_gcs_path = f"{self.destination_path}{file_name}"
         
         # 3. Write directly to GCS via Pandas and gcsfs
-        # Pandas automatically detects the gs:// prefix and uses your GCP Service Account
+        # Uses GCP Service Account
         print(f"Uploading Parquet file to GCP: {full_gcs_path}")
         df.to_parquet(full_gcs_path, compression='snappy', index=False)
         

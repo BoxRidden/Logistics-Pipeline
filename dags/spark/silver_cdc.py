@@ -7,7 +7,7 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
     bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
     spark = build_spark_session("Silver_CDC_Processor", bucket)
     
-    # Disable Iceberg catalog caching to prevent UUID mismatch ghost errors
+    # Catalog caching remains disabled to prevent UUID mismatch ghost errors
     spark.conf.set("spark.sql.catalog.iceberg.cache-enabled", "false")
 
     print(f"Reading real CDC Bronze data from GCS: {bronze_path}")
@@ -19,12 +19,10 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
 
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
 
-    # FORCE DROP the table to clear any lingering corrupted metadata in the catalog
-    print(f"Flushing old table state for {silver_table}...")
-    spark.sql(f"DROP TABLE IF EXISTS iceberg.silver.{silver_table}")
+    # (REMOVED the DROP TABLE command) Iceberg will now naturally evolve versions.
 
-    # Write a fresh Iceberg table
-    print("Writing CDC data to pristine Iceberg table...")
+    # Write data using overwrite mode to create incremental snapshots
+    print("Writing CDC data to Iceberg table...")
     df_cdc.write \
         .format("iceberg") \
         .mode("overwrite") \

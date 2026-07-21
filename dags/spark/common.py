@@ -8,7 +8,7 @@ def build_spark_session(app_name: str, bucket: str) -> SparkSession:
         SparkSession.builder
         .appName(app_name)
         
-        # Point directly to our hardcoded JARs instead of using spark.jars.packages
+        # Point directly to the hardcoded JARs instead of using spark.jars.packages
         .config("spark.jars", "/opt/airflow/jars/gcs-connector-hadoop3-shaded.jar,/opt/airflow/jars/iceberg-spark-runtime.jar")
         
         # Iceberg Catalog Configuration 

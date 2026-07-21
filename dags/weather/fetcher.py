@@ -16,10 +16,10 @@ class TomorrowIOFetcher:
             "units": "metric"
         }
         
-        # 10-second timeout prevents Airflow tasks from hanging forever
+        # 10-second timeout prevents Airflow tasks from hanging forever 
         response = requests.get(self.base_url, params=params, timeout=10)
         
-        # Fails the Airflow task immediately if we get a 401 Unauthorized or 500 Server Error
+        # Fails the Airflow task immediately if there's a 401 Unauthorized or 500 Server Error
         response.raise_for_status() 
         
         raw_data = response.json()
