@@ -14,3 +14,4 @@ dbt/logs
 dbt_modules/
 dbt_packages/
 target/
+.DS_Store

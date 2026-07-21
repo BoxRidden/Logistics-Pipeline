@@ -24,14 +24,12 @@ class ParquetLoader:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         file_name = f"{filename_prefix}_{timestamp}.parquet"
         
-        # Ensure path ends with a slash before appending filename
         if not self.destination_path.endswith('/'):
             self.destination_path += '/'
             
         full_gcs_path = f"{self.destination_path}{file_name}"
         
-        # 3. Write directly to GCS via Pandas and gcsfs
-        # Uses GCP Service Account
+        # Write directly to GCS via Pandas and gcsfs
         print(f"Uploading Parquet file to GCP: {full_gcs_path}")
         df.to_parquet(full_gcs_path, compression='snappy', index=False)
         

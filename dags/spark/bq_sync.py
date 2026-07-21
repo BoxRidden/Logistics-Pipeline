@@ -11,7 +11,7 @@ def sync_iceberg_to_bigquery(project_id, dataset_id, table_name, gcs_metadata_di
     storage_client = storage.Client(project=project_id)
     bucket = storage_client.bucket(bucket_name)
     
-    # Grab the exact active version directly from Iceberg's version-hint.text
+    # Grab the exact active version directly from Iceberg's version-hint.text 
     hint_blob = bucket.blob(f"{prefix}version-hint.text")
     
     if hint_blob.exists():

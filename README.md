@@ -28,7 +28,7 @@ Logistics Lakehouse simulates an end-to-end data platform for a regional deliver
 The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) → higher delay probabilities and longer transit times; clear weather → optimal delivery rates and faster fulfillment.*
 
 ## Architecture 
-
+```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                          DATA SOURCES                                   │
 │                                                                         │
@@ -69,6 +69,61 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 │  ├── fact_shipment_weather  (dbt table — shipment grain, enriched)      │
 │  └── realtime_order_stats   (dbt view  — dual-currency KPIs & counts)   │
 └─────────────────────────────────────────────────────────────────────────┘
+```
+
+```mermaid
+graph TB
+    %% Styling classes to differentiate DAGs and Datasets
+    classDef dag fill:#f8f9fa,stroke:#dee2e6,stroke-width:1px,color:#212529;
+    classDef dataset fill:#ffffff,stroke:#ced4da,stroke-width:1px,color:#495057;
+
+    %% CDC Pipeline Nodes
+    sim(dag_shipment_sim):::dag
+    ds_cdc_ship[("gs://logistics-lakehouse/bronze/cdc/shipments")]:::dataset
+    p2b(postgres_to_bronze_cdc):::dag
+    ds_cdc_pq[("gs://logistics-lakehouse/bronze/cdc/gcs_parquet")]:::dataset
+    scdc(silver_cdc_dag):::dag
+    ds_silv_cdc[("gs://logistics-lakehouse/silver/cdc")]:::dataset
+
+    %% Weather Pipeline Nodes
+    om(weather_openmeteo_pipeline):::dag
+    ds_om[("gs://logistics-lakehouse/bronze/weather/openmeteo")]:::dataset
+    
+    tom(weather_tomorrowio_pipeline):::dag
+    ds_tom[("gs://logistics-lakehouse/bronze/weather/tomorrowio")]:::dataset
+    
+    ow(weather_openweather_pipeline):::dag
+    ds_ow[("gs://logistics-lakehouse/bronze/weather/openweather")]:::dataset
+    
+    sw(silver_weather_dag):::dag
+    ds_silv_w[("gs://logistics-lakehouse/silver/weather")]:::dataset
+
+    %% Gold Target Node
+    dbt(gold_dbt_dag):::dag
+
+    %% CDC Pipeline Flow
+    sim --> ds_cdc_ship
+    ds_cdc_ship --> p2b
+    p2b --> ds_cdc_pq
+    ds_cdc_pq --> scdc
+    scdc --> ds_silv_cdc
+
+    %% Weather Pipeline Flow
+    om --> ds_om
+    tom --> ds_tom
+    ow --> ds_ow
+    
+    ds_om --> sw
+    ds_tom --> sw
+    ds_ow --> sw
+    
+    sw --> ds_silv_w
+
+    %% Gold Trigger Convergence
+    ds_silv_cdc --> dbt
+    ds_silv_w --> dbt
+```
+![Airflow datasets](docs/dags/Airflow_datasets.png)
 
 ## Pipeline Flow
 
@@ -242,14 +297,15 @@ chmod +x startup.sh
 
 In the Airflow UI, unpause the DAGs in this order to ensure downstream datasets are ready to catch triggers:
 
-1. `weather_tomorrowio_pipeline`
-2. `weather_openweather_pipeline`
-3. `weather_openmeteo_pipeline`
-4. `silver_weather_dag`
-5. `postgres_to_bronze_cdc`
-6. `silver_cdc_dag`
-7. `gold_dbt_dag`
-8. `dag_shipment_sim`
+1. `dag_shipment_sim`
+2. `weather_tomorrowio_pipeline`
+3. `weather_openweather_pipeline`
+4. `weather_openmeteo_pipeline`
+5. `silver_weather_dag`
+6. `postgres_to_bronze_cdc`
+7. `silver_cdc_dag`
+8. `gold_dbt_dag`
+
 
 ### Manual trigger
 

@@ -49,7 +49,7 @@ with DAG(
 ) as dag:
     
     PythonOperator(
-        task_id='generate_data',
+        task_id='generate_data', 
         python_callable=generate_modular_data,
         outlets=[bronze_cdc_dataset] # Signals the ingestion DAG to run next
     )

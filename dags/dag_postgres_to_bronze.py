@@ -21,13 +21,13 @@ def extract_postgres_to_bronze_gcs():
         query = f"SELECT * FROM {table_name}"
         df = pd.read_sql_query(query, pg_conn) 
         
-        # Ensure timestamp compatibility for Parquet (Microsecond precision for Spark)
+        # Ensure timestamp compatibility for Parquet 
         for col in ["created_at", "updated_at", "valid_from", "valid_to"]:
             if col in df.columns:
                 # Cast the Pandas datetime to prevent Spark crash
                 df[col] = pd.to_datetime(df[col], errors='coerce').astype('datetime64[us]')
 
-        # Push directly to GCS Bronze path as a Parquet file
+        # Push directly to GCS Bronze path as a Parquet file 
         destination = f"gs://{gcs_bucket}/bronze/cdc/{table_name}/{table_name}.parquet"
         df.to_parquet(destination, index=False)
 

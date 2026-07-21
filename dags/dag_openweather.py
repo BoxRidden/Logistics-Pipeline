@@ -16,7 +16,7 @@ def fetch_openweather():
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
     destination = f"gs://{gcs_bucket}/bronze/weather/openweather/"
     
-    all_weather_data = []
+    all_weather_data = [] 
     
     for hub_id, name, city, lat, lon in HUBS:
         print(f"Fetching OpenWeather data for {city}...")
