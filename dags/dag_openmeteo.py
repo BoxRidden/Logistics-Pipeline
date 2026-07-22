@@ -6,7 +6,7 @@ from airflow.operators.python import PythonOperator
 
 from weather.loader import ParquetLoader
 from pipeline_datasets import bronze_weather_openmeteo
-from logistics.profiles import HUBS
+from logistics.profiles import HUBS 
 
 def fetch_openmeteo():
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")

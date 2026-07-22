@@ -18,9 +18,9 @@ This project was built primarily as a hands-on practice exercise to explore mode
 
 Logistics Lakehouse simulates an end-to-end data platform for a regional delivery network operating across major Vietnamese cities. The pipeline:
 
-- **Ingests** operational data (shipments, drivers, hubs) via a Python simulator acting as a CDC stream into PostgreSQL.
+- **Ingests** operational data (shipments, drivers, hubs) through a Python simulator acting as a CDC stream into PostgreSQL.
 - **Enriches** logistics tracking data with **real-time weather consensus modeling** by aggregating live data from Tomorrow.io, OpenWeather, and Open-Meteo.
-- **Extracts** Postgres and API data into a **GCS Bronze Layer** as microsecond-precision Parquet files.
+- **Extracts** Postgres and API data into a **GCS Bronze Layer** as Parquet files.
 - **Processes** the raw data into **Apache Iceberg** format via PySpark, dynamically mounting the active metadata (`version-hint.text`) into Google BigQuery as External Tables.
 - **Transforms** data through Bronze → Silver → Gold layers entirely managed by **dbt-bigquery**.
 - **Visualizes** operations through a Looker Studio Command Center showing dual-currency revenue (USD/VND) and weather-driven supply chain impacts.
@@ -72,7 +72,7 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 ```
 
 ```mermaid
-graph TB
+graph TD
     %% Styling classes to differentiate DAGs and Datasets
     classDef dag fill:#f8f9fa,stroke:#dee2e6,stroke-width:1px,color:#212529;
     classDef dataset fill:#ffffff,stroke:#ced4da,stroke-width:1px,color:#495057;
@@ -123,9 +123,32 @@ graph TB
     ds_silv_cdc --> dbt
     ds_silv_w --> dbt
 ```
-![Airflow datasets](docs/dags/Airflow_datasets.png)
+![AirflowDatasets](docs/dags/AirflowDatasets.png)
+
+
 
 ## Pipeline Flow
+
+The Logistics Lakehouse operates on a Medallion Architecture (Bronze, Silver, Gold), heavily orchestrated by Airflow's Data-Aware Scheduling (Datasets) to create a reactive, event-driven pipeline.
+
+### 1. Ingestion (Data Sources → Bronze Layer)
+*   **Operational CDC Extraction:** A custom Python simulator generates live logistics data (shipments, driver updates, hub statuses) into a local **PostgreSQL** database. Airflow extracts this data via Pandas, casts timestamps to microsecond-precision, and loads it into Google Cloud Storage (GCS) as raw **Parquet** files.
+*   **Weather API Ensemble:** Airflow simultaneously triggers three separate API fetches (**Tomorrow.io, OpenWeather, Open-Meteo**). The JSON responses are parsed and serialized directly into GCS Bronze Parquet files. 
+
+### 2. Processing (Bronze Layer → Silver Layer)
+*   **Event-Driven PySpark:** As soon as the Bronze Datasets are updated, Airflow triggers distributed **PySpark** jobs to process the raw Parquet files. 
+*   **Apache Iceberg:** The data is written into **Apache Iceberg** tables hosted on GCS. PySpark handles CDC deduplication and overwrites the dimension and fact tables, while appending the new weather payloads.
+*   **BigQuery Pointer Sync:** Because Iceberg continuously generates new metadata snapshots (`v1`, `v2`, `v3`), a custom `bq_sync.py` script reads the Iceberg `version-hint.text` file and dynamically updates **Google BigQuery External Tables** to point to the newest active snapshot.
+
+### 3. Transformation (Silver Layer → Gold Layer)
+*   Once the BigQuery external tables are synced, Airflow triggers **dbt (Data Build Tool)** to execute the final transformation models:
+    *   **Staging:** Cleans, standardizes, and applies business logic (converting USD to VND currency).
+    *   **Weather Consensus:** A custom dbt view aggregates the three distinct weather APIs, using an hourly voting mechanism to determine the most accurate weather code for a given city.
+    *   **Data Marts:** Builds the final `fact_shipment_weather` table and overwrites the `realtime_order_stats` table for high-performance dashboarding.
+
+### 4. Serving & Visualization (Gold Layer → Looker Studio)
+*   **Looker Studio** connects directly to the dbt-managed BigQuery data marts.
+*   The dashboard surfaces the correlation between severe weather events and supply chain delays, alongside dual-currency operational scorecards (Total Revenue, Active Orders, Items Sold).
 
 
 ## Tech Stack
@@ -142,7 +165,7 @@ graph TB
 | External APIs | Tomorrow.io, OpenWeather, Open-Meteo | Real-time weather data ensemble |
 | BI / Visualization | Looker Studio | Interactive Command Center UI |
 | Containerization | Docker & Docker Compose | Infrastructure deployment |
-| Runtime | Python 3.9+ & Java (default-jre) | Core execution environments |
+| Runtime | Python 3.9+ & Java (default-jre) | Core execution environments | 
 
 
 ## Project Structure
@@ -150,9 +173,9 @@ graph TB
 ```text
 logistics-lakehouse/
 ├── docker-compose.yaml             # Airflow & Postgres container infrastructure
-├── Dockerfile                      # Custom Airflow image (Java + PySpark + dbt)
+├── Dockerfile                      # Custom Airflow image (PySpark + dbt)
 ├── startup.sh                      # Environment initialization and build script
-├── requirements.txt                # Python dependencies (Pandas, BigQuery, PySpark)
+├── requirements.txt                # Python dependencies (Pandas, BigQuery, PySpark) 
 ├── .env.example                    # Template for environment variables and API keys
 │
 ├── dags/
@@ -207,6 +230,50 @@ logistics-lakehouse/
 | `drivers` | driver_id, name, vehicle_type, valid_from, is_current |
 | `shipments` | shipment_id, tracking_code, hub_id, driver_id, customer_city, status, revenue, item_quantity, product_category, order_type |
 
+```mermaid
+erDiagram
+    %% Source Layer - PostgreSQL Relational Database
+    hubs ||--o{ shipments : "processes"
+    drivers ||--o{ shipments : "delivers"
+
+    %% PostgreSQL Tables
+    shipments {
+        serial shipment_id PK
+        varchar tracking_code
+        int hub_id FK
+        int driver_id FK
+        varchar customer_city
+        varchar status
+        float revenue
+        int item_quantity
+        varchar product_category
+        varchar order_type
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    hubs {
+        int hub_id PK
+        varchar name
+        varchar city
+        decimal lat
+        decimal lon
+        timestamp valid_from PK
+        timestamp valid_to
+        boolean is_current
+    }
+
+    drivers {
+        int driver_id PK
+        varchar name
+        varchar vehicle_type
+        timestamp valid_from PK
+        timestamp valid_to
+        boolean is_current
+    }
+```
+
+
 ### Bronze — Raw Ingestion (GCS Parquet)
 
 | Path / Target | Source |
@@ -216,7 +283,9 @@ logistics-lakehouse/
 | `gs://{bucket}/bronze/cdc/drivers/` | PostgreSQL Extract (via Pandas) |
 | `gs://{bucket}/bronze/weather/{api_name}/` | Tomorrow.io, Open-Meteo, OpenWeather |
 
-### Silver — Cleaned & Integrated (Apache Iceberg)
+![bronze](docs/gcs/bronze.png)
+
+### Silver — Cleaned & Integrated (Apache Iceberg) 
 
 | Table | Grain | Strategy | Output |
 |---|---|---|---|
@@ -225,6 +294,58 @@ logistics-lakehouse/
 | `iceberg.silver.drivers` | Latest row per version | Overwrite | Mounted to BQ as `logistics_raw.drivers` |
 | `iceberg.silver.weather` | 1 row per city per API | Append | Mounted to BQ as `logistics_raw.weather` |
 
+```mermaid 
+erDiagram
+    %% Relationships
+    hubs ||--o{ shipments : "processes"
+    drivers ||--o{ shipments : "delivers"
+
+    %% Silver Iceberg Tables
+    shipments {
+        int shipment_id PK
+        varchar tracking_code
+        int hub_id FK
+        int driver_id FK
+        varchar customer_city
+        varchar status
+        float revenue
+        int item_quantity
+        varchar product_category
+        varchar order_type
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    hubs {
+        int hub_id PK
+        timestamp valid_from PK
+        varchar name
+        varchar city
+        decimal lat
+        decimal lon
+        timestamp valid_to
+        boolean is_current
+    }
+
+    drivers {
+        int driver_id PK
+        timestamp valid_from PK
+        varchar name
+        varchar vehicle_type
+        timestamp valid_to
+        boolean is_current
+    }
+
+    weather {
+        varchar hub_city PK
+        timestamp captured_at PK
+        float temperature_2m
+        float precipitation
+        int weather_code
+        date date_partition
+    }
+```
+
 ### Gold — BigQuery Data Marts (dbt)
 
 | Table / View | Type | Description |
@@ -232,6 +353,59 @@ logistics-lakehouse/
 | `logistics_mart.stg_weather_consensus` | dbt view | Hourly aggregation and voting consensus of all 3 weather API fetches |
 | `logistics_mart.fact_shipment_weather` | dbt table | Main analytics fact joining shipments, weather conditions, and 1-to-1 dimensional data |
 | `logistics_mart.realtime_order_stats` | dbt view | Near-real-time operational counts and dual-currency (USD/VND) revenue scorecards |
+
+```mermaid 
+erDiagram
+    %% Relationships
+    HUBS ||--o{ SHIPMENTS : "processes"
+    DRIVERS ||--o{ SHIPMENTS : "delivers"
+    HUBS ||--o{ WEATHER_CONSENSUS : "experiences (joined on city)"
+
+    %% Tables & Columns 
+    SHIPMENTS {
+        int shipment_id PK
+        varchar tracking_code
+        int hub_id FK
+        int driver_id FK
+        varchar customer_city
+        varchar status
+        float revenue
+        int item_quantity
+        varchar product_category
+        varchar order_type
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    HUBS {
+        int hub_id PK
+        timestamp valid_from PK
+        varchar name
+        varchar city
+        decimal lat
+        decimal lon
+        timestamp valid_to
+        boolean is_current
+    }
+
+    DRIVERS {
+        int driver_id PK
+        timestamp valid_from PK
+        varchar name
+        varchar vehicle_type
+        timestamp valid_to
+        boolean is_current
+    }
+
+    WEATHER_CONSENSUS {
+        varchar hub_city PK
+        timestamp weather_captured_at PK
+        float temperature_celsius
+        float precipitation_mm
+        int weather_code
+        int api_response_count
+    }
+```
 
 
 ## Setup Guide
@@ -349,6 +523,8 @@ SELECT * FROM `your-gcp-project-id.logistics_mart.realtime_order_stats` LIMIT 10
 ## Dashboard
 
 The Looker Studio Command Center connects to `logistics_mart.fact_shipment_weather` and `logistics_mart.realtime_order_stats` to visualize:
+![LookerReport1](docs/dashboard/LookerReport1.png)
+![LookerReport2](docs/dashboard/LookerReport2.png)
 
 - **Shipment Status by Weather Condition** — analyzing the direct correlation between severe weather (e.g., Rain, Thunderstorms) and the volume of "Delayed" or "Cancelled" orders.
 - **Order Type Performance** — tracking how "Express" and "Next-Day" deliveries hold up under adverse conditions compared to "Standard" shipping.
