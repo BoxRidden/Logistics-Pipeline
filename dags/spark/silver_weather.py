@@ -4,7 +4,6 @@ import os
 from pyspark.sql.functions import to_date, col, lit, to_timestamp
 from common import build_spark_session
 
-# Professional Logging Setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 console_handler = logging.StreamHandler()

@@ -4,7 +4,6 @@ import os
 from pyspark.sql.functions import col
 from common import build_spark_session
 
-# 1. Professional Logging Setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 console_handler = logging.StreamHandler()
@@ -25,7 +24,7 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
         logger.info("No records to process in this CDC batch.")
         return
 
-    # 2. Dynamic Primary Key mapping based on the table name
+    # Dynamic Primary Key mapping based on the table name
     if silver_table == "shipments":
         pk = "shipment_id"
         sort_col = "updated_at"
@@ -48,7 +47,7 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
     table_id = f"iceberg.silver.{silver_table}"
 
-    # 3. TRUE CDC UPSERT LOGIC
+    # CDC UPSERT LOGIC
     if not spark.catalog.tableExists(table_id):
         logger.info(f"Table {table_id} does not exist. Creating and inserting initial data...")
         df_cdc.writeTo(table_id).using("iceberg").create()
@@ -75,7 +74,7 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
         logger.info(f"SUCCESS: CDC Upsert completed for {table_id}")
 
 def main():
-    # 4. Safe Argument Parsing (Configured as positional args to match your Airflow DAG)
+    # Argument Parsing
     parser = argparse.ArgumentParser(description="Process Incremental CDC data into Silver Iceberg Tables.")
     parser.add_argument("bronze_path", help="GCS URI to Bronze Parquet CDC file")
     parser.add_argument("table", help="Target Iceberg table name")
