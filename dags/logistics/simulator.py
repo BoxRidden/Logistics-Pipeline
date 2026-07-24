@@ -1,26 +1,38 @@
 import random
+import logging
+from uuid import uuid4
 from logistics.profiles import CITIES, CATEGORIES, ORDER_TYPES
 
+# Set up the named logger
+logger = logging.getLogger(__name__)
+
 class ShipmentSimulator:
-    def generate_payload(self, num_records):
+    def __init__(self, hubs: list, drivers: list):
+        """
+        Initialize with active hubs and drivers from the database 
+        to prevent foreign key constraint violations.
+        """
+        self.hubs = hubs
+        self.drivers = drivers
+
+    def generate_payload(self, num_records: int) -> list:
+        logger.info(f"Generating {num_records} new simulated shipments...")
         shipments = []
         
-        status_options = ['Pending', 'In Transit', 'Delivered', 'Delayed', 'Cancelled']
-        status_weights = [10, 30, 45, 10, 5]
-        
-        for i in range(num_records):
-            # Guarantee at least one of each status exists in the payload by overriding the randomizer for the first 5 iterations
-            if i < len(status_options):
-                assigned_status = status_options[i]
-            else:
-                assigned_status = random.choices(status_options, weights=status_weights, k=1)[0]
-
+        for _ in range(num_records):
             shipment = {
-                "tracking_code": f"TRK-{random.randint(10000, 99999)}",
-                "hub_id": random.randint(1, 3),
-                "driver_id": random.randint(1, 3),
+                # UPGRADE: Professional UUIDs for public-facing tracking numbers
+                "tracking_code": f"TRK-{str(uuid4())[:8].upper()}",
+                
+                # UPGRADE: Dynamic foreign keys instead of hardcoded ranges
+                "hub_id": random.choice(self.hubs) if self.hubs else 1,
+                "driver_id": random.choice(self.drivers) if self.drivers else 1,
+                
                 "customer_city": random.choice(CITIES),
-                "status": assigned_status,
+                
+                # UPGRADE: True CDC behavior. All new operational data starts as Pending.
+                "status": 'Pending',
+                
                 "revenue": round(random.uniform(15.0, 150.0), 2),
                 "item_quantity": random.randint(1, 5),
                 "product_category": random.choice(CATEGORIES),
@@ -28,4 +40,5 @@ class ShipmentSimulator:
             }
             shipments.append(shipment)
             
+        logger.info(f"Successfully generated payload of {len(shipments)} records.")
         return shipments

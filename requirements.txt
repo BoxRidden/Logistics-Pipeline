@@ -4,3 +4,4 @@ dbt-bigquery
 pandas
 google-cloud-bigquery
 db-dtypes
+confluent-kafka==2.1.1
