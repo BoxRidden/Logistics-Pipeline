@@ -10,7 +10,7 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
     # Catalog caching remains disabled to prevent UUID mismatch ghost errors
     spark.conf.set("spark.sql.catalog.iceberg.cache-enabled", "false")
 
-    print(f"Reading real CDC Bronze data from GCS: {bronze_path}")
+    print(f"Reading CDC Bronze data from GCS: {bronze_path}")
     df_cdc = spark.read.parquet(bronze_path)
     
     # Deduplicate CDC events
@@ -19,7 +19,6 @@ def process_cdc_to_iceberg(bronze_path, silver_table):
 
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
 
-    # (REMOVED the DROP TABLE command) Iceberg will now naturally evolve versions.
 
     # Write data using overwrite mode to create incremental snapshots
     print("Writing CDC data to Iceberg table...")

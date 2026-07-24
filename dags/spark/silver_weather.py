@@ -3,6 +3,7 @@ import os
 from pyspark.sql.functions import to_date, col
 from common import build_spark_session
 
+
 def process_weather_to_iceberg(bronze_path, silver_table):
     
     # Grab the bucket name from the environment

@@ -148,7 +148,7 @@ The Logistics Lakehouse operates on a Medallion Architecture (Bronze, Silver, Go
 
 ### 4. Serving & Visualization (Gold Layer → Looker Studio)
 *   **Looker Studio** connects directly to the dbt-managed BigQuery data marts.
-*   The dashboard surfaces the correlation between severe weather events and supply chain delays, alongside dual-currency operational scorecards (Total Revenue, Active Orders, Items Sold).
+*   The dashboard surfaces the correlation between severe weather events and supply chain delays, alongside dual-currency operational scorecards (Total Revenue, Active Orders, Items Sold). 
 
 
 ## Tech Stack

@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_shipments
+    description: "Staging model: Cleans and standardizes raw shipment CDC data extracted from the PostgreSQL operational database."
+    columns:
+      - name: shipment_id
+        description: "Primary key for the shipment."
+        tests:
+          - unique
+          - not_null
+      - name: status
+        description: "Current lifecycle state of the shipment. Simulates soft-deletes via the Cancelled status."
+        tests:
+          - accepted_values:
+              values: ['Pending', 'In Transit', 'Delivered', 'Cancelled']
+              quote: false
+      - name: hub_id
+        description: "Foreign key to the hubs dimension table."
+        tests:
+          - not_null
+
+  - name: int_weather_consensus
+    description: "Intermediate model: Aggregates Tomorrow.io, OpenWeather, and Open-Meteo APIs using an hourly voting mechanism to determine the true weather condition per city."
+    columns:
+      - name: hub_city
+        description: "The city where the weather consensus was calculated."
+        tests:
+          - not_null
+      - name: weather_code
+        description: "The finalized weather classification code after API voting."
+        tests:
+          - not_null
+
+  - name: fact_shipment_weather
+    description: "Gold layer Data Mart: Joins operational shipment data with the intermediate weather consensus to analyze weather impact on delivery times."
+    columns:
+      - name: shipment_id
+        description: "Primary key inherited from shipments."
+        tests:
+          - unique
+          - not_null

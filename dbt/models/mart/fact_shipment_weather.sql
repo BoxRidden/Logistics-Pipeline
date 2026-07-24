@@ -12,7 +12,7 @@ drivers AS (
 
 -- Get only the single most recent weather record per city to avoid duplication
 latest_weather AS (
-    SELECT * FROM {{ ref('stg_weather_consensus') }}
+    SELECT * FROM {{ ref('int_weather_consensus') }}
     QUALIFY ROW_NUMBER() OVER(PARTITION BY UPPER(hub_city) ORDER BY weather_captured_at DESC) = 1
 )
 
