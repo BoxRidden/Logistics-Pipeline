@@ -1,35 +1,72 @@
 import os
 import psycopg2
 import pandas as pd
+import logging
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-# Import the bridge dataset to prevent the dbt race condition
+# Import the datasets for Data-Aware Scheduling
 from pipeline_datasets import bronze_cdc_dataset, bronze_gcs_cdc_dataset
 
-def extract_postgres_to_bronze_gcs():
+logger = logging.getLogger(__name__)
+
+def extract_postgres_to_bronze_gcs(**context):
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
     
-    # Connect to the local Postgres container
+    # 1. BATCH INCREMENTAL LOGIC (Watermarking)
+    # Grab the exact start time of the previous Airflow DAG run.
+    last_run = context.get('data_interval_start')
+    if not last_run:
+        watermark = '1970-01-01 00:00:00' # Default for the very first run
+    else:
+        watermark = last_run.strftime('%Y-%m-%d %H:%M:%S')
+
+    logger.info(f"Starting Incremental CDC Extraction. Watermark: > {watermark}")
+
     pg_conn = psycopg2.connect(
         host="postgres-airflow", database="airflow", user="airflow", password="airflow"
     ) 
 
-    # Loop through the operational tables 
     for table_name in ["shipments", "hubs", "drivers"]:
-        query = f"SELECT * FROM {table_name}"
+        
+        # 2. INCREMENTAL SQL QUERY
+        if table_name == "shipments":
+            query = f"SELECT * FROM {table_name} WHERE updated_at >= '{watermark}'"
+        else:
+            # Hubs and Drivers use valid_from for SCD Type 2
+            query = f"SELECT * FROM {table_name} WHERE valid_from >= '{watermark}'"
+            
         df = pd.read_sql_query(query, pg_conn) 
         
-        # Ensure timestamp compatibility for Parquet 
+        if df.empty:
+            logger.info(f"No new CDC events for {table_name} since last run. Skipping.")
+            continue
+
+        # Ensure timestamp compatibility for Parquet and Apache Iceberg
         for col in ["created_at", "updated_at", "valid_from", "valid_to"]:
             if col in df.columns:
-                # Cast the Pandas datetime to prevent Spark crash
                 df[col] = pd.to_datetime(df[col], errors='coerce').astype('datetime64[us]')
+
+        # 3. OPERATION TYPE INFERENCE
+        if table_name == "shipments":
+            # If created_at and updated_at match, it is a brand new INSERT
+            # If updated_at is newer, it is an UPDATE (or soft delete)
+            df['op_type'] = df.apply(
+                lambda row: 'I' if row['created_at'] == row['updated_at'] else 'U', 
+                axis=1
+            )
+            
+            # 4. SOFT DELETE CLASSIFICATION
+            # If it's an UPDATE and the status is Cancelled, classify it as a Soft Delete
+            df.loc[(df['op_type'] == 'U') & (df['status'] == 'Cancelled'), 'op_type'] = 'D'
+
+        logger.info(f"Extracted {len(df)} incremental records for {table_name}.")
 
         # Push directly to GCS Bronze path as a Parquet file 
         destination = f"gs://{gcs_bucket}/bronze/cdc/{table_name}/{table_name}.parquet"
         df.to_parquet(destination, index=False)
+        logger.info(f"Uploaded CDC payload to {destination}")
 
     pg_conn.close()
 
@@ -40,7 +77,7 @@ with DAG(
     default_args=default_args, 
     schedule=[bronze_cdc_dataset],  # Runs right after the simulator finishes
     catchup=False,
-    tags=['ingestion', 'gcs', 'bronze']
+    tags=['ingestion', 'gcs', 'bronze', 'incremental']
 ) as dag:
     
     PythonOperator(
