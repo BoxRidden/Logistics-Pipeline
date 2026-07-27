@@ -1,0 +1,54 @@
+name: Data Pipeline CI Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-airflow-dags:
+    name: Test Airflow DAG Integrity
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install apache-airflow==2.9.0
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Run Airflow DAG Parse Test
+        run: |
+          # Forces Airflow to parse all DAGs. Fails the build if Python syntax is broken or an import is missing.
+          python -c "from airflow.models import DagBag; dags = DagBag(dag_folder='dags/', include_examples=False); assert len(dags.import_errors) == 0, f'DAG Import Errors Found: {dags.import_errors}'"
+
+  validate-dbt-models:
+    name: Test dbt Syntax & Models
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dbt
+        run: pip install dbt-bigquery
+
+      - name: Parse dbt Project
+        run: |
+          cd dbt
+          # Validates your schema.yml and SQL compilation without needing active BigQuery credentials
+          dbt parse --profiles-dir .
