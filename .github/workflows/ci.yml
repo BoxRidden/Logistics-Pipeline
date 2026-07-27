@@ -29,6 +29,7 @@ jobs:
       - name: Run Airflow DAG Parse Test
         run: |
           # Forces Airflow to parse all DAGs. Fails the build if Python syntax is broken or an import is missing.
+          export PYTHONPATH="./dags:$PYTHONPATH
           python -c "from airflow.models import DagBag; dags = DagBag(dag_folder='dags/', include_examples=False); assert len(dags.import_errors) == 0, f'DAG Import Errors Found: {dags.import_errors}'"
 
   validate-dbt-models:
@@ -50,5 +51,5 @@ jobs:
       - name: Parse dbt Project
         run: |
           cd dbt
-          # Validates your schema.yml and SQL compilation without needing active BigQuery credentials
+          # Validates schema.yml and SQL compilation without needing active BigQuery credentials
           dbt parse --profiles-dir .
