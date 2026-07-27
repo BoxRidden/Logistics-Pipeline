@@ -2,6 +2,7 @@ version: '3.8'
 
 x-airflow-common:
   &airflow-common
+  # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:2.7.3}
   build: .
   environment:
     &airflow-common-env
@@ -13,7 +14,6 @@ x-airflow-common:
     
     # 1. Install additional Python packages for Airflow and dbt
     _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-cloud-storage google-auth db-dtypes pyspark==3.5.1 dbt-bigquery"
-    
     # 2. Passed API Keys from your local .env into the Airflow containers
     TOMORROWIO_API_KEY: ${TOMORROWIO_API_KEY}
     OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
@@ -99,9 +99,9 @@ services:
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
 
-  # 7. Kafka & Zookeeper 
+  # 7. Kafka & Zookeeper for CDC Simulation
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.3.0
+    image: confluentinc/cp-zookeeper:7.4.0
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
@@ -110,7 +110,7 @@ services:
     restart: always
 
   kafka:
-    image: confluentinc/cp-kafka:7.3.0
+    image: confluentinc/cp-kafka:7.4.0
     depends_on:
       - zookeeper
     ports:

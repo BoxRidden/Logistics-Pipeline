@@ -3,47 +3,31 @@ import logging
 from confluent_kafka import Producer
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-console_handler = logging.StreamHandler()
-console_handler.setFormatter(logging.Formatter('%(asctime)s | %(levelname)s | %(message)s'))
-logger.addHandler(console_handler)
 
 class LogisticsKafkaProducer:
-    def __init__(self, broker_url='localhost:9092'):
-        self.conf = {
-            'bootstrap.servers': broker_url,
-            'client.id': 'logistics_simulator_producer'
-        }
-        self.producer = Producer(self.conf)
-
-    def delivery_report(self, err, msg):
-        """Callback triggered by Kafka once a message is delivered (or fails)."""
-        if err is not None:
-            logger.error(f"Message delivery failed: {err}")
-        else:
-            logger.debug(f"Message delivered to {msg.topic()} [{msg.partition()}]")
+    def __init__(self, broker_url: str):
+        self.broker_url = broker_url
+        logger.info(f"Connecting to Confluent Kafka broker at {self.broker_url}...")
+        
+        # Initialize enterprise C-based Producer
+        self.producer = Producer({
+            'bootstrap.servers': self.broker_url,
+            'client.id': 'logistics-producer'
+        })
+        logger.info("Confluent Kafka Producer initialized successfully.")
 
     def publish_shipment_event(self, topic: str, shipment_data: dict):
-        """Converts the shipment dictionary to JSON and streams it to Kafka."""
         try:
-            # We use the tracking_code as the Kafka Message Key to ensure 
-            # updates for the same shipment stay in the correct order.
-            key = shipment_data.get('tracking_code', 'UNKNOWN')
-            value = json.dumps(shipment_data)
-
-            self.producer.produce(
-                topic=topic,
-                key=key.encode('utf-8'),
-                value=value.encode('utf-8'),
-                callback=self.delivery_report
-            )
-            # Poll handles delivery callbacks
-            self.producer.poll(0) 
-            
+            # Confluent requires manual encoding
+            encoded_data = json.dumps(shipment_data).encode('utf-8')
+            self.producer.produce(topic, value=encoded_data)
+            self.producer.poll(0) # Serve delivery callbacks
+            logger.debug(f"Queued message for topic '{topic}'")
         except Exception as e:
             logger.error(f"Failed to publish to Kafka: {e}")
-
+            raise e
+            
     def flush(self):
-        """Wait for any outstanding messages to be delivered and delivery reports received."""
-        logger.info("Flushing Kafka producer queue...")
+        """Forces all buffered records to be sent to the broker."""
         self.producer.flush()
+        logger.info("Flushed all messages to Kafka.")

@@ -24,7 +24,7 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
         logger.info("No records to process in this CDC batch.")
         return
 
-    # Dynamic Primary Key mapping based on the table name
+    # Dynamic Primary Key mapping based on the table name 
     if silver_table == "shipments":
         pk = "shipment_id"
         sort_col = "updated_at"
@@ -42,6 +42,12 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
     if pk in df_cdc.columns and sort_col in df_cdc.columns:
         logger.info(f"Deduplicating events by {pk} ordering by {sort_col} DESC...")
         df_cdc = df_cdc.orderBy(col(sort_col).desc()).dropDuplicates([pk])
+    
+    # Drop CDC metadata so it isn't dynamically added to the Iceberg schema
+    columns_to_drop = ["op_type"] 
+    for col_name in columns_to_drop:
+        if col_name in df_cdc.columns:
+            df_cdc = df_cdc.drop(col_name)
 
     logger.info("Ensuring Iceberg namespace 'iceberg.silver' exists...")
     spark.sql("CREATE NAMESPACE IF NOT EXISTS iceberg.silver")
@@ -62,7 +68,7 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
         insert_cols = ", ".join(columns)
         insert_vals = ", ".join([f"s.{c}" for c in columns])
         
-        # Execute the Apache Iceberg ACID transaction
+        # Execute the Apache Iceberg ACID transaction 
         merge_sql = f"""
             MERGE INTO {table_id} t
             USING incremental_updates s

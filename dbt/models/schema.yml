@@ -9,12 +9,11 @@ models:
         tests:
           - unique
           - not_null
-      - name: status
+      - name: shipment_status
         description: "Current lifecycle state of the shipment. Simulates soft-deletes via the Cancelled status."
         tests:
           - accepted_values:
-              values: ['Pending', 'In Transit', 'Delivered', 'Cancelled']
-              quote: false
+              values: ['Pending', 'In Transit', 'Delivered', 'Cancelled', 'Delayed', 'Unknown']
       - name: hub_id
         description: "Foreign key to the hubs dimension table."
         tests:

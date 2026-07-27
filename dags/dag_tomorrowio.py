@@ -1,43 +1,56 @@
 import os
-from datetime import datetime, timedelta
+import json
+import logging
+from datetime import datetime, timezone, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
 from weather.fetcher import TomorrowIOFetcher
 from weather.loader import ParquetLoader
-from pipeline_datasets import bronze_weather_tomorrow
-from logistics.profiles import CITIES  # Import the hubs
+from pipeline_datasets import bronze_weather_tomorrowio
+from logistics.profiles import HUBS
 
-def fetch_and_store_bronze(**kwargs):
+# Professional Logging Setup
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(name)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
+
+def fetch_tomorrowio_pipeline():
     api_key = os.environ.get("TOMORROWIO_API_KEY")
-    if not api_key:
-        raise ValueError("TOMORROWIO_API_KEY is missing from environment variables.")
+    if not api_key or api_key == "your_key_here":
+        logger.error("Valid TOMORROWIO_API_KEY is missing from environment variables.")
+        raise ValueError("Valid TOMORROWIO_API_KEY is missing from environment variables.")
         
     gcs_bucket = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
-    destination = f"gs://{gcs_bucket}/bronze/weather/tomorrowio/" 
-
+    destination = f"gs://{gcs_bucket}/bronze/weather/tomorrowio/"
+    
     fetcher = TomorrowIOFetcher(api_key=api_key)
     all_weather_data = []
 
-    # Iterate through every hub city in the network
-    for city in CITIES:
+    for hub_id, name, city, lat, lon in HUBS:
+        logger.info(f"Fetching Tomorrow.io weather data for {city}...")
+        location_query = f"{lat},{lon}"
         try:
-            print(f"Fetching data for {city}...")
-            city_data = fetcher.get_hourly_forecast(city)
-            all_weather_data.extend(city_data)
+            payload = fetcher.get_hourly_forecast(location_query)
+            for item in payload:
+                item["hub_city"] = city
+            all_weather_data.extend(payload)
         except Exception as e:
-            print(f"Failed to fetch weather for {city}: {e}")
-            # Continue the loop even if one city's API call drops
-            
-    # Save the combined payload to a single Bronze Parquet file
+            logger.error(f"Failed to fetch Tomorrow.io data for {city}: {e}")
+            raise e
+
     loader = ParquetLoader(destination_path=destination)
-    loader.save_as_parquet(all_weather_data, "weather_forecast")
+    loader.save_as_parquet(all_weather_data, "tomorrowio_forecast")
 
 default_args = {
     'owner': 'data_engineer', 
     'start_date': datetime(2026, 6, 1), 
     'retries': 2,
-    'retry_delay': timedelta(minutes=2)
+    'retry_delay': timedelta(minutes=2),
+    'retry_exponential_backoff': True
 }
 
 with DAG(
@@ -48,8 +61,8 @@ with DAG(
     tags=['weather', 'live-api', 'bronze']
 ) as dag:
     
-    ingest_bronze_task = PythonOperator(
-        task_id='fetch_weather_api',
-        python_callable=fetch_and_store_bronze,
-        outlets=[bronze_weather_tomorrow] 
+    PythonOperator(
+        task_id='fetch_tomorrowio_api',
+        python_callable=fetch_tomorrowio_pipeline,
+        outlets=[bronze_weather_tomorrowio] 
     )

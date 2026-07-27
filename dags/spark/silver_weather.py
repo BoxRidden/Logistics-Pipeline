@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import to_date, col, lit, to_timestamp
 from common import build_spark_session
 

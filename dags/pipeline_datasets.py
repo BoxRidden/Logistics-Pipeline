@@ -1,16 +1,17 @@
 from airflow.datasets import Dataset
-import os
 
-GCS_BUCKET = os.environ.get("GCS_BRONZE_BUCKET", "logistics-lakehouse")
+# We use a custom 'logistics://' scheme to bypass strict Airflow provider parsers
+# while maintaining perfect Data-Aware Scheduling triggers.
 
-# BRONZE LAYER (Raw ingestion signals)
-bronze_cdc_dataset = Dataset(f"gs://{GCS_BUCKET}/bronze/cdc/shipments")
-bronze_gcs_cdc_dataset = Dataset(f"gs://{GCS_BUCKET}/bronze/cdc/gcs_parquet") 
-bronze_weather_tomorrow = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/tomorrowio")
-bronze_weather_openmeteo = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/openmeteo")
-bronze_weather_openweather = Dataset(f"gs://{GCS_BUCKET}/bronze/weather/openweather")
+# Operational CDC Datasets
+bronze_cdc_dataset = Dataset("logistics://postgres/cdc_extract")
+bronze_gcs_cdc_dataset = Dataset("logistics://gcs/bronze_cdc")
+silver_cdc_dataset = Dataset("logistics://iceberg/silver_cdc")
 
-# SILVER LAYER (Iceberg processing signals)
-silver_cdc_dataset = Dataset(f"gs://{GCS_BUCKET}/silver/cdc")
-silver_weather_dataset = Dataset(f"gs://{GCS_BUCKET}/silver/weather")
+# Weather API Bronze Datasets
+bronze_weather_openmeteo = Dataset("logistics://gcs/bronze_weather_openmeteo")
+bronze_weather_openweather = Dataset("logistics://gcs/bronze_weather_openweather")
+bronze_weather_tomorrowio = Dataset("logistics://gcs/bronze_weather_tomorrowio")
 
+# Silver Weather Dataset
+silver_weather_dataset = Dataset("logistics://iceberg/silver_weather")
