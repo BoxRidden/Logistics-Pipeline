@@ -22886,3 +22886,86 @@ LEFT JOIN latest_weather w
 19:06:13.466507 [debug]: Started rendering test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
 19:06:13.466615 [info ]: Started test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
 19:06:13.466623 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+19:06:13.487542 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_fact_shipment_weather_shipment_id.sql
+19:06:13.487543 [debug]: Compiled SQL for node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f at target/compiled/logistics_lakehouse/target/generic_tests/unique_fact_shipment_weather_shipment_id.sql
+19:06:13.488228 [debug]: Finished rendering [  0.02s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [success]
+19:06:13.488375 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+19:06:13.488474 [debug]: Finished rendering [  0.02s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [success]
+19:06:13.488515 [info ]: Finished rendering [ 18.33s] (15 nodes, 0 skipped, 0 errors)
+19:06:13.488639 [info ]: Started running test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+19:06:13.492356 [debug]: Writing runtime sql for node "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f"
+19:06:13.492632 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322"
+19:06:16.273120 [debug]: Query executed on node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select shipment_id
+from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+where shipment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+19:06:16.278552 [info ]: Finished running [  2.79s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [pass]
+19:06:16.278783 [info ]:     Passed [  2.81s] test  not_null_fact_shipment_weather_shipment_id
+19:06:16.580238 [debug]: Query executed on node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select shipment_id as unique_field
+  from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+  where shipment_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+19:06:16.582654 [info ]: Finished running [  3.09s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [pass]
+19:06:16.582937 [info ]: Finished running [ 21.41s] (15 nodes, 0 skipped, 0 errors)
+19:06:16.583002 [info ]:     Passed [  3.11s] test  unique_fact_shipment_weather_shipment_id
+19:06:17.393451 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [26.8s]
+Processed: 7 models | 8 tests
+Summary: 15 total | 15 success

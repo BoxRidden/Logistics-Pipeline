@@ -71,26 +71,19 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 │  ├── int_weather_consensus (Intermediate: 3-API hourly voting)          │
 │  ├── fact_shipment_weather (Mart: Shipment grain, enriched)             │
 │  └── realtime_order_stats  (Mart: Dual-currency KPIs & counts)          │
-└──────────────┬──────────────────────────────────────┬───────────────────┘
-               │                                      │
-               ▼                                      │
-┌─────────────────────────────────────────┐           │
-│           MLOps & AI LAYER              │           │
-│  MLflow (Model Registry & Tracking)     │           │
-│  ├── Isolation Forest (Anomalies)       │           │
-│  └── Random Forest (Delay Prediction)   │           │
-│                                         │           │
-│  Outputs to: ml_predictions (BigQuery)  │           │
-└──────────────┬──────────────────────────┘           │
-               │                                      │
-               ▼                                      ▼
-┌─────────────────────────────────────────────────────────────────────────┐
-│                     SERVING & VISUALIZATION                             │
-│                     Looker Studio Command Center                        │
-│                                                                         │
-│  - Dual-Currency Scorecards (VND/USD)   - Anomaly Alerting Tables       │
-│  - Weather vs. Delay Correlations       - Predicted Delay Warnings      │
 └─────────────────────────────────────────────────────────────────────────┘
+               │                                      
+               ▼                                      
+┌─────────────────────────────────────────┐           
+│           MLOps & AI LAYER              │           
+│  MLflow (Model Registry & Tracking)     │           
+│  ├── Isolation Forest (Anomalies)       │           
+│  └── Random Forest (Delay Prediction)   │           
+│                                         │           
+│  Outputs to: ml_predictions (BigQuery)  │           
+└─────────────────────────────────────────┘           
+                                                   ▼
+
 ```
 
 ```mermaid
@@ -101,42 +94,44 @@ graph TD
 
     %% CDC Pipeline Nodes
     sim(dag_shipment_sim):::dag
-    ds_cdc_ship[("gs://logistics-lakehouse/bronze/cdc/shipments")]:::dataset
+    ds_cdc_ext[("logistics://postgres/cdc_extract")]:::dataset
     p2b(postgres_to_bronze_cdc):::dag
-    ds_cdc_pq[("gs://logistics-lakehouse/bronze/cdc/gcs_parquet")]:::dataset
+    ds_cdc_pq[("logistics://gcs/bronze_cdc")]:::dataset
     scdc(silver_cdc_dag):::dag
-    ds_silv_cdc[("gs://logistics-lakehouse/silver/cdc")]:::dataset
+    ds_silv_cdc[("logistics://iceberg/silver_cdc")]:::dataset
 
     %% Weather Pipeline Nodes
-    om(weather_openmeteo_pipeline):::dag
-    ds_om[("gs://logistics-lakehouse/bronze/weather/openmeteo")]:::dataset
-    
     tom(weather_tomorrowio_pipeline):::dag
-    ds_tom[("gs://logistics-lakehouse/bronze/weather/tomorrowio")]:::dataset
+    ds_tom[("logistics://gcs/bronze_weather_tomorrowio")]:::dataset
+    
+    om(weather_openmeteo_pipeline):::dag
+    ds_om[("logistics://gcs/bronze_weather_openmeteo")]:::dataset
     
     ow(weather_openweather_pipeline):::dag
-    ds_ow[("gs://logistics-lakehouse/bronze/weather/openweather")]:::dataset
+    ds_ow[("logistics://gcs/bronze_weather_openweather")]:::dataset
     
     sw(silver_weather_dag):::dag
-    ds_silv_w[("gs://logistics-lakehouse/silver/weather")]:::dataset
+    ds_silv_w[("logistics://iceberg/silver_weather")]:::dataset
 
-    %% Gold Target Node
+    %% Gold & MLOps Target Nodes
     dbt(gold_dbt_dag):::dag
+    ds_gold[("logistics://bigquery/gold_mart")]:::dataset
+    mlops(mlops_model_training):::dag
 
     %% CDC Pipeline Flow
-    sim --> ds_cdc_ship
-    ds_cdc_ship --> p2b
+    sim --> ds_cdc_ext
+    ds_cdc_ext --> p2b
     p2b --> ds_cdc_pq
     ds_cdc_pq --> scdc
     scdc --> ds_silv_cdc
 
     %% Weather Pipeline Flow
-    om --> ds_om
     tom --> ds_tom
+    om --> ds_om
     ow --> ds_ow
     
-    ds_om --> sw
     ds_tom --> sw
+    ds_om --> sw
     ds_ow --> sw
     
     sw --> ds_silv_w
@@ -144,6 +139,10 @@ graph TD
     %% Gold Trigger Convergence
     ds_silv_cdc --> dbt
     ds_silv_w --> dbt
+
+    %% MLOps Trigger Convergence
+    dbt --> ds_gold
+    ds_gold --> mlops
 ```
 ![AirflowDatasets](docs/dags/AirflowDatasets.png)
 
@@ -521,7 +520,7 @@ In the Airflow UI, unpause the DAGs in this order to ensure downstream datasets 
 6. `postgres_to_bronze_cdc`
 7. `silver_cdc_dag`
 8. `gold_dbt_dag`
-
+9. `mlops_model_training`
 
 ### Manual trigger
 
@@ -560,16 +559,20 @@ SELECT * FROM `your-gcp-project-id.logistics_mart.realtime_order_stats` LIMIT 10
 | **`silver_weather_dag`** | `Dataset` (OR condition) | `silver_weather_dataset` | Data-aware PySpark job. Triggered when ANY of the three weather APIs successfully finish downloading. Processes wildcard Bronze Parquet files into Silver Iceberg tables. |
 | **`silver_cdc_dag`** | `Dataset` (`bronze_gcs_cdc_dataset`) | `silver_cdc_dataset` | Data-aware PySpark job. Sequentially processes raw CDC data into Silver Iceberg tables and updates BigQuery pointer metadata. |
 | **`gold_dbt_dag`** | `Dataset` (OR condition) | — | Triggered automatically when *either* the silver weather or silver CDC datasets are updated. Executes `dbt build` to transform the data and update BigQuery data marts. |
+| **`mlops_model_training`** | `Dataset` (`gold_dbt_dataset`) | — | Triggered when dbt finishes. Trains Isolation Forest (anomalies) and Random Forest (delays) models on live BigQuery data via MLflow, then writes batch predictions back to BigQuery. |
 
 
 ## Dashboard
 
-The Looker Studio Command Center connects to `logistics_mart.fact_shipment_weather` and `logistics_mart.realtime_order_stats` to visualize:
+The Looker Studio Command Center connects directly to the dbt-managed data marts (`logistics_mart.fact_shipment_weather`, `logistics_mart.realtime_order_stats`) and the MLOps inference table (`logistics_mart.ml_predictions`) to visualize:
+
 ![LookerReport1](docs/dashboard/LookerReport1.png)
 ![LookerReport2](docs/dashboard/LookerReport3.png)
 
-- **Shipment Status by Weather Condition** — analyzing the direct correlation between severe weather (e.g., Rain, Thunderstorms) and the volume of "Delayed" or "Cancelled" orders.
+- **AI Anomaly Alerts** — filtering and flagging highly anomalous, mathematically impossible orders (e.g., massive $15,000 revenue spikes or 500-item quantities) identified by the Isolation Forest model.
+- **Predicted Delay Early-Warnings** — highlighting active orders at high risk of transit delays based on weather severity and operational volume, powered by the Random Forest model.
+- **Shipment Status by Weather Condition** — analyzing the direct correlation between severe weather (e.g., Rain, Thunderstorms, Dusty) and the volume of "Delayed" or "Cancelled" orders.
+- **Real-Time Logistics Scorecards** — top-level KPIs for Dual-Currency Revenue (VND/USD), Order Count, and Active Shipments (powered by BigQuery Materialized Views for low-latency BI).
 - **Order Type Performance** — tracking how "Express" and "Next-Day" deliveries hold up under adverse conditions compared to "Standard" shipping.
-- **Hourly Shipment Volume** across regional hubs (Hanoi, Da Nang, Ho Chi Minh City).
+- **Hourly Shipment Volume & Hub Distribution** — tracking volume across regional fulfillment centers (Hanoi, Da Nang, Ho Chi Minh City).
 - **Revenue by Product Category** — identifying which shipment types (Electronics, Groceries, Clothing) drive volume during specific weather events.
-- **Real-Time Logistics Scorecards** — top-level KPIs for Revenue, Order Count, and Active Shipments (powered by BigQuery Materialized Views for low-latency BI).
