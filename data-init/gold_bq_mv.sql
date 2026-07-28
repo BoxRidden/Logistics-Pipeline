@@ -15,4 +15,4 @@ SELECT
 FROM 
     `logistics-500519.logistics_raw.shipments`
 GROUP BY 
-    1, 2, 3, 4;
+    1, 2, 3, 4; 

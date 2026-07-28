@@ -1,4 +1,4 @@
-version: '3.8'
+# version: '3.8'
 
 x-airflow-common:
   &airflow-common
@@ -123,3 +123,15 @@ services:
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     restart: always
+  
+  #8. MLFlow
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.12.1
+    container_name: logisticspipeline-mlflow
+    ports:
+      - "5001:5000"
+    command: >
+      mlflow server 
+      --host 0.0.0.0 
+      --serve-artifacts
+

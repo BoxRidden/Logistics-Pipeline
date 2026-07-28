@@ -30,7 +30,7 @@ SELECT
     product_category,
     order_type,
     
-    -- Preserve your existing transformations and aliases
+    -- Preserve existing transformations and aliases
     UPPER(customer_city) AS destination_city,
     COALESCE(status, 'Unknown') AS shipment_status,
     created_at AS order_placed_at,

@@ -29,7 +29,7 @@ class WeatherMetadataRepo:
                     success BOOLEAN, 
                     gcs_path VARCHAR(255)
                 );
-            """)
+            """) 
             self.conn.commit()
         except Exception as e:
             self.conn.rollback()
@@ -37,7 +37,7 @@ class WeatherMetadataRepo:
             raise e
 
     def log_fetch(self, city, gcs_path):
-        # UPGRADE: Enforce UTC time to prevent server locale inconsistencies
+        # Enforce UTC time to prevent server locale inconsistencies
         current_hour = datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
         
         try:

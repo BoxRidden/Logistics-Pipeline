@@ -28,7 +28,7 @@ class ParquetLoader:
         # Convert raw dictionary list to DataFrame
         df = pd.DataFrame(data) 
         
-        # UPGRADE: Hive Partitioning for performance (year=YYYY/month=MM/day=DD)
+        # Hive Partitioning for performance
         now = datetime.now(timezone.utc)
         hive_partition = f"year={now.year}/month={now.month:02d}/day={now.day:02d}/"
         

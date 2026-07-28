@@ -10,7 +10,6 @@ from weather.loader import ParquetLoader
 from pipeline_datasets import bronze_weather_tomorrowio
 from logistics.profiles import HUBS
 
-# Professional Logging Setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 console_handler = logging.StreamHandler()

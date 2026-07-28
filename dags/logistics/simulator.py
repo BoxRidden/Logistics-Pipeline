@@ -21,16 +21,16 @@ class ShipmentSimulator:
         
         for _ in range(num_records):
             shipment = {
-                # UPGRADE: Professional UUIDs for public-facing tracking numbers
+                # UUIDs for public-facing tracking numbers
                 "tracking_code": f"TRK-{str(uuid4())[:8].upper()}",
                 
-                # UPGRADE: Dynamic foreign keys instead of hardcoded ranges
+                # Foreign keys
                 "hub_id": random.choice(self.hubs) if self.hubs else 1,
                 "driver_id": random.choice(self.drivers) if self.drivers else 1,
                 
                 "customer_city": random.choice(CITIES),
                 
-                # UPGRADE: True CDC behavior. All new operational data starts as Pending.
+                # All new operational data starts as Pending.
                 "status": 'Pending',
                 
                 "revenue": round(random.uniform(15.0, 150.0), 2),

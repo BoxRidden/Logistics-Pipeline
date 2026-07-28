@@ -25,12 +25,12 @@ with DAG(
 
     tables = ["hubs", "drivers", "shipments"]
     
-    # Variable to help us chain the tasks sequentially 
+    # Variables (for chaining tasks)
     previous_sync = None
 
     for table in tables:
         
-        # UPGRADE: Explicitly pass GCP credentials to the Spark execution environment
+        # Explicitly pass GCP credentials to the Spark execution environment
         spark_task = BashOperator(
             task_id=f'spark_cdc_{table}_to_iceberg',
             bash_command=(

@@ -43,7 +43,7 @@ class PostgresRepository:
 
     def insert_shipments(self, shipments_list):
         for s in shipments_list:
-            # Hardcoded 'Pending' status, swapped f-strings for %s
+            # Hardcoded 'Pending' status
             self.cursor.execute("""
             INSERT INTO shipments (
                 tracking_code, hub_id, driver_id, customer_city, status, 
@@ -81,7 +81,7 @@ class PostgresRepository:
 
         # Pending -> Cancelled (Random 5% of all Pending orders)
         self.cursor.execute("""
-            UPDATE shipments
+            UPDATE shipments 
             SET status = 'Cancelled', updated_at = NOW()
             WHERE shipment_id IN (
                 SELECT shipment_id FROM shipments

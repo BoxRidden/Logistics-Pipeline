@@ -6,7 +6,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from pipeline_datasets import bronze_cdc_dataset
 
-# Import our new modular classes from the logistics folder
+# Import new modular classes from the logistics folder
 from logistics.simulator import ShipmentSimulator
 from logistics.repository import PostgresRepository
 from logistics.profiles import HUBS, DRIVERS
@@ -44,7 +44,7 @@ def generate_modular_data():
         repo.initialize_schema(HUBS, DRIVERS)
      
         # Generate the random shipment payloads
-        # UPGRADE: Extract just the IDs from the tuples to pass dynamically
+        # Extract just the IDs from the tuples to pass dynamically
         hub_ids = [h[0] for h in HUBS]
         driver_ids = [d[0] for d in DRIVERS]
         
@@ -56,7 +56,7 @@ def generate_modular_data():
         repo.insert_shipments(shipments_payload)
         logger.info(f"Successfully generated and inserted {len(shipments_payload)} shipments into PostgreSQL.")
 
-        # UPGRADE: REAL-TIME KAFKA STREAMING
+        # Real time Kafka streaming
         logger.info(f"Initializing Kafka Producer at {kafka_broker}...")
         kafka_client = LogisticsKafkaProducer(broker_url=kafka_broker)
         

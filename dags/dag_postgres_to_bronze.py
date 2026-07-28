@@ -55,7 +55,7 @@ def extract_postgres_to_bronze_gcs(**context):
                 if col in df.columns:
                     df[col] = pd.to_datetime(df[col], errors='coerce').astype('datetime64[us]')
 
-            # 3. OPERATION TYPE INFERENCE & SCHEMA UNIFORMITY
+            # 3. OPERATION TYPE INFERENCE AND SCHEMA UNIFORMITY
             if table_name == "shipments":
                 if not df.empty:
                     df['op_type'] = df.apply(

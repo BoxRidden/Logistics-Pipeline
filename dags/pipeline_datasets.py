@@ -1,6 +1,6 @@
 from airflow.datasets import Dataset
 
-# We use a custom 'logistics://' scheme to bypass strict Airflow provider parsers
+# Custom 'logistics://' scheme to bypass strict Airflow provider parsers
 # while maintaining perfect Data-Aware Scheduling triggers.
 
 # Operational CDC Datasets

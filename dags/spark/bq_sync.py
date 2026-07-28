@@ -85,7 +85,7 @@ def sync_iceberg_to_bigquery(project_id: str, dataset_id: str, table_name: str, 
         raise e
 
 def main():
-    # 2. Argument Parsing 
+    # Argument Parsing 
     parser = argparse.ArgumentParser(description="Sync Iceberg metadata to BigQuery External Tables.")
     parser.add_argument("project", help="GCP Project ID")
     parser.add_argument("dataset", help="BigQuery Dataset Name")

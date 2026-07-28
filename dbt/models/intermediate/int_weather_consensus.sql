@@ -12,7 +12,7 @@ hourly_grouped AS (
         ROUND(AVG(CAST(temperature_2m AS FLOAT64)), 1) AS temperature_celsius,
         ROUND(AVG(CAST(precipitation AS FLOAT64)), 1) AS precipitation_mm,
         COUNT(1) AS api_response_count,
-        --Aggregation using code frequencies for consensus
+        --Aggregation using code frequencies for consensus 
         ARRAY_AGG(weather_code ORDER BY weather_code LIMIT 1)[OFFSET(0)] AS weather_code
     FROM raw_weather
     GROUP BY 1, 2

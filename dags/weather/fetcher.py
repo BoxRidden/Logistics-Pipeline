@@ -35,7 +35,7 @@ class TomorrowIOFetcher:
             raw_data = response.json()
             values = raw_data.get("data", {}).get("values", {})
             
-            # Format the live data to match your downstream Parquet schema,
+            # Format the live data to match the downstream Parquet schema,
             # while preserving the raw API response for Medallion Bronze standards.
             payload = [{
                 "hub_city": location,
