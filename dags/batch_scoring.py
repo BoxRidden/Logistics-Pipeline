@@ -2,13 +2,12 @@ import pandas as pd
 import mlflow.sklearn
 from google.cloud import bigquery
 
-# Point to your local MLflow container
 mlflow.set_tracking_uri("http://mlflow:5000")
 
 def score_data():
     client = bigquery.Client(project="logistics-500519")
     
-    # Grab the features needed for BOTH models
+    # Needed features for the models
     query = """
         SELECT shipment_id, revenue_usd, item_quantity, temperature_celsius 
         FROM `logistics-500519.logistics_mart.fact_shipment_weather`
@@ -22,12 +21,12 @@ def score_data():
         print("No data available to score.")
         return
 
-    # --- 1. SCORE ANOMALIES ---
+    # 1. Score anomalies
     anomaly_model = mlflow.sklearn.load_model('models:/logistics_anomaly_detector@champion')
     anomaly_features = df[['revenue_usd', 'item_quantity']] 
     df['is_anomaly'] = anomaly_model.predict(anomaly_features)
 
-    # --- 2. SCORE DELAYS ---
+    # 2. Score delays
     # Temporarily map temperature_celsius to temperature_2m so the model recognizes it
     df['temperature_2m'] = df['temperature_celsius']
     delay_model = mlflow.sklearn.load_model('models:/logistics_delay_predictor@champion')
@@ -37,7 +36,7 @@ def score_data():
     # Clean up the temporary column before writing to BigQuery
     df = df.drop(columns=['temperature_2m'])
 
-    # Write ALL predictions back to BigQuery into a unified table 
+    # Write all predictions back to BigQuery into a unified table 
     df.to_gbq(
         destination_table='logistics_mart.ml_predictions',
         project_id='logistics-500519',

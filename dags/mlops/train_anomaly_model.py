@@ -13,7 +13,7 @@ def train_and_log_anomaly_model():
 
     logger.info("Fetching Gold data from BigQuery...")
     # Simulated query from logistics_mart.stg_shipments
-    data = pd.DataFrame({
+    data = pd.DataFrame({ 
         'shipment_id': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
         'revenue_usd': [120, 115, 130, 9500, 110, 5], 
         'item_quantity': [5, 4, 6, 2, 5, 500],        

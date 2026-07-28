@@ -77,7 +77,7 @@ def sync_iceberg_to_bigquery(project_id: str, dataset_id: str, table_name: str, 
             
         except NotFound:
             # If it does not exist, create it
-            bq_client.create_table(table)
+            bq_client.create_table(table) 
             logger.info(f"Successfully CREATED Iceberg table in BigQuery: {table_id}")
 
     except Exception as e:

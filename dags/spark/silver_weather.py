@@ -21,7 +21,7 @@ def process_weather_to_iceberg(spark: SparkSession, bronze_path: str, silver_tab
         logger.warning(f"Could not read from {bronze_path}. Directory may be empty. Error: {e}")
         return
 
-    # Incremental logic: Filter out historical records processed in previous runs
+    # Filter out historical records processed in previous runs
     logger.info(f"Applying watermark filter: isolating records newer than {watermark}")
     new_weather = raw_weather.filter(to_timestamp(col("captured_at")) > lit(watermark).cast("timestamp"))
     

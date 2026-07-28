@@ -12,7 +12,6 @@ from logistics.repository import PostgresRepository
 from logistics.profiles import HUBS, DRIVERS
 from logistics.kafka_producer import LogisticsKafkaProducer
 
-# Professional Logging Setup
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 console_handler = logging.StreamHandler()

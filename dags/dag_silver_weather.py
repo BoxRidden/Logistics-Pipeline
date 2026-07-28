@@ -21,28 +21,35 @@ gcp_project = os.environ.get("GCP_PROJECT", "logistics-500519")
 gcp_key_path = os.environ.get("GCP_SA_KEYFILE", "/opt/airflow/config/gcp-key.json")
 
 def validate_bronze_weather_data(**context):
-    """
-    Data Quality Check: Validates schema integrity, null constraints, and range 
-    bounds on raw Bronze weather files before running PySpark processing.
-    """
-    import gcsfs
+    from google.cloud import storage
     logger.info("Executing Data Quality validation on Bronze Weather payloads...")
     
     bronze_sources = ["openmeteo", "openweather", "tomorrowio"]
-    fs = gcsfs.GCSFileSystem()
+    
+    # Use the official GCP storage client instead of gcsfs wildcards
+    client = storage.Client()
+    bucket = client.bucket(gcs_bucket)
 
     for source in bronze_sources:
-        path_pattern = f"gs://{gcs_bucket}/bronze/weather/{source}/*/*/*/*/*.parquet"
-        files = fs.glob(path_pattern.replace("gs://", ""))
-        if not files:
+        # Scan by prefix (which is how object storage actually works)
+        prefix = f"bronze/weather/{source}/"
+        blobs = list(bucket.list_blobs(prefix=prefix))
+        
+        # Filter for the parquet files
+        parquet_files = [b for b in blobs if b.name.endswith(".parquet")]
+
+        if not parquet_files:
             error_msg = f"No files found for validation in source '{source}'. Failing task to prevent empty downstream processing."
             logger.error(error_msg)
             raise FileNotFoundError(error_msg)
 
-        latest_file = f"gs://{max(files, key=lambda f: fs.info(f)['timeCreated'])}"
-        logger.info(f"Validating latest Bronze payload for {source}: {latest_file}")
+        # Find the most recently created file using GCP metadata 
+        latest_blob = max(parquet_files, key=lambda b: b.time_created)
+        latest_file_uri = f"gs://{gcs_bucket}/{latest_blob.name}"
         
-        df = pd.read_parquet(latest_file)
+        logger.info(f"Validating latest Bronze payload for {source}: {latest_file_uri}")
+        
+        df = pd.read_parquet(latest_file_uri)
 
         # Data Quality Constraints
         assert "hub_city" in df.columns, f"Validation Error: 'hub_city' missing in {source}"
@@ -60,8 +67,8 @@ default_args = {
 with DAG(
     'silver_weather_dag',
     default_args=default_args,
-    # Triggers if ANY of the three weather source datasets update
-    schedule=(bronze_weather_openmeteo | bronze_weather_openweather | bronze_weather_tomorrowio),
+    # AND list condition
+    schedule=[bronze_weather_openmeteo, bronze_weather_openweather, bronze_weather_tomorrowio],
     catchup=False,
     tags=['silver', 'spark', 'iceberg', 'weather', 'data-quality']
 ) as dag:

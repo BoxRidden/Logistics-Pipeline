@@ -18,7 +18,7 @@ class LogisticsKafkaProducer:
 
     def publish_shipment_event(self, topic: str, shipment_data: dict):
         try:
-            # Confluent requires manual encoding
+            # Confluent requires manual encoding 
             encoded_data = json.dumps(shipment_data).encode('utf-8')
             self.producer.produce(topic, value=encoded_data)
             self.producer.poll(0) # Serve delivery callbacks

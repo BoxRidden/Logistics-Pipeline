@@ -12,7 +12,7 @@ default_args = {
     'retry_delay': timedelta(minutes=2)
 }
 
-# dbt will now wait for BOTH Silver pipelines to finish before building the Gold layer.
+# dbt waits for both Silver pipelines to finish before building the Gold layer.
 with DAG(
     'gold_dbt_dag',
     default_args=default_args,
@@ -21,7 +21,7 @@ with DAG(
     tags=['transform', 'dbt', 'gold', 'bigquery', 'event-driven']
 ) as dag:
 
-    # Explicitly grab the service account key path for dbt authentication
+    # Grab the service account key path for dbt authentication
     gcp_key_path = os.environ.get("GCP_SA_KEYFILE", "/opt/airflow/config/gcp-key.json")
 
     run_dbt_pipeline = BashOperator(

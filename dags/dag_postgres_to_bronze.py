@@ -6,7 +6,6 @@ from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 
-# Import datasets for Data-Aware Scheduling
 from pipeline_datasets import bronze_cdc_dataset, bronze_gcs_cdc_dataset
 
 logger = logging.getLogger(__name__)

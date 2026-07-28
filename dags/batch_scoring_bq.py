@@ -3,7 +3,6 @@ import mlflow.sklearn
 from google.cloud import bigquery
 import os
 
-# Point to local MLflow container
 mlflow.set_tracking_uri("http://logisticspipeline-mlflow:5000")
 
 def score_data():
