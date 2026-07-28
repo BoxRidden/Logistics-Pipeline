@@ -32,11 +32,12 @@ def validate_bronze_weather_data(**context):
     fs = gcsfs.GCSFileSystem()
 
     for source in bronze_sources:
-        path_pattern = f"gs://{gcs_bucket}/bronze/weather/{source}/*/*/*/*.parquet"
+        path_pattern = f"gs://{gcs_bucket}/bronze/weather/{source}/*/*/*/*/*.parquet"
         files = fs.glob(path_pattern.replace("gs://", ""))
         if not files:
-            logger.warning(f"No files found for validation in source '{source}'. Skipping.")
-            continue
+            error_msg = f"No files found for validation in source '{source}'. Failing task to prevent empty downstream processing."
+            logger.error(error_msg)
+            raise FileNotFoundError(error_msg)
 
         latest_file = f"gs://{max(files, key=lambda f: fs.info(f)['timeCreated'])}"
         logger.info(f"Validating latest Bronze payload for {source}: {latest_file}")
@@ -77,8 +78,8 @@ with DAG(
         bash_command=(
             f'export JAVA_HOME=/usr/lib/jvm/default-java && '
             f'python /opt/airflow/dags/spark/silver_weather.py '
-            f'"gs://{gcs_bucket}/bronze/weather/*/*/*/*.parquet" "weather_events" '
-            f'--watermark "{{ data_interval_start.strftime(\'%Y-%m-%d %H:%M:%S\') }}"'
+            f'"gs://{gcs_bucket}/bronze/weather/*/*/*/*/*.parquet" "weather_events" '
+            f'--watermark "{{{{ (data_interval_start - macros.timedelta(minutes=5)).strftime(\'%Y-%m-%d %H:%M:%S\') }}}}"'
         ),
         env={
             "GOOGLE_APPLICATION_CREDENTIALS": gcp_key_path,
@@ -93,7 +94,7 @@ with DAG(
         bash_command=(
             f'python /opt/airflow/dags/spark/bq_sync.py '
             f'{gcp_project} logistics_raw weather_events '
-            f'"gs://{gcs_bucket}/iceberg/silver/weather_iceberg/metadata"' 
+            f'"gs://{gcs_bucket}/iceberg/silver/weather_events/metadata"' 
         ),
         env={"GOOGLE_APPLICATION_CREDENTIALS": gcp_key_path},
         append_env=True,
@@ -101,3 +102,4 @@ with DAG(
     )
 
     quality_check_task >> spark_weather_task >> sync_bq_task
+    

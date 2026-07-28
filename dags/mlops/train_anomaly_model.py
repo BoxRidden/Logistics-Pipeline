@@ -8,19 +8,18 @@ import logging
 logger = logging.getLogger(__name__)
 
 def train_and_log_anomaly_model():
-    # Make sure "mlflow" matches your Docker compose service name for the tracking server
     mlflow.set_tracking_uri("http://mlflow:5000")
     mlflow.set_experiment("Logistics_Anomaly_Detection")
 
     logger.info("Fetching Gold data from BigQuery...")
-    # Simulated query from your logistics_mart.stg_shipments
+    # Simulated query from logistics_mart.stg_shipments
     data = pd.DataFrame({
         'shipment_id': ['S1', 'S2', 'S3', 'S4', 'S5', 'S6'],
         'revenue_usd': [120, 115, 130, 9500, 110, 5], 
         'item_quantity': [5, 4, 6, 2, 5, 500],        
     })
 
-    X = data[['revenue_usd', 'item_quantity']]
+    X = data[['revenue_usd', 'item_quantity']] 
 
     with mlflow.start_run():
         contamination_rate = 0.1 # Expecting roughly 10% of the data to be anomalous
@@ -43,7 +42,6 @@ def train_and_log_anomaly_model():
         logger.info(f"Model trained. Found {anomaly_count} anomalies in the training set.")
         logger.info(f"Anomaly details:\n{data[data['is_anomaly'] == -1]}")
 
-        # <-- NEW: Save the model to MLflow and register it simultaneously
         # 1. Save the model to MLflow (Logging)
         model_info = mlflow.sklearn.log_model(
             sk_model=model, 

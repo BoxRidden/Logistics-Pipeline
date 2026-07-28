@@ -11,14 +11,18 @@ x-airflow-common:
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__WEBSERVER__SECRET_KEY: 'a_very_secure_random_string_12345'
+    SOURCE_DB_HOST: postgres-source
+    SOURCE_DB_USER: ${SOURCE_DB_USER:-logistics_admin}
+    SOURCE_DB_PASSWORD: ${SOURCE_DB_PASSWORD:-supersecret}
+    SOURCE_DB_NAME: ${SOURCE_DB_NAME:-logistics_db}
     
-    # 1. Install additional Python packages for Airflow and dbt
+    # Install Python packages for Airflow and dbt
     _PIP_ADDITIONAL_REQUIREMENTS: "pandas google-cloud-bigquery google-cloud-storage google-auth db-dtypes pyspark==3.5.1 dbt-bigquery"
-    # 2. Passed API Keys from your local .env into the Airflow containers
+    # Passed API Keys from local .env into the Airflow containers
     TOMORROWIO_API_KEY: ${TOMORROWIO_API_KEY}
     OPENWEATHER_API_KEY: ${OPENWEATHER_API_KEY}
     
-    # 3. Passed GCP Project Settings & Service Account Auth
+    # Passed GCP Project Settings & Service Account Auth
     GCS_BRONZE_BUCKET: ${GCS_BRONZE_BUCKET}
     GCP_SA_KEYFILE: /opt/airflow/config/gcp-key.json
     GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/config/gcp-key.json

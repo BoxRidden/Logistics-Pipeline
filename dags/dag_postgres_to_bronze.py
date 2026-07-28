@@ -46,7 +46,7 @@ def extract_postgres_to_bronze_gcs(**context):
                 query = f"SELECT * FROM {table_name} WHERE updated_at >= '{watermark}'"
             else:
                 # Hubs and Drivers use valid_from for SCD Type 2 tracking
-                query = f"SELECT * FROM {table_name} WHERE valid_from >= '{watermark}'"
+                query = f"SELECT * FROM {table_name} WHERE valid_from >= '{watermark}' OR valid_to >= '{watermark}'"
                 
             df = pd.read_sql_query(query, pg_conn) 
 
@@ -88,7 +88,7 @@ def extract_postgres_to_bronze_gcs(**context):
             pg_conn.close()
             logger.info("PostgreSQL connection closed successfully.")
 
-default_args = {'owner': 'data_engineering', 'start_date': datetime(2026, 6, 1)}
+default_args = {'owner': 'data_engineer', 'start_date': datetime(2026, 6, 1)}
 
 with DAG(
     'postgres_to_bronze_cdc', 
@@ -103,3 +103,4 @@ with DAG(
         python_callable=extract_postgres_to_bronze_gcs,
         outlets=[bronze_gcs_cdc_dataset] 
     )
+    

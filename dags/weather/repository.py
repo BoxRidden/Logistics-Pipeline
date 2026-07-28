@@ -60,3 +60,4 @@ class WeatherMetadataRepo:
         if self.conn:
             self.conn.close()
         logger.info("Weather metadata repository database connection closed.")
+        

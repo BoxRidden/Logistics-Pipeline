@@ -12,7 +12,6 @@ default_args = {
     'retry_delay': timedelta(minutes=2)
 }
 
-# UPGRADE: Changed schedule to a list [dataset1, dataset2] which creates an AND condition.
 # dbt will now wait for BOTH Silver pipelines to finish before building the Gold layer.
 with DAG(
     'gold_dbt_dag',

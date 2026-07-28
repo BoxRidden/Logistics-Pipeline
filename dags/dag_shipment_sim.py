@@ -54,6 +54,7 @@ def generate_modular_data():
 
         # Insert the simulated shipments into Postgres 
         repo.insert_shipments(shipments_payload)
+        repo.advance_shipment_status()
         logger.info(f"Successfully generated and inserted {len(shipments_payload)} shipments into PostgreSQL.")
 
         # Real time Kafka streaming

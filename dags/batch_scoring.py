@@ -14,25 +14,24 @@ def score_data():
     """
     df = client.query(query).to_dataframe()
 
-    # Dynamically load the 'champion' anomaly model from the Model Registry
+    # Load the 'champion' anomaly model from the Model Registry
     logged_model = 'models:/logistics_anomaly_detector@champion'
     loaded_model = mlflow.sklearn.load_model(logged_model)
 
     features = df[['revenue_usd', 'item_quantity']] 
     df['is_anomaly'] = loaded_model.predict(features)
 
-    # Filter for anomalies (-1)
-    anomalies_df = df[df['is_anomaly'] == -1]
-
-    if not anomalies_df.empty:
-        anomalies_df.to_gbq(
-            destination_table='logistics_mart.predicted_anomalies',
-            project_id='logistics-500519',
-            if_exists='replace'
-        )
-        print(f"Successfully wrote {len(anomalies_df)} anomalies to BigQuery!")
-    else:
-        print("No anomalies detected today.")
+    # Count the anomalies just so we can see it in the Airflow logs
+    anomaly_count = len(df[df['is_anomaly'] == -1])
+    
+    # Write ALL rows to BigQuery so Looker always has a table to read
+    df.to_gbq(
+        destination_table='logistics_mart.predicted_anomalies',
+        project_id='logistics-500519',
+        if_exists='replace'
+    )
+    
+    print(f"Successfully wrote all {len(df)} rows to BigQuery. Found {anomaly_count} anomalies today.")
 
 if __name__ == "__main__":
     score_data()

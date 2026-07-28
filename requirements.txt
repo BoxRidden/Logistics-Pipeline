@@ -1,5 +1,6 @@
 psycopg2-binary
 requests
+gcsfs
 dbt-bigquery
 pandas
 google-cloud-bigquery
