@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
-from pipeline_datasets import silver_weather_dataset, silver_cdc_dataset
+from pipeline_datasets import silver_weather_dataset, silver_cdc_dataset, gold_dbt_dataset
 
 default_args = {
     'owner': 'data_engineer',
@@ -28,5 +28,6 @@ with DAG(
         task_id='trigger_dbt_build',
         bash_command='cd /opt/airflow/dbt && dbt build --profiles-dir . --target dev',
         env={"GOOGLE_APPLICATION_CREDENTIALS": gcp_key_path},
-        append_env=True
+        append_env=True,
+        outlets=[gold_dbt_dataset] 
     )

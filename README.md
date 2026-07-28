@@ -1,5 +1,5 @@
 # Basic logistic pipeline project
-This project was built primarily as a hands-on practice exercise to explore modern data engineering concepts. While this was created as a personal learning environment, it successfully implements several production-grade patterns—such as idempotent Upsert (MERGE) architecture, live API integration, and BigQuery Materialized Views—to simulate a real-world, end-to-end analytics infrastructure.
+This project was built primarily as a hands-on practice exercise to explore modern data engineering concepts. While this was created as a personal learning environment, it successfully implements several production-grade patterns—such as idempotent Upsert architecture, dynamic schema resolution, Data-Aware orchestration, and MLOps integration—to simulate a real-world, end-to-end analytics infrastructure.
 
 ## Table of contents
 - [Overview](#overview)
@@ -18,12 +18,14 @@ This project was built primarily as a hands-on practice exercise to explore mode
 
 Logistics Lakehouse simulates an end-to-end data platform for a regional delivery network operating across major Vietnamese cities. The pipeline:
 
-- **Ingests** operational data (shipments, drivers, hubs) through a Python simulator acting as a CDC stream into PostgreSQL.
+- **Ingests** operational data (shipments, drivers, hubs) through a Python simulator acting as a CDC stream into PostgreSQL, featuring synthetic anomaly and delay injection.
 - **Enriches** logistics tracking data with **real-time weather consensus modeling** by aggregating live data from Tomorrow.io, OpenWeather, and Open-Meteo.
-- **Extracts** Postgres and API data into a **GCS Bronze Layer** as Parquet files.
-- **Processes** the raw data into **Apache Iceberg** format via PySpark, dynamically mounting the active metadata (`version-hint.text`) into Google BigQuery as External Tables.
+- **Validates** incoming raw data via strict PySpark Data Quality Gates using cloud-native prefix scanning on a GCS Bronze Layer.
+- **Processes** the raw data into the **Apache Iceberg** open-table format via PySpark, dynamically mounting the active metadata (`version-hint.text`) into Google BigQuery as External Tables.
+- **Orchestrates** dependencies using **Airflow Datasets** (Data-Aware Scheduling), ensuring the Silver processing layer only triggers upon strict consensus (AND logic) from all three weather APIs.
 - **Transforms** data through Bronze → Silver → Gold layers entirely managed by **dbt-bigquery**.
-- **Visualizes** operations through a Looker Studio Command Center showing dual-currency revenue (USD/VND) and weather-driven supply chain impacts.
+- **Predicts** supply chain friction using **MLflow**. An *Isolation Forest* model flags anomalous/fraudulent orders, while a *Random Forest* model predicts weather-driven delays. A batch scoring pipeline writes these unified predictions back to BigQuery.
+- **Visualizes** operations through a Looker Studio Command Center showing dual-currency revenue (USD/VND), anomaly alerts, and weather-driven supply chain impacts.
 
 The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) → higher delay probabilities and longer transit times; clear weather → optimal delivery rates and faster fulfillment.*
 
@@ -33,13 +35,12 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 │                          DATA SOURCES                                   │
 │                                                                         │
 │  PostgreSQL (Local Simulator)       Weather APIs                        │
-│  ├── shipments (CDC)                ├── OpenWeather                     │
-│  ├── hubs (CDC)                     ├── Open-Meteo                      │
-│  └── drivers (CDC)                  └── Tomorrow.io                     │
-│                                                                         │
+│  ├── shipments (w/ anomalies)       ├── OpenWeather                     │
+│  ├── hubs                           ├── Open-Meteo                      │
+│  └── drivers                        └── Tomorrow.io                     │
 └──────────────┬──────────────────────────────┬───────────────────────────┘
                │ Pandas / Python              │ Python / REST API
-               │ (Hourly Extract)             │ (Hourly Fetch)
+               │ (CDC Extract)                │ (Hourly Fetch)
                ▼                              ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    BRONZE LAYER — GCS Raw Parquet                       │
@@ -48,7 +49,8 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 │                                                                         │
 │  Format: Parquet (Microsecond-precision)   No transformation applied    │
 └──────────────┬──────────────────────────────────────────────────────────┘
-               │ PySpark (Airflow Dataset Triggered / Cache-Disabled)
+               │ Airflow Dataset Triggered (Strict AND consensus logic)
+               │ + Native GCS Prefix Scanning (Data Quality Gates)
                ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                  SILVER LAYER — Apache Iceberg on GCS                   │
@@ -56,18 +58,38 @@ The core hypothesis being modeled: *severe weather (thunderstorms/rain/dusty) �
 │  ├── shipments  (Overwrite — accumulating order history)                │
 │  ├── hubs       (Overwrite — latest 1-to-1 dimensional state)           │
 │  ├── drivers    (Overwrite — latest 1-to-1 dimensional state)           │
-│  └── weather    (Append — wildcard batch from all 3 APIs)               │
+│  └── weather    (Append — deduplicated batch from all 3 APIs)           │
 │                                                                         │
 │  ACID · Version-hint tracking · Schema evolution · Storage-backed       │
 └──────────────┬──────────────────────────────────────────────────────────┘
-               │ bq_sync.py (Updates BQ pointer via version-hint.text)
+               │ bq_sync.py (Auto-updates BQ pointer via v-metadata.json)
                ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    GOLD LAYER — BigQuery Native (dbt)                   │
 │  Dataset: logistics_mart                                                │
-│  ├── stg_weather_consensus  (dbt view  — 3-API hourly voting consensus) │
-│  ├── fact_shipment_weather  (dbt table — shipment grain, enriched)      │
-│  └── realtime_order_stats   (dbt view  — dual-currency KPIs & counts)   │
+│  ├── stg_... (Staging: Clean & cast)                                    │
+│  ├── int_weather_consensus (Intermediate: 3-API hourly voting)          │
+│  ├── fact_shipment_weather (Mart: Shipment grain, enriched)             │
+│  └── realtime_order_stats  (Mart: Dual-currency KPIs & counts)          │
+└──────────────┬──────────────────────────────────────┬───────────────────┘
+               │                                      │
+               ▼                                      │
+┌─────────────────────────────────────────┐           │
+│           MLOps & AI LAYER              │           │
+│  MLflow (Model Registry & Tracking)     │           │
+│  ├── Isolation Forest (Anomalies)       │           │
+│  └── Random Forest (Delay Prediction)   │           │
+│                                         │           │
+│  Outputs to: ml_predictions (BigQuery)  │           │
+└──────────────┬──────────────────────────┘           │
+               │                                      │
+               ▼                                      ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                     SERVING & VISUALIZATION                             │
+│                     Looker Studio Command Center                        │
+│                                                                         │
+│  - Dual-Currency Scorecards (VND/USD)   - Anomaly Alerting Tables       │
+│  - Weather vs. Delay Correlations       - Predicted Delay Warnings      │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -132,76 +154,95 @@ graph TD
 The Logistics Lakehouse operates on a Medallion Architecture (Bronze, Silver, Gold), heavily orchestrated by Airflow's Data-Aware Scheduling (Datasets) to create a reactive, event-driven pipeline.
 
 ### 1. Ingestion (Data Sources → Bronze Layer)
-*   **Operational CDC Extraction:** A custom Python simulator generates live logistics data (shipments, driver updates, hub statuses) into a local **PostgreSQL** database. Airflow extracts this data via Pandas, casts timestamps to microsecond-precision, and loads it into Google Cloud Storage (GCS) as raw **Parquet** files.
+*   **Operational CDC Extraction:** A custom Python simulator generates live logistics data (shipments, driver updates, hub statuses) into a local **PostgreSQL** database. The simulator intelligently injects synthetic anomalies (massive fraudulent orders) and logical transit delays to train downstream machine learning models. Airflow extracts this data, casts timestamps to microsecond-precision, and loads it into Google Cloud Storage (GCS) as raw **Parquet** files.
 *   **Weather API Ensemble:** Airflow simultaneously triggers three separate API fetches (**Tomorrow.io, OpenWeather, Open-Meteo**). The JSON responses are parsed and serialized directly into GCS Bronze Parquet files. 
 
 ### 2. Processing (Bronze Layer → Silver Layer)
-*   **Event-Driven PySpark:** As soon as the Bronze Datasets are updated, Airflow triggers distributed **PySpark** jobs to process the raw Parquet files. 
-*   **Apache Iceberg:** The data is written into **Apache Iceberg** tables hosted on GCS. PySpark handles CDC deduplication and overwrites the dimension and fact tables, while appending the new weather payloads.
-*   **BigQuery Pointer Sync:** Because Iceberg continuously generates new metadata snapshots (`v1`, `v2`, `v3`), a custom `bq_sync.py` script reads the Iceberg `version-hint.text` file and dynamically updates **Google BigQuery External Tables** to point to the newest active snapshot.
+*   **Data Quality Gates:** Before processing, Airflow validates the Bronze payloads using native GCP prefix scanning, ensuring data integrity (no nulls, schema validation) and preventing pipeline failure from empty API responses.
+*   **Event-Driven PySpark:** As soon as the Bronze Datasets are updated (requiring strict `AND` consensus from all APIs), Airflow triggers distributed **PySpark** jobs to process the raw Parquet files. 
+*   **Apache Iceberg:** The data is written into **Apache Iceberg** tables hosted on GCS. PySpark handles CDC deduplication and overwrites the dimension and fact tables, while safely appending the new weather payloads using Airflow's execution time macros to prevent duplicate processing.
+*   **BigQuery Pointer Sync:** Because Iceberg continuously generates new metadata snapshots, a custom `bq_sync.py` script reads the `version-hint.text` file and dynamically updates **Google BigQuery External Tables** to point to the newest active snapshot, auto-resolving any schema evolution conflicts.
 
 ### 3. Transformation (Silver Layer → Gold Layer)
 *   Once the BigQuery external tables are synced, Airflow triggers **dbt (Data Build Tool)** to execute the final transformation models:
     *   **Staging:** Cleans, standardizes, and applies business logic (converting USD to VND currency).
     *   **Weather Consensus:** A custom dbt view aggregates the three distinct weather APIs, using an hourly voting mechanism to determine the most accurate weather code for a given city.
-    *   **Data Marts:** Builds the final `fact_shipment_weather` table and overwrites the `realtime_order_stats` table for high-performance dashboarding.
+    *   **Data Marts:** Builds the final `fact_shipment_weather` table and overwrites the `realtime_order_stats` table for high-performance dashboarding and ML training.
 
-### 4. Serving & Visualization (Gold Layer → Looker Studio)
-*   **Looker Studio** connects directly to the dbt-managed BigQuery data marts.
-*   The dashboard surfaces the correlation between severe weather events and supply chain delays, alongside dual-currency operational scorecards (Total Revenue, Active Orders, Items Sold). 
+### 4. Predictive Analytics (Gold Layer → MLOps)
+*   **Model Training:** Airflow triggers Python scripts that fetch the transformed Gold data from BigQuery to train models tracked and registered via **MLflow**.
+*   **Anomaly Detection:** An *Isolation Forest* model isolates and flags fraudulent or mathematically impossible orders (e.g., $15,000 revenue for standard delivery).
+*   **Delay Prediction:** A *Random Forest Classifier* evaluates weather severity against order volume to predict if a shipment is at risk of delay.
+*   **Batch Scoring:** A unified scoring script evaluates live orders against the "champion" models and writes an `ml_predictions` table back to BigQuery.
+
+### 5. Serving & Visualization (Gold Layer & ML → Looker Studio)
+*   **Looker Studio** connects directly to the dbt-managed BigQuery data marts and the ML predictions table.
+*   The dashboard functions as a Command Center, surfacing the correlation between severe weather events and supply chain delays, dual-currency operational scorecards (Total Revenue, Active Orders), real-time anomaly alerts, and an early-warning system for predicted logistics failures. 
 
 
 ## Tech Stack
 
 | Component | Technology | Role / Version |
 |---|---|---|
-| Orchestration | Apache Airflow | 2.9.1 (Dockerized) |
+| Orchestration | Apache Airflow | 2.9 (Dockerized) with Data-Aware Scheduling |
 | Compute & Processing | PySpark & Pandas | Data chunking, deduping, timestamp standardizing, and ETL |
 | Table Format | Apache Iceberg | Cloud-native Hadoop Catalog |
 | Storage Environment | Google Cloud Storage | Bronze Parquet & Silver Iceberg Metadata |
-| Source Database | PostgreSQL | 13 (Simulated CDC Source) |
+| Source Database | PostgreSQL | 13 (Simulated CDC Source with Anomaly Injection) |
 | Data Warehouse | Google Cloud BigQuery | Cloud Analytics Engine & Iceberg External Table Host |
 | Transformation | dbt-bigquery | Gold Layer / Data Mart Modeling & Dual-Currency Logic |
+| MLOps & AI | MLflow & Scikit-Learn | Isolation Forest (Anomalies) & Random Forest (Delays) |
 | External APIs | Tomorrow.io, OpenWeather, Open-Meteo | Real-time weather data ensemble |
 | BI / Visualization | Looker Studio | Interactive Command Center UI |
+| CI / CD | GitHub Actions | Automated DAG parsing, dbt compilation, & dependency resolution |
 | Containerization | Docker & Docker Compose | Infrastructure deployment |
-| Runtime | Python 3.9+ & Java (default-jre) | Core execution environments | 
-
+| Runtime | Python 3.12 & Java (default-jre) | Core execution environments |
 
 ## Project Structure
 
 ```text
 logistics-lakehouse/
-├── docker-compose.yaml             # Airflow & Postgres container infrastructure
-├── Dockerfile                      # Custom Airflow image (PySpark + dbt)
+├── .github/
+│   └── workflows/
+│       └── ci.yml                  # GitHub Actions CI/CD (DAG integrity, dbt parsing, dependency checks)
+│
+├── docker-compose.yaml             # Airflow, Postgres, & MLflow container infrastructure
+├── Dockerfile                      # Custom Airflow image (PySpark, dbt, MLflow, Scikit-Learn)
 ├── startup.sh                      # Environment initialization and build script
-├── requirements.txt                # Python dependencies (Pandas, BigQuery, PySpark) 
+├── requirements.txt                # Python dependencies (strictly pinned to prevent pip backtracking loops)
 ├── .env.example                    # Template for environment variables and API keys
 │
 ├── dags/
 │   ├── pipeline_datasets.py        # Centralized Airflow Dataset declarations (Data-aware scheduling)
 │   ├── dag_shipment_sim.py         # Generates synthetic order data into PostgreSQL
-│   ├── dag_postgres_to_bq.py       # Extracts Postgres CDC → BigQuery (Staging/MERGE)
+│   ├── dag_postgres_cdc.py         # Extracts Postgres CDC → GCS Bronze Parquet
 │   ├── dag_tomorrowio.py           # Fetches Tomorrow.io API → GCS Bronze Parquet
-│   ├── dag_silver_cdc.py           # Spark job: CDC → Silver Iceberg tables
-│   ├── dag_silver_weather.py       # Spark job: Weather Parquet → Silver Iceberg tables
-│   ├── dag_gold_dbt.py             # Triggers dbt build for Gold Layer
 │   ├── dag_openmeteo.py            # Fetches Open-Meteo API → GCS Bronze Parquet
+│   ├── dag_openweather.py          # Fetches OpenWeather API → GCS Bronze Parquet
+│   ├── dag_silver_cdc.py           # Spark job: CDC → Silver Iceberg tables
+│   ├── dag_silver_weather.py       # Spark job: Bronze Weather → Silver Iceberg (w/ Data Quality Gates)
+│   ├── dag_gold_dbt.py             # Triggers dbt build for Gold Layer in BigQuery
+│   ├── dag_mlops_training.py       # Orchestrates MLflow model training and batch scoring
 │   │
 │   ├── logistics/                  # Logistics Domain Logic
-│   │   ├── simulator.py            # Generates orders based on weather profiles
+│   │   ├── simulator.py            # Generates orders and dynamically injects anomalies & delays
 │   │   ├── profiles.py             # Maps weather conditions to business impact profiles
 │   │   └── repository.py           # Postgres connection and initialization logic
+│   │
+│   ├── mlops/                      # Machine Learning Scripts
+│   │   ├── train_anomaly_model.py  # Trains Isolation Forest on BigQuery data to detect fraud
+│   │   ├── train_delay_model.py    # Trains Random Forest to predict weather-driven delays
+│   │   └── batch_scoring.py        # Scores live orders against champion models → BigQuery ml_predictions
 │   │
 │   ├── spark/                      # PySpark ETL Scripts
 │   │   ├── common.py               # SparkSession builder with GCS/Iceberg configurations
 │   │   ├── silver_cdc.py           # Iceberg processing logic for CDC data
 │   │   ├── silver_weather.py       # Iceberg processing logic for Weather data
-│   │   └── bq_sync.py              # BigQuery External Table metadata sync helper
+│   │   └── bq_sync.py              # BigQuery External Table dynamic schema & metadata auto-sync
 │   │
 │   └── weather/                    # Weather API Domain Logic
-│       ├── fetcher.py              # Tomorrow.io API client
-│       ├── loader.py               # Serializes API responses 
+│       ├── fetcher.py              # API client for weather endpoints
+│       ├── loader.py               # Serializes API responses to GCS Parquet
 │       └── repository.py           # API fetch logging for Postgres
 │
 ├── dbt/                            # Data Build Tool (Transformation Layer)
@@ -209,7 +250,8 @@ logistics-lakehouse/
 │   ├── profiles.yml                # BigQuery connection configuration
 │   └── models/
 │       ├── staging/                # Standardizes names, casts types (stg_shipments, stg_weather)
-│       └── mart/                   # Business logic and aggregations (fact_shipment_weather)
+│       ├── intermediate/           # Joins and applies business logic (int_weather_consensus)
+│       └── mart/                   # Business logic, aggregations, and consensus views (fact_shipment_weather)
 │
 ├── data-init/                      # Database Initialization Scripts
 │   ├── logistics_schema.sql        # PostgreSQL DDL (Hubs, Drivers, Shipments)
@@ -217,7 +259,7 @@ logistics-lakehouse/
 │   └── gold_bq_mv.sql              # BigQuery Materialized View DDL (realtime_order_stats)
 │
 └── dashboard/
-    └── dashboard_queries.md        # Reference queries for Looker Studio configuration
+    └── dashboard_queries.md        # Reference queries for Looker Studio configuration (including ML predictions)
 ```
 
 ## Layer Schema

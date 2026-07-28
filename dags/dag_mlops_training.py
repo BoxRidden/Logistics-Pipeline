@@ -1,6 +1,7 @@
 from datetime import datetime
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from pipeline_datasets import gold_dbt_dataset
 
 default_args = {
     'owner': 'data_engineer',
@@ -10,7 +11,7 @@ default_args = {
 with DAG(
     'mlops_model_training',
     default_args=default_args,
-    schedule_interval=None, 
+    schedule=[gold_dbt_dataset], 
     catchup=False,
     tags=['mlops', 'mlflow']
 ) as dag:

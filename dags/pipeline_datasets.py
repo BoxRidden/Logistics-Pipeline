@@ -15,3 +15,6 @@ bronze_weather_tomorrowio = Dataset("logistics://gcs/bronze_weather_tomorrowio")
 
 # Silver Weather Dataset
 silver_weather_dataset = Dataset("logistics://iceberg/silver_weather")
+
+# Gold Dataset
+gold_dbt_dataset = Dataset("logistics://bigquery/gold_mart")
