@@ -3,7 +3,6 @@ import logging
 from uuid import uuid4
 from logistics.profiles import CITIES, CATEGORIES, ORDER_TYPES
 
-# Set up the named logger
 logger = logging.getLogger(__name__)
 
 class ShipmentSimulator:
@@ -20,21 +19,31 @@ class ShipmentSimulator:
         shipments = []
         
         for _ in range(num_records):
+            
+            # 1. Anomaly Injection
+            # 5% chance to generate a bizarre order
+            if random.random() < 0.05:
+                revenue = round(random.uniform(5000.0, 15000.0), 2)  # Massive revenue
+                item_quantity = random.randint(100, 500)             # Massive quantity
+            else:
+                # Normal operational data
+                revenue = round(random.uniform(15.0, 150.0), 2)
+                item_quantity = random.randint(1, 5)
+
+            # 2. Delay Injection
+            # 10% chance of delay, otherwise standard operational statuses
+            status_list = ['Pending', 'In Transit', 'Delivered', 'Delayed']
+            status_weights = [0.40, 0.30, 0.20, 0.10]
+            simulated_status = random.choices(status_list, weights=status_weights, k=1)[0]
+
             shipment = {
-                # UUIDs for public-facing tracking numbers
                 "tracking_code": f"TRK-{str(uuid4())[:8].upper()}",
-                
-                # Foreign keys
                 "hub_id": random.choice(self.hubs) if self.hubs else 1,
                 "driver_id": random.choice(self.drivers) if self.drivers else 1,
-                
                 "customer_city": random.choice(CITIES),
-                
-                # All new operational data starts as Pending.
-                "status": 'Pending',
-                
-                "revenue": round(random.uniform(15.0, 150.0), 2),
-                "item_quantity": random.randint(1, 5),
+                "status": simulated_status,  
+                "revenue": revenue,
+                "item_quantity": item_quantity,
                 "product_category": random.choice(CATEGORIES),
                 "order_type": random.choice(ORDER_TYPES)
             }

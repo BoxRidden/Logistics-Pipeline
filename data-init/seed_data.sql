@@ -13,5 +13,5 @@ ON CONFLICT DO NOTHING;
 INSERT INTO drivers (driver_id, name, vehicle_type, valid_from, is_current) VALUES
 (1, 'Nguyen Van A', 'Motorcycle', '2026-01-01 00:00:00', TRUE),
 (2, 'Tran Thi B', 'Truck', '2026-01-01 00:00:00', TRUE),
-(3, 'Le Van C', 'Van', '2026-01-01 00:00:00', TRUE)
+(3, 'Le Bron C', 'Van', '2026-01-01 00:00:00', TRUE)
 ON CONFLICT DO NOTHING;

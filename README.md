@@ -524,7 +524,7 @@ SELECT * FROM `your-gcp-project-id.logistics_mart.realtime_order_stats` LIMIT 10
 
 The Looker Studio Command Center connects to `logistics_mart.fact_shipment_weather` and `logistics_mart.realtime_order_stats` to visualize:
 ![LookerReport1](docs/dashboard/LookerReport1.png)
-![LookerReport2](docs/dashboard/LookerReport2.png)
+![LookerReport2](docs/dashboard/LookerReport3.png)
 
 - **Shipment Status by Weather Condition** — analyzing the direct correlation between severe weather (e.g., Rain, Thunderstorms) and the volume of "Delayed" or "Cancelled" orders.
 - **Order Type Performance** — tracking how "Express" and "Next-Day" deliveries hold up under adverse conditions compared to "Standard" shipping.

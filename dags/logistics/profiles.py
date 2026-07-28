@@ -22,8 +22,8 @@ HUBS = [
 
 DRIVERS = [
     (1, 'Nguyen Van A', 'Truck'),
-    (2, 'Nguyen Van B', 'Motorcycle'),
-    (3, 'Nguyen Van C', 'Van')
+    (2, 'Tran Thi B', 'Motorcycle'),
+    (3, 'Le Bron C', 'Van') 
 ]
 
 
