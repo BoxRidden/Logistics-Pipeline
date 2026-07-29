@@ -187,7 +187,7 @@ The Logistics Lakehouse operates on a Medallion Architecture (Bronze, Silver, Go
 | Compute & Processing | PySpark & Pandas | Data chunking, deduping, timestamp standardizing, and ETL |
 | Table Format | Apache Iceberg | Cloud-native Hadoop Catalog |
 | Storage Environment | Google Cloud Storage | Bronze Parquet & Silver Iceberg Metadata |
-| Source Database | PostgreSQL | 13 (Simulated CDC Source with Anomaly Injection) |
+| Source Database | PostgreSQL | (Simulated CDC Source with Anomaly Injection) |
 | Data Warehouse | Google Cloud BigQuery | Cloud Analytics Engine & Iceberg External Table Host |
 | Transformation | dbt-bigquery | Gold Layer / Data Mart Modeling & Dual-Currency Logic |
 | MLOps & AI | MLflow & Scikit-Learn | Isolation Forest (Anomalies) & Random Forest (Delays) |
@@ -196,6 +196,8 @@ The Logistics Lakehouse operates on a Medallion Architecture (Bronze, Silver, Go
 | CI / CD | GitHub Actions | Automated DAG parsing, dbt compilation, & dependency resolution |
 | Containerization | Docker & Docker Compose | Infrastructure deployment |
 | Runtime | Python 3.12 & Java (default-jre) | Core execution environments |
+
+![ArchitectPlatform](docs/dags/ArchitectPlatform.png)
 
 ## Project Structure
 
@@ -260,6 +262,7 @@ logistics-lakehouse/
 └── dashboard/
     └── dashboard_queries.md        # Reference queries for Looker Studio configuration (including ML predictions)
 ```
+
 
 ## Layer Schema
 
