@@ -28590,3 +28590,1453 @@ having count(*) > 1
 Finished 'build' successfully for target 'dev' [28.6s]
 Processed: 7 models | 8 tests
 Summary: 15 total | 15 success
+==================== 2026-07-29T06:52:30.545777Z | 019faca5-6dc9-7b71-a850-ba2ccec9c77a ====================
+06:52:30.546171 [info ]: dbt-core 2.0.0-alpha.5
+06:52:30.546576 [info ]: Started loading project
+06:52:30.552319 [info ]: Loading profiles.yml
+06:52:30.567035 [debug]:    Started loading packages
+06:52:30.575289 [debug]:     Loaded [  0.01s] packages
+06:52:30.579122 [info ]: Finished loading project [  0.03s]
+06:52:30.581233 [info ]: Started parsing
+06:52:30.617515 [debug]: Finished parsing models/schema.yml [  0.00s]
+06:52:30.618169 [debug]: Finished parsing models/staging/src_logistics.yml [  0.00s]
+06:52:30.627221 [debug]: Finished parsing models/intermediate/int_weather_consensus.sql [  0.01s]
+06:52:30.627852 [debug]: Finished parsing models/mart/dim_drivers.sql [  0.00s]
+06:52:30.628248 [debug]: Finished parsing models/mart/dim_hubs.sql [  0.00s]
+06:52:30.628663 [debug]: Finished parsing models/mart/fact_shipment_weather.sql [  0.00s]
+06:52:30.629021 [debug]: Finished parsing models/mart/realtime_order_stats.sql [  0.00s]
+06:52:30.629416 [debug]: Finished parsing models/staging/stg_shipments.sql [  0.00s]
+06:52:30.629717 [debug]: Finished parsing models/staging/stg_weather.sql [  0.00s]
+06:52:30.640379 [debug]: Finished parsing target/generic_tests/unique_fact_shipment_weather_shipment_id.sql [  0.00s]
+06:52:30.640717 [debug]: Finished parsing target/generic_tests/not_null_fact_shipment_weather_shipment_id.sql [  0.00s]
+06:52:30.641013 [debug]: Finished parsing target/generic_tests/not_null_int_weather_consensus_hub_city.sql [  0.00s]
+06:52:30.641371 [debug]: Finished parsing target/generic_tests/not_null_int_weather_consensus_weather_code.sql [  0.00s]
+06:52:30.641695 [debug]: Finished parsing target/generic_tests/not_null_stg_shipments_hub_id.sql [  0.00s]
+06:52:30.641986 [debug]: Finished parsing target/generic_tests/unique_stg_shipments_shipment_id.sql [  0.00s]
+06:52:30.642286 [debug]: Finished parsing target/generic_tests/not_null_stg_shipments_shipment_id.sql [  0.00s]
+06:52:30.642613 [debug]: Finished parsing target/generic_tests/accepted_values_stg_shipments_65cfa586ef72b6ef2dc5279118d04fc7.sql [  0.00s]
+06:52:30.644805 [info ]: Finished parsing [  0.06s]
+06:52:30.646610 [info ]: Started scheduling
+06:52:30.649443 [info ]: Finished scheduling [  0.00s]
+06:52:30.654244 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "hubs" }) and interval: None
+06:52:30.654491 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "drivers" }) and interval: None
+06:52:30.654546 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "weather_api_raw" }) and interval: None
+06:52:30.654704 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "shipments" }) and interval: None
+06:52:30.657473 [info ]: Started building task graph
+06:52:30.658333 [info ]: Finished building task graph [  0.00s]
+06:52:35.036272 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    select distinct schema_name from `logistics-500519`.INFORMATION_SCHEMA.SCHEMATA;
+  
+06:52:35.038441 [info ]: Started rendering (15 nodes)
+06:52:35.038598 [info ]: Started model logistics_mart.stg_weather
+06:52:35.038652 [debug]: Started rendering model logistics_mart.stg_weather
+06:52:35.038758 [info ]: Started model logistics_mart.stg_shipments
+06:52:35.038776 [debug]: Started rendering model logistics_mart.stg_shipments
+06:52:35.038793 [info ]: Started model logistics_mart.int_weather_consensus
+06:52:35.038803 [debug]: Started rendering model logistics_mart.int_weather_consensus
+06:52:35.038820 [info ]: Started model logistics_mart.dim_hubs
+06:52:35.038829 [debug]: Started rendering model logistics_mart.dim_hubs
+06:52:35.038867 [info ]: Started model logistics_mart.dim_drivers
+06:52:35.038879 [debug]: Started rendering model logistics_mart.dim_drivers
+06:52:35.049989 [debug]: Compiled SQL for node model.logistics_lakehouse.stg_shipments at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+06:52:35.050234 [debug]: Compiled SQL for node model.logistics_lakehouse.int_weather_consensus at target/compiled/logistics_lakehouse/models/intermediate/int_weather_consensus.sql
+06:52:35.050491 [debug]: Compiled SQL for node model.logistics_lakehouse.dim_drivers at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+06:52:35.050671 [debug]: Compiled SQL for node model.logistics_lakehouse.stg_weather at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+06:52:35.050845 [debug]: Compiled SQL for node model.logistics_lakehouse.dim_hubs at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+06:52:35.051310 [debug]: Finished rendering [  0.01s] model logistics_mart.stg_shipments [success]
+06:52:35.051414 [info ]: Started running (15 nodes)
+06:52:35.051441 [info ]: Started running model logistics_mart.stg_shipments
+06:52:35.051478 [debug]: Finished rendering [  0.01s] model logistics_mart.int_weather_consensus [success]
+06:52:35.051490 [info ]: Started running model logistics_mart.int_weather_consensus
+06:52:35.051501 [debug]: Finished rendering [  0.01s] model logistics_mart.stg_weather [success]
+06:52:35.051507 [info ]: Started running model logistics_mart.stg_weather
+06:52:35.051516 [debug]: Finished rendering [  0.01s] model logistics_mart.dim_hubs [success]
+06:52:35.051530 [info ]: Started running model logistics_mart.dim_hubs
+06:52:35.051540 [debug]: Finished rendering [  0.01s] model logistics_mart.dim_drivers [success]
+06:52:35.051545 [info ]: Started running model logistics_mart.dim_drivers
+06:52:38.107941 [debug]: Query executed on node model.logistics_lakehouse.stg_weather:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:52:38.116695 [debug]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+06:52:38.243367 [debug]: Query executed on node model.logistics_lakehouse.dim_drivers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:52:38.313797 [debug]: Query executed on node model.logistics_lakehouse.int_weather_consensus:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:52:38.316011 [debug]: Writing runtime sql for node "model.logistics_lakehouse.int_weather_consensus"
+06:52:38.328682 [debug]: Query executed on node model.logistics_lakehouse.dim_hubs:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:52:38.612367 [debug]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+06:52:38.744000 [debug]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+06:52:38.803671 [debug]: Query executed on node model.logistics_lakehouse.stg_shipments:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:52:38.808714 [debug]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+06:52:40.844762 [debug]: Query executed on node model.logistics_lakehouse.stg_weather:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.stg_weather", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+06:52:40.851638 [info ]: Finished running [  5.80s] model logistics_mart.stg_weather [success]
+06:52:40.851722 [info ]:  Succeeded [  5.81s] model logistics_mart.stg_weather (view)
+06:52:40.856642 [debug]: Query executed on node model.logistics_lakehouse.int_weather_consensus:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.int_weather_consensus", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+  OPTIONS()
+  as 
+
+WITH raw_weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
+    WHERE captured_at IS NOT NULL
+),
+
+hourly_grouped AS (
+    SELECT
+        TRIM(hub_city) AS hub_city,
+        TIMESTAMP_TRUNC(CAST(captured_at AS TIMESTAMP), HOUR) AS weather_captured_at,
+        ROUND(AVG(CAST(temperature_2m AS FLOAT64)), 1) AS temperature_celsius,
+        ROUND(AVG(CAST(precipitation AS FLOAT64)), 1) AS precipitation_mm,
+        COUNT(1) AS api_response_count,
+        --Aggregation using code frequencies for consensus 
+        ARRAY_AGG(weather_code ORDER BY weather_code LIMIT 1)[OFFSET(0)] AS weather_code
+    FROM raw_weather
+    GROUP BY 1, 2
+) 
+
+SELECT * FROM hourly_grouped;
+
+
+06:52:40.858175 [info ]: Finished running [  5.81s] model logistics_mart.int_weather_consensus [success]
+06:52:40.858195 [info ]:  Succeeded [  5.82s] model logistics_mart.int_weather_consensus (view)
+06:52:40.858311 [info ]: Started test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:52:40.858332 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:52:40.858378 [info ]: Started test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:52:40.858394 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:52:40.864320 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda at target/compiled/logistics_lakehouse/target/generic_tests/not_null_int_weather_consensus_weather_code.sql
+06:52:40.864506 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code [success]
+06:52:40.864571 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:52:40.864754 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e at target/compiled/logistics_lakehouse/target/generic_tests/not_null_int_weather_consensus_hub_city.sql
+06:52:40.864861 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city [success]
+06:52:40.864905 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:52:40.866053 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda"
+06:52:40.866342 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e"
+06:52:41.976265 [debug]: Query executed on node model.logistics_lakehouse.stg_shipments:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.stg_shipments", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        -- Grab the new columns from the raw BigQuery table
+        revenue,
+        item_quantity,
+        product_category,
+        order_type,
+        created_at,
+        updated_at
+    FROM `logistics-500519`.`logistics_raw`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    
+    -- Currency explicit definitions (1 USD = ~26,200 VND, might need manual update depends on FX rates)
+    revenue AS revenue_usd,
+    CAST(revenue * 26200 AS INT64) AS revenue_vnd,
+    
+    item_quantity,
+    product_category,
+    order_type,
+    
+    -- Preserve existing transformations and aliases
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+06:52:41.980046 [info ]: Finished running [  6.93s] model logistics_mart.stg_shipments [success]
+06:52:41.980154 [info ]:  Succeeded [  6.94s] model logistics_mart.stg_shipments (view)
+06:52:41.980486 [info ]: Started test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:52:41.980526 [debug]: Started rendering test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:52:41.980611 [info ]: Started test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:52:41.980630 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:52:41.980656 [info ]: Started test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:52:41.980667 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:52:41.980687 [info ]: Started test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:52:41.980758 [debug]: Started rendering test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:52:41.987444 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_stg_shipments_shipment_id.sql
+06:52:41.987666 [debug]: Compiled SQL for node test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3 at target/compiled/logistics_lakehouse/target/generic_tests/accepted_values_stg_shipments_65cfa586ef72b6ef2dc5279118d04fc7.sql
+06:52:41.987746 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id [success]
+06:52:41.987825 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:52:41.987862 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown [success]
+06:52:41.987879 [info ]: Started running test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:52:41.987932 [debug]: Compiled SQL for node test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c at target/compiled/logistics_lakehouse/target/generic_tests/unique_stg_shipments_shipment_id.sql
+06:52:41.988062 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id [success]
+06:52:41.988114 [info ]: Started running test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:52:41.988242 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_stg_shipments_hub_id.sql
+06:52:41.988342 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id [success]
+06:52:41.988374 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:52:41.990065 [debug]: Writing runtime sql for node "test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c"
+06:52:41.990134 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380"
+06:52:41.990199 [debug]: Writing runtime sql for node "test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3"
+06:52:41.990388 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0"
+06:52:43.342535 [debug]: Query executed on node model.logistics_lakehouse.dim_hubs:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.dim_hubs", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics-500519`.`logistics_raw`.`hubs`
+QUALIFY ROW_NUMBER() OVER(PARTITION BY hub_id ORDER BY valid_from DESC) = 1
+    );
+  
+06:52:43.346262 [info ]: Finished running [  8.29s] model logistics_mart.dim_hubs [success]
+06:52:43.346356 [info ]:  Succeeded [  8.31s] model logistics_mart.dim_hubs (table)
+06:52:43.346518 [info ]: Started model logistics_mart.realtime_order_stats
+06:52:43.346576 [debug]: Started rendering model logistics_mart.realtime_order_stats
+06:52:43.350356 [debug]: Compiled SQL for node model.logistics_lakehouse.realtime_order_stats at target/compiled/logistics_lakehouse/models/mart/realtime_order_stats.sql
+06:52:43.350558 [debug]: Finished rendering [  0.00s] model logistics_mart.realtime_order_stats [success]
+06:52:43.900778 [debug]: Query executed on node model.logistics_lakehouse.dim_drivers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.dim_drivers", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type
+FROM `logistics-500519`.`logistics_raw`.`drivers`
+QUALIFY ROW_NUMBER() OVER(PARTITION BY driver_id ORDER BY valid_from DESC) = 1
+    );
+  
+06:52:43.902253 [info ]: Finished running [  8.85s] model logistics_mart.dim_drivers [success]
+06:52:43.902278 [info ]:  Succeeded [  8.86s] model logistics_mart.dim_drivers (table)
+06:52:43.902365 [info ]: Started model logistics_mart.fact_shipment_weather
+06:52:43.902387 [debug]: Started rendering model logistics_mart.fact_shipment_weather
+06:52:43.904518 [debug]: Compiled SQL for node model.logistics_lakehouse.fact_shipment_weather at target/compiled/logistics_lakehouse/models/mart/fact_shipment_weather.sql
+06:52:43.904777 [debug]: Finished rendering [  0.00s] model logistics_mart.fact_shipment_weather [success]
+06:52:44.221758 [debug]: Query executed on node test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select weather_code
+from `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+where weather_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:44.223125 [info ]: Finished running [  3.36s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code [pass]
+06:52:44.223153 [info ]:     Passed [  3.36s] test  not_null_int_weather_consensus_weather_code
+06:52:44.274448 [debug]: Query executed on node test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hub_city
+from `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+where hub_city is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:44.275160 [info ]: Finished running [  3.41s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city [pass]
+06:52:44.275198 [info ]:     Passed [  3.42s] test  not_null_int_weather_consensus_hub_city
+06:52:46.704070 [debug]: Query executed on node test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select shipment_id as unique_field
+  from `logistics-500519`.`logistics_mart`.`stg_shipments`
+  where shipment_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:46.704989 [info ]: Finished running [  4.72s] test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id [pass]
+06:52:46.705025 [info ]:     Passed [  4.72s] test  unique_stg_shipments_shipment_id
+06:52:47.232481 [debug]: Query executed on node test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select shipment_id
+from `logistics-500519`.`logistics_mart`.`stg_shipments`
+where shipment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:47.233218 [info ]: Finished running [  5.25s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id [pass]
+06:52:47.233257 [info ]:     Passed [  5.25s] test  not_null_stg_shipments_shipment_id
+06:52:47.710437 [debug]: Query executed on node test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        shipment_status as value_field,
+        count(*) as n_records
+
+    from `logistics-500519`.`logistics_mart`.`stg_shipments`
+    group by shipment_status
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Pending','In Transit','Delivered','Cancelled','Delayed','Unknown'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:47.711195 [info ]: Finished running [  5.72s] test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown [pass]
+06:52:47.711329 [info ]:     Passed [  5.73s] test  accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:52:47.759455 [debug]: Query executed on node test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hub_id
+from `logistics-500519`.`logistics_mart`.`stg_shipments`
+where hub_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:47.760111 [info ]: Finished running [  5.77s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id [pass]
+06:52:47.760143 [info ]:     Passed [  5.78s] test  not_null_stg_shipments_hub_id
+06:52:47.760195 [info ]: Started running model logistics_mart.fact_shipment_weather
+06:52:47.760264 [info ]: Started running model logistics_mart.realtime_order_stats
+06:52:48.113832 [debug]: Writing runtime sql for node "model.logistics_lakehouse.realtime_order_stats"
+06:52:48.141416 [debug]: Writing runtime sql for node "model.logistics_lakehouse.fact_shipment_weather"
+06:52:52.349712 [debug]: Query executed on node model.logistics_lakehouse.realtime_order_stats:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.realtime_order_stats", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`realtime_order_stats`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+SELECT 
+    s.hub_id AS store_id, 
+    h.hub_name AS store_name,
+    s.shipment_status, 
+    s.order_type, 
+    TIMESTAMP_TRUNC(s.order_placed_at, HOUR) AS order_hour, 
+    COUNT(s.shipment_id) AS order_count, 
+    SUM(s.revenue_usd) AS total_revenue_usd, 
+    SUM(s.revenue_vnd) AS total_revenue_vnd,
+    SUM(s.item_quantity) AS total_items_sold
+FROM 
+    `logistics-500519`.`logistics_mart`.`stg_shipments` s
+LEFT JOIN 
+    `logistics-500519`.`logistics_mart`.`dim_hubs` h ON s.hub_id = h.hub_id
+GROUP BY 
+    1, 2, 3, 4, 5
+    );
+  
+06:52:52.350850 [info ]: Finished running [  4.59s] model logistics_mart.realtime_order_stats [success]
+06:52:52.350872 [info ]:  Succeeded [  4.59s] model logistics_mart.realtime_order_stats (table)
+06:52:53.956541 [debug]: Query executed on node model.logistics_lakehouse.fact_shipment_weather:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.fact_shipment_weather", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      WITH shipments AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_shipments`
+),
+
+hubs AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_hubs`
+),
+
+drivers AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_drivers`
+),
+
+-- Get only the single most recent weather record per city to avoid duplication
+latest_weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+    QUALIFY ROW_NUMBER() OVER(PARTITION BY UPPER(hub_city) ORDER BY weather_captured_at DESC) = 1
+)
+
+SELECT
+    s.shipment_id,
+    s.tracking_code,
+    s.shipment_status,
+    s.order_type,
+    s.product_category,
+    s.revenue_usd,
+    s.revenue_vnd,
+    s.item_quantity,
+    s.destination_city,
+    
+    -- Hub (Location) Data
+    h.hub_name AS store_name,
+    h.hub_id AS store_id,
+    h.latitude,
+    h.longitude,
+    CONCAT(h.latitude, ',', h.longitude) AS geo_location, -- Looker Studio map format
+    
+    -- Driver / Fleet Data
+    d.vehicle_type,
+    
+    -- Weather Data
+    w.temperature_celsius,
+    w.precipitation_mm,
+    w.weather_code AS weather_condition,
+    
+    -- Time Data
+    s.order_placed_at AS order_placed_at_utc,
+    s.last_updated_at AS last_updated_at_utc,
+    
+    -- Calculate Transit Time (in hours) only if delivered 
+    CASE 
+        WHEN s.shipment_status = 'Delivered' THEN 
+            CASE 
+                -- Severe Weather (Thunderstorms): 4 to 8 hours
+                WHEN w.weather_code IN (95, 96, 99) THEN ROUND(4.0 + (RAND() * 4.0), 1)
+                
+                -- Moderate Weather (Rain/Drizzle): 2 to 4 hours
+                WHEN w.weather_code IN (51, 53, 55, 61, 63, 65, 80, 81, 82) THEN ROUND(2.0 + (RAND() * 2.0), 1)
+                
+                -- Clear/Cloudy/Optimal: 0.5 to 1.5 hours
+                ELSE ROUND(0.5 + (RAND() * 1.0), 1) 
+            END
+        ELSE NULL 
+    END AS transit_time_hours
+
+FROM shipments s
+LEFT JOIN hubs h 
+    ON s.hub_id = h.hub_id 
+LEFT JOIN drivers d
+    ON s.driver_id = d.driver_id
+LEFT JOIN latest_weather w 
+    ON UPPER(h.hub_city) = UPPER(w.hub_city)
+    );
+  
+06:52:53.958512 [info ]: Finished running [  6.20s] model logistics_mart.fact_shipment_weather [success]
+06:52:53.958551 [info ]:  Succeeded [  6.20s] model logistics_mart.fact_shipment_weather (table)
+06:52:53.958672 [info ]: Started test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:52:53.958690 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:52:53.958772 [info ]: Started test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:52:53.958782 [debug]: Started rendering test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:52:53.963680 [debug]: Compiled SQL for node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f at target/compiled/logistics_lakehouse/target/generic_tests/unique_fact_shipment_weather_shipment_id.sql
+06:52:53.963823 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [success]
+06:52:53.963870 [info ]: Started running test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:52:53.964568 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_fact_shipment_weather_shipment_id.sql
+06:52:53.964663 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [success]
+06:52:53.964684 [info ]: Finished rendering [ 18.93s] (15 nodes, 0 skipped, 0 errors)
+06:52:53.964697 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:52:53.965920 [debug]: Writing runtime sql for node "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f"
+06:52:53.966277 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322"
+06:52:57.002750 [debug]: Query executed on node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select shipment_id as unique_field
+  from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+  where shipment_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:57.002752 [debug]: Query executed on node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select shipment_id
+from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+where shipment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:52:57.004331 [info ]: Finished running [  3.04s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [pass]
+06:52:57.004403 [info ]:     Passed [  3.04s] test  unique_fact_shipment_weather_shipment_id
+06:52:57.004535 [info ]: Finished running [  3.04s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [pass]
+06:52:57.004547 [info ]: Finished running [ 21.95s] (15 nodes, 0 skipped, 0 errors)
+06:52:57.004571 [info ]:     Passed [  3.04s] test  not_null_fact_shipment_weather_shipment_id
+06:52:57.274406 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [26.7s]
+Processed: 7 models | 8 tests
+Summary: 15 total | 15 success
+==================== 2026-07-29T06:59:33.804913Z | 019facab-e326-77a2-a270-b205278ca858 ====================
+06:59:33.805063 [info ]: dbt-core 2.0.0-alpha.5
+06:59:33.805330 [info ]: Started loading project
+06:59:33.810594 [info ]: Loading profiles.yml
+06:59:33.813597 [debug]:    Started loading packages
+06:59:33.819285 [debug]:     Loaded [  0.01s] packages
+06:59:33.820968 [info ]: Finished loading project [  0.02s]
+06:59:33.821512 [info ]: Started parsing
+06:59:33.844964 [debug]: Finished parsing models/schema.yml [  0.00s]
+06:59:33.845282 [debug]: Finished parsing models/staging/src_logistics.yml [  0.00s]
+06:59:33.848185 [debug]: Finished parsing models/intermediate/int_weather_consensus.sql [  0.00s]
+06:59:33.848451 [debug]: Finished parsing models/mart/dim_drivers.sql [  0.00s]
+06:59:33.848653 [debug]: Finished parsing models/mart/dim_hubs.sql [  0.00s]
+06:59:33.848889 [debug]: Finished parsing models/mart/fact_shipment_weather.sql [  0.00s]
+06:59:33.849132 [debug]: Finished parsing models/mart/realtime_order_stats.sql [  0.00s]
+06:59:33.849472 [debug]: Finished parsing models/staging/stg_shipments.sql [  0.00s]
+06:59:33.849743 [debug]: Finished parsing models/staging/stg_weather.sql [  0.00s]
+06:59:33.855211 [debug]: Finished parsing target/generic_tests/unique_fact_shipment_weather_shipment_id.sql [  0.00s]
+06:59:33.855561 [debug]: Finished parsing target/generic_tests/not_null_fact_shipment_weather_shipment_id.sql [  0.00s]
+06:59:33.855849 [debug]: Finished parsing target/generic_tests/not_null_int_weather_consensus_hub_city.sql [  0.00s]
+06:59:33.856209 [debug]: Finished parsing target/generic_tests/not_null_int_weather_consensus_weather_code.sql [  0.00s]
+06:59:33.856526 [debug]: Finished parsing target/generic_tests/not_null_stg_shipments_hub_id.sql [  0.00s]
+06:59:33.856802 [debug]: Finished parsing target/generic_tests/unique_stg_shipments_shipment_id.sql [  0.00s]
+06:59:33.857090 [debug]: Finished parsing target/generic_tests/not_null_stg_shipments_shipment_id.sql [  0.00s]
+06:59:33.857384 [debug]: Finished parsing target/generic_tests/accepted_values_stg_shipments_65cfa586ef72b6ef2dc5279118d04fc7.sql [  0.00s]
+06:59:33.860327 [info ]: Finished parsing [  0.04s]
+06:59:33.860791 [info ]: Started scheduling
+06:59:33.861006 [info ]: Finished scheduling [  0.00s]
+06:59:33.861861 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "weather_api_raw" }) and interval: None
+06:59:33.861933 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "hubs" }) and interval: None
+06:59:33.861978 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "drivers" }) and interval: None
+06:59:33.862012 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "logistics-500519", schema: "logistics_raw", table: "shipments" }) and interval: None
+06:59:33.867978 [info ]: Started building task graph
+06:59:33.869643 [info ]: Finished building task graph [  0.00s]
+06:59:37.599956 [debug]: Query executed on node unknown:
+/* {"app": "dbt", "connection_name": "", "dbt_version": "2.0.0", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    select distinct schema_name from `logistics-500519`.INFORMATION_SCHEMA.SCHEMATA;
+  
+06:59:37.601626 [info ]: Started rendering (15 nodes)
+06:59:37.601711 [info ]: Started model logistics_mart.stg_weather
+06:59:37.601749 [debug]: Started rendering model logistics_mart.stg_weather
+06:59:37.601800 [info ]: Started model logistics_mart.stg_shipments
+06:59:37.601807 [debug]: Started rendering model logistics_mart.stg_shipments
+06:59:37.601816 [info ]: Started model logistics_mart.int_weather_consensus
+06:59:37.601822 [debug]: Started rendering model logistics_mart.int_weather_consensus
+06:59:37.601830 [info ]: Started model logistics_mart.dim_hubs
+06:59:37.601835 [debug]: Started rendering model logistics_mart.dim_hubs
+06:59:37.601850 [info ]: Started model logistics_mart.dim_drivers
+06:59:37.601858 [debug]: Started rendering model logistics_mart.dim_drivers
+06:59:37.607082 [debug]: Compiled SQL for node model.logistics_lakehouse.int_weather_consensus at target/compiled/logistics_lakehouse/models/intermediate/int_weather_consensus.sql
+06:59:37.607284 [debug]: Compiled SQL for node model.logistics_lakehouse.stg_shipments at target/compiled/logistics_lakehouse/models/staging/stg_shipments.sql
+06:59:37.607285 [debug]: Compiled SQL for node model.logistics_lakehouse.stg_weather at target/compiled/logistics_lakehouse/models/staging/stg_weather.sql
+06:59:37.607302 [debug]: Compiled SQL for node model.logistics_lakehouse.dim_hubs at target/compiled/logistics_lakehouse/models/mart/dim_hubs.sql
+06:59:37.607375 [debug]: Compiled SQL for node model.logistics_lakehouse.dim_drivers at target/compiled/logistics_lakehouse/models/mart/dim_drivers.sql
+06:59:37.607463 [debug]: Finished rendering [  0.01s] model logistics_mart.stg_shipments [success]
+06:59:37.607516 [info ]: Started running (15 nodes)
+06:59:37.607532 [info ]: Started running model logistics_mart.stg_shipments
+06:59:37.607566 [debug]: Finished rendering [  0.01s] model logistics_mart.stg_weather [success]
+06:59:37.607574 [info ]: Started running model logistics_mart.stg_weather
+06:59:37.607580 [debug]: Finished rendering [  0.01s] model logistics_mart.dim_hubs [success]
+06:59:37.607585 [info ]: Started running model logistics_mart.dim_hubs
+06:59:37.607605 [debug]: Finished rendering [  0.01s] model logistics_mart.int_weather_consensus [success]
+06:59:37.607611 [info ]: Started running model logistics_mart.int_weather_consensus
+06:59:37.607619 [debug]: Finished rendering [  0.01s] model logistics_mart.dim_drivers [success]
+06:59:37.607623 [info ]: Started running model logistics_mart.dim_drivers
+06:59:40.463759 [debug]: Query executed on node model.logistics_lakehouse.dim_drivers:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:59:40.631320 [debug]: Query executed on node model.logistics_lakehouse.dim_hubs:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:59:40.725103 [debug]: Query executed on node model.logistics_lakehouse.stg_weather:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:59:40.756845 [debug]: Query executed on node model.logistics_lakehouse.int_weather_consensus:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:59:40.799491 [debug]: Writing runtime sql for node "model.logistics_lakehouse.stg_weather"
+06:59:40.799487 [debug]: Writing runtime sql for node "model.logistics_lakehouse.int_weather_consensus"
+06:59:40.847660 [debug]: Query executed on node model.logistics_lakehouse.stg_shipments:
+SELECT
+    table_catalog,
+    table_schema,
+    table_name,
+    table_type
+FROM 
+    `logistics-500519`.`logistics_mart`.INFORMATION_SCHEMA.TABLES
+06:59:40.849882 [debug]: Writing runtime sql for node "model.logistics_lakehouse.stg_shipments"
+06:59:40.893982 [debug]: Writing runtime sql for node "model.logistics_lakehouse.dim_drivers"
+06:59:41.044640 [debug]: Writing runtime sql for node "model.logistics_lakehouse.dim_hubs"
+06:59:43.025218 [debug]: Query executed on node model.logistics_lakehouse.stg_weather:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.stg_weather", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_weather`
+  OPTIONS()
+  as WITH raw_weather AS (
+    SELECT
+        hub_city,
+        captured_at,
+        -- Extracting values from the JSON structure depending on ingestion format
+        temperature_2m,
+        precipitation,
+        weather_code
+    FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
+)
+
+SELECT
+    UPPER(hub_city) AS hub_city,
+    CAST(captured_at AS TIMESTAMP) AS weather_captured_at,
+    CAST(temperature_2m AS FLOAT64) AS temperature_celsius,
+    CAST(precipitation AS FLOAT64) AS precipitation_mm,
+    weather_code
+FROM raw_weather;
+
+
+06:59:43.029777 [info ]: Finished running [  5.42s] model logistics_mart.stg_weather [success]
+06:59:43.029878 [info ]:  Succeeded [  5.43s] model logistics_mart.stg_weather (view)
+06:59:43.128448 [debug]: Query executed on node model.logistics_lakehouse.int_weather_consensus:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.int_weather_consensus", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+  OPTIONS()
+  as 
+
+WITH raw_weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_raw`.`weather_api_raw`
+    WHERE captured_at IS NOT NULL
+),
+
+hourly_grouped AS (
+    SELECT
+        TRIM(hub_city) AS hub_city,
+        TIMESTAMP_TRUNC(CAST(captured_at AS TIMESTAMP), HOUR) AS weather_captured_at,
+        ROUND(AVG(CAST(temperature_2m AS FLOAT64)), 1) AS temperature_celsius,
+        ROUND(AVG(CAST(precipitation AS FLOAT64)), 1) AS precipitation_mm,
+        COUNT(1) AS api_response_count,
+        --Aggregation using code frequencies for consensus 
+        ARRAY_AGG(weather_code ORDER BY weather_code LIMIT 1)[OFFSET(0)] AS weather_code
+    FROM raw_weather
+    GROUP BY 1, 2
+) 
+
+SELECT * FROM hourly_grouped;
+
+
+06:59:43.130421 [info ]: Finished running [  5.52s] model logistics_mart.int_weather_consensus [success]
+06:59:43.130460 [info ]:  Succeeded [  5.53s] model logistics_mart.int_weather_consensus (view)
+06:59:43.130757 [info ]: Started test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:59:43.130793 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:59:43.130898 [info ]: Started test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:59:43.130931 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:59:43.136558 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e at target/compiled/logistics_lakehouse/target/generic_tests/not_null_int_weather_consensus_hub_city.sql
+06:59:43.136558 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda at target/compiled/logistics_lakehouse/target/generic_tests/not_null_int_weather_consensus_weather_code.sql
+06:59:43.136929 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code [success]
+06:59:43.137334 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code
+06:59:43.137368 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city [success]
+06:59:43.137381 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city
+06:59:43.139396 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda"
+06:59:43.139630 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e"
+06:59:43.548882 [debug]: Query executed on node model.logistics_lakehouse.stg_shipments:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.stg_shipments", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+
+  create or replace view `logistics-500519`.`logistics_mart`.`stg_shipments`
+  OPTIONS()
+  as WITH raw_shipments AS (
+    SELECT
+        shipment_id,
+        tracking_code,
+        hub_id,
+        driver_id,
+        customer_city,
+        status,
+        -- Grab the new columns from the raw BigQuery table
+        revenue,
+        item_quantity,
+        product_category,
+        order_type,
+        created_at,
+        updated_at
+    FROM `logistics-500519`.`logistics_raw`.`shipments`
+)
+
+SELECT
+    shipment_id,
+    tracking_code,
+    hub_id,
+    driver_id,
+    
+    -- Currency explicit definitions (1 USD = ~26,200 VND, might need manual update depends on FX rates)
+    revenue AS revenue_usd,
+    CAST(revenue * 26200 AS INT64) AS revenue_vnd,
+    
+    item_quantity,
+    product_category,
+    order_type,
+    
+    -- Preserve existing transformations and aliases
+    UPPER(customer_city) AS destination_city,
+    COALESCE(status, 'Unknown') AS shipment_status,
+    created_at AS order_placed_at,
+    updated_at AS last_updated_at
+FROM raw_shipments;
+
+
+06:59:43.554467 [info ]: Finished running [  5.95s] model logistics_mart.stg_shipments [success]
+06:59:43.554555 [info ]:  Succeeded [  5.95s] model logistics_mart.stg_shipments (view)
+06:59:43.554737 [info ]: Started test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:59:43.554758 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:59:43.554811 [info ]: Started test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:59:43.554819 [debug]: Started rendering test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:59:43.555002 [info ]: Started test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:59:43.555105 [debug]: Started rendering test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:59:43.555259 [info ]: Started test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:59:43.555285 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:59:43.564018 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_stg_shipments_hub_id.sql
+06:59:43.564337 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id [success]
+06:59:43.564361 [debug]: Compiled SQL for node test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c at target/compiled/logistics_lakehouse/target/generic_tests/unique_stg_shipments_shipment_id.sql
+06:59:43.564402 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id
+06:59:43.564508 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_stg_shipments_shipment_id.sql
+06:59:43.564603 [debug]: Compiled SQL for node test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3 at target/compiled/logistics_lakehouse/target/generic_tests/accepted_values_stg_shipments_65cfa586ef72b6ef2dc5279118d04fc7.sql
+06:59:43.566754 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id [success]
+06:59:43.567082 [info ]: Started running test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id
+06:59:43.567117 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0"
+06:59:43.567132 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id [success]
+06:59:43.567156 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id
+06:59:43.567167 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown [success]
+06:59:43.567263 [info ]: Started running test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:59:43.569417 [debug]: Writing runtime sql for node "test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c"
+06:59:43.572275 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380"
+06:59:43.572321 [debug]: Writing runtime sql for node "test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3"
+06:59:45.258064 [debug]: Query executed on node model.logistics_lakehouse.dim_hubs:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.dim_hubs", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_hubs`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      SELECT
+    hub_id,
+    name AS hub_name,
+    UPPER(city) AS hub_city,
+    lat AS latitude,
+    lon AS longitude
+FROM `logistics-500519`.`logistics_raw`.`hubs`
+QUALIFY ROW_NUMBER() OVER(PARTITION BY hub_id ORDER BY valid_from DESC) = 1
+    );
+  
+06:59:45.259331 [info ]: Finished running [  7.65s] model logistics_mart.dim_hubs [success]
+06:59:45.259353 [info ]:  Succeeded [  7.66s] model logistics_mart.dim_hubs (table)
+06:59:45.259399 [info ]: Started model logistics_mart.realtime_order_stats
+06:59:45.259411 [debug]: Started rendering model logistics_mart.realtime_order_stats
+06:59:45.261898 [debug]: Compiled SQL for node model.logistics_lakehouse.realtime_order_stats at target/compiled/logistics_lakehouse/models/mart/realtime_order_stats.sql
+06:59:45.261992 [debug]: Finished rendering [  0.00s] model logistics_mart.realtime_order_stats [success]
+06:59:45.768690 [debug]: Query executed on node model.logistics_lakehouse.dim_drivers:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.dim_drivers", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`dim_drivers`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      -- dbt/models/mart/dim_drivers.sql
+-- Dimension table holding driver details and vehicle types
+SELECT
+    driver_id,
+    name AS driver_name,
+    vehicle_type
+FROM `logistics-500519`.`logistics_raw`.`drivers`
+QUALIFY ROW_NUMBER() OVER(PARTITION BY driver_id ORDER BY valid_from DESC) = 1
+    );
+  
+06:59:45.770693 [info ]: Finished running [  8.16s] model logistics_mart.dim_drivers [success]
+06:59:45.770731 [info ]:  Succeeded [  8.17s] model logistics_mart.dim_drivers (table)
+06:59:45.770838 [info ]: Started model logistics_mart.fact_shipment_weather
+06:59:45.770856 [debug]: Started rendering model logistics_mart.fact_shipment_weather
+06:59:45.773869 [debug]: Compiled SQL for node model.logistics_lakehouse.fact_shipment_weather at target/compiled/logistics_lakehouse/models/mart/fact_shipment_weather.sql
+06:59:45.773999 [debug]: Finished rendering [  0.00s] model logistics_mart.fact_shipment_weather [success]
+06:59:45.969800 [debug]: Query executed on node test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_int_weather_consensus_hub_city.5c7c89036e", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hub_city
+from `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+where hub_city is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:45.971281 [info ]: Finished running [  2.83s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_hub_city [pass]
+06:59:45.971356 [info ]:     Passed [  2.84s] test  not_null_int_weather_consensus_hub_city
+06:59:46.745457 [debug]: Query executed on node test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_int_weather_consensus_weather_code.052a870dda", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select weather_code
+from `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+where weather_code is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:46.746531 [info ]: Finished running [  3.61s] test logistics_mart_dbt_test__audit.not_null_int_weather_consensus_weather_code [pass]
+06:59:46.746606 [info ]:     Passed [  3.61s] test  not_null_int_weather_consensus_weather_code
+06:59:47.300964 [debug]: Query executed on node test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_stg_shipments_hub_id.a3f25ec1c0", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select hub_id
+from `logistics-500519`.`logistics_mart`.`stg_shipments`
+where hub_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:47.301669 [info ]: Finished running [  3.74s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_hub_id [pass]
+06:59:47.301708 [info ]:     Passed [  3.75s] test  not_null_stg_shipments_hub_id
+06:59:47.421234 [debug]: Query executed on node test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.unique_stg_shipments_shipment_id.61ce1cfa9c", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select shipment_id as unique_field
+  from `logistics-500519`.`logistics_mart`.`stg_shipments`
+  where shipment_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:47.422028 [info ]: Finished running [  3.85s] test logistics_mart_dbt_test__audit.unique_stg_shipments_shipment_id [pass]
+06:59:47.422076 [info ]:     Passed [  3.87s] test  unique_stg_shipments_shipment_id
+06:59:47.529626 [debug]: Query executed on node test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown.359bf104e3", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with all_values as (
+
+    select
+        shipment_status as value_field,
+        count(*) as n_records
+
+    from `logistics-500519`.`logistics_mart`.`stg_shipments`
+    group by shipment_status
+
+)
+
+select *
+from all_values
+where value_field not in (
+    'Pending','In Transit','Delivered','Cancelled','Delayed','Unknown'
+)
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:47.531023 [info ]: Finished running [  3.96s] test logistics_mart_dbt_test__audit.accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown [pass]
+06:59:47.531096 [info ]:     Passed [  3.98s] test  accepted_values_stg_shipments_shipment_status__Pending__In_Transit__Delivered__Cancelled__Delayed__Unknown
+06:59:47.618249 [debug]: Query executed on node test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_stg_shipments_shipment_id.13d2043380", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select shipment_id
+from `logistics-500519`.`logistics_mart`.`stg_shipments`
+where shipment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:47.619414 [info ]: Finished running [  4.05s] test logistics_mart_dbt_test__audit.not_null_stg_shipments_shipment_id [pass]
+06:59:47.619486 [info ]:     Passed [  4.06s] test  not_null_stg_shipments_shipment_id
+06:59:47.619592 [info ]: Started running model logistics_mart.realtime_order_stats
+06:59:47.619720 [info ]: Started running model logistics_mart.fact_shipment_weather
+06:59:48.040158 [debug]: Writing runtime sql for node "model.logistics_lakehouse.realtime_order_stats"
+06:59:48.040158 [debug]: Writing runtime sql for node "model.logistics_lakehouse.fact_shipment_weather"
+06:59:52.973964 [debug]: Query executed on node model.logistics_lakehouse.realtime_order_stats:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.realtime_order_stats", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`realtime_order_stats`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      
+
+SELECT 
+    s.hub_id AS store_id, 
+    h.hub_name AS store_name,
+    s.shipment_status, 
+    s.order_type, 
+    TIMESTAMP_TRUNC(s.order_placed_at, HOUR) AS order_hour, 
+    COUNT(s.shipment_id) AS order_count, 
+    SUM(s.revenue_usd) AS total_revenue_usd, 
+    SUM(s.revenue_vnd) AS total_revenue_vnd,
+    SUM(s.item_quantity) AS total_items_sold
+FROM 
+    `logistics-500519`.`logistics_mart`.`stg_shipments` s
+LEFT JOIN 
+    `logistics-500519`.`logistics_mart`.`dim_hubs` h ON s.hub_id = h.hub_id
+GROUP BY 
+    1, 2, 3, 4, 5
+    );
+  
+06:59:52.977085 [info ]: Finished running [  5.36s] model logistics_mart.realtime_order_stats [success]
+06:59:52.977145 [info ]:  Succeeded [  5.36s] model logistics_mart.realtime_order_stats (table)
+06:59:53.701178 [debug]: Query executed on node model.logistics_lakehouse.fact_shipment_weather:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "model.logistics_lakehouse.fact_shipment_weather", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+  
+    
+
+    create or replace table `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+      
+    
+    
+
+    
+    OPTIONS()
+    as (
+      WITH shipments AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`stg_shipments`
+),
+
+hubs AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_hubs`
+),
+
+drivers AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`dim_drivers`
+),
+
+-- Get only the single most recent weather record per city to avoid duplication
+latest_weather AS (
+    SELECT * FROM `logistics-500519`.`logistics_mart`.`int_weather_consensus`
+    QUALIFY ROW_NUMBER() OVER(PARTITION BY UPPER(hub_city) ORDER BY weather_captured_at DESC) = 1
+)
+
+SELECT
+    s.shipment_id,
+    s.tracking_code,
+    s.shipment_status,
+    s.order_type,
+    s.product_category,
+    s.revenue_usd,
+    s.revenue_vnd,
+    s.item_quantity,
+    s.destination_city,
+    
+    -- Hub (Location) Data
+    h.hub_name AS store_name,
+    h.hub_id AS store_id,
+    h.latitude,
+    h.longitude,
+    CONCAT(h.latitude, ',', h.longitude) AS geo_location, -- Looker Studio map format
+    
+    -- Driver / Fleet Data
+    d.vehicle_type,
+    
+    -- Weather Data
+    w.temperature_celsius,
+    w.precipitation_mm,
+    w.weather_code AS weather_condition,
+    
+    -- Time Data
+    s.order_placed_at AS order_placed_at_utc,
+    s.last_updated_at AS last_updated_at_utc,
+    
+    -- Calculate Transit Time (in hours) only if delivered 
+    CASE 
+        WHEN s.shipment_status = 'Delivered' THEN 
+            CASE 
+                -- Severe Weather (Thunderstorms): 4 to 8 hours
+                WHEN w.weather_code IN (95, 96, 99) THEN ROUND(4.0 + (RAND() * 4.0), 1)
+                
+                -- Moderate Weather (Rain/Drizzle): 2 to 4 hours
+                WHEN w.weather_code IN (51, 53, 55, 61, 63, 65, 80, 81, 82) THEN ROUND(2.0 + (RAND() * 2.0), 1)
+                
+                -- Clear/Cloudy/Optimal: 0.5 to 1.5 hours
+                ELSE ROUND(0.5 + (RAND() * 1.0), 1) 
+            END
+        ELSE NULL 
+    END AS transit_time_hours
+
+FROM shipments s
+LEFT JOIN hubs h 
+    ON s.hub_id = h.hub_id 
+LEFT JOIN drivers d
+    ON s.driver_id = d.driver_id
+LEFT JOIN latest_weather w 
+    ON UPPER(h.hub_city) = UPPER(w.hub_city)
+    );
+  
+06:59:53.704158 [info ]: Finished running [  6.08s] model logistics_mart.fact_shipment_weather [success]
+06:59:53.704233 [info ]:  Succeeded [  6.09s] model logistics_mart.fact_shipment_weather (table)
+06:59:53.704329 [info ]: Started test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:59:53.704360 [debug]: Started rendering test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:59:53.704541 [info ]: Started test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:59:53.704559 [debug]: Started rendering test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:59:53.711378 [debug]: Compiled SQL for node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f at target/compiled/logistics_lakehouse/target/generic_tests/unique_fact_shipment_weather_shipment_id.sql
+06:59:53.711563 [debug]: Compiled SQL for node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322 at target/compiled/logistics_lakehouse/target/generic_tests/not_null_fact_shipment_weather_shipment_id.sql
+06:59:53.711690 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [success]
+06:59:53.711754 [info ]: Started running test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id
+06:59:53.711788 [debug]: Finished rendering [  0.01s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [success]
+06:59:53.711830 [info ]: Finished rendering [ 16.11s] (15 nodes, 0 skipped, 0 errors)
+06:59:53.711867 [info ]: Started running test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id
+06:59:53.714170 [debug]: Writing runtime sql for node "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f"
+06:59:53.714299 [debug]: Writing runtime sql for node "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322"
+06:59:56.526375 [debug]: Query executed on node test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.not_null_fact_shipment_weather_shipment_id.018933c322", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+
+
+select shipment_id
+from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+where shipment_id is null
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:56.528458 [info ]: Finished running [  2.82s] test logistics_mart_dbt_test__audit.not_null_fact_shipment_weather_shipment_id [pass]
+06:59:56.528537 [info ]:     Passed [  2.82s] test  not_null_fact_shipment_weather_shipment_id
+06:59:56.621207 [debug]: Query executed on node test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f:
+/* {"app": "dbt", "dbt_version": "2.0.0", "node_id": "test.logistics_lakehouse.unique_fact_shipment_weather_shipment_id.371d64b34f", "profile_name": "logistics_profile", "target_name": "dev"} */
+
+    
+    select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+  
+    
+    
+
+with dbt_test__target as (
+
+  select shipment_id as unique_field
+  from `logistics-500519`.`logistics_mart`.`fact_shipment_weather`
+  where shipment_id is not null
+
+)
+
+select
+    unique_field,
+    count(*) as n_records
+
+from dbt_test__target
+group by unique_field
+having count(*) > 1
+
+
+
+  
+  
+      
+    ) dbt_internal_test
+06:59:56.622398 [info ]: Finished running [  2.91s] test logistics_mart_dbt_test__audit.unique_fact_shipment_weather_shipment_id [pass]
+06:59:56.622488 [info ]: Finished running [ 19.01s] (15 nodes, 0 skipped, 0 errors)
+06:59:56.622522 [info ]:     Passed [  2.92s] test  unique_fact_shipment_weather_shipment_id
+06:59:56.910712 [info ]: 
+==================== Execution Summary =====================
+Finished 'build' successfully for target 'dev' [23.1s]
+Processed: 7 models | 8 tests
+Summary: 15 total | 15 success

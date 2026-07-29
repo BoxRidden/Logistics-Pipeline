@@ -42,34 +42,63 @@ def generate_modular_data():
         # Build tables and seed the dimensions (Hubs and Drivers)
         repo.initialize_schema(HUBS, DRIVERS)
      
-        # Generate the random shipment payloads
         # Extract just the IDs from the tuples to pass dynamically
         hub_ids = [h[0] for h in HUBS]
         driver_ids = [d[0] for d in DRIVERS]
         
         simulator = ShipmentSimulator(hubs=hub_ids, drivers=driver_ids)
+        
+        # --- 1. GENERATE NEW ORDERS ---
         random_batch_size = random.randint(5, 10)
-        shipments_payload = simulator.generate_payload(random_batch_size)
+        new_shipments = simulator.generate_new_orders(random_batch_size)
 
-        # Insert the simulated shipments into Postgres 
-        repo.insert_shipments(shipments_payload)
-        repo.advance_shipment_status()
-        logger.info(f"Successfully generated and inserted {len(shipments_payload)} shipments into PostgreSQL.")
+        # Insert the NEW simulated shipments into Postgres 
+        repo.insert_shipments(new_shipments)
+        logger.info(f"Successfully inserted {len(new_shipments)} NEW shipments into PostgreSQL.")
 
-        # Real time Kafka streaming
-        logger.info(f"Initializing Kafka Producer at {kafka_broker}...")
-        kafka_client = LogisticsKafkaProducer(broker_url=kafka_broker)
+        # --- 2. TRANSITION EXISTING ORDERS ---
+        # Fetch active orders directly using the repo's database connection
+        cursor = repo.conn.cursor()
+        cursor.execute("SELECT * FROM shipments WHERE status IN ('Pending', 'In Transit', 'Delayed')")
         
-        logger.info("Streaming shipment events to Kafka topic 'logistics_shipments'...")
-        for shipment in shipments_payload:
-            kafka_client.publish_shipment_event(
-                topic='logistics_shipments', 
-                shipment_data=shipment
+        # Map the returned SQL tuples into Python dictionaries
+        columns = [col[0] for col in cursor.description]
+        active_orders = [dict(zip(columns, row)) for row in cursor.fetchall()]
+        
+        # Pass dictionaries through our Python State Machine
+        updated_shipments = simulator.transition_existing_orders(active_orders)
+        
+        # Update the transitioned orders back in the database
+        for order in updated_shipments:
+            cursor.execute(
+                "UPDATE shipments SET status = %s WHERE tracking_code = %s",
+                (order['status'], order['tracking_code'])
             )
+        repo.conn.commit()
+        cursor.close()
         
-        # Ensure all messages leave the Python buffer and hit the Kafka server
-        kafka_client.flush()
-        logger.info("Kafka streaming complete.")
+        logger.info(f"Successfully transitioned and updated {len(updated_shipments)} EXISTING shipments.")
+
+        # --- 3. KAFKA STREAMING (CDC) ---
+        # Combine both new and updated records so Kafka gets the full picture
+        all_cdc_events = new_shipments + updated_shipments
+        
+        if all_cdc_events:
+            logger.info(f"Initializing Kafka Producer at {kafka_broker}...")
+            kafka_client = LogisticsKafkaProducer(broker_url=kafka_broker)
+            
+            logger.info(f"Streaming {len(all_cdc_events)} total events to Kafka topic 'logistics_shipments'...")
+            for shipment in all_cdc_events:
+                kafka_client.publish_shipment_event(
+                    topic='logistics_shipments', 
+                    shipment_data=shipment
+                )
+            
+            # Ensure all messages leave the Python buffer and hit the Kafka server
+            kafka_client.flush()
+            logger.info("Kafka streaming complete.")
+        else:
+            logger.info("No events to stream to Kafka this cycle.")
 
     except Exception as e:
         logger.error(f"Simulator DAG failed during execution: {e}")
