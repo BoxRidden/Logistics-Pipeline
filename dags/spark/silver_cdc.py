@@ -23,10 +23,10 @@ def process_cdc_to_iceberg(spark, bronze_path, silver_table):
     if df_cdc.isEmpty():
         logger.info("No records to process in this CDC batch.")
         return
-
+ 
     # Primary Key mapping based on the table name 
     if silver_table == "shipments":
-        pk = "shipment_id"
+        pk = "tracking_code"   
         sort_col = "updated_at"
     elif silver_table == "hubs":
         pk = "hub_id"
@@ -105,3 +105,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

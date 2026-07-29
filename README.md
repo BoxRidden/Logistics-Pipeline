@@ -575,6 +575,7 @@ SELECT * FROM `your-gcp-project-id.logistics_mart.realtime_order_stats` LIMIT 10
 
 ## Dashboard
 
+https://datastudio.google.com/s/hQv62WW3Hq8
 The Looker Studio Command Center connects directly to the dbt-managed data marts (`logistics_mart.fact_shipment_weather`, `logistics_mart.realtime_order_stats`) and the MLOps inference table (`logistics_mart.ml_predictions`) to visualize:
 
 ![LookerReport1](docs/dashboard/LookerReport1.png)

@@ -67,7 +67,7 @@ class ShipmentSimulator:
                 # Eventually gets delivered
                 order['status'] = 'Delivered' if random.random() < 0.5 else 'Delayed'
 
-            # Append orders that actually changed status to send through CDC
+            # Append orders that actually changed status to send through CDC 
             if order['status'] != current_status:
                 updated_shipments.append(order)
 

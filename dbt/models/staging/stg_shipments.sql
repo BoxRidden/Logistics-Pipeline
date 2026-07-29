@@ -33,6 +33,6 @@ SELECT
     -- Preserve existing transformations and aliases
     UPPER(customer_city) AS destination_city,
     COALESCE(status, 'Unknown') AS shipment_status,
-    created_at AS order_placed_at,
-    updated_at AS last_updated_at
+    CAST(created_at AS TIMESTAMP) AS order_placed_at, 
+    CAST(updated_at AS TIMESTAMP) AS last_updated_at
 FROM raw_shipments

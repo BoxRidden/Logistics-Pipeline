@@ -71,7 +71,7 @@ def generate_modular_data():
         # Update the transitioned orders back in the database
         for order in updated_shipments:
             cursor.execute(
-                "UPDATE shipments SET status = %s WHERE tracking_code = %s",
+                "UPDATE shipments SET status = %s, updated_at = NOW() WHERE tracking_code = %s", # <--- Add updated_at = NOW()
                 (order['status'], order['tracking_code'])
             )
         repo.conn.commit()
@@ -129,3 +129,4 @@ with DAG(
         python_callable=generate_modular_data,
         outlets=[bronze_cdc_dataset] # Signals the ingestion DAG to run next
     )
+
