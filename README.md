@@ -505,6 +505,17 @@ Initialize the environment and spin up the Docker containers
 chmod +x startup.sh
 ./startup.sh
 ```
+## Local Services & URLs
+
+Once the Docker Compose infrastructure is running (`./startup.sh`), you can access the core platforms via the following local URLs:
+
+| Service | URL | Default Credentials | Description |
+| :--- | :--- | :--- | :--- |
+| **Apache Airflow UI** | [http://localhost:8080](http://localhost:8080) | `airflow` / `airflow` | DAG orchestration, execution logs, and Data-Aware Dataset graphs. |
+| **MLflow UI** | [http://localhost:5000](http://localhost:5000) | *None* | Machine learning model registry, training metrics, and champion tracking. |
+| **Looker Studio** | [Link to your Dashboard] | *Google Account* | Live Command Center dashboard (requires manual BQ connection). |
+
+*(Note: If you deploy this to a cloud VM, replace `localhost` with your server's public IP address and ensure the respective ports are open in your firewall rules).*
 
 ## Running the Pipeline
 

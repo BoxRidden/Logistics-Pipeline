@@ -36,7 +36,7 @@ def train_and_log_anomaly_model():
 
         logger.info("Training Isolation Forest Anomaly Detector on live data...")
         model = IsolationForest(contamination=contamination_rate, random_state=42)
-        model.fit(X)
+        model.fit(X) 
 
         data['is_anomaly'] = model.predict(X)
         anomaly_count = len(data[data['is_anomaly'] == -1])
